@@ -6,6 +6,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ComponentsModule } from './components/components.module';
 import { HomeComponent } from './pages/home/home.component';
 import { changeLanguageService } from './services/changeLanguage.service';
 
@@ -17,6 +18,7 @@ import { changeLanguageService } from './services/changeLanguage.service';
   ],
   imports: [
     BrowserModule,
+    ComponentsModule,
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
