@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MapComponent } from './map/map.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkerService } from '../services/Maker.service';
+import { PopupService } from '../services/popup.service';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MarkerService } from '../services/Maker.service';
     MapComponent
   ],
   providers: [
-    MarkerService
+    MarkerService,
+    PopupService
   ]
 })
 export class ComponentsModule { }

@@ -8,7 +8,7 @@ import { changeLanguageService } from 'src/app/services/changeLanguage.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+home = [1,1,1,1,1,1,1,1]
   constructor(private language:changeLanguageService,private translate: TranslateService) {
     translate.setDefaultLang('en');
 
