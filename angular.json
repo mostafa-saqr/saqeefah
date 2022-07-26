@@ -34,6 +34,8 @@
                         ],
                         "styles": [
                             "./node_modules/leaflet/dist/leaflet.css",
+                            "./node_modules/pannellum/build/pannellum.css",
+                            
                             {
                                 "input": "src/master-ltr.scss",
                                 "bundleName": "enStyle",
@@ -47,7 +49,7 @@
                             }
                         ],
                         "scripts": [
-
+                           "./node_modules/pannellum/build/pannellum.js"
                         ]
                     },
                     "configurations": {
