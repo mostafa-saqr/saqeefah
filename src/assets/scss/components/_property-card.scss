@@ -1,0 +1,25 @@
+.card {
+    .img-panel {
+        position: relative;
+        .card-label,
+        .fav-icon,
+        .card-mask {
+            position: absolute;
+        }
+        .fav-icon {
+            left: 9px;
+            top: 7px;
+            font-size: 21px;
+            color: white;
+            z-index: 2;
+        }
+        .card-mask {
+            background-image: linear-gradient(rgb(0 0 0 / 39%), rgba(0, 0, 0, 0));
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            z-index: 1;
+        }
+    }
+}
