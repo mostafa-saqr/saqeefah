@@ -5,12 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { MarkerService } from '../services/Maker.service';
 import { PopupService } from '../services/popup.service';
 import { PanoramaComponent } from './panorama/panorama.component';
+import { ProjectCardComponent } from './project-card/project-card.component';
+import { PropertyCardComponent } from './property-card/property-card.component';
 
 
 @NgModule({
   declarations: [
     MapComponent,
-    PanoramaComponent
+    PanoramaComponent,
+    ProjectCardComponent,
+    PropertyCardComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +26,9 @@ import { PanoramaComponent } from './panorama/panorama.component';
   ],
   providers: [
     MarkerService,
-    PopupService
+    PopupService,
+    ProjectCardComponent,
+    PropertyCardComponent
   ]
 })
 export class ComponentsModule { }

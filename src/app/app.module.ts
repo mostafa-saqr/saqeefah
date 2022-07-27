@@ -9,12 +9,22 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { HomeComponent } from './pages/home/home.component';
 import { changeLanguageService } from './services/changeLanguage.service';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { TopHeaderComponent } from './layout/header/top-header/top-header.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    TopHeaderComponent,
+ 
+  
   ],
   imports: [
     BrowserModule,
