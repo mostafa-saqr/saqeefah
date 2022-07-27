@@ -22,13 +22,14 @@ import { PropertyCardComponent } from './property-card/property-card.component';
   ],
   exports:[
     MapComponent,
-    PanoramaComponent
+    PanoramaComponent,
+    ProjectCardComponent,
+    PropertyCardComponent
   ],
   providers: [
     MarkerService,
-    PopupService,
-    ProjectCardComponent,
-    PropertyCardComponent
+    PopupService
+   
   ]
 })
 export class ComponentsModule { }
