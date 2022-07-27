@@ -4,18 +4,21 @@ import { MapComponent } from './map/map.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkerService } from '../services/Maker.service';
 import { PopupService } from '../services/popup.service';
+import { PanoramaComponent } from './panorama/panorama.component';
 
 
 @NgModule({
   declarations: [
-    MapComponent
+    MapComponent,
+    PanoramaComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule
   ],
   exports:[
-    MapComponent
+    MapComponent,
+    PanoramaComponent
   ],
   providers: [
     MarkerService,
