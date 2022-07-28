@@ -1,10 +1,12 @@
 .card {
+    border: 0;
     .img-panel {
         position: relative;
         .card-label,
         .fav-icon,
         .card-mask {
             position: absolute;
+        
         }
         .fav-icon {
             left: 9px;
@@ -12,6 +14,13 @@
             font-size: 21px;
             color: white;
             z-index: 2;
+            &:hover{
+                cursor: pointer;
+                color: #fe5e5e;
+            }
+        }
+        .fav-icon.active{
+            color: #fe5e5e;
         }
         .card-mask {
             background-image: linear-gradient(rgb(0 0 0 / 39%), rgba(0, 0, 0, 0));
@@ -19,7 +28,72 @@
             left: 0;
             width: 100%;
             height: 200px;
+            max-height: 50%;
             z-index: 1;
         }
+        .card-label {
+            top: 7px;
+            right: -7px;
+            background: $secondaryColor;
+            padding: 7px 25px;
+            font-size: 16px;
+            font-weight: 400;
+            z-index: 2;
+            &:after{
+                content: '';
+                bottom: -19px;
+                right: 0;
+                position: absolute;
+                border-left: 0px solid transparent;
+                border-right: 7px solid transparent;
+                border-top: 19px solid #555;
+            }
+        }
     }
+    .card-body{
+        .unit-location{
+            border-bottom: 2px dashed #afafaf;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            .tagr-vector{
+                color: $secondaryColor;
+                font-size: 25px;
+                vertical-align: bottom;
+            }
+           .link-togmap{
+                background: $secondaryColor;
+                padding: 11px 11px;
+                width: 175px;
+                display: inline-block;
+                color: white;
+                border-radius: 0px 0px 20px 0px;
+                margin: 0 4px;
+            }
+        }
+        .unit-specs {
+            padding-top: 5px;
+            color:  $secondaryColor;
+            font-size: 11px;
+            .specs-ele{
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                align-items: center;
+                i,img{
+                    font-size: 20px;
+                    line-height: 0;
+                    margin: 0 4px;
+                }
+                .specs-count{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+.project-card{
+    .specs-ele {
+        font-size: 16px;
+        font-weight: 100;
+    } 
 }
