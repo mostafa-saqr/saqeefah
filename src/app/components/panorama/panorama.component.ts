@@ -13,12 +13,13 @@ export class PanoramaComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit(): void {
-    const panorama = new PANOLENS.ImagePanorama('../../../assets/images/panorama.jpg');
+    const panorama = new PANOLENS.ImagePanorama('../../../assets/images/panorama1.jpg');
     const ele = this.document.querySelector('#container')
     const viewer = new PANOLENS.Viewer({
         container: ele,
         autoRotate:true,
-        autoRotateSpeed:0.1
+        autoRotateSpeed:0.1,
+        controlBar:false
     });
     viewer.add(panorama);
     viewer.OrbitControls.noZoom = true;

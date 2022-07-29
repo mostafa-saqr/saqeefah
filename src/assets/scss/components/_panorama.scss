@@ -1,0 +1,33 @@
+.panoram {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    cursor: grab;
+    .panorama-text {
+        position: relative;
+        top: 200px;
+        h3,
+        p {
+            position: absolute;
+            z-index: 6;
+            color: white;
+        }
+        h3 {
+            max-width: 38%;
+            font-size: 60px;
+            line-height: 0.9;
+            span {
+                color: $secondaryColor;
+            }
+            p {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 1;
+                margin-top: 10px;
+            }
+        }
+    }
+    #container {
+        position: absolute;
+    }
+}

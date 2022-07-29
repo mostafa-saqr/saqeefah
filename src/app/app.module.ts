@@ -12,6 +12,18 @@ import { changeLanguageService } from './services/changeLanguage.service';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { TopHeaderComponent } from './layout/header/top-header/top-header.component';
+import { AboutSectionComponent } from './pages/home/about-section/about-section.component';
+import { RecentListComponent } from './pages/home/recent-list/recent-list.component';
+import { ParallaxComponent } from './pages/home/parallax/parallax.component';
+import { SearchComponent } from './pages/search/search.component';
+import { GenaricService } from './services/Genaric.service';
+import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
+import { PropertyDetailsComponent } from './pages/property-details/property-details.component';
+import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { PlaceorderComponent } from './pages/placeorder/placeorder.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { CompareComponent } from './pages/compare/compare.component';
 
 
 
@@ -23,6 +35,17 @@ import { TopHeaderComponent } from './layout/header/top-header/top-header.compon
     HeaderComponent,
     FooterComponent,
     TopHeaderComponent,
+    AboutSectionComponent,
+    RecentListComponent,
+    ParallaxComponent,
+    SearchComponent,
+    ProjectDetailsComponent,
+    PropertyDetailsComponent,
+    FavoritesComponent,
+    AboutUsComponent,
+    PlaceorderComponent,
+    ContactComponent,
+    CompareComponent,
  
   
   ],
@@ -41,7 +64,7 @@ import { TopHeaderComponent } from './layout/header/top-header/top-header.compon
       }
     }),
   ],
-  providers: [changeLanguageService],
+  providers: [changeLanguageService, GenaricService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

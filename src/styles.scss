@@ -3,31 +3,24 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700%7cSource+Sans+Pro:200,400,600,700,900,400italic,700italic&amp;subset=latin,latin-ext);
 @import'./assets/css/font-awesome.css';
 @import'../node_modules/bootstrap/scss/bootstrap';
-
 //core
 @import './assets/scss/base/varibles';
-
+@import './assets/scss/base/_common';
 //icons
 @import './assets/fonts/icons/styles.css';
-
 // layout
 @import './assets/scss/layout/top-header';
 @import './assets/scss/layout/header';
 @import './assets/scss/layout/footer';
-
 // compnent
-
 @import './assets/scss/components/map';
 @import './assets/scss/components/panorama';
 @import './assets/scss/components/property-card';
-
-
 @import './assets/scss/components/map';
 @import './assets/scss/components/map';
 @import './assets/scss/components/map';
 @import './assets/scss/components/map';
 @import './assets/scss/components/map';
-
-body{
+body {
     background: #F6F6F6;
 }

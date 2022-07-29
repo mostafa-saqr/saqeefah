@@ -1,0 +1,26 @@
+.top-header {
+    background: $mainColor;
+    height: 50px;
+    color: white;
+    line-height: 48px;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    .badge {
+        background-color: #fe5e5e !important;
+    }
+    .social-links {
+        font-size: 20px;
+    }
+}
+
+.navbar {
+    z-index: 3;
+    position: relative;
+    .home-logo {
+        position: absolute;
+        top: -32px;
+        left: 0;
+    }
+}

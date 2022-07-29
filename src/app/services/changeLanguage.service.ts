@@ -17,6 +17,11 @@ export class changeLanguageService  {
         this.translate.use(lang);
         this.changeCssFile(lang);
     }
+    getCurrentLanguage(){
+        let htmlTag = this.document.getElementsByTagName("html")[0] as HTMLHtmlElement;
+        let currentLang = htmlTag.getAttribute('lang')
+        return currentLang
+    }
     changeCssFile(lang: string) {
         let headTag = this.document.getElementsByTagName("head")[0] as HTMLHeadElement;
         let existingLink = this.document.getElementById("langCss") as HTMLLinkElement;
