@@ -95,3 +95,12 @@
 .tagr-chevron-left:before {
   content: "\73";
 }
+.tagr-android-apps:before {
+  content: "\74";
+}
+.tagr-list-bullet:before {
+  content: "\75";
+}
+.tagr-layout:before {
+  content: "\77";
+}

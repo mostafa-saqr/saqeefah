@@ -1,1 +1,30 @@
-<p>project-details works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="secondary-color mb-0">PROJECT NAME</h3>
+            <p>10 Buildings | 60 Appartments</p>
+            <ul class="list-inline building-types">
+                <li class="list-inline-item active">A</li>
+                <li class="list-inline-item">B</li>
+                <li class="list-inline-item">C</li>
+                <li class="list-inline-item">D</li>
+                <li class="list-inline-item">E</li>
+                <li class="list-inline-item">F</li>
+                <li class="list-inline-item">G</li>
+                <li class="list-inline-item">H</li>
+                <li class="list-inline-item">I</li>
+                <li class="list-inline-item">J</li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-6 mb-3" *ngFor="let item of listResult">
+                    <app-property-card [project]="item.img"></app-property-card>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <app-search-form></app-search-form>
+        </div>
+    </div>
+</div>

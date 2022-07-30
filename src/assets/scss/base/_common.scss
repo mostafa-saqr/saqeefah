@@ -7,7 +7,7 @@
 }
 
 .dark-gray-bg {
-    background: #3a3a3a;
+    background: #2c2c2c;
     color: white;
 }
 
@@ -17,4 +17,70 @@
 
 .section-container {
     padding: 70px 20px;
+}
+
+input,
+textarea,
+select {
+    border-radius: 0;
+}
+
+label {
+    font-weight: bold;
+}
+
+.secondary-btn {
+    background-color: $secondaryColor;
+    color: white;
+    font-weight: bold;
+    border-radius: 0;
+    width: 100%;
+    &:hover {
+        background-color: $secondaryColor;
+        color: white;
+        font-weight: bold;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.more-btn {
+    background-color: white;
+    color: #797979;
+    font-weight: bold;
+    border-radius: 0;
+    width: 150px;
+    border: 1px solid #DCDCDC;
+    &:hover {
+        background-color: $secondaryColor;
+        color: white;
+        font-weight: bold;
+        border: 1px solid white;
+    }
+}
+
+.white-nav {
+    background: white;
+    padding: 19px 0;
+    a {
+        color: $mainColor !important;
+        font-weight: 500;
+    }
+}
+
+// tab format
+#myTab a {
+    display: inline-block;
+    padding: 7px 20px;
+    color: #a1a1a1;
+    font-size: 19px;
+    background: #efefef;
+    margin: 5px 2px 20px 0px;
+}
+
+#myTab a.active {
+    color: white;
+    background: #af8f7a;
 }

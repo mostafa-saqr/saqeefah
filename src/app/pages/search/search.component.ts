@@ -6,7 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-listResult = [1,2,3,4,5,6]
+listResult = [
+  {
+    img:'assets/images/list/l2.jpg'
+  },
+  {
+    img:'assets/images/list/l4.jpg'
+  },
+  {
+    img:'assets/images/list/l4.jpg'
+  },
+  {
+    img:'assets/images/list/l2.jpg'
+  },
+  {
+    img:'assets/images/list/l2.jpg'
+  },
+  {
+    img:'assets/images/list/l4.jpg'
+  },
+]
   constructor() { }
 
   ngOnInit(): void {

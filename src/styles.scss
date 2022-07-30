@@ -16,11 +16,11 @@
 @import './assets/scss/components/map';
 @import './assets/scss/components/panorama';
 @import './assets/scss/components/property-card';
-@import './assets/scss/components/map';
-@import './assets/scss/components/map';
-@import './assets/scss/components/map';
-@import './assets/scss/components/map';
-@import './assets/scss/components/map';
+@import './assets/scss/components/_slider-input';
+@import './assets/scss/components/forms';
+// pages
+@import './assets/scss/pages/search';
+@import './assets/scss/pages/_project-details';
 body {
     background: #F6F6F6;
 }

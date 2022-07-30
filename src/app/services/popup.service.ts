@@ -3,16 +3,19 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PopupService  {
   constructor() { }
 
   makeCapitalPopup(data: any): string {
     return `` +
     
-      `<div class="card project-card" style="width:300px">
+      `
+      <a href="/project/11123">
+      <div class="card project-card" style="width:300px" routerLink="/about" >
       <div class="img-panel">
-          <img src="https://www.dvele.com/sites/default/files/styles/hero_image/public/2019-10/Home-Image-1600x600.jpg?itok=gvYYp31c" class="card-img-top" alt="...">
-          <i class="icon tagr-icon-heart fav-icon"></i>
+          <img src="assets/images/list/p1.jpg" class="card-img-top" alt="...">
+         
           <div class="card-label">For Rent</div>
           <div class="card-mask"></div>
       </div>
@@ -41,6 +44,8 @@ export class PopupService  {
             "ng-reflect-ng-for-of": "1,1"
           }--></div></div>
       </div>
-  </div>`
+  </div>
+      </a>
+      `
   }
 }

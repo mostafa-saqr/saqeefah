@@ -31,11 +31,11 @@ const routes: Routes = [
     component: PlaceorderComponent,
   },
   {
-    path: 'project:id',
+    path: 'project/:id',
     component: ProjectDetailsComponent,
   },
   {
-    path: 'property:id',
+    path: 'property/:id',
     component: PropertyDetailsComponent,
   },
   {

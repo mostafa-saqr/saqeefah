@@ -2,11 +2,16 @@
     border: 0;
     .img-panel {
         position: relative;
+        .img-container {
+            min-height: 250px;
+            background: #ededed;
+            max-height: 250px;
+            overflow-y: hidden;
+        }
         .card-label,
         .fav-icon,
         .card-mask {
             position: absolute;
-        
         }
         .fav-icon {
             left: 9px;
@@ -14,12 +19,12 @@
             font-size: 21px;
             color: white;
             z-index: 2;
-            &:hover{
+            &:hover {
                 cursor: pointer;
                 color: #fe5e5e;
             }
         }
-        .fav-icon.active{
+        .fav-icon.active {
             color: #fe5e5e;
         }
         .card-mask {
@@ -39,7 +44,9 @@
             font-size: 16px;
             font-weight: 400;
             z-index: 2;
-            &:after{
+            color: white;
+            font-weight: 400;
+            &:after {
                 content: '';
                 bottom: -19px;
                 right: 0;
@@ -50,20 +57,20 @@
             }
         }
     }
-    .card-body{
-        .unit-location{
+    .card-body {
+        .unit-location {
             border-bottom: 2px dashed #afafaf;
             margin-bottom: 8px;
             padding-bottom: 8px;
-            .tagr-vector{
+            .tagr-vector {
                 color: $secondaryColor;
                 font-size: 25px;
                 vertical-align: bottom;
             }
-           .link-togmap{
+            .link-togmap {
                 background: $secondaryColor;
                 padding: 11px 11px;
-                width: 175px;
+                width: 145px;
                 display: inline-block;
                 color: white;
                 border-radius: 0px 0px 20px 0px;
@@ -72,28 +79,30 @@
         }
         .unit-specs {
             padding-top: 5px;
-            color:  $secondaryColor;
+            color: $secondaryColor;
             font-size: 11px;
-            .specs-ele{
+            .specs-ele {
                 display: flex;
                 flex-direction: row;
                 align-content: center;
                 align-items: center;
-                i,img{
+                i,
+                img {
                     font-size: 20px;
                     line-height: 0;
                     margin: 0 4px;
                 }
-                .specs-count{
+                .specs-count {
                     font-weight: bold;
                 }
             }
         }
     }
 }
-.project-card{
+
+.project-card {
     .specs-ele {
         font-size: 16px;
         font-weight: 100;
-    } 
+    }
 }
