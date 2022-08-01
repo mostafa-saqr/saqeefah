@@ -36,6 +36,26 @@
             max-height: 50%;
             z-index: 1;
         }
+        .compare {
+            position: absolute;
+            background: white;
+            padding: 1px 9px;
+            border-radius: 12px;
+            color: $mainColor;
+            z-index: 3;
+            cursor: pointer;
+            top: 9px;
+            left: 36px;
+            font-size: 13px;
+            &:hover{
+                color: white;
+                background: $mainColor;
+            }
+            .compare.active{
+                color: white;
+                background: $mainColor;
+            }
+        }
         .card-label {
             top: 7px;
             right: -7px;

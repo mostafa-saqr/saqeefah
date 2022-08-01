@@ -24,6 +24,9 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { PlaceorderComponent } from './pages/placeorder/placeorder.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { CompareComponent } from './pages/compare/compare.component';
+import { OverviewComponent } from './pages/project-details/overview/overview.component';
+import { BuildingsComponent } from './pages/project-details/buildings/buildings.component';
+import { SpecsComponent } from './pages/project-details/specs/specs.component';
 
 
 
@@ -46,6 +49,9 @@ import { CompareComponent } from './pages/compare/compare.component';
     PlaceorderComponent,
     ContactComponent,
     CompareComponent,
+    OverviewComponent,
+    BuildingsComponent,
+    SpecsComponent,
  
   
   ],

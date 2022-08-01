@@ -6,26 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project-details.component.scss']
 })
 export class ProjectDetailsComponent implements OnInit {
-  listResult = [
-    {
-      img:'assets/images/list/l2.jpg'
-    },
-    {
-      img:'assets/images/list/l4.jpg'
-    },
-    {
-      img:'assets/images/list/l4.jpg'
-    },
-    {
-      img:'assets/images/list/l2.jpg'
-    },
-    {
-      img:'assets/images/list/l2.jpg'
-    },
-    {
-      img:'assets/images/list/l4.jpg'
-    },
-  ]
+
   constructor() { }
 
   ngOnInit(): void {
