@@ -27,6 +27,7 @@ import { CompareComponent } from './pages/compare/compare.component';
 import { OverviewComponent } from './pages/project-details/overview/overview.component';
 import { BuildingsComponent } from './pages/project-details/buildings/buildings.component';
 import { SpecsComponent } from './pages/project-details/specs/specs.component';
+import { ProjectAndListService } from './services/project-lists.service';
 
 
 
@@ -70,7 +71,7 @@ import { SpecsComponent } from './pages/project-details/specs/specs.component';
       }
     }),
   ],
-  providers: [changeLanguageService, GenaricService],
+  providers: [changeLanguageService, GenaricService,ProjectAndListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

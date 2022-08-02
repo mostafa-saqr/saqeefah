@@ -1,11 +1,11 @@
-<div class="card project-card" [routerLink]="['/project','11123']" style="cursor: pointer;">
+<div class="card project-card" [routerLink]="['/project',project.projectId]" style="cursor: pointer;">
     <div class="img-panel">
         <div class="img-container">
-            <img [src]="project" class="card-img-top" alt="...">
+            <img [src]="'assets/images/list/p1.jpg'" class="card-img-top" alt="...">
         </div>
         <i class="icon tagr-icon-heart fav-icon"></i>
-        <div class="card-label">For Rent</div>
-        <div class="compare">Compare</div>
+        <div class="card-label">{{project.status}}</div>
+
         <div class="card-mask"></div>
     </div>
     <div class="card-body">
@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <h5>Unit Name</h5>
-                    <h6>Country</h6>
+                    <h6>{{project.city}}</h6>
 
                 </div>
                 <div class="col-md-7">
@@ -29,10 +29,15 @@
         </div>
         <div class="unit-specs">
             <div class="row">
-                <div class="col-md-6 mb-2" *ngFor="let item of homespecs; let i = index">
-                    <span class="specs-ele"> <i *ngIf="itemSpecsIcon[i].icon" [class]="itemSpecsIcon[i].src"></i> <img [src]="itemSpecsIcon[i].src" width="20"  *ngIf="!itemSpecsIcon[i].icon" alt=""> <span class="specs-count"><span class="counter me-1">{{itemSpecsIcon[i].count}}</span>{{itemSpecsIcon[i].type}}</span>
+                <div class="col-md-6 mb-2">
+                    <span class="specs-ele"> <i class="icon tagr-icon-building-line"></i>  <span class="specs-count"><span class="counter me-1">Buildings</span>{{project.numberOfBuildings}}</span>
                     </span>
                 </div>
+                <div class="col-md-6 mb-2">
+                    <span class="specs-ele"> <i class="icon tagr-icon-home"></i>  <span class="specs-count"><span class="counter me-1">Appartments</span>{{project.numberOfUnits}}</span>
+                    </span>
+                </div>
+
 
             </div>
         </div>

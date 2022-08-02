@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import {  Injectable } from '@angular/core';
 
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 
 @Injectable()
 export class GenaricService  {
+  
     private data = new BehaviorSubject({transparentNav:false})
     data$ = this.data.asObservable();
     checkNavIsTRansparent():any{
@@ -14,7 +15,7 @@ export class GenaricService  {
     changeNavBarTheme(data:any){
         this.data.next(data)
     }
-  
+
     constructor() {
 
 

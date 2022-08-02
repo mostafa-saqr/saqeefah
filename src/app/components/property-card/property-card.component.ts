@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./property-card.component.scss']
 })
 export class PropertyCardComponent implements OnInit {
-  @Input() project:any
+  @Input() property:any
 homespecs = [1,1,1,1,1,1]
 itemSpecsIcon = [
   {

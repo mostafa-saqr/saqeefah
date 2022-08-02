@@ -1,10 +1,11 @@
 <div class="container mt-5">
-    <div class="row">
+    <div class="row" *ngIf="projectDetails">
         <div class="col-md-12">
-            <h3 class="secondary-color mb-0">PROJECT NAME</h3>
-            <p>10 Buildings | 60 Appartments</p>
-       
-            
+            <h3 class="secondary-color mb-0">{{projectDetails.projectName}}</h3>
+            <h6>{{projectDetails.adress}}</h6>
+            <p>{{projectDetails.numberOfBuildings}} Buildings | {{projectDetails.numberOfUnits}} Appartments</p>
+
+
             <div id="myTab" role="tablist">
                 <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Master Plane</a>
                 <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Buildings</a>
@@ -13,39 +14,39 @@
             </div>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                   <div class="col-md-12 mb-5">
-                    <img src="assets/images/list/masterplane.jpg" class="img-fluid" alt="">
-                   </div>
+                    <div class="col-md-12 mb-5">
+                        <img src="assets/images/list/masterplane.jpg" class="img-fluid" alt="">
+                    </div>
 
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                   <app-buildings></app-buildings>
+                    <app-buildings [buildings]="projectDetails.buildingApartments"></app-buildings>
                 </div>
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <div class="col-md-12 mb-5">
-                
-                   <div class="row">
-                    <div class="col-md-6">
-                        <h5 class="secondary-color">Specifications</h5>
-                        <div class="specs-panel">
-                          
-                            <img src="assets/images/list/specs.png" class="img-fluid" alt="">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="secondary-color">Specifications</h5>
+                                <div class="specs-panel">
+
+                                    <img src="assets/images/list/specs.png" class="img-fluid" alt="">
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="secondary-color">Granties</h5>
+                                <div class="specs-panel">
+
+                                    <img src="assets/images/list/granties.PNG" class="img-fluid" alt="">
+                                </div>
+                            </div>
                         </div>
-                        
-                    </div>
-                    <div class="col-md-6">
-                        <h5 class="secondary-color">Granties</h5>
-                        <div class="specs-panel">
-                            
-                            <img src="assets/images/list/granties.PNG" class="img-fluid" alt="">
-                        </div>
-                    </div>
-                   </div>
 
                     </div>
                 </div>
             </div>
         </div>
-     
+
     </div>
 </div>

@@ -1,10 +1,10 @@
-import { Inject, Injectable } from '@angular/core';
+import { EventEmitter, Inject, Injectable } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class changeLanguageService  {
-    
+    changeLanguageStatus = new EventEmitter<string>()
     constructor(public translate: TranslateService, @Inject(DOCUMENT) private document: Document) {
 
 
@@ -16,6 +16,14 @@ export class changeLanguageService  {
         this.translate.setDefaultLang(lang);
         this.translate.use(lang);
         this.changeCssFile(lang);
+        this.changeLanguageStatus.emit(this.getLanguageID())
+    }
+    getLanguageID(){
+        let htmlTag = document.getElementsByTagName("html")[0] as HTMLHtmlElement;
+       
+        let LanguageID = htmlTag.lang === "ar" ? "1" : "2";
+        return LanguageID
+       
     }
     getCurrentLanguage(){
         let htmlTag = this.document.getElementsByTagName("html")[0] as HTMLHtmlElement;

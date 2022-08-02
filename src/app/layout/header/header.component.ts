@@ -1,4 +1,4 @@
-import {  Component, Input, OnInit } from '@angular/core';
+import {  Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { GenaricService } from 'src/app/services/Genaric.service';
@@ -9,6 +9,7 @@ import { GenaricService } from 'src/app/services/Genaric.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
 nav = {
   navtransparentMode:false
 } 
@@ -30,6 +31,7 @@ nav = {
 changeLanguage(lang:string){
   this.language.changeLanguge(lang)
   this.translate.use(lang);
+
 }
 
 }

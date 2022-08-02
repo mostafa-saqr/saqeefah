@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-buildings',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buildings.component.scss']
 })
 export class BuildingsComponent implements OnInit {
+  @Input() buildings:any
+  propertIndex:number = 0
+  getBuildingProperty(propertyIndex:any){
+this.propertIndex = propertyIndex
+
+  }
   listResult = [
     {
       img:'assets/images/list/l2.jpg'

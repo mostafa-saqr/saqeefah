@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-recent-list',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recent-list.component.scss']
 })
 export class RecentListComponent implements OnInit {
+@Input() projects:any
+@Input() projectsForSale:any
 
   constructor() { }
 
   ngOnInit(): void {
   }
+  ngAfterViewInit(): void{
 
+  }
 }
