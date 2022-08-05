@@ -1,6 +1,7 @@
 import {  Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
+import { FavoritesService } from 'src/app/services/favorites.service';
 import { GenaricService } from 'src/app/services/Genaric.service';
 
 @Component({

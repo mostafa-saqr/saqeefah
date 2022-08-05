@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FavoritesService } from 'src/app/services/favorites.service';
 
 @Component({
   selector: 'app-property-card',
@@ -46,9 +47,11 @@ itemSpecsIcon = [
     count:'6'
   },
 ]
-  constructor() { }
+  constructor(public favorites:FavoritesService) { }
 
   ngOnInit(): void {
+    this.favorites.checkFavorites(this.property)
+
   }
 
 }

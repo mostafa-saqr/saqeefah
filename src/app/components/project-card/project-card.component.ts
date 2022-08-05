@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FavoritesService } from 'src/app/services/favorites.service';
 
 @Component({
   selector: 'app-project-card',
@@ -22,9 +23,11 @@ export class ProjectCardComponent implements OnInit {
       count:'60'
     }
   ]
-  constructor() { }
-
+  constructor(public favorites:FavoritesService) { }
+  
   ngOnInit(): void {
+    this.favorites.checkFavorites(this.project)
+    console.log('project from project-page',this.project)
   }
 
 }

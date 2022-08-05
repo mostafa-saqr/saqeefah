@@ -1,9 +1,10 @@
 <div class="card" style="cursor: pointer;">
-    <div class="img-panel" [routerLink]="['/property','B1']">
+    <div class="img-panel">
         <div class="img-container">
-            <img [src]="'assets/images/list/l2.jpg'" class="card-img-top" alt="...">
+            <img [src]="'assets/images/list/l2.jpg'" class="card-img-top" alt="..." [routerLink]="['/property','B1']">
         </div>
-        <i class="icon tagr-icon-heart fav-icon"></i>
+        <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="property.apartmentId" [class.active]="property.favorite" (click)="favorites.toggleFavorites(property)"></i>
+
         <div class="card-label">For Rent</div>
         <div class="compare">Compare</div>
         <div class="card-mask"></div>

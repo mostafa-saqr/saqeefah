@@ -1,9 +1,14 @@
 <div class="row">
     <div class="col-md-12">
         <ul class="list-inline building-types">
-            <li class="list-inline-item " (click)="getBuildingProperty(i)" [class.active]="i == 0" *ngFor="let item of buildings;let i = index">{{item.build}}</li>
+            <li class="list-inline-item " [id]="item.build+'-tab'" data-bs-toggle="tab" [attr.data-bs-target]="'#'+item.build" type="button" role="tab" aria-controls="home" aria-selected="true" (click)="getBuildingProperty(i)" [class.active]="i == 0" *ngFor="let item of buildings;let i = index">{{item.build}}</li>
 
         </ul>
+        <div class="text-center" id="myTab" role="tablist">
+            <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Projects</a>
+            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Properties</a>
+
+        </div>
     </div>
     <div class="col-md-9">
         <div class="row">

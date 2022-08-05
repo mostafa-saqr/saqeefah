@@ -28,6 +28,7 @@ import { OverviewComponent } from './pages/project-details/overview/overview.com
 import { BuildingsComponent } from './pages/project-details/buildings/buildings.component';
 import { SpecsComponent } from './pages/project-details/specs/specs.component';
 import { ProjectAndListService } from './services/project-lists.service';
+import { FavoritesService } from './services/favorites.service';
 
 
 
@@ -71,7 +72,10 @@ import { ProjectAndListService } from './services/project-lists.service';
       }
     }),
   ],
-  providers: [changeLanguageService, GenaricService,ProjectAndListService],
+  providers: [changeLanguageService, GenaricService,ProjectAndListService,
+    FavoritesService
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
