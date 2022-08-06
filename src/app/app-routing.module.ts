@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { CompareComponent } from './pages/compare/compare.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -42,6 +43,10 @@ const routes: Routes = [
     path: 'favorites',
     component: FavoritesComponent,
   },
+  {
+    path: 'compare',
+    component: CompareComponent,
+  }
 ];
 
 @NgModule({
