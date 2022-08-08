@@ -1,4 +1,7 @@
 import { NgModule } from '@angular/core';
+import 'hammerjs';
+import 'mousetrap';
+import { GalleryModule } from '@ks89/angular-modal-gallery';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from './map/map.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,6 +12,9 @@ import { ProjectCardComponent } from './project-card/project-card.component';
 import { PropertyCardComponent } from './property-card/property-card.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ModalComponent } from './modal/modal.component';
+import { GalleryComponent } from './gallery/gallery.component';
+
 
 
 @NgModule({
@@ -17,19 +23,24 @@ import { AppRoutingModule } from '../app-routing.module';
     PanoramaComponent,
     ProjectCardComponent,
     PropertyCardComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    ModalComponent,
+    GalleryComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GalleryModule
   ],
   exports:[
     MapComponent,
     PanoramaComponent,
     ProjectCardComponent,
     PropertyCardComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    ModalComponent,
+    GalleryComponent
   ],
   providers: [
     MarkerService,

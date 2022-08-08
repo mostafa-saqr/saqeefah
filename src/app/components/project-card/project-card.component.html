@@ -1,7 +1,9 @@
 <div class="card project-card">
     <div class="img-panel">
         <div class="img-container">
-            <img [src]="'assets/images/list/p1.jpg'" class="card-img-top" alt="..." [routerLink]="['/project',project.projectId]" style="cursor: pointer;">
+            <img [src]="'assets/images/list/p1.jpg'" class="card-img-top" alt="..."  data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;">
+            
+            <!-- <img [src]="'assets/images/list/p1.jpg'" class="card-img-top" alt="..." [routerLink]="['/project',project.projectId]" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;"> -->
         </div>
         <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="project.projectId" [class.active]="project.favorite" (click)="favorites.toggleFavorites(project)"></i>
         <div class="card-label">{{project.status}}</div>
@@ -43,3 +45,4 @@
         </div>
     </div>
 </div>
+<app-modal></app-modal>
