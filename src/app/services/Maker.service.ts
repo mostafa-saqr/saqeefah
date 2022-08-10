@@ -6,7 +6,7 @@ import { PopupService  } from './popup.service';
   providedIn: 'root'
 })
 export class MarkerService {
-  capitals: string = '../assets/data/usa-capitals.geojson';
+  capitals: string = 'assets/data/usa-capitals.json';
 
   constructor(private http: HttpClient,private popupService: PopupService) { }
   makeCapitalMarkers(map: L.Map): void { 

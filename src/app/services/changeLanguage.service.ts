@@ -31,11 +31,24 @@ export class changeLanguageService  {
         return currentLang
     }
     changeCssFile(lang: string) {
+        let counter = 0;
         let headTag = this.document.getElementsByTagName("head")[0] as HTMLHeadElement;
         let existingLink = this.document.getElementById("langCss") as HTMLLinkElement;
+        let standerdCssFile = this.document.getElementById("standerdCssFile") as HTMLLinkElement;
+
         let bundleName = lang === "ar" ? "arStyle.css" : "enStyle.css";
         if (existingLink) {
             existingLink.href = bundleName;
+            console.log(counter)
+            counter++
+            if(counter > 0){
+                setTimeout(() => {
+                    standerdCssFile.href = bundleName;
+                }, 20);
+                
+
+            }
+
         } else {
             let newLink = this.document.createElement("link");
             newLink.rel = "stylesheet";

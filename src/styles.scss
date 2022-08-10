@@ -2,7 +2,6 @@
 
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700%7cSource+Sans+Pro:200,400,600,700,900,400italic,700italic&amp;subset=latin,latin-ext);
 @import'./assets/css/font-awesome.css';
-@import'../node_modules/bootstrap/scss/bootstrap';
 //core
 @import './assets/scss/base/varibles';
 @import './assets/scss/base/_common';
@@ -19,7 +18,6 @@
 @import './assets/scss/components/_slider-input';
 @import './assets/scss/components/forms';
 @import './assets/scss/components/project-modal';
-
 // pages
 @import './assets/scss/pages/search';
 @import './assets/scss/pages/_project-details';

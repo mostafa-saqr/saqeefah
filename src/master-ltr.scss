@@ -4,4 +4,5 @@ $fontFamily: 'Merriweather',
 serif;
 $left: left;
 $right: right;
+@import'./node_modules/bootstrap/scss/bootstrap';
 @import './styles.scss';
