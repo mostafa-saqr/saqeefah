@@ -29,6 +29,7 @@ import { BuildingsComponent } from './pages/project-details/buildings/buildings.
 import { SpecsComponent } from './pages/project-details/specs/specs.component';
 import { ProjectAndListService } from './services/project-lists.service';
 import { FavoritesService } from './services/favorites.service';
+import { CompareService } from './services/compare.service';
 
 
 
@@ -73,7 +74,7 @@ import { FavoritesService } from './services/favorites.service';
     }),
   ],
   providers: [changeLanguageService, GenaricService,ProjectAndListService,
-    FavoritesService
+    FavoritesService,CompareService
   
   ],
   bootstrap: [AppComponent]

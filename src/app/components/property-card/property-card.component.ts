@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CompareService } from 'src/app/services/compare.service';
 import { FavoritesService } from 'src/app/services/favorites.service';
 
 @Component({
@@ -47,11 +48,13 @@ itemSpecsIcon = [
     count:'6'
   },
 ]
-  constructor(public favorites:FavoritesService) { }
+  constructor(public favorites:FavoritesService, public compare:CompareService) { }
 
   ngOnInit(): void {
     this.favorites.checkFavorites(this.property)
+    this.compare.checkCompare(this.property)
 
+console.log(this.property)
   }
 
 }

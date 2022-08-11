@@ -26,20 +26,11 @@
                         <tr>
                             <th scope="col" class="border-0"></th>
 
-                            <th scope="col">
+                            <th scope="col" *ngFor="let item of compareList">
                                 <img src="assets/images/img1.webp">
-                                <h5>Flat (1) Apartment (4)</h5>
+                                <h5>Floor ({{item.floor_Num}}) Apartment ({{item.apartment_Num}})</h5>
                             </th>
 
-                            <th scope="col">
-                                <img src="assets/images/img2.webp">
-                                <h5>Flat (2) Apartment (5)</h5>
-                            </th>
-
-                            <th scope="col">
-                                <img src="assets/images/img3.webp">
-                                <h5>Flat (3) Apartment (6)</h5>
-                            </th>
 
                         </tr>
                     </thead>
@@ -67,17 +58,12 @@
                                 <h6>Area</h6>
                             </th>
 
-                            <td>100 m
+                            <td *ngFor="let item of compareList">
+                                {{item.apartment_Space}} m
                                 <sup>2</sup>
                             </td>
 
-                            <td>120 m
-                                <sup>2</sup>
-                            </td>
 
-                            <td>150 m
-                                <sup>2</sup>
-                            </td>
 
                         </tr>
 
@@ -88,11 +74,9 @@
                                 <h6>Rooms</h6>
                             </th>
 
-                            <td>2 Rooms</td>
+                            <td *ngFor="let item of compareList">{{item.bed_Room_Num}} Rooms</td>
 
-                            <td>3 Rooms</td>
 
-                            <td>4 Rooms</td>
 
                         </tr>
 
@@ -180,29 +164,14 @@
                                 <h6>Price</h6>
                             </th>
 
-                            <td>
-                                <b>Insurance:</b> 2500 SAR
-                                <br>
-                                <b>Two Batches:</b> 55000 SAR
-                                <br>
-                                <b>cash:</b> 50000 SAR
+                            <td *ngFor="let item of compareList">
+
+                                <b>cash:</b> {{item.apartment_Price}} SAR
                             </td>
 
-                            <td>
-                                <b>Insurance:</b> 2500 SAR
-                                <br>
-                                <b>Two Batches:</b> 55000 SAR
-                                <br>
-                                <b>cash:</b> 50000 SAR
-                            </td>
 
-                            <td>
-                                <b>Insurance:</b> 2500 SAR
-                                <br>
-                                <b>Two Batches:</b> 55000 SAR
-                                <br>
-                                <b>cash:</b> 50000 SAR
-                            </td>
+
+
 
                         </tr>
 
@@ -213,20 +182,12 @@
 
                             </th>
 
-                            <td>
-                                <a href="#" class="btn btn-primary px-4 ml-2">Buy</a>
-                                <a href="#" class="btn btn-danger px-4">Delete</a>
+                            <td *ngFor="let item of compareList">
+                                <a [routerLink]="['/property',item.apartment_Id]" class="btn btn-primary px-4 ml-2">Buy</a>
+                                <a class="btn btn-danger px-4" (click)="compareServ.deleteListFromCompare(item.apartment_Id)">Delete</a>
                             </td>
 
-                            <td>
-                                <a href="#" class="btn btn-primary px-4 ml-2">Rent</a>
-                                <a href="#" class="btn btn-danger px-4">Delete</a>
-                            </td>
 
-                            <td>
-                                <a href="#" class="btn btn-primary px-4 ml-2">Buy</a>
-                                <a href="#" class="btn btn-danger px-4">Delete</a>
-                            </td>
 
                         </tr>
 

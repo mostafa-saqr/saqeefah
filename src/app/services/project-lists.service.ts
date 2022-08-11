@@ -15,4 +15,7 @@ export class ProjectAndListService  {
         return this.http.get(`https://api-stage.saqeefah.com/api/Project/ProjectDetails?languageId=${languageId}&projectId=${projectId}`)
 
     }
+    getCompareAppartmens(compareArray:[]){
+        return this.http.post('https://api-stage.saqeefah.com/api/Apartment/CompareApartments',{apartmentIds:compareArray})
+    }
 }

@@ -6,7 +6,7 @@
         <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="property.apartmentId" [class.active]="property.favorite" (click)="favorites.toggleFavorites(property)"></i>
 
         <div class="card-label">For Rent</div>
-        <div class="compare">Compare</div>
+        <div class="compare" [attr.data-cardCompico-id]="property.apartmentId" [class.active]="property.Compare" (click)="compare.toggleCompare(property)">Compare</div>
         <div class="card-mask"></div>
     </div>
     <div class="card-body">
