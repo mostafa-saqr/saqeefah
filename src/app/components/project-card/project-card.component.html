@@ -1,8 +1,8 @@
 <div class="card project-card">
     <div class="img-panel">
         <div class="img-container">
-            <img [src]="'assets/images/list/p1.jpg'" class="card-img-top" alt="..."  data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;">
-            
+            <img [src]="'assets/images/list/p1.jpg'" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;">
+
             <!-- <img [src]="'assets/images/list/p1.jpg'" class="card-img-top" alt="..." [routerLink]="['/project',project.projectId]" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;"> -->
         </div>
         <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="project.projectId" [class.active]="project.favorite" (click)="favorites.toggleFavorites(project)"></i>
@@ -21,7 +21,7 @@
                 <div class="col-md-7">
                     <div class="location-panel">
                         <i class="icon tagr-vector"></i>
-                        <a href="" class="link-togmap">location Details</a>
+                        <a href="" class="link-togmap">{{'unitLocationDetails' | translate}}</a>
                     </div>
 
                 </div>
@@ -32,11 +32,11 @@
         <div class="unit-specs">
             <div class="row">
                 <div class="col-md-6 mb-2">
-                    <span class="specs-ele"> <i class="icon tagr-icon-building-line"></i>  <span class="specs-count"><span class="counter me-1">Buildings</span>{{project.numberOfBuildings}}</span>
+                    <span class="specs-ele"> <i class="icon tagr-icon-building-line"></i>  <span class="specs-count"><span class="counter me-1">{{'Buildings' | translate}}</span>{{project.numberOfBuildings}}</span>
                     </span>
                 </div>
                 <div class="col-md-6 mb-2">
-                    <span class="specs-ele"> <i class="icon tagr-icon-home"></i>  <span class="specs-count"><span class="counter me-1">Appartments</span>{{project.numberOfUnits}}</span>
+                    <span class="specs-ele"> <i class="icon tagr-icon-home"></i>  <span class="specs-count"><span class="counter me-1">{{'Appartments'|translate}}</span>{{project.numberOfUnits}}</span>
                     </span>
                 </div>
 

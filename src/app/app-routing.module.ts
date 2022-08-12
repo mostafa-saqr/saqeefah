@@ -36,6 +36,14 @@ const routes: Routes = [
     component: ProjectDetailsComponent,
   },
   {
+    path: 'projects/',
+    component: ProjectDetailsComponent,
+  },
+  {
+    path: 'building/:id',
+    component: ProjectDetailsComponent,
+  },
+  {
     path: 'property/:id',
     component: PropertyDetailsComponent,
   },
