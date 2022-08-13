@@ -7,34 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BuildingsComponent implements OnInit {
   @Input() buildings:any
+  @Input() activeBuilding!:number
   propertIndex:number = 0
   getBuildingProperty(propertyIndex:any){
 this.propertIndex = propertyIndex
 
   }
-  listResult = [
-    {
-      img:'assets/images/list/l2.jpg'
-    },
-    {
-      img:'assets/images/list/l4.jpg'
-    },
-    {
-      img:'assets/images/list/l4.jpg'
-    },
-    {
-      img:'assets/images/list/l2.jpg'
-    },
-    {
-      img:'assets/images/list/l2.jpg'
-    },
-    {
-      img:'assets/images/list/l4.jpg'
-    },
-  ]
+ 
   constructor() { }
 
   ngOnInit(): void {
+    console.log('buildings', this.buildings)
   }
 
 }

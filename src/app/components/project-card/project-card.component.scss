@@ -1,0 +1,23 @@
+.location-onMap {
+    position: absolute;
+    top: 2px;
+    z-index: 4;
+    font-size: 28px;
+    left: 33px;
+    color: #ffa468;
+}
+
+.unit-specs {
+    position: absolute;
+    bottom: 5px;
+    z-index: 6;
+    background: #000000bf;
+    color: white;
+    padding: 5px 16px;
+}
+
+.unit-location {
+    border-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}

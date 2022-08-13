@@ -7,7 +7,7 @@
 
         <div class="card-label">For Rent</div>
         <div class="compare" [attr.data-cardCompico-id]="property.apartmentId" [class.active]="property.Compare" (click)="compare.toggleCompare(property)">Compare</div>
-        <div class="card-mask"></div>
+        <div class="card-mask" [routerLink]="['/property','B1']"></div>
     </div>
     <div class="card-body">
         <div class="unit-location">

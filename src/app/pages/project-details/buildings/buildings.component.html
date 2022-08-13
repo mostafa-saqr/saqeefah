@@ -2,8 +2,7 @@
     <div class="col-md-12">
 
         <div id="myTab" role="tablist">
-            <a class="nav-link me-2" data-bs-toggle="tab" [attr.data-bs-target]="'#'+item.build" type="button" role="tab" [attr.aria-controls]="item.build" [attr.aria-selected]="i == 0 ? true:false " [class.active]="i == 0" *ngFor="let item of buildings;let i = index"
-                (click)="getBuildingProperty(i)">{{item.build}}</a>
+            <a class="nav-link" [class.active]="activeBuilding == item.buildingId" data-bs-toggle="tab" role="tab" [id]="item.buildingId" *ngFor="let item of buildings;let i = index" (click)="getBuildingProperty(i)">{{item.build}}</a>
         </div>
     </div>
     <div class="col-md-9">

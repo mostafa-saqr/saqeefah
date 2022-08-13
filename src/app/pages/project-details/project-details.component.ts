@@ -10,11 +10,17 @@ import { ProjectAndListService } from 'src/app/services/project-lists.service';
   styleUrls: ['./project-details.component.scss']
 })
 export class ProjectDetailsComponent implements OnInit {
+  activeBuildingTab:boolean = false
+  sendBuildId!:number
 projectDetails:any
   constructor(private route: ActivatedRoute,private generalService:GenaricService, private projects:ProjectAndListService,private language:changeLanguageService) { }
 
   ngOnInit(): void {
     this.getProjectDetails()
+  }
+  goToSpecialBuilding(id:number){
+    this.sendBuildId = id;
+    this.activeBuildingTab = true
   }
 getProjectDetails(){
   let projectId = this.route.snapshot.paramMap.get('id')

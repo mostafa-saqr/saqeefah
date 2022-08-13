@@ -7,6 +7,7 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PlaceorderComponent } from './pages/placeorder/placeorder.component';
 import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
 import { PropertyDetailsComponent } from './pages/property-details/property-details.component';
 import { SearchComponent } from './pages/search/search.component';
 
@@ -36,8 +37,8 @@ const routes: Routes = [
     component: ProjectDetailsComponent,
   },
   {
-    path: 'projects/',
-    component: ProjectDetailsComponent,
+    path: 'projects',
+    component: ProjectsComponent,
   },
   {
     path: 'building/:id',

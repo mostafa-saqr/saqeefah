@@ -30,6 +30,8 @@ import { SpecsComponent } from './pages/project-details/specs/specs.component';
 import { ProjectAndListService } from './services/project-lists.service';
 import { FavoritesService } from './services/favorites.service';
 import { CompareService } from './services/compare.service';
+import { ProjectsComponent } from './pages/projects/projects.component';
+import { BuildingComponent } from './pages/building/building.component';
 
 
 
@@ -55,6 +57,8 @@ import { CompareService } from './services/compare.service';
     OverviewComponent,
     BuildingsComponent,
     SpecsComponent,
+    ProjectsComponent,
+    BuildingComponent,
  
   
   ],

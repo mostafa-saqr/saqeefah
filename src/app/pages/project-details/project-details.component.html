@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <div class="row" *ngIf="projectDetails">
+    <div class="row">
         <div class="col-md-12">
             <h3 class="secondary-color mb-0">{{projectDetails.projectName}}</h3>
             <h6>{{projectDetails.adress}}</h6>
@@ -7,20 +7,35 @@
 
 
             <div id="myTab" role="tablist">
-                <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Master Plane</a>
-                <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Buildings</a>
+                <a class="nav-link" (click)="activeBuildingTab = false" [class.active]="!activeBuildingTab" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" [attr.aria-selected]="!activeBuildingTab">Master Plane</a>
+                <a class="nav-link" [class.active]="activeBuildingTab" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" [attr.aria-selected]="activeBuildingTab">Buildings</a>
                 <a class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Specifications</a>
 
             </div>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div class="col-md-12 mb-5">
-                        <img src="assets/images/list/masterplane.jpg" class="img-fluid" alt="">
-                    </div>
+                <div class="tab-pane fade" [ngClass]="{'show active':!activeBuildingTab}" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row">
+                        <div class="col-md-8 mb-5">
 
+
+                            <img src="assets/images/list/masterplane2.jpg" usemap="#image-map" class="img-fluid" alt="">
+                            <map name="image-map">
+                                <area target="" alt="" title="" (click)="goToSpecialBuilding(34)" coords="295,42,275,77,290,87,314,85,331,73,337,64" shape="poly">
+                                <area target="" alt="" title="" (click)="goToSpecialBuilding(57)" coords="251,119,225,159,269,159,268,130" shape="poly">
+                                <area target="" alt="" title="" (click)="goToSpecialBuilding(61)" coords="364,89,395,109,387,153,324,157" shape="poly">
+                            </map>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="secondary-color">Project Overview</h4>
+                            <p> يجب أن يتناسب منزلك مع الطريقة التي تعيش بها ، مع المساحات والميزات التي تروق لجميع أفراد الأسرة. قبل أن تبدأ في النظر إلى المنازل ، ضع قائمة بأولوياتك: الموقع ، الحجم ، المساحة ، وسائل الراحة ، إلخ. ضع مجموعة من المتطلبات
+                                الدنيا و ' قائمة الرغبات' . الحد الأدنى من المتطلبات هو الأشياء التي يجب أن يتوافر في المنزل لكي تفكر فيها ، بينما تغطي ' قائمة الرغبات' الأشياء التي ترغب في الحصول عليها ولكنها ليست ضرورية.
+
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <app-buildings [buildings]="projectDetails.buildingApartments"></app-buildings>
+                <div class="tab-pane fade" [ngClass]="{'show active':activeBuildingTab}" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <app-buildings [activeBuilding]="sendBuildId" [buildings]="projectDetails.buildingApartments"></app-buildings>
                 </div>
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <div class="col-md-12 mb-5">

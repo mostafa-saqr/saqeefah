@@ -7,42 +7,43 @@
         </div>
         <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="project.projectId" [class.active]="project.favorite" (click)="favorites.toggleFavorites(project)"></i>
         <div class="card-label">{{project.status}}</div>
-
+        <a [href]="'https://www.google.com/maps/search/?api=1&query='+project.longitude+','+project.latitude" target="_blank" [title]="project.projectName+' location on google map'" class="location-onMap"><i class="icon tagr-vector "></i></a>
         <div class="card-mask"></div>
+        <div class="unit-specs">
+            <ul class="list-inline m-0">
+                <li class="list-inline-item">
+                    <span class="specs-ele"> <i class="icon tagr-icon-building-line"></i>  <span class="specs-count"><span class="counter me-1">{{'Buildings' | translate}}</span>{{project.numberOfBuildings}}</span>
+                    </span>
+                </li>
+                <li class="list-inline-item">
+                    <span class="specs-ele"> <i class="icon tagr-icon-home"></i>  <span class="specs-count"><span class="counter me-1">{{'Appartments'|translate}}</span>{{project.numberOfUnits}}</span>
+                    </span>
+                </li>
+
+
+            </ul>
+        </div>
     </div>
     <div class="card-body">
         <div class="unit-location">
             <div class="row">
-                <div class="col-md-5">
-                    <h5>Unit Name</h5>
+                <div class="col-md-12">
+                    <h5 class="secondary-color">{{project.projectName}}</h5>
                     <h6>{{project.city}}</h6>
 
                 </div>
-                <div class="col-md-7">
+                <!-- <div class="col-md-7">
                     <div class="location-panel">
                         <i class="icon tagr-vector"></i>
                         <a href="" class="link-togmap">{{'unitLocationDetails' | translate}}</a>
                     </div>
 
-                </div>
+                </div> -->
             </div>
 
 
         </div>
-        <div class="unit-specs">
-            <div class="row">
-                <div class="col-md-6 mb-2">
-                    <span class="specs-ele"> <i class="icon tagr-icon-building-line"></i>  <span class="specs-count"><span class="counter me-1">{{'Buildings' | translate}}</span>{{project.numberOfBuildings}}</span>
-                    </span>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <span class="specs-ele"> <i class="icon tagr-icon-home"></i>  <span class="specs-count"><span class="counter me-1">{{'Appartments'|translate}}</span>{{project.numberOfUnits}}</span>
-                    </span>
-                </div>
 
-
-            </div>
-        </div>
     </div>
 </div>
 <app-modal></app-modal>
