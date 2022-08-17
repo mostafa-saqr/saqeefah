@@ -5,6 +5,7 @@ import { CompareComponent } from './pages/compare/compare.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
 import { PlaceorderComponent } from './pages/placeorder/placeorder.component';
 import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
@@ -55,7 +56,17 @@ const routes: Routes = [
   {
     path: 'compare',
     component: CompareComponent,
-  }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
+
 ];
 
 @NgModule({

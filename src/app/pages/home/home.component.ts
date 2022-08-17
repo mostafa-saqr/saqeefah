@@ -36,7 +36,7 @@ getAllProjects(){
 }
 
   ngOnInit(): void {
-    this.generalService.changeNavBarTheme({transparentNav:true})
+    this.generalService.changeNavBarTheme({transparentNav:false})
     //console.log(this.generalService.checkNavIsTRansparent())
     this.getAllProjects()
   this.language.changeLanguageStatus.subscribe((data)=>{

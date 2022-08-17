@@ -32,6 +32,7 @@ import { FavoritesService } from './services/favorites.service';
 import { CompareService } from './services/compare.service';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { BuildingComponent } from './pages/building/building.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 
@@ -59,6 +60,7 @@ import { BuildingComponent } from './pages/building/building.component';
     SpecsComponent,
     ProjectsComponent,
     BuildingComponent,
+    LoginComponent,
  
   
   ],
