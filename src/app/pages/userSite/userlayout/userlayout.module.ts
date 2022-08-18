@@ -27,7 +27,7 @@ import { RouterModule } from '@angular/router';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpLoaderFactory } from 'src/app/app.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 
 
@@ -62,7 +62,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RouterModule,
     HttpClientModule,
     ComponentsModule,
-    FlexLayoutModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
       loader: {
