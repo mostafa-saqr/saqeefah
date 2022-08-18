@@ -62,6 +62,7 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
+    // routing for admin
     path: 'dashboard',
     loadChildren: () =>
       import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
