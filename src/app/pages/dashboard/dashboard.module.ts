@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {ComponentsModule} from '../../components/components.module'
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { SettingComponent } from './setting/setting.component';
@@ -25,7 +25,8 @@ import { EditPropertyComponent } from './edit-property/edit-property.component';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    ComponentsModule
   ]
 })
 export class DashboardModule { }
