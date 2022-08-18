@@ -22,7 +22,8 @@ import { TestComponent } from './test/test.component';
             ProjectsComponent,
             PropertyComponent,
             EditProjectComponent,
-            EditPropertyComponent
+            EditPropertyComponent,
+            TestComponent
   ],
   imports: [
     CommonModule,
