@@ -33,6 +33,8 @@ import { CompareService } from './services/compare.service';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { BuildingComponent } from './pages/building/building.component';
 import { LoginComponent } from './pages/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
 
 
 
@@ -68,6 +70,7 @@ import { LoginComponent } from './pages/login/login.component';
     BrowserModule,
     ComponentsModule,
     AppRoutingModule,
+    MaterialModule,
     HttpClientModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
@@ -78,6 +81,7 @@ import { LoginComponent } from './pages/login/login.component';
 
       }
     }),
+    BrowserAnimationsModule,
   ],
   providers: [changeLanguageService, GenaricService,ProjectAndListService,
     FavoritesService,CompareService

@@ -9,12 +9,11 @@ import { ProjectsComponent } from './projects/projects.component';
 import { PropertyComponent } from './property/property.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { EditPropertyComponent } from './edit-property/edit-property.component';
+import { MaterialModule } from 'src/app/modules/material/material.module';
 
 
 @NgModule({
   declarations: [
-    
-  
     DashboardComponent,
             SettingComponent,
             UsersComponent,
@@ -25,7 +24,8 @@ import { EditPropertyComponent } from './edit-property/edit-property.component';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    MaterialModule,
   ]
 })
 export class DashboardModule { }

@@ -33,18 +33,18 @@
                             }
                         ],
                         "styles": [
-                            "./node_modules/leaflet/dist/leaflet.css",
-                            {
-                                "input": "src/master-ltr.scss",
-                                "bundleName": "enStyle",
-                                "inject": false
-                            },
-                            {
-                                "input": "src/master-rtl.scss",
-                                "bundleName": "arStyle",
-                                "inject": false
-
-                            }
+                          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                          "./node_modules/leaflet/dist/leaflet.css",
+                          {
+                            "input": "src/master-ltr.scss",
+                            "bundleName": "enStyle",
+                            "inject": false
+                          },
+                          {
+                            "input": "src/master-rtl.scss",
+                            "bundleName": "arStyle",
+                            "inject": false
+                          }
                         ],
                         "scripts": [
                             "src/assets/js/tree.js",
@@ -115,7 +115,8 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "src/styles.scss"
+                          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                          "src/styles.scss"
                         ],
                         "scripts": []
                     }

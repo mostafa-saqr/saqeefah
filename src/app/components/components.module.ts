@@ -39,11 +39,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-
-      }
-    }),
-  ],
+        deps: [HttpClient] }}),
+      ],
   exports:[
     MapComponent,
     PanoramaComponent,
