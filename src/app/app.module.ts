@@ -37,6 +37,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { AuthService } from './shared/services/auth.service';
 import { TestService } from './pages/dashboard/services/test.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginModule } from './pages/login/login.module';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { UserlayoutModule } from './pages/userSite/userlayout/userlayout.module';
 
 
 
@@ -44,27 +48,7 @@ import { TestService } from './pages/dashboard/services/test.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    HeaderComponent,
-    FooterComponent,
-    TopHeaderComponent,
-    AboutSectionComponent,
-    RecentListComponent,
-    ParallaxComponent,
-    SearchComponent,
-    ProjectDetailsComponent,
-    PropertyDetailsComponent,
-    FavoritesComponent,
-    AboutUsComponent,
-    PlaceorderComponent,
-    ContactComponent,
-    CompareComponent,
-    OverviewComponent,
-    BuildingsComponent,
-    SpecsComponent,
-    ProjectsComponent,
-    BuildingComponent,
-    LoginComponent,
+   
  
   
   ],
@@ -72,7 +56,12 @@ import { TestService } from './pages/dashboard/services/test.service';
     BrowserModule,
     ComponentsModule,
     AppRoutingModule,
+    UserlayoutModule,
+    DashboardModule,
+    LoginModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",

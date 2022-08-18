@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ComponentsModule} from '../../components/components.module'
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {ComponentsModule, HttpLoaderFactory} from '../../components/components.module'
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { SettingComponent } from './setting/setting.component';
@@ -12,6 +14,12 @@ import { EditPropertyComponent } from './edit-property/edit-property.component';
 import { MaterialModule } from 'src/app/modules/material/material.module';
 
 import { TestComponent } from './test/test.component';
+import { HeaderComponent } from './navigator/header/header.component';
+import { SidebarComponent } from './navigator/sidebar/sidebar.component';
+import { FooterComponent } from './navigator/footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TopHeaderComponent } from './navigator/top-header/top-header.component';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,13 +30,29 @@ import { TestComponent } from './test/test.component';
             ProjectsComponent,
             PropertyComponent,
             EditProjectComponent,
-            EditPropertyComponent
+            EditPropertyComponent,
+            TestComponent,
+            HeaderComponent,
+            SidebarComponent,
+            FooterComponent,
+            TopHeaderComponent,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     ComponentsModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TranslateModule.forRoot({
+      defaultLanguage: "en",
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+
+      }
+    }),
   ]
 })
 export class DashboardModule { }

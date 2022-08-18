@@ -1,17 +1,48 @@
+<app-header></app-header>
 <div class="container-fluid">
+  
     <div class="row">
-        <div class="col-md-3 ps-0 sidebar">
-            <ul>
-                <li><a routerLink="user">Users</a></li>
-                <li> <a routerLink="settings">Website Settings</a></li>
-                <li><a routerLink="projects">Projects</a> </li>
-                <li><a routerLink="Appartments">Appartments</a> </li>
+        <div class="col-md-2 sidebar px-0">
+            <ul class="px-0">
+                <a routerLink="user"><li  class="full-width">Users</li></a>
+                <a routerLink="test"><li  class="full-width"> Test</li></a>
+                 <a routerLink="settings"><li  class="full-width">Website Settings</li></a>
+                 <a routerLink="projects"> <li  class="full-width"> Projects</li></a>
+             <a routerLink="Appartments">   <li  class="full-width">Appartments</li></a> 
 
             </ul>
         </div>
-        <div class="col-md-9 ps-5 ">
+        <div class="col-md-10 ps-5 ">
             <router-outlet></router-outlet>
 
         </div>
     </div>
 </div>
+<app-footer></app-footer>
+<!-- 
+
+<div class="row">
+    <div class="col-md-3 ps-0 sidebar">
+        <ul>
+            <li><a routerLink="user">Users</a></li>
+            <li> <a routerLink="settings">Website Settings</a></li>
+            <li><a routerLink="projects">Projects</a> </li>
+            <li><a routerLink="Appartments">Appartments</a> </li>
+
+        </ul>
+    </div>
+    <div class="col-md-9 ps-5 ">
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+
+    </div>
+</div> -->
+<!-- <div class="container">
+  <main #main>  
+
+            <router-outlet>
+            </router-outlet>
+         
+         </main>
+    
+ </div> -->
