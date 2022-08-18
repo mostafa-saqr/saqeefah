@@ -12,6 +12,7 @@ import { EditPropertyComponent } from './edit-property/edit-property.component';
 import { MaterialModule } from 'src/app/modules/material/material.module';
 
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -20,11 +21,13 @@ import { MaterialModule } from 'src/app/modules/material/material.module';
             ProjectsComponent,
             PropertyComponent,
             EditProjectComponent,
-            EditPropertyComponent
+            EditPropertyComponent,
+          
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
+    ComponentsModule,
     MaterialModule,
   ]
 })
