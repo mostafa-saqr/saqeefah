@@ -11,7 +11,8 @@ import { PanoramaComponent } from './panorama/panorama.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { PropertyCardComponent } from './property-card/property-card.component';
 import { SearchFormComponent } from './search-form/search-form.component';
-import { AppRoutingModule } from '../app-routing.module';
+// import { AppRoutingModule } from '../app-routing.module';
+import { RouterModule } from '@angular/router';
 import { ModalComponent } from './modal/modal.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -32,7 +33,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
   imports: [
     CommonModule,
     HttpClientModule,
-    AppRoutingModule,
+    RouterModule,
     GalleryModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",

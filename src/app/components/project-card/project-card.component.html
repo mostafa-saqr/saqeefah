@@ -7,6 +7,7 @@
         </div>
         <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="project.projectId" [class.active]="project.favorite" (click)="favorites.toggleFavorites(project)"></i>
         <div class="card-label">{{project.status}}</div>
+        <span class="edit-project" [routerLink]="'edit-project/'+project.projectId">Edit</span>
         <a [href]="'https://www.google.com/maps/search/?api=1&query='+project.longitude+','+project.latitude" target="_blank" [title]="project.projectName+' location on google map'" class="location-onMap"><i class="icon tagr-vector "></i></a>
         <div class="card-mask"></div>
         <div class="unit-specs">
