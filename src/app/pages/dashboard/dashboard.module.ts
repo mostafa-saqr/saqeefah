@@ -9,7 +9,6 @@ import { ProjectsComponent } from './projects/projects.component';
 import { PropertyComponent } from './property/property.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { EditPropertyComponent } from './edit-property/edit-property.component';
-import { MaterialModule } from 'src/app/modules/material/material.module';
 
 import { TestComponent } from './test/test.component';
 
@@ -29,7 +28,6 @@ import { TestComponent } from './test/test.component';
     CommonModule,
     DashboardRoutingModule,
     ComponentsModule,
-    MaterialModule,
   ]
 })
 export class DashboardModule { }

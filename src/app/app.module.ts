@@ -34,7 +34,6 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { BuildingComponent } from './pages/building/building.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './modules/material/material.module';
 import { AuthService } from './shared/services/auth.service';
 import { TestService } from './pages/dashboard/services/test.service';
 
@@ -72,7 +71,6 @@ import { TestService } from './pages/dashboard/services/test.service';
     BrowserModule,
     ComponentsModule,
     AppRoutingModule,
-    MaterialModule,
     HttpClientModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
