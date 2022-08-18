@@ -28,7 +28,7 @@
     "jquery": "^3.6.0",
     "leaflet": "^1.7.1",
     "mousetrap": "^1.6.5",
-    "panolens": "^0.12.1",
+    "panolens": "^0.10.4",
     "rxjs": "~7.5.0",
     "three": "^0.142.0",
     "tslib": "^2.3.0",

@@ -33,6 +33,8 @@ import { CompareService } from './services/compare.service';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { BuildingComponent } from './pages/building/building.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AuthService } from './shared/services/auth.service';
+import { TestService } from './pages/dashboard/services/test.service';
 
 
 
@@ -80,7 +82,7 @@ import { LoginComponent } from './pages/login/login.component';
     }),
   ],
   providers: [changeLanguageService, GenaricService,ProjectAndListService,
-    FavoritesService,CompareService
+    FavoritesService,CompareService,AuthService,TestService
   
   ],
   bootstrap: [AppComponent]

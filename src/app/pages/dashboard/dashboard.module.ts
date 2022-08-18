@@ -9,6 +9,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { PropertyComponent } from './property/property.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { EditPropertyComponent } from './edit-property/edit-property.component';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { EditPropertyComponent } from './edit-property/edit-property.component';
             ProjectsComponent,
             PropertyComponent,
             EditProjectComponent,
-            EditPropertyComponent
+            EditPropertyComponent,
+            TestComponent
   ],
   imports: [
     CommonModule,
