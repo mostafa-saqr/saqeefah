@@ -37,7 +37,8 @@ export class AuthService {
   getToken(): string {
     // let data = localStorage.getItem(this.USER_KEY);
     // let _token = JSON.parse(data).token;
-    let _token="eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJ0ZXN0QHRlc3QuY29tIiwibmFtZSI6IjAxMjEyMTIxMiIsIm5iZiI6MTY2MDc3NzcxOCwiZXhwIjoxNjYzMzY5NzE4LCJpYXQiOjE2NjA3Nzc3MTh9.HUlxjAFtHM-woPR4imEABk8kPHZwgio9s-Ccs_gihap6fTZBXIAKThcGKx6bcJtPoHRkjnImYDlSh8KVT0chKQ"; 
+   let _token="eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJhZG1pbkBhZG1pbi5jb20iLCJuYW1lIjoiMDEyMTIxMjEyIiwibmJmIjoxNjYwODY4MDY4LCJleHAiOjE2NjM0NjAwNjgsImlhdCI6MTY2MDg2ODA2OH0.Kj1KLERMmny87ZXa9WrcL7xfa11YESnlwmOhYXC2geEIZ7J_mAfxJg4Ax_pnmO8iIq_mrjhp9TYHrDY5kRbRDg"
+    
     return _token;
   }
 
