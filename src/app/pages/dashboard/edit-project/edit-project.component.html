@@ -1,1 +1,43 @@
-<p>edit-project works!</p>
+<div class="row">
+    <div class="col-md-8">
+        <h4 class="secondary-color mb-3">Project Overview</h4>
+        <input type="text" class="form-control mb-3" placeholder="title">
+        <textarea rows="3" class="form-control mb-3" cols="" placeholder="Description"></textarea>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-8">
+        <h4 class="secondary-color mb-3">Master Plane</h4>
+        <label for="maserPlane">Add Master Plane photo</label>
+        <input type="file" class="form-control mb-3" id="masterPlane">
+        <textarea rows="3" class="form-control mb-3" cols="" placeholder="add image map hard code"></textarea>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-8">
+        <h4 class="secondary-color mb-3">Project Gallery</h4>
+        <label for="thumbnail">Add Project Cover Photo</label>
+        <input type="file" class="form-control mb-3" (change)="onInputChange($event)" id="thumbnail">
+        <label for="gallery">Add Project Gallery</label>
+        <input type="file" class="form-control mb-3" id="gallery">
+        <button type="submit" class="btn btn-primary" (click)="uploadImage()">Submit</button>
+
+    </div>
+</div>
+<hr>
+<div class="row mb-5">
+    <div class="col-md-8">
+        <h4 class="secondary-color mb-3">Project Specifications</h4>
+        <label for="specifications">Add Project Specification Photo</label>
+        <input type="file" class="form-control mb-3" id="specifications">
+        <label for="granties">Add Project Granties</label>
+        <input type="file" class="form-control mb-3" id="granties">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</div>

@@ -1,1 +1,23 @@
-<p>edit-property works!</p>
+<div class="row">
+    <div class="col-md-8">
+        <h4 class="secondary-color mb-3">Project Gallery</h4>
+        <label for="thumbnail">Add Project Cover Photo</label>
+        <input type="file" class="form-control mb-3" id="thumbnail" (change)="uploadThumbPhoto($event,imageThumbUrl)">
+        <div class="row">
+            <div class="col-md-4">
+                <img *ngFor="let item of imageThumbUrl" class="img-fluid" [src]="item" alt="">
+
+            </div>
+        </div>
+        <label for="gallery">Add Project Gallery</label>
+        <input type="file" class="form-control mb-3" id="gallery" (change)="uploadThumbPhoto($event,galleryUrl)" multiple>
+        <div class="row">
+            <div class="col-md-4" *ngFor="let item of galleryUrl">
+                <img [src]="item" alt="" class="img-fluid">
+
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+</div>

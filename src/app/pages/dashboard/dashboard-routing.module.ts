@@ -36,7 +36,7 @@ const routes: Routes = [
       component: EditProjectComponent
     },
     {
-      path:'edit-ppartment/:id',
+      path:'edit-property/:id',
       component: EditPropertyComponent 
     },
     {
