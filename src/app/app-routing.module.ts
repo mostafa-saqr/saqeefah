@@ -11,6 +11,7 @@ import { ProjectDetailsComponent } from './pages/project-details/project-details
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { PropertyDetailsComponent } from './pages/property-details/property-details.component';
 import { SearchComponent } from './pages/search/search.component';
+import { UserlayoutComponent } from './pages/userSite/userlayout/userlayout.component';
 
 const routes: Routes = [
   {
@@ -62,7 +63,7 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    // routing for admin
+  
     path: 'dashboard',
     loadChildren: () =>
       import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),

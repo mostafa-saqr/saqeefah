@@ -7,6 +7,7 @@ import { EditPropertyComponent } from './edit-property/edit-property.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { PropertyComponent } from './property/property.component';
 import { SettingComponent } from './setting/setting.component';
+import { SocialmediaComponent } from './setting/socialmedia/socialmedia.component';
 import { TestComponent } from './test/test.component';
 import { UsersComponent } from './users/users.component';
 
@@ -42,6 +43,10 @@ const routes: Routes = [
     {
       path:'test',
       component: TestComponent 
+    },
+    {
+      path:'social',
+      component: SocialmediaComponent
     },
   ]
   }

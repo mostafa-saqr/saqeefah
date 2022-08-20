@@ -12,4 +12,8 @@ export class SettingComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClickSubmit(){
+  
+ }
+
 }

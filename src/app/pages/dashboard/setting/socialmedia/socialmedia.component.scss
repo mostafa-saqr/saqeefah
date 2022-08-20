@@ -1,0 +1,65 @@
+
+section{
+    padding: 160px 0 50px 0;
+}
+  
+ 
+  .accordion-button:not(.collapsed)::after{
+    background-image:none !important;
+    transform: none !important;
+    content: '-' !important;
+    float: right !important;
+    font-size: 25px !important;
+    color: var(--main-color) !important;
+
+  }
+
+  .accordion .accordion-header button.collapsed:after {
+    background-image:none !important;
+    transform: none !important;
+    content: '+' !important;
+    font-size: 25px !important;
+    color: var(--main-color) !important;
+    float: right !important;
+  
+  }
+  .accordion{
+    --bs-accordion-bg: none !important;
+    --bs-accordion-border-color:#0A3077 !important;
+  }
+  .accordion-item{
+    background-color: none !important;
+    border: none !important;
+  }
+
+  .accordion-button{
+    padding: 5px !important;
+    background-color: transparent !important;
+    
+  }
+  button:focus{
+    outline: none !important;
+  }
+  .accordion-item:first-of-type .accordion-button {
+     border-top-left-radius: none !important; 
+     border-top-right-radius: none !important; 
+}
+.accordion-button:not(.collapsed){
+    color: var(--main-color) !important;
+}
+.form-label{
+    margin-right: 20px;
+    width: 15%;
+    padding: 0.375rem 0 !important; 
+}
+i{
+    margin: 0.2px 2px;
+    
+}
+
+.formg{
+    width: 75%;
+}
+.form-control{
+    padding: 0.275rem 0.75rem !important; 
+}
