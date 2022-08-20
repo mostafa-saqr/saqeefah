@@ -18,6 +18,7 @@ import { HeaderComponent } from './navigator/header/header.component';
 import { SidebarComponent } from './navigator/sidebar/sidebar.component';
 import { SocialmediaComponent } from './setting/socialmedia/socialmedia.component';
 import { TopHeaderComponent } from './navigator/top-header/top-header.component';
+import { IconPickerModule } from 'ngx-icon-picker';
 
 
 
@@ -43,6 +44,7 @@ import { TopHeaderComponent } from './navigator/top-header/top-header.component'
     DashboardRoutingModule,
     ComponentsModule,
     FormsModule,
+    IconPickerModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
