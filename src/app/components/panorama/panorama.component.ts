@@ -13,7 +13,7 @@ export class PanoramaComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit(): void {
-    const panorama = new PANOLENS.ImagePanorama('../../../assets/images/panorama1.jpg');
+    const panorama = new PANOLENS.ImagePanorama('assets/images/panorama1.jpg');
     const ele = this.document.querySelector('#container')
     const viewer = new PANOLENS.Viewer({
         container: ele,

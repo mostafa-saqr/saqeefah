@@ -33,25 +33,24 @@
                             }
                         ],
                         "styles": [
-                          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                          "./node_modules/leaflet/dist/leaflet.css",
-                          {
-                            "input": "src/master-ltr.scss",
-                            "bundleName": "enStyle",
-                            "inject": false
-                          },
-                          {
-                            "input": "src/master-rtl.scss",
-                            "bundleName": "arStyle",
-                            "inject": false
-                          }
+                            "./node_modules/leaflet/dist/leaflet.css",
+                            {
+                                "input": "src/master-ltr.scss",
+                                "bundleName": "enStyle",
+                                "inject": false
+                            },
+                            {
+                                "input": "src/master-rtl.scss",
+                                "bundleName": "arStyle",
+                                "inject": false
+                            }
                         ],
                         "scripts": [
                             "src/assets/js/tree.js",
                             "src/assets/js/panorama.js",
                             "./node_modules/@popperjs/core/dist/umd/popper.min.js",
                             "./node_modules/bootstrap/dist/js/bootstrap.min.js"
-                         
+
                         ]
                     },
                     "configurations": {
@@ -115,8 +114,7 @@
                             "src/assets"
                         ],
                         "styles": [
-                          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                          "src/styles.scss"
+                            "src/styles.scss"
                         ],
                         "scripts": []
                     }
@@ -125,6 +123,6 @@
         }
     },
     "cli": {
-      "analytics": "52970972-7e78-4c13-a4eb-72cd6085e700"
+        "analytics": "52970972-7e78-4c13-a4eb-72cd6085e700"
     }
 }

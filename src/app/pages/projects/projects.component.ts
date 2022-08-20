@@ -17,7 +17,7 @@ export class ProjectsComponent implements OnInit {
       console.log('all projects',response)
     
       
-      this.AllProjects = response.data
+      this.AllProjects = response.result.data
      
   
     })

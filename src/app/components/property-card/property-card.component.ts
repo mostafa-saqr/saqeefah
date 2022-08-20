@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CompareService } from 'src/app/services/compare.service';
 import { FavoritesService } from 'src/app/services/favorites.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-property-card',
@@ -48,6 +49,7 @@ itemSpecsIcon = [
     count:'6'
   },
 ]
+   appRootUrl = environment.appRoot;
   constructor(public favorites:FavoritesService, public compare:CompareService) { }
 
   ngOnInit(): void {

@@ -22,15 +22,16 @@ export class HomeComponent implements OnInit,OnDestroy {
   
   }
 getAllProjects(){
-  this.projects.getAllProjects(this.language.getLanguageID()).subscribe((response:any)=>{
+  
+  this.projects.getAllProjects('1').subscribe((response:any)=>{
     console.log('all projects',response)
     this.AllProjects = []
     this.projectsForSale =[]
     this.projectsForRent = []
     
-    this.AllProjects = response.data
-    this.projectsForSale = response.data.filter((item:any)=> item.status === 'For Sale' || item.status === 'متاح')
-    this.projectsForRent = response.data.filter((item:any)=> item.status === 'BookedUp')
+    this.AllProjects = response.result.data
+    this.projectsForSale = response.result.data.filter((item:any)=> item.status === 'For Sale' || item.status === 'متاح')
+    this.projectsForRent = response.result.data.filter((item:any)=> item.status === 'BookedUp')
 
   })
 }
