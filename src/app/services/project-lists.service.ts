@@ -18,8 +18,9 @@ export class ProjectAndListService  {
     
      requestOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/text',
+        // 'Content-Type': 'multipart/form-data',
         'Authorization': 'Bearer ' + this.getAuth.getToken(),
+        Accept: 'text/plain',
       }),
     };
    
