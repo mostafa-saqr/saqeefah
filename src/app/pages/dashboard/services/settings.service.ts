@@ -9,30 +9,25 @@ import { environment } from 'src/environments/environment';
 })
 export class SettingsService {
 
-  appRootUrl = environment.appRoot;
-    
-  constructor(private http:HttpClient) {
-
+  constructor(private aPICallerService:APICallerService) {
   }
 
 
    setSetting(model:any):Observable<any>{
-    return this.http.post<any>(`${this.appRootUrl}/api/Setting`,model);
+   // return this.http.post<any>(`${this.appRootUrl}/api/Setting`,model);
+   return this.aPICallerService.post(`api/Setting`,model,true);
 }
-
           
   getsettingsById(Id:any){
-
-      return this.http.get(`${this.appRootUrl}/api/Setting?settingTypeId=${Id}`)
-
+      return this.aPICallerService.get(`api/Setting?settingTypeId=${Id}`)
   }
+
   getAllsettings(){
-    return this.http.get(`${this.appRootUrl}/api/Setting`)
-
+    return this.aPICallerService.get(`api/Setting`)
   }
-  getAllsettingsType(){
-    return this.http.get(`${this.appRootUrl}/api/Setting/AllSettingTypes`)
 
+  getAllsettingsType(){
+    return this.aPICallerService.get(`api/Setting/AllSettingTypes`);
   }
   
  

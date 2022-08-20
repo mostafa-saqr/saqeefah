@@ -19,6 +19,7 @@ import { SidebarComponent } from './navigator/sidebar/sidebar.component';
 import { SocialmediaComponent } from './setting/socialmedia/socialmedia.component';
 import { TopHeaderComponent } from './navigator/top-header/top-header.component';
 import { IconPickerModule } from 'ngx-icon-picker';
+import { SettingFormComponent } from './setting/components/setting-form/setting-form.component';
 
 
 
@@ -37,6 +38,7 @@ import { IconPickerModule } from 'ngx-icon-picker';
             FooterComponent,
             TopHeaderComponent,
             SocialmediaComponent,
+            SettingFormComponent,
            
   ],
   imports: [

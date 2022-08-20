@@ -1,0 +1,90 @@
+<div class="accordion-item mb-5">
+    <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"   [attr.data-bs-target]="'#collapse-' +collapseId" 
+            aria-expanded="true" aria-controls="collapseOne">
+            AboutUs
+        </button>
+    </h2>
+    <div id="{{'collapse-'+collapseId}}" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+        <div class="accordion-body">
+            <form action="" class="row g-4" [formGroup]="myFormGroup" (submit)="onClickSubmit()">
+                <input type="hidden" formControlName="settingTypeId">
+                <div class="col-md-6">
+                    <div class="my-1 ">
+                        <label for="exampleFormControlInput1" class="form-label">TitleEn</label>
+                        <div class="formg">
+                            <input type="text" class="form-control" formControlName="TitleEn" placeholder="Fill Field">
+                        </div>
+                    </div>
+                    <div class="my-1">
+                        <label for="exampleFormControlInput1" class="form-label">DescriptionEn </label>
+                        <div class="formg">
+                            <textarea class="form-control" formControlName="DescriptionEn" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <div class="my-1">
+                        <label for="exampleFormControlInput1" class="form-label">TitleAr</label>
+                        <div class="formg">
+                            <input type="text" class="form-control" formControlName="TitleAr" placeholder="Fill Field">
+                        </div>
+                    </div>
+                    <div class="my-1">
+                        <label for="exampleFormControlInput1" class="form-label">DescriptionAr </label>
+                        <div class="formg">
+                            <textarea class="form-control" formControlName="DescriptionAr" rows="3"></textarea>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="my-1">
+                        <label for="exampleFormControlInput1" class="form-label">Select Icon </label>
+                        <div class="formg w-100 input-group">
+
+                            <span class="input-group-text"><i [ngClass]="iconCss.value"></i></span>
+                           
+
+                                <input  type="text" name="iconCss" class="form-control"
+                                formControlName="iconCss"
+                                [iconPicker]="iconCss.value"
+                                [ipIconPack]="['fa5']"
+                                [ipPosition]="'bottom'"
+                                [ipWidth]="'250px'"
+                                [ipIconSize]="'16px'"
+                                [ipIconVerticalPadding]="'6px'"
+                                [ipIconHorizontalPadding]="'10px'"
+                                [ipKeepSearchFilter]="'false'"
+                                [ipPlaceHolder]="'Choose an icon'"
+                                [ipFallbackIcon]="fallbackIcon"
+                                (iconPickerSelect)="onIconPickerSelect($event)"/>
+
+
+                        </div>
+                    </div>
+                    <div class="my-1">
+                        <label for="exampleFormControlInput1" class="form-label">Select Image </label>
+                        <div class="formg w-100">
+                            <input class="form-control" type="file" formControlName="Image">
+                            <button type="submit" class="btn btn-small btn-primary w-25 float-end  px-4  mt-2">Save
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
