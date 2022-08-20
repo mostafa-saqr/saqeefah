@@ -20,6 +20,7 @@ import { FooterComponent } from './navigator/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TopHeaderComponent } from './navigator/top-header/top-header.component';
 import { HttpClient } from '@angular/common/http';
+import { SocialmediaComponent } from './setting/socialmedia/socialmedia.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { HttpClient } from '@angular/common/http';
             SidebarComponent,
             FooterComponent,
             TopHeaderComponent,
+            SocialmediaComponent,
   ],
   imports: [
     CommonModule,

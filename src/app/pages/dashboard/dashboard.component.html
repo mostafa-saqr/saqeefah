@@ -6,9 +6,21 @@
             <ul class="px-0">
                 <a routerLink="user"><li  class="full-width">Users</li></a>
                 <a routerLink="test"><li  class="full-width"> Test</li></a>
-                 <a routerLink="settings"><li  class="full-width">Website Settings</li></a>
+                 <a class="accordion-button" type="button"  data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <li  class="full-width">Website Settings</li></a>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    
+                        <div class="accordion-body">
+                            <ul class="px-0">
+                                <a routerLink="settings"><li  class="full-width">Settings</li></a>
+                                <a routerLink="social"><li class="full-width">Social</li></a>
+                            </ul>
+                    </div>
+                    </div>
+                
+               
                  <a routerLink="projects"> <li  class="full-width"> Projects</li></a>
-             <a routerLink="Appartments">   <li  class="full-width">Appartments</li></a> 
+             <a routerLink="Appartments"> <li  class="full-width">Appartments</li></a> 
 
             </ul>
         </div>
