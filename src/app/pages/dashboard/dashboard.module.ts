@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {ComponentsModule, HttpLoaderFactory} from '../../components/components.module'
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
@@ -11,15 +10,15 @@ import { ProjectsComponent } from './projects/projects.component';
 import { PropertyComponent } from './property/property.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { EditPropertyComponent } from './edit-property/edit-property.component';
-
 import { TestComponent } from './test/test.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { FooterComponent } from './navigator/footer/footer.component';
 import { HeaderComponent } from './navigator/header/header.component';
 import { SidebarComponent } from './navigator/sidebar/sidebar.component';
-import { FooterComponent } from './navigator/footer/footer.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TopHeaderComponent } from './navigator/top-header/top-header.component';
-import { HttpClient } from '@angular/common/http';
 import { SocialmediaComponent } from './setting/socialmedia/socialmedia.component';
+import { TopHeaderComponent } from './navigator/top-header/top-header.component';
+
 
 
 @NgModule({
@@ -37,12 +36,12 @@ import { SocialmediaComponent } from './setting/socialmedia/socialmedia.componen
             FooterComponent,
             TopHeaderComponent,
             SocialmediaComponent,
+           
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     ComponentsModule,
-    MaterialModule,
     FormsModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({

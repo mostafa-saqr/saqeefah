@@ -58,7 +58,6 @@ import { UserlayoutModule } from './pages/userSite/userlayout/userlayout.module'
     UserlayoutModule,
     DashboardModule,
     LoginModule,
-    MaterialModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
