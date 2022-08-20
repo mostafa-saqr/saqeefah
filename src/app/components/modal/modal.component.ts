@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-modal',
@@ -10,6 +11,8 @@ export class ModalComponent implements OnInit {
 @Input() modalId:string
   constructor() { }
 
+   appRootUrl=environment.appRoot; 
+   
   ngOnInit(): void {
   }
 

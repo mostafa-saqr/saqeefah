@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FavoritesService } from 'src/app/services/favorites.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-project-card',
@@ -23,6 +24,9 @@ export class ProjectCardComponent implements OnInit {
       count:'60'
     }
   ]
+
+  appRootUrl=environment.appRoot; 
+  
   constructor(public favorites:FavoritesService) { }
   
   ngOnInit(): void {

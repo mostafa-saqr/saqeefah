@@ -5,6 +5,7 @@ import { RequestMethod } from '../Enums/enums';
 import { Result } from './Result';
 import { catchError, map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class APICallerService {
   //public domainName = 'https://api-stage.saqeefah.com';
 
   // Testing Mode
-  public domainName = 'https://api-stage.saqeefah.com';
+   domainName = environment.appRoot;
 
   constructor(private http: HttpClient, private tokenService: AuthService) {
     this.imageServerPath = this.domainName;
@@ -96,6 +97,36 @@ export class APICallerService {
   ): Observable<Result<any>> {
     return this.serverRequest(RequestMethod.POST, url, body, auth, loader, handleError);
   }
+
+
+
+  public postWithAttachment(
+    url: string,
+    formData: any,
+    auth: boolean = true,
+    loader: string = '',
+    handleError: boolean = true
+  ): Observable<any> {
+    let _requestOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + this.tokenService.getToken(),
+        'Accept': 'text/plain',
+      }),
+    };
+    let fUrl = this.serviceApiUrl + url;
+
+    return this.http.post(fUrl,formData,
+    {
+         headers:_requestOptions.headers
+    }
+  );
+   
+  }
+
+
+
+
+
 
   public put(
     url: string,

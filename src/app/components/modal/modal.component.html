@@ -18,7 +18,7 @@
                         </div> -->
                         <div class="carousel-inner">
                             <div class="carousel-item" [class.active]="i == 0" *ngFor="let item of Gallery;let i = index">
-                                <img [src]="'https://api-stage.saqeefah.com/'+item.path" class="d-block w-100" alt="...">
+                                <img [src]="appRootUrl+'/'+item.path" class="d-block w-100" alt="...">
                             </div>
 
                         </div>

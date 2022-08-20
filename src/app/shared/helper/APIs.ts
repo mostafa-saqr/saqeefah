@@ -15,4 +15,16 @@ export class APIs {
 
 
 
+ // Projects
+
+ public static projects = {
+  AddAttachments: 'api/Project/Attachments',
+  //List:"api/Project/GetAll"
+
+};
+
+
+
+
+
 }
