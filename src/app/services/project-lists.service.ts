@@ -30,12 +30,19 @@ var result = this.callApi.get(`api/Project/ProjectsWithImagesAndVideos?languageI
 return result; 
     }
 
+    getAllProperties(){
+        var result = this.callApi.get(APIs.properties.List)
+        return result; 
+            }
     uploadProjectImage(formData){
         
-       return this.callApi.postWithAttachment(APIs.projects.AddAttachments,formData); 
+       return this.callApi.postWithAttachment(APIs.properties.AddAttachments,formData); 
     }
 
+    uploadpropertyImage(formData){
+        return this.callApi.postWithAttachment(APIs.properties.AddAttachments,formData); 
 
+    }
 
             
     getProjectDetails(languageId:string,projectId:any){

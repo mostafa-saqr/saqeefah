@@ -1,13 +1,14 @@
 <div class="card" style="cursor: pointer;">
     <div class="img-panel">
         <div class="img-container">
-            <img [src]="'assets/images/list/l2.jpg'" class="card-img-top" alt="..." [routerLink]="['/property','B1']">
+            <img [src]="appRootUrl+property.coverImage" class="card-img-top" alt="...">
         </div>
         <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="property.apartmentId" [class.active]="property.favorite" (click)="favorites.toggleFavorites(property)"></i>
 
         <div class="card-label">For Rent</div>
+        <span class="edit-project" [routerLink]="'../edit-property/'+property.project_Ref+'/'+property.apartment_Id">Edit</span>
         <div class="compare" [attr.data-cardCompico-id]="property.apartmentId" [class.active]="property.Compare" (click)="compare.toggleCompare(property)">Compare</div>
-        <div class="card-mask" [routerLink]="['/property','B1']"></div>
+        <div class="card-mask" [routerLink]="['/property',property.project_Ref,property.apartment_Id]"></div>
     </div>
     <div class="card-body">
         <div class="unit-location">

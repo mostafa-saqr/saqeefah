@@ -19,10 +19,16 @@ export class APIs {
 
  public static projects = {
   AddAttachments: 'api/Project/Attachments',
-  //List:"api/Project/GetAll"
+  // List:"api/Project/GetAll"
 
 };
+ // property
 
+ public static properties = {
+  AddAttachments: 'api/Apartment/Attachments',
+  List:"api/Apartment/ApartmentsWithImagesAndVideos"
+
+};
 
 
 
