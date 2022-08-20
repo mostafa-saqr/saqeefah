@@ -1,19 +1,9 @@
-main{
-    /* padding:50px 10px 0px 10px; */
-    padding: 50px 0 0 0 ;
-}
-mat-sidenav-container ,mat-sidenav-content , mat-sidenav{
-    height: 100%;;
+
+.container-fluid{
+    min-height: 93.2vh;
 }
 
 
-/* mat-sidenav{
-    
-    background:linear-gradient(90deg,#3c0519,#3c0519, #791238);
- box-shadow: 0px 5px 15px #a4a4a3;
-   position: fixed;
-   padding-top: 64px; 
-} */
 app-header{
     position: fixed;
     width: 100%;
@@ -46,6 +36,7 @@ app-header{
 /*bootstap style*/
 
 .sidebar{
+    min-height: 93.3vh;
     background:-webkit-linear-gradient(#d8ccc3, #203870e6 50% );
     background:-moz-linear-gradient(#d8ccc3, #203870e6 50% );
     background:-o-linear-gradient(#d8ccc3, #203870e6 50% );
@@ -78,3 +69,4 @@ a{
     width: 100%;
     padding: 15px 20px;
   }
+
