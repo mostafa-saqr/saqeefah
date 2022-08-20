@@ -25,8 +25,9 @@ projectDetails:any
 getProjectDetails(){
   let projectId = this.route.snapshot.paramMap.get('id')
   this.projects.getProjectDetails(this.language.getLanguageID(),projectId).subscribe((response:any)=>{
-this.projectDetails = response.data
-console.log('projectDetails',this.projectDetails)
+    console.log('projectDetails',response)
+
+    this.projectDetails = response.result.data
   })
 }
 }
