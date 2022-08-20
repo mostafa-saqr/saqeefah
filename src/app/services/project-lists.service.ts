@@ -39,7 +39,7 @@ return result;
 
             
     getProjectDetails(languageId:string,projectId:any){
-        return this.callApi.get(`api/Project/ProjectDetails?languageId=${languageId}&projectId=${projectId}`)
+        return this.http.get(`https://api-stage.saqeefah.com/api/Project/ProjectDetails?languageId=${languageId}&projectId=${projectId}`)
 
     }
     getCompareAppartmens(compareArray:[]){
