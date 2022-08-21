@@ -8,6 +8,9 @@ import { APIs } from '../shared/helper/APIs';
 @Injectable()
 export class ProjectAndListService  {
     
+
+
+
      appRootUrl = environment.appRoot;
 
     
@@ -34,11 +37,22 @@ return result;
         var result = this.callApi.get(APIs.properties.List)
         return result; 
             }
+            getAppartmentDetails(appartmentId){
+                var result = this.callApi.get(APIs.properties.apartmentDetails+'?apartmentId='+appartmentId)
+                return result; 
+            }
     uploadProjectImage(formData){
         
-       return this.callApi.postWithAttachment(APIs.properties.AddAttachments,formData); 
+       return this.callApi.postWithAttachment(APIs.projects.AddAttachments,formData); 
     }
+    uploadProjectMasterPlane(formData){
+        return this.callApi.postWithAttachment(APIs.projects.AddMasterPlane,formData); 
 
+    }
+    uploadProjectSpecifications(formData){
+        return this.callApi.postWithAttachment(APIs.projects.addSpecifications,formData); 
+
+    }
     uploadpropertyImage(formData){
         return this.callApi.postWithAttachment(APIs.properties.AddAttachments,formData); 
 

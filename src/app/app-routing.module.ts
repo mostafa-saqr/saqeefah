@@ -47,7 +47,7 @@ const routes: Routes = [
     component: ProjectDetailsComponent,
   },
   {
-    path: 'property/:buildingId/:PropertyId',
+    path: 'property/:id',
     component: PropertyDetailsComponent,
   },
   {

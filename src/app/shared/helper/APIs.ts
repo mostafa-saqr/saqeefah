@@ -19,6 +19,8 @@ export class APIs {
 
  public static projects = {
   AddAttachments: 'api/Project/Attachments',
+  AddMasterPlane:'api/Project/MasterPlane',
+  addSpecifications:'api/Project/Specifications'
   // List:"api/Project/GetAll"
 
 };
@@ -26,7 +28,8 @@ export class APIs {
 
  public static properties = {
   AddAttachments: 'api/Apartment/Attachments',
-  List:"api/Apartment/ApartmentsWithImagesAndVideos"
+  List:"api/Apartment/ApartmentsWithImagesAndVideos",
+  apartmentDetails:'api/Apartment/ApartmentById'
 
 };
 

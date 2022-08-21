@@ -6,19 +6,19 @@
 
         </div>
         <div class="col-md-9 mb-5">
-            <app-gallery></app-gallery>
+            <app-gallery [galleryImage]="propertyDetails.images" *ngIf="propertyDetails.images"></app-gallery>
             <hr class="mt-5 mb-5">
             <div class="property-section">
                 <div class="row">
 
 
                     <div class="col-lg-12">
-                        
-    
-                       
-    
+
+
+
+
                         <div class="property-info">
-    
+
                             <div class="row mb-2">
                                 <div class="col-lg-6">
                                     <h6>property type:
@@ -37,49 +37,49 @@
                                     </h6>
                                 </div>
                             </div>
-    
+
                             <div class="row mb-4">
-    
+
                                 <div class="col-lg-2 col-6 bg-secondary">
                                     <img src="assets/images/compare-icons/area.png" alt="">
                                     <p>Area</p>
                                     <hr>
                                     <h6>120</h6>
                                 </div>
-    
+
                                 <div class="col-lg-2 col-6 bg-secondary">
                                     <img src="assets/images/compare-icons/room.png" alt="">
                                     <p>Rooms</p>
                                     <hr>
                                     <h6>3</h6>
                                 </div>
-    
+
                                 <div class="col-lg-2 col-6 bg-secondary">
                                     <img src="assets/images/compare-icons/kitchen.png" alt="">
                                     <p>Kitchen</p>
                                     <hr>
                                     <h6>1</h6>
                                 </div>
-    
+
                                 <div class="col-lg-2 col-6 bg-secondary">
                                     <img src="assets/images/compare-icons/bathroom.png" alt="">
                                     <p>Bathroom</p>
                                     <hr>
                                     <h6>2</h6>
                                 </div>
-    
+
                                 <div class="col-lg-2 col-6 bg-secondary">
                                     <img src="assets/images/compare-icons/air-conditioner.png" alt="">
                                     <p>Conditioner</p>
                                     <hr>
                                     <h6>4</h6>
                                 </div>
-    
+
                             </div>
-    
+
                             <div class="row space-div">
                                 <h5>The Space</h5>
-    
+
                                 <div class="col-lg-4 col-6">
                                     <h6>year buit:
                                         <p>1971</p>
@@ -100,7 +100,7 @@
                                         <p>full</p>
                                     </h6>
                                 </div>
-    
+
                                 <div class="col-lg-4 col-6">
                                     <h6>year buit:
                                         <p>1971</p>
@@ -121,7 +121,7 @@
                                         <p>full</p>
                                     </h6>
                                 </div>
-    
+
                                 <div class="col-lg-4 col-6">
                                     <h6>year buit:
                                         <p>1971</p>
@@ -142,17 +142,17 @@
                                         <p>full</p>
                                     </h6>
                                 </div>
-    
+
                             </div>
-    
+
                         </div>
-    
+
                     </div>
-    
-    
+
+
                 </div>
             </div>
-            
+
         </div>
         <div class="col-md-3">
             <h5 class="secondary-color mb-3">PLACE ORDER</h5>

@@ -1,43 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import {  Image } from '@ks89/angular-modal-gallery';
+import { environment } from 'src/environments/environment';
+interface imageGallery {
+  path:string
+}
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
-export class GalleryComponent implements OnInit {
-  images: Image[] = [
-    new Image(
-      0,
-      {
-        img:'assets/images/gallery/bg1.jpg'
-      },
-      {
-        img:'assets/images/gallery/bg1.jpg'
-      }
-    ),
-    new Image(
-      1,
-      {
-        img:'assets/images/gallery/bg2.jpg'
-      },{
-        img:'assets/images/gallery/bg2.jpg'
-      }
-    ),
-    new Image(
-      2,
-      {
-        img:'assets/images/gallery/bg3.jpg'
-      },{
-        img:'assets/images/gallery/bg3.jpg'
-      }
-    ),
 
-  ];
- 
+
+export class GalleryComponent implements OnInit,AfterViewInit {
+  @Input() galleryImage
+  images: Image[] = [];
+  appRootUrl = environment.appRoot+'/';
   constructor() { }
 
   ngOnInit(): void {
-  }
 
+  }
+  ngAfterViewInit(): void {
+    this.addImageGallery()
+  }
+addImageGallery(){
+  for(let i = 0 ; i < this.galleryImage.length; i++){
+    let x = this.galleryImage[i].path
+    this.images.push( new Image(
+      i,
+      {
+        img:this.appRootUrl+x
+      },
+      {
+        img:this.appRootUrl+x
+      }
+    ))
+  }
+  
+}
 }

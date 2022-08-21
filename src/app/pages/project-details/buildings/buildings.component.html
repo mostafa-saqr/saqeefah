@@ -2,12 +2,12 @@
     <div class="col-md-12">
 
         <div id="myTab" role="tablist">
-            <a class="nav-link" [class.active]="activeBuilding == item.buildingId" data-bs-toggle="tab" role="tab" [id]="item.buildingId" *ngFor="let item of buildings;let i = index" (click)="getBuildingProperty(i)">{{item.build}}</a>
+            <a class="nav-link" [class.active]="activeBuilding == item.build" data-bs-toggle="tab" role="tab" [id]="item.build" *ngFor="let item of buildings;let i = index" (click)="getBuildingProperty(item.build)">{{item.build}}</a>
         </div>
     </div>
     <div class="col-md-9">
         <div class="row">
-            <div class="col-md-6 mb-3" *ngFor="let item of buildings[propertIndex].apartments">
+            <div class="col-md-6 mb-3" *ngFor="let item of propertyOfSelectedBuilding">
                 <app-property-card [property]="item"></app-property-card>
             </div>
         </div>

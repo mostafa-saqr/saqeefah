@@ -1,20 +1,14 @@
 <div class="row">
     <div class="col-md-8">
-        <h4 class="secondary-color mb-3">Project Overview</h4>
-        <input type="text" class="form-control mb-3" placeholder="title">
-        <textarea rows="3" class="form-control mb-3" cols="" placeholder="Description"></textarea>
-        <button type="submit" class="btn btn-primary">Submit</button>
-
-    </div>
-</div>
-<hr>
-<div class="row">
-    <div class="col-md-8">
-        <h4 class="secondary-color mb-3">Master Plane</h4>
+        <h4 class="secondary-color mb-3">project Overview and Master Plane</h4>
         <label for="maserPlane">Add Master Plane photo</label>
-        <input type="file" class="form-control mb-3" id="masterPlane">
-        <textarea rows="3" class="form-control mb-3" cols="" placeholder="add image map hard code"></textarea>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="file" class="form-control mb-3" id="masterPlane" (change)="onMasterPlaneInputChange($event)">
+        <textarea rows="3" class="form-control mb-3" cols="" placeholder="add image map hard code" [(ngModel)]="imageMapHardCode"></textarea>
+        <textarea rows="3" class="form-control mb-3" cols="" placeholder="project OverView" [(ngModel)]="projectOverView"></textarea>
+        <p>
+
+        </p>
+        <button type="submit" class="btn btn-primary" (click)="UploadMasterPlane($event)">Submit</button>
 
     </div>
 </div>

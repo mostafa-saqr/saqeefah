@@ -9,10 +9,18 @@ import { ProjectAndListService } from 'src/app/services/project-lists.service';
   styleUrls: ['./edit-project.component.scss']
 })
 export class EditProjectComponent implements OnInit {
+  projectOverView:string
+  imageMapHardCode:string
+  masterPlaneImage:File = null
+  specificationsImage:File = null
+  grantiesImage:File = null
   projectId:any
 projectImageThumb:File = null
 projectImageGallery:File[] = []
 formData:FormData = new FormData()
+masterPlaneFormData:FormData = new FormData
+specificationsFormData:FormData = new FormData
+
 onInputChange(event){
  
   
@@ -49,6 +57,51 @@ uploadImage(e){
  this.editProject.uploadProjectImage(this.formData).subscribe((resp)=>{
   console.log(resp)
  })
+}
+onMasterPlaneInputChange(event){
+  if(event.target.files){
+    this.masterPlaneImage = <File>event.target.files[0]
+console.log('masterPlane file data',this.masterPlaneImage)
+  }
+
+  
+}
+UploadMasterPlane(e){
+  this.masterPlaneFormData.append('Project_Id',this.projectId)
+  this.masterPlaneFormData.append('MasterPlaneImage',this.masterPlaneImage,this.masterPlaneImage.name)
+  this.masterPlaneFormData.append('HardCode',this.imageMapHardCode)
+  this.masterPlaneFormData.append('ProjectOverview',this.projectOverView)
+  this.editProject.uploadProjectMasterPlane(this.masterPlaneFormData).subscribe((resp)=>{
+    console.log(resp)
+   })
+  
+}
+onSpecificationsInputChange(event){
+  if(event.target.files){
+    this.specificationsImage = <File>event.target.files[0]
+console.log('specs file data',this.masterPlaneImage)
+  }
+
+  
+}
+onGrantiesInputChange(event){
+  if(event.target.files){
+    this.grantiesImage = <File>event.target.files[0]
+console.log('granties file data',this.masterPlaneImage)
+  }
+
+  
+}
+UploadSpecifications(e){
+  this.masterPlaneFormData.append('Project_Id',this.projectId)
+  this.specificationsFormData.append('Specifications',this.specificationsImage,this.specificationsImage.name)
+  this.specificationsFormData.append('Granties',this.grantiesImage,this.grantiesImage.name)
+
+
+  this.editProject.uploadProjectSpecifications(this.specificationsFormData).subscribe((resp)=>{
+    console.log(resp)
+   })
+  
 }
   constructor(private editProject:ProjectAndListService, private route:ActivatedRoute, private sanitizer:DomSanitizer) { }
 
