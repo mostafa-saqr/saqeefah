@@ -16,48 +16,56 @@ import { UserlayoutComponent } from './pages/userSite/userlayout/userlayout.comp
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: UserlayoutComponent,
+    children:[
+      {
+        path: '',
+        component: HomeComponent,
+      },
+      {
+        path: 'search',
+        component: SearchComponent,
+      },
+      {
+        path: 'about',
+        component: AboutUsComponent,
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
+      },
+      {
+        path: 'place-order',
+        component: PlaceorderComponent,
+      },
+      {
+        path: 'project/:id',
+        component: ProjectDetailsComponent,
+      },
+      {
+        path: 'projects',
+        component: ProjectsComponent,
+      },
+      {
+        path: 'building/:id',
+        component: ProjectDetailsComponent,
+      },
+      {
+        path: 'property/:id',
+        component: PropertyDetailsComponent,
+      },
+      {
+        path: 'favorites',
+        component: FavoritesComponent,
+      },
+      {
+        path: 'compare',
+        component: CompareComponent,
+      },
+
+    ]
   },
-  {
-    path: 'search',
-    component: SearchComponent,
-  },
-  {
-    path: 'about',
-    component: AboutUsComponent,
-  },
-  {
-    path: 'contact',
-    component: ContactComponent,
-  },
-  {
-    path: 'place-order',
-    component: PlaceorderComponent,
-  },
-  {
-    path: 'project/:id',
-    component: ProjectDetailsComponent,
-  },
-  {
-    path: 'projects',
-    component: ProjectsComponent,
-  },
-  {
-    path: 'building/:id',
-    component: ProjectDetailsComponent,
-  },
-  {
-    path: 'property/:id',
-    component: PropertyDetailsComponent,
-  },
-  {
-    path: 'favorites',
-    component: FavoritesComponent,
-  },
-  {
-    path: 'compare',
-    component: CompareComponent,
-  },
+ 
   {
     path: 'login',
     component: LoginComponent,

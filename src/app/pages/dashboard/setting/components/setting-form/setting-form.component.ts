@@ -10,8 +10,9 @@ import { SettingsService } from '../../../services/settings.service';
 export class SettingFormComponent implements OnInit {
 
   @Input() collapseId: number = 1;
-  iconCss = new FormControl();
-  fallbackIcon = 'fas fa-user';
+  //  iconCss = new FormControl();
+   iconCss = 'fas fa-user';
+
   submitted: boolean = false;
 
 
@@ -21,7 +22,7 @@ export class SettingFormComponent implements OnInit {
     TitleAr: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
     DescriptionEn: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
     DescriptionAr: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
-    iconCss: new FormControl(this.iconCss),
+    iconCss: new FormControl(''),
 
 
   });
@@ -35,7 +36,7 @@ export class SettingFormComponent implements OnInit {
     this.initializeFormGroup();
 
     this.setting.getAllsettings().subscribe(res => {
-      debugger
+      // debugger
       if (res) {
         console.log(res);
       }
@@ -74,7 +75,7 @@ export class SettingFormComponent implements OnInit {
     this.formData.append('DescriptionAr',setting.DescriptionAr); 
     this.formData.append('DescriptionEn',setting.DescriptionEn); 
     this.formData.append('SettingTypeId',setting.settingTypeId); 
-    //this.formData.append('SettingIcon',setting.iconCss); 
+    this.formData.append('SettingIcon',setting.iconCss); 
 
         
 
@@ -97,7 +98,10 @@ export class SettingFormComponent implements OnInit {
 
   }
   onIconPickerSelect(icon: string): void {
-    this.iconCss.setValue(icon);
+  this.iconCss=icon;
+    this.myFormGroup.controls['iconCss'].setValue(icon);
+
+    //this.iconCss.setValue(icon);
   }
 
 
@@ -108,7 +112,7 @@ export class SettingFormComponent implements OnInit {
       TitleAr: '',
       DescriptionEn: '',
       DescriptionAr: '',
-      iconCss: this.iconCss
+      iconCss:'fas fa-user'
     })
   }
 
