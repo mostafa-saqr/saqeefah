@@ -36,9 +36,9 @@ import { HttpLoaderFactory } from 'src/app/app.module';
   declarations: [
     UserlayoutComponent,
     HomeComponent,
-    HeaderComponent,
-    FooterComponent,
-    TopHeaderComponent,
+    // HeaderComponent,
+    // FooterComponent,
+    // TopHeaderComponent,
     AboutSectionComponent,
     RecentListComponent,
     ParallaxComponent,
