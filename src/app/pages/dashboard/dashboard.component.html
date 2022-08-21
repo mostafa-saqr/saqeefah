@@ -10,10 +10,10 @@
                 <a routerLink="test">
                     <li class="full-width"> Test</li>
                 </a>
-                <a class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <li class="full-width">Website Settings</li>
+                <a>
+                    <li  class="accordion-button full-width collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemain" aria-expanded="false" aria-controls="collapsemain">Website Settings</li>
                 </a>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div id="collapsemain" class="accordion-collapse collapse" aria-labelledby="headingOne" >
 
                     <div class="accordion-body">
                         <ul class="px-0">
@@ -37,8 +37,13 @@
 
             </ul>
         </div>
-        <div class="col-md-10 ps-5 " style="margin-top: 200px;">
+        <div class="col-md-10 ps-5 ">
+            
+<section id="info-utile" class="">
+    <div class="container">
             <router-outlet></router-outlet>
+    </div>
+</section>
 
         </div>
     </div>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 import { UserlayoutComponent } from './userlayout.component';
 import { HomeComponent } from '../../home/home.component';
 import { FooterComponent } from 'src/app/layout/footer/footer.component';
@@ -36,9 +36,9 @@ import { HttpLoaderFactory } from 'src/app/app.module';
   declarations: [
     UserlayoutComponent,
     HomeComponent,
-    // HeaderComponent,
-    // FooterComponent,
-    // TopHeaderComponent,
+    HeaderComponent,
+    FooterComponent,
+    TopHeaderComponent,
     AboutSectionComponent,
     RecentListComponent,
     ParallaxComponent,
