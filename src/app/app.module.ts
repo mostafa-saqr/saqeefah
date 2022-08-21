@@ -47,7 +47,8 @@ import { UserlayoutModule } from './pages/userSite/userlayout/userlayout.module'
 @NgModule({
   declarations: [
     AppComponent,
-   
+    HeaderComponent,
+    FooterComponent,TopHeaderComponent
  
   
   ],
@@ -55,7 +56,7 @@ import { UserlayoutModule } from './pages/userSite/userlayout/userlayout.module'
     BrowserModule,
     ComponentsModule,
     AppRoutingModule,
-    UserlayoutModule,
+    // UserlayoutModule,
     DashboardModule,
     LoginModule,
     FormsModule,

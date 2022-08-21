@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   appRoot:"https://api-stage.saqeefah.com",
-  //appRoot:"https://localhost:7252"
+  // appRoot:"https://localhost:7252"
 };
 
 /*

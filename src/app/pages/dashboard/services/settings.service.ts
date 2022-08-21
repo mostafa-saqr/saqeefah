@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { APICallerService } from 'src/app/shared/services/apicaller.service';
 import { environment } from 'src/environments/environment';
+import { Setting } from '../Model/setting';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +14,16 @@ export class SettingsService {
   }
 
 
-   setSetting(model:any):Observable<any>{
-   // return this.http.post<any>(`${this.appRootUrl}/api/Setting`,model);
-   return this.aPICallerService.post(`api/Setting`,model,true);
+   setSetting(body:any):Observable<any>{
+   return this.aPICallerService.postWithAttachment(`api/Setting`,body,true);
 }
           
-  getsettingsById(Id:any){
-      return this.aPICallerService.get(`api/Setting?settingTypeId=${Id}`)
+  getsettingsById(settingTypeId:any){
+      return this.aPICallerService.get(`api/Setting?settingTypeId=${settingTypeId}`)
   }
 
   getAllsettings(){
-    return this.aPICallerService.get(`api/Setting`)
+    return this.aPICallerService.get(`api/Setting/AllSettings`)
   }
 
   getAllsettingsType(){

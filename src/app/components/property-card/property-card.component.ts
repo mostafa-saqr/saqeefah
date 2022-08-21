@@ -49,14 +49,13 @@ itemSpecsIcon = [
     count:'6'
   },
 ]
-   appRootUrl = environment.appRoot;
+   appRootUrl = environment.appRoot+'/';
   constructor(public favorites:FavoritesService, public compare:CompareService) { }
 
   ngOnInit(): void {
     this.favorites.checkFavorites(this.property)
     this.compare.checkCompare(this.property)
 
-console.log(this.property)
   }
 
 }
