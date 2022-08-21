@@ -1,4 +1,4 @@
-<div class="container mt-5" *ngIf="projectDetails">
+<div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
             <h3 class="secondary-color mb-0">{{projectDetails.projectName}}</h3>
@@ -18,18 +18,17 @@
                         <div class="col-md-8 mb-5">
 
 
-                            <img src="assets/images/list/masterplane2.jpg" usemap="#image-map" class="img-fluid">
-                            <map name="image-map">
-                                <area target="" alt="" title="" (click)="goToSpecialBuilding(34)" coords="295,42,275,77,290,87,314,85,331,73,337,64" shape="poly">
-                                <area target="" alt="" title="" (click)="goToSpecialBuilding(57)" coords="251,119,225,159,269,159,268,130" shape="poly">
-                                <area target="" alt="" title="" (click)="goToSpecialBuilding(61)" coords="364,89,395,109,387,153,324,157" shape="poly">
-                            </map>
+                            <img [src]="appRootUrl+projectDetails.masterPlane.masterPlaneImage" usemap="#image-map" class="img-fluid">
+                            <!-- <map name="image-map">
+                                <area  data-value="U"   coords="295,42,275,77,290,87,314,85,331,73,337,64" shape="poly">
+                                <area  data-value="V" coords="251,119,225,159,269,159,268,130" shape="poly">
+                            </map> -->
+                            <map name="image-map" [innerHTML]="getMapImageHardCode"></map>
                         </div>
                         <div class="col-md-4">
                             <h4 class="secondary-color">Project Overview</h4>
-                            <p> يجب أن يتناسب منزلك مع الطريقة التي تعيش بها ، مع المساحات والميزات التي تروق لجميع أفراد الأسرة. قبل أن تبدأ في النظر إلى المنازل ، ضع قائمة بأولوياتك: الموقع ، الحجم ، المساحة ، وسائل الراحة ، إلخ. ضع مجموعة من المتطلبات
-                                الدنيا و ' قائمة الرغبات' . الحد الأدنى من المتطلبات هو الأشياء التي يجب أن يتوافر في المنزل لكي تفكر فيها ، بينما تغطي ' قائمة الرغبات' الأشياء التي ترغب في الحصول عليها ولكنها ليست ضرورية.
-
+                            <p>
+                                {{projectDetails.masterPlane.projectOverview}}
                             </p>
                         </div>
                     </div>
@@ -45,7 +44,7 @@
                                 <h5 class="secondary-color">Specifications</h5>
                                 <div class="specs-panel">
 
-                                    <img src="assets/images/list/specs.png" class="img-fluid" alt="">
+                                    <img [src]="appRootUrl+projectDetails.specifications.specificationsImage" class="img-fluid" alt="">
                                 </div>
 
                             </div>
@@ -53,7 +52,7 @@
                                 <h5 class="secondary-color">Granties</h5>
                                 <div class="specs-panel">
 
-                                    <img src="assets/images/list/granties.PNG" class="img-fluid" alt="">
+                                    <img [src]="appRootUrl+projectDetails.specifications.grantiesImage" class="img-fluid" alt="">
                                 </div>
                             </div>
                         </div>

@@ -14,63 +14,50 @@ import { SearchComponent } from './pages/search/search.component';
 import { UserlayoutComponent } from './pages/userSite/userlayout/userlayout.component';
 
 const routes: Routes = [
-
   {
     path: '',
-    component: UserlayoutComponent,
-    children:[
-      {
-        path: '',
-        component: HomeComponent,
-      },
-      {
-        path: 'search',
-        component: SearchComponent,
-      },
-      {
-        path: 'about',
-        component: AboutUsComponent,
-      },
-      {
-        path: 'contact',
-        component: ContactComponent,
-      },
-      {
-        path: 'place-order',
-        component: PlaceorderComponent,
-      },
-      {
-        path: 'project/:id',
-        component: ProjectDetailsComponent,
-      },
-      {
-        path: 'projects',
-        component: ProjectsComponent,
-      },
-      {
-        path: 'building/:id',
-        component: ProjectDetailsComponent,
-      },
-      {
-        path: 'property/:id',
-        component: PropertyDetailsComponent,
-      },
-      {
-        path: 'favorites',
-        component: FavoritesComponent,
-      },
-      {
-        path: 'compare',
-        component: CompareComponent,
-      },
-
-    ]
-
-
-
+    component: HomeComponent,
   },
-
-    // routing for admin
+  {
+    path: 'search',
+    component: SearchComponent,
+  },
+  {
+    path: 'about',
+    component: AboutUsComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+  },
+  {
+    path: 'place-order',
+    component: PlaceorderComponent,
+  },
+  {
+    path: 'project/:id',
+    component: ProjectDetailsComponent,
+  },
+  {
+    path: 'projects',
+    component: ProjectsComponent,
+  },
+  {
+    path: 'building/:id',
+    component: ProjectDetailsComponent,
+  },
+  {
+    path: 'property/:id',
+    component: PropertyDetailsComponent,
+  },
+  {
+    path: 'favorites',
+    component: FavoritesComponent,
+  },
+  {
+    path: 'compare',
+    component: CompareComponent,
+  },
   {
     path: 'login',
     component: LoginComponent,
