@@ -12,7 +12,8 @@ export class SettingFormComponent implements OnInit {
   @Input() collapseId: number = 1;
   iconCss = new FormControl();
   fallbackIcon = 'fas fa-user';
-  submitted:boolean=false; 
+  submitted: boolean = false;
+
 
   public myFormGroup: FormGroup = new FormGroup({
     settingTypeId: new FormControl(0),
@@ -20,7 +21,6 @@ export class SettingFormComponent implements OnInit {
     TitleAr: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
     DescriptionEn: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
     DescriptionAr: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
-    Image: new FormControl('', [Validators.required]),
     iconCss: new FormControl(this.iconCss),
 
 
@@ -35,6 +35,7 @@ export class SettingFormComponent implements OnInit {
     this.initializeFormGroup();
 
     this.setting.getAllsettings().subscribe(res => {
+      debugger
       if (res) {
         console.log(res);
       }
@@ -44,8 +45,18 @@ export class SettingFormComponent implements OnInit {
     })
   }
 
+  ImageThumb: File = null
+  formData: FormData = new FormData()
+  onInputChange(event) {
+
+    if (event.target.files) {
+      this.ImageThumb = <File>event.target.files[0]
+      console.log('file data', this.ImageThumb)
+    }
+  }
+
   onClickSubmit() {
-    this.submitted=true; 
+    this.submitted = true;
     if (this.myFormGroup.invalid) {
       return;
     }
@@ -55,18 +66,26 @@ export class SettingFormComponent implements OnInit {
       TitleAr: this.myFormGroup.value.TitleAr,
       DescriptionEn: this.myFormGroup.value.DescriptionEn,
       DescriptionAr: this.myFormGroup.value.DescriptionAr,
-      Image: this.myFormGroup.value.Image,
       iconCss: this.myFormGroup.value.iconCss,
     };
+    this.formData.append('SettingImage',this.ImageThumb, this.ImageThumb.name); 
+    this.formData.append('TitleAr',setting.TitleAr); 
+    this.formData.append('TitleEn',setting.TitleEn); 
+    this.formData.append('DescriptionAr',setting.DescriptionAr); 
+    this.formData.append('DescriptionEn',setting.DescriptionEn); 
+    this.formData.append('SettingTypeId',setting.settingTypeId); 
+    //this.formData.append('SettingIcon',setting.iconCss); 
 
+        
 
-    this.setting.setSetting(setting).subscribe(
+    this.setting.setSetting(this.formData).subscribe(
       res => {
-        debugger; 
+        debugger;
+        console.log(res); 
         if (res.status = true) {
           alert(':: Submitted successfully');
           this.myFormGroup.reset();
-          this.submitted=false; 
+          this.submitted = false;
 
         }
         else {
@@ -89,7 +108,6 @@ export class SettingFormComponent implements OnInit {
       TitleAr: '',
       DescriptionEn: '',
       DescriptionAr: '',
-      Image: '',
       iconCss: this.iconCss
     })
   }
