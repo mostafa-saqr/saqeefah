@@ -6,7 +6,7 @@
         <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="property.apartmentId" [class.active]="property.favorite" (click)="favorites.toggleFavorites(property)"></i>
 
         <div class="card-label">For Rent</div>
-        <span class="edit-project" [routerLink]="'../edit-property/'+property.project_Ref+'/'+property.apartment_Id">Edit</span>
+        <span class="edit-project" *ngIf="EditMode" [routerLink]="'../edit-property/'+property.project_Ref+'/'+property.apartment_Id">Edit</span>
         <div class="compare" [attr.data-cardCompico-id]="property.apartmentId" [class.active]="property.Compare" (click)="compare.toggleCompare(property)">Compare</div>
         <div class="card-mask" [routerLink]="'../../property/'+property.apartmentId"></div>
     </div>
