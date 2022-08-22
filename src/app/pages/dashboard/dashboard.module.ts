@@ -4,7 +4,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {ComponentsModule, HttpLoaderFactory} from '../../components/components.module'
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import { SettingComponent } from './setting/setting.component';
 import { UsersComponent } from './users/users.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { PropertyComponent } from './property/property.component';
@@ -16,10 +15,11 @@ import { HttpClient } from '@angular/common/http';
 import { FooterComponent } from './navigator/footer/footer.component';
 import { HeaderComponent } from './navigator/header/header.component';
 import { SidebarComponent } from './navigator/sidebar/sidebar.component';
-import { SocialmediaComponent } from './setting/socialmedia/socialmedia.component';
+import { SocialmediaComponent } from './setting/pages/socialmedia/socialmedia.component';
 import { TopHeaderComponent } from './navigator/top-header/top-header.component';
 import { SettingFormComponent } from './setting/components/setting-form/setting-form.component';
 import { IconPickerModule } from 'ngx-icon-picker';
+import { SettingComponent } from './setting/pages/setting.component';
 
 
 

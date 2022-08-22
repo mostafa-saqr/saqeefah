@@ -13,7 +13,9 @@ export class SettingFormComponent implements OnInit {
 
   @Input() collapseId: number = 1;
 
-  @Input() SettingType: SettingTypes;
+  @Input() SettingTypeId: number;
+
+  @Input() SettingTypeTitle: string;
 
    iconCss = 'fas fa-user';
   submitted: boolean = false;
@@ -98,7 +100,7 @@ export class SettingFormComponent implements OnInit {
   initializeFormGroup() {
     debugger
     this.myFormGroup.setValue({
-      settingTypeId: this.SettingType,
+      settingTypeId: this.SettingTypeId,
       TitleEn: '',
       TitleAr: '',
       DescriptionEn: '',
