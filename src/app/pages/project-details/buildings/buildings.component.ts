@@ -9,7 +9,7 @@ export class BuildingsComponent implements OnInit, AfterViewInit {
   @Input() buildings:any
   @Input() activeBuilding:any
   propertIndex:number = 0
-  propertyOfSelectedBuilding:[]=[]
+  propertyOfSelectedBuilding!:[]
   getBuildingProperty(building){
     
 if(building != undefined){
@@ -27,10 +27,10 @@ if(building != undefined){
   constructor() { }
 
   ngOnInit(): void {
-   
+    console.log('buildings', this.buildings)
+  this.getBuildingProperty(this.activeBuilding)
   }
 ngAfterViewInit(): void {
-  console.log('buildings', this.buildings)
-  this.getBuildingProperty(this.activeBuilding)
+ 
 }
 }

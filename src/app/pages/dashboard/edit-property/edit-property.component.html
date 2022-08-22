@@ -6,7 +6,8 @@
             <input type="file" class="form-control mb-3" (change)="onInputChange($event)" id="thumbnail">
             <label for="gallery">Add Project Gallery</label>
             <input type="file" class="form-control mb-3" (change)="onGalleryInputChange($event)" id="gallery" multiple>
-            <button type="submit" class="btn btn-primary" (click)="uploadImage($event)">Submit</button>
+            <button [disabled]="uploadWorking" type="submit" class="btn btn-primary" (click)="uploadImage($event)">Submit</button>
+            <span *ngIf="uploadWorking">Loading ......</span>
         </form>
     </div>
 </div>

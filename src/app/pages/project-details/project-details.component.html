@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <div class="row">
+    <div class="row" *ngIf="projectDetails">
         <div class="col-md-12">
             <h3 class="secondary-color mb-0">{{projectDetails.projectName}}</h3>
             <h6>{{projectDetails.adress}}</h6>
@@ -44,7 +44,7 @@
                                 <h5 class="secondary-color">Specifications</h5>
                                 <div class="specs-panel">
 
-                                    <img [src]="appRootUrl+projectDetails.specifications.specificationsImage" class="img-fluid" alt="">
+                                    <img [src]="appRootUrl+projectDetails.specifications.specificationsImage" *ngIf="projectDetails.specifications != null" class="img-fluid" alt="">
                                 </div>
 
                             </div>
@@ -52,7 +52,7 @@
                                 <h5 class="secondary-color">Granties</h5>
                                 <div class="specs-panel">
 
-                                    <img [src]="appRootUrl+projectDetails.specifications.grantiesImage" class="img-fluid" alt="">
+                                    <img *ngIf="projectDetails.specifications != null" [src]="appRootUrl+projectDetails.specifications.grantiesImage" class="img-fluid" alt="">
                                 </div>
                             </div>
                         </div>

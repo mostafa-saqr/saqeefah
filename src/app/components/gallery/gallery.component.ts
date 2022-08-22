@@ -18,10 +18,10 @@ export class GalleryComponent implements OnInit,AfterViewInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.addImageGallery()
 
   }
   ngAfterViewInit(): void {
-    this.addImageGallery()
   }
 addImageGallery(){
   for(let i = 0 ; i < this.galleryImage.length; i++){

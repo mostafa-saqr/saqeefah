@@ -9,6 +9,7 @@ import { ProjectAndListService } from 'src/app/services/project-lists.service';
 })
 export class EditPropertyComponent implements OnInit {
   propertyId:any
+  uploadWorking =false
   projectId:any
 propertyImageThumb:File = null
 propertyImageGallery:File[] = []
@@ -30,7 +31,7 @@ onGalleryInputChange(event){
 }
   
 uploadImage(e){
-  
+  this.uploadWorking = true
   e.preventDefault();
         this.formData.append('CoverImage',this.propertyImageThumb, this.propertyImageThumb.name)
         
@@ -49,6 +50,8 @@ uploadImage(e){
         
  this.editproperty.uploadpropertyImage(this.formData).subscribe((resp)=>{
   console.log(resp)
+  this.uploadWorking = false
+
  })
 }
   constructor(private editproperty:ProjectAndListService, private route:ActivatedRoute, private sanitizer:DomSanitizer) { }
