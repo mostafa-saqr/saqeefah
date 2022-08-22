@@ -21,9 +21,7 @@ formData:FormData = new FormData()
 masterPlaneFormData:FormData = new FormData
 specificationsFormData:FormData = new FormData
 uploadWorking:boolean = false
-uploadMessage = {
-  message:''
-}
+masterPlaneUploadMessage:string
 
 onInputChange(event){
  
@@ -59,7 +57,7 @@ uploadImage(e){
 
         
  this.editProject.uploadProjectImage(this.formData).subscribe((resp)=>{
-  this.uploadMessage = resp.uploadMessage.message
+  
 
   this.uploadWorking = false
   console.log('api project image',resp)
@@ -81,7 +79,8 @@ UploadMasterPlane(e){
   this.masterPlaneFormData.append('ProjectOverview',this.projectOverView)
   this.editProject.uploadProjectMasterPlane(this.masterPlaneFormData).subscribe((resp)=>{
     console.log(resp)
-    this.uploadWorking = false
+    this.uploadWorking = false;
+    this.masterPlaneUploadMessage = resp.message
    })
   
 }

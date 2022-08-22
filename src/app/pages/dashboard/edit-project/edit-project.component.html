@@ -9,7 +9,7 @@
 
         </p>
         <button type="submit" [disabled]="uploadWorking" class="btn btn-primary" (click)="UploadMasterPlane($event)">Submit</button>
-        <span *ngIf="uploadWorking">Loading ......</span> <span *ngIf="uploadWorking != undefined">{{uploadMessage}}</span>
+        <span *ngIf="uploadWorking">Loading ......</span> <span>{{masterPlaneUploadMessage}}</span>
     </div>
 </div>
 <hr>
