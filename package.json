@@ -30,6 +30,7 @@
     "jquery": "^3.6.0",
     "leaflet": "^1.7.1",
     "mousetrap": "^1.6.5",
+    "ngx-icon-picker": "^1.9.1",
     "panolens": "^0.10.4",
     "rxjs": "~7.5.0",
     "three": "^0.142.0",
