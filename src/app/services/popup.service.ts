@@ -16,15 +16,15 @@ export class PopupService  {
       <div class="img-panel">
           <img src="assets/images/list/p1.jpg" class="card-img-top" alt="...">
          
-          <div class="card-label">For Rent</div>
+          <div class="card-label">${data.state}</div>
           <div class="card-mask"></div>
       </div>
       <div class="card-body">
           <div class="unit-location">
               <div class="row">
                   <div class="col-md-12">
-                      <h5>Unit Name</h5>
-                      <h6>Country</h6>
+                      <h5>${data.state}</h5>
+                      <h6>${data.countery}</h6>
   
                   </div>
                   
