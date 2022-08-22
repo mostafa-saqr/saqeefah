@@ -12,3 +12,13 @@ export enum ButtonTypes {
   Submit,
 }
 
+
+
+export enum SettingTypes{
+
+  AboutUs=100,
+  OurVision=200, 
+  OurGoals=300, 
+  
+
+}

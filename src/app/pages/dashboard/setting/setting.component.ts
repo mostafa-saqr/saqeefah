@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingTypes } from 'src/app/shared/Enums/enums';
+
+
 
 @Component({
   selector: 'app-setting',
@@ -7,13 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingComponent implements OnInit {
 
-  constructor() { }
 
+
+  constructor(){
+    
+  }
   ngOnInit(): void {
+  //
+  }
+  
+  get settingTypes() {
+    const keys=Object.values(SettingTypes);
+    return keys; 
   }
 
-  onClickSubmit(){
-  
- }
 
+
+  
 }

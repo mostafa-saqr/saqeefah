@@ -18,6 +18,8 @@ import { HeaderComponent } from './navigator/header/header.component';
 import { SidebarComponent } from './navigator/sidebar/sidebar.component';
 import { SocialmediaComponent } from './setting/socialmedia/socialmedia.component';
 import { TopHeaderComponent } from './navigator/top-header/top-header.component';
+import { SettingFormComponent } from './setting/components/setting-form/setting-form.component';
+import { IconPickerModule } from 'ngx-icon-picker';
 
 
 
@@ -25,6 +27,7 @@ import { TopHeaderComponent } from './navigator/top-header/top-header.component'
   declarations: [
     DashboardComponent,
             SettingComponent,
+            SettingFormComponent,
             UsersComponent,
             ProjectsComponent,
             PropertyComponent,
@@ -44,6 +47,7 @@ import { TopHeaderComponent } from './navigator/top-header/top-header.component'
     ComponentsModule,
     FormsModule,
     ReactiveFormsModule,
+    IconPickerModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
       loader: {
