@@ -20,6 +20,10 @@ projectImageGallery:File[] = []
 formData:FormData = new FormData()
 masterPlaneFormData:FormData = new FormData
 specificationsFormData:FormData = new FormData
+uploadWorking:boolean = false
+uploadMessage = {
+  message:''
+}
 
 onInputChange(event){
  
@@ -39,7 +43,7 @@ console.log('file data',this.projectImageGallery)
   }
 }
 uploadImage(e){
-  
+  this.uploadWorking = true
   e.preventDefault();
         this.formData.append('CoverImage',this.projectImageThumb, this.projectImageThumb.name)
         
@@ -55,7 +59,10 @@ uploadImage(e){
 
         
  this.editProject.uploadProjectImage(this.formData).subscribe((resp)=>{
-  console.log(resp)
+  this.uploadMessage = resp.uploadMessage.message
+
+  this.uploadWorking = false
+  console.log('api project image',resp)
  })
 }
 onMasterPlaneInputChange(event){
@@ -67,19 +74,21 @@ console.log('masterPlane file data',this.masterPlaneImage)
   
 }
 UploadMasterPlane(e){
+  this.uploadWorking = true
   this.masterPlaneFormData.append('Project_Id',this.projectId)
   this.masterPlaneFormData.append('MasterPlaneImage',this.masterPlaneImage,this.masterPlaneImage.name)
   this.masterPlaneFormData.append('HardCode',this.imageMapHardCode)
   this.masterPlaneFormData.append('ProjectOverview',this.projectOverView)
   this.editProject.uploadProjectMasterPlane(this.masterPlaneFormData).subscribe((resp)=>{
     console.log(resp)
+    this.uploadWorking = false
    })
   
 }
 onSpecificationsInputChange(event){
   if(event.target.files){
     this.specificationsImage = <File>event.target.files[0]
-console.log('specs file data',this.masterPlaneImage)
+console.log('specs file data',this.specificationsImage)
   }
 
   
@@ -87,18 +96,20 @@ console.log('specs file data',this.masterPlaneImage)
 onGrantiesInputChange(event){
   if(event.target.files){
     this.grantiesImage = <File>event.target.files[0]
-console.log('granties file data',this.masterPlaneImage)
+console.log('granties file data',this.grantiesImage)
   }
 
   
 }
 UploadSpecifications(e){
+  this.uploadWorking = true
   this.masterPlaneFormData.append('Project_Id',this.projectId)
   this.specificationsFormData.append('Specifications',this.specificationsImage,this.specificationsImage.name)
   this.specificationsFormData.append('Granties',this.grantiesImage,this.grantiesImage.name)
 
 
   this.editProject.uploadProjectSpecifications(this.specificationsFormData).subscribe((resp)=>{
+    this.uploadWorking = false
     console.log(resp)
    })
   

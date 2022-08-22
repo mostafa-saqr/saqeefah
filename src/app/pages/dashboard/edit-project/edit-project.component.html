@@ -8,8 +8,8 @@
         <p>
 
         </p>
-        <button type="submit" class="btn btn-primary" (click)="UploadMasterPlane($event)">Submit</button>
-
+        <button type="submit" [disabled]="uploadWorking" class="btn btn-primary" (click)="UploadMasterPlane($event)">Submit</button>
+        <span *ngIf="uploadWorking">Loading ......</span> <span *ngIf="uploadWorking != undefined">{{uploadMessage}}</span>
     </div>
 </div>
 <hr>
@@ -21,7 +21,9 @@
             <input type="file" class="form-control mb-3" (change)="onInputChange($event)" id="thumbnail">
             <label for="gallery">Add Project Gallery</label>
             <input type="file" class="form-control mb-3" (change)="onGalleryInputChange($event)" id="gallery" multiple>
-            <button type="submit" class="btn btn-primary" (click)="uploadImage($event)">Submit</button>
+            <button [disabled]="uploadWorking" type="submit" class="btn btn-primary" (click)="uploadImage($event)">Submit</button>
+            <span *ngIf="uploadWorking">Loading ......</span>
+
         </form>
     </div>
 </div>
@@ -30,9 +32,12 @@
     <div class="col-md-8">
         <h4 class="secondary-color mb-3">Project Specifications</h4>
         <label for="specifications">Add Project Specification Photo</label>
-        <input type="file" class="form-control mb-3" id="specifications">
+        <input type="file" (change)="onSpecificationsInputChange($event)" class="form-control mb-3" id="specifications">
         <label for="granties">Add Project Granties</label>
-        <input type="file" class="form-control mb-3" id="granties">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="file" (change)="onGrantiesInputChange($event)" class="form-control mb-3" id="granties">
+        <button type="submit" [disabled]="uploadWorking" (click)="UploadSpecifications($event)" class="btn btn-primary">Submit</button>
+        <span *ngIf="uploadWorking">Loading ......</span>
+
+
     </div>
 </div>
