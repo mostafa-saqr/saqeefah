@@ -48,7 +48,8 @@ import { UserlayoutModule } from './pages/userSite/userlayout/userlayout.module'
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,TopHeaderComponent
+    FooterComponent,
+    TopHeaderComponent
  
   
   ],
