@@ -28,8 +28,22 @@
                         <form action=""  [formGroup]="form" (submit)="onSubmit()" >
                         <h5 class="secondary-color mb-3">{{'Feedback' |translate}}</h5>
                         <input type="hidden" formControlName="id">
+                       <div class="form-group">
                         <input type="text" class="form-control mb-3" formControlName="email" placeholder="{{'Email' | translate}}">
+                        <span class="text-danger error" *ngIf="showError && form.controls['email'].errors?.['required']">
+                            * Required Field 
+                        </span>
+                        <span class="text-danger error" *ngIf="showError && form.controls['email'].errors?.['email']">
+                           *Invalid email pattern (should have '@')
+                      </span>
+                       </div>
+                      <div class="form-group">
                         <textarea name="" placeholder="{{'Subject'|translate}}" formControlName="subject" class="form-control mb-3" id="" cols="30" rows="3"></textarea>
+                        <span class="text-danger error" *ngIf="showError && form.controls['subject'].errors?.['required']">
+                            * Required Field 
+                        </span>
+                      </div>
+                       
                         <button type="submit"  class="btn secondary-btn">{{'Submit'|translate}}</button>
                     </form>
                     </div>

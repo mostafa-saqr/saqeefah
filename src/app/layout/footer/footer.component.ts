@@ -9,13 +9,14 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 })
 export class FooterComponent implements OnInit {
 
-   
+  showError:boolean=false;
+  spaceRegex=/^(\s+\S+\s*)*(?!\s).*$/;
   emailRegex=/^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/;
 
   form:FormGroup=new FormGroup({
     id:new FormControl(0), 
-    email:new FormControl('',Validators.pattern(this.emailRegex)),
-    subject: new FormControl(''),
+    email:new FormControl('',[Validators.required,Validators.email,Validators.pattern(this.spaceRegex)]),
+    subject: new FormControl('',[Validators.required,Validators.pattern(this.spaceRegex)]),
   })
 
   constructor(private FB:FeedbackService) { }
@@ -28,6 +29,8 @@ export class FooterComponent implements OnInit {
   onSubmit(){
     debugger;
     if (this.form.invalid) {
+
+      this.showError=true;
       return;
     }
 
@@ -44,6 +47,7 @@ export class FooterComponent implements OnInit {
       res => {
         if (res.status = true) {
           alert(':: Submitted successfully');
+          this.showError=false;
           this.form.reset();
           // this.submitted = false;
         }

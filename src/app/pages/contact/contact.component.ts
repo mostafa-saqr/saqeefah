@@ -8,15 +8,16 @@ import { ContactUsService } from 'src/app/services/contact-us.service';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-   
+  showError:boolean=false;
   emailRegex=/^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/;
-  
+  spaceRegex=/^(\s+\S+\s*)*(?!\s).*$/;
+  phoneregex='(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})'
   form: FormGroup= new FormGroup({ 
     id: new FormControl(0),
-    name:new FormControl(''),
-    email:new FormControl('',Validators.pattern(this.emailRegex)),
-    phone: new FormControl(''),
-    message:new FormControl('')
+    name:new FormControl('', [Validators.required,Validators.pattern(this.spaceRegex)]),
+    email:new FormControl('', [Validators.required,Validators.pattern(this.spaceRegex),Validators.email]),
+    phone: new FormControl('', [Validators.required,Validators.pattern(this.spaceRegex),Validators.pattern(this.phoneregex)]),
+    message:new FormControl('', [Validators.required,Validators.pattern(this.spaceRegex)])
   })
 
   constructor(private contact:ContactUsService) { }
@@ -29,6 +30,7 @@ export class ContactComponent implements OnInit {
   onSubmit(){
     debugger;
     if (this.form.invalid) {
+      this.showError=true;
       return;
     }
 
@@ -45,6 +47,8 @@ export class ContactComponent implements OnInit {
       res => {
         if (res.status = true) {
           alert(':: Submitted successfully');
+          this.showError=false;
+          this.form.reset();
           this.form.reset();
           // this.submitted = false;
         }
