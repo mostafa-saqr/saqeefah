@@ -3,7 +3,7 @@
     <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse"   [attr.data-bs-target]="'#collapse-' +collapseId" 
             aria-expanded="true" aria-controls="collapseOne">
-         {{SettingTypeTitle}}
+            <h5 class="secondary-color">{{SettingTypeTitle}}</h5>
         </button>
     </h2>
     <div id="{{'collapse-'+collapseId}}" class="accordion-collapse collapse show" aria-labelledby="headingOne">
@@ -12,13 +12,22 @@
                 <input type="hidden" formControlName="settingTypeId">
                 <div class="col-md-6">
                     <div class="my-1 ">
-                        <label for="exampleFormControlInput1" class="form-label">Title En</label>
+                        <label for="exampleFormControlInput1" class="form-label">Title En
+                            <span class="text-danger error" *ngIf="showError && myFormGroup.controls['TitleEn'].errors?.['required']">
+                                * Required Field 
+                            </span>
+
+                        </label>
                         <div class="formg">
                             <input type="text" class="form-control" formControlName="TitleEn" placeholder="Fill Field">
                         </div>
                     </div>
                     <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Description  En </label>
+                        <label for="exampleFormControlInput1" class="form-label">Description  En 
+                            <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionEn'].errors?.['required']">
+                                * Required Field 
+                            </span>
+                        </label>
                         <div class="formg">
                             <textarea class="form-control" formControlName="DescriptionEn" rows="3"></textarea>
                         </div>
@@ -28,13 +37,22 @@
 
                 <div class="col-md-6">
                     <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Title Ar</label>
+                        <label for="exampleFormControlInput1" class="form-label">Title Ar
+                            <span class="text-danger error" *ngIf="showError && myFormGroup.controls['TitleAr'].errors?.['required']">
+                                * Required Field 
+                            </span>
+                   
+                        </label>
                         <div class="formg">
                             <input type="text" class="form-control" formControlName="TitleAr" placeholder="Fill Field">
                         </div>
                     </div>
                     <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Description Ar </label>
+                        <label for="exampleFormControlInput1" class="form-label">Description Ar 
+                            <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionAr'].errors?.['required']">
+                                * Required Field 
+                            </span>
+                        </label>
                         <div class="formg">
                             <textarea class="form-control" formControlName="DescriptionAr" rows="3"></textarea>
                         </div>
@@ -46,7 +64,11 @@
 
                 <div class="col-md-12">
                     <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Select Icon </label>
+                        <label for="exampleFormControlInput1" class="form-label">Select Icon 
+                            <span class="text-danger error" *ngIf="showError && myFormGroup.controls['iconCss'].errors?.['required']">
+                                * Required Field 
+                            </span>
+                        </label>
                         <div class="formg w-100 input-group">
                             <span class="input-group-text"><i [ngClass]="iconCss"></i></span>
                         
@@ -67,7 +89,8 @@
                         </div>
                     </div>
                     <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Select Image </label>
+                        <label for="exampleFormControlInput1" class="form-label">Select Image
+                         </label>
                         <div class="formg w-100">
                             <input type="file" class="form-control mb-3" (change)="onInputChange($event)" id="thumbnail">
                             <button type="submit" class="btn btn-small btn-primary w-25 float-end  px-4  mt-2">Save

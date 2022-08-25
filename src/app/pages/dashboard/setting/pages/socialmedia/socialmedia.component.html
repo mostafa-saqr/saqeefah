@@ -1,54 +1,73 @@
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Social Media
-                </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <form action="" class="row mt-5 g-4" #AboutUs (ngSubmit)="onClickSubmit(AboutUs)" >
-                        <div class="my-1 d-flex">
-                            <label for="exampleFormControlInput1" class="form-label">Facebook <i class="icon tagr-social-facebook"></i> : </label>
-                            <div class="formg">
-                                <input type="email" class="form-control" id="exampleFormControlInput1"  placeholder="Fill Field">
-                            </div>
-                          </div>
-                          <div class="my-1 d-flex">
-                            <label for="exampleFormControlInput1" class="form-label">Linkedin <i class="icon tagr-social-linkedin"></i> : </label>
-                            <div class="formg">
-                                <input type="email" class="form-control" id="exampleFormControlInput1"  placeholder="Fill Field">
-                            </div>
-                          </div>
-                          <div class="my-1 d-flex">
-                            <label for="exampleFormControlInput1" class="form-label">Twitter <i class="icon tagr-social-twitter"></i> : </label>
-                            <div class="formg">
-                                <input type="email" class="form-control" id="exampleFormControlInput1"  placeholder="Fill Field">
-                            </div>
-                          </div>
-                          <div class="my-1 d-flex">
-                            <label for="exampleFormControlInput1" class="form-label"> Google Plus <i class="icon tagr-social-google-plus"></i> : </label>
-                            <div class="formg">
-                                <input type="email" class="form-control" id="exampleFormControlInput1"  placeholder="Fill Field">
-                                <button type="submit" class="btn btn-small btn-primary w-25 float-end  px-4  mt-2">login</button>
-                            </div>
-                          </div>
-                          
-                         
-                        </form>
-                   
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item shadow">
+      <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h5 class="secondary-color">Social Media</h5> 
+      </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+          <form class="row mt-4 g-4" [formGroup]="myFormGroup" (ngSubmit)="onClickSubmit()" >
+              <div class="my-1 d-flex">
+                  <label for="exampleFormControlInput1" class="form-label">Facebook <i class="icon tagr-social-facebook"></i> : </label>
+                  <div class="formg">
+                      <input type="email" class="form-control" formControlName="Facebook" placeholder="https://www.facebook.com/">
+                      <span class="text-danger error" *ngIf="showError && myFormGroup.controls['Facebook'].errors?.['required']">
+                        * Required Field 
+                    </span>
+                    <span class="text-danger error" *ngIf="showError && myFormGroup.controls['Facebook'].errors?.['pattern']">
+                       *Invalid pattern
+                  </span>
+                  </div>
                 </div>
+                <div class="my-1 d-flex">
+                  <label for="exampleFormControlInput1" class="form-label">Linkedin <i class="icon tagr-social-linkedin"></i> : </label>
+                  <div class="formg">
+                      <input type="email" class="form-control" formControlName="Linkedin" placeholder="https://www.linkedin.com/">
+                      <span class="text-danger error" *ngIf="showError && myFormGroup.controls['Linkedin'].errors?.['required']">
+                        * Required Field 
+                    </span>
+                    <span class="text-danger error" *ngIf="showError && myFormGroup.controls['Linkedin'].errors?.['pattern']">
+                      *Invalid pattern
+                 </span>
+                  </div>
                 </div>
-            </div>
+                <div class="my-1 d-flex">
+                  <label for="exampleFormControlInput1" class="form-label">Twitter <i class="icon tagr-social-twitter"></i> : </label>
+                  <div class="formg">
+                      <input type="email" class="form-control" formControlName="Twitter"  placeholder="https://twitter.com/">
+                      <span class="text-danger error" *ngIf="showError && myFormGroup.controls['Twitter'].errors?.['required']">
+                        * Required Field 
+                    </span>
+                    <span class="text-danger error" *ngIf="showError && myFormGroup.controls['Twitter'].errors?.['pattern']">
+                      *Invalid pattern
+                 </span>
+                  </div>
+                </div>
+                <div class="my-1 d-flex">
+                  <label for="exampleFormControlInput1" class="form-label"> Google Plus <i class="icon tagr-social-google-plus"></i> : </label>
+                  <div class="formg">
+                      <input type="email" class="form-control" formControlName="Googleplus"  placeholder="https://plus.google.com/">
+                      <span class="text-danger error" *ngIf="showError && myFormGroup.controls['Googleplus'].errors?.['required']">
+                        * Required Field 
+                    </span>
+                    <span class="text-danger error" *ngIf="showError && myFormGroup.controls['Googleplus'].errors?.['pattern']">
+                      *Invalid pattern
+                 </span>
+                </div>
+              </div>
+                <div class="w-100 text-center">
+                  <button type="submit" class="btn  btn-primary w-25  px-4  mt-1">Save</button>
+                </div>
+                      
+                 
+               
+                
+               
+              </form>
+         
+      </div>
+      </div>
+  </div>
 </div>
 <hr>
-
-
-
-
-
-
-
-
-
-

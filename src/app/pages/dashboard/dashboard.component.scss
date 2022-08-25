@@ -1,6 +1,8 @@
 
+
+/*bootstap style*/
 .container-fluid{
-    min-height: 93.2vh;
+    min-height: 92.8vh;
 }
 
 
@@ -11,38 +13,43 @@ app-header{
 
 }
 
-
-
-#sidenav {
-    width: 240px;
-}
-
-#sidenav.menu-close {
-    width: 0px
-}
-
-#sidenav.menu-open {
-    width: 240px
+section{
+    padding: 100px 0 50px 0;
 }
 
 
-#sidenav .mat-list-item-content {
-    padding: 0;
-}
+ 
+  .accordion-button:not(.collapsed)::after{
+    background-image:none !important;
+    transform: none !important;
+    content: '-' !important;
+    // float: right !important;
+    font-size: 25px !important;
+    color:#fff !important;
 
+  }
 
+  .accordion-button.collapsed:after {
+    background-image:none !important;
+    transform: none !important;
+    content: '+' !important;
+    font-size: 25px !important;
+    color: #fff !important;
+    // float: right !important;
+  }
+  .accordion-body{
+    box-shadow:inset 4px 4px 4px #1f376d, inset -4px -4px 4px #1f376d;
+  }
 
-
-/*bootstap style*/
 
 .sidebar{
-    min-height: 93.3vh;
-    background:-webkit-linear-gradient(#d8ccc3, #203870e6 50% );
-    background:-moz-linear-gradient(#d8ccc3, #203870e6 50% );
-    background:-o-linear-gradient(#d8ccc3, #203870e6 50% );
-    background:linear-gradient(#d8ccc3, #203870e6 50%);
+    min-height: 92.8vh;
+    background:-webkit-linear-gradient(#203870e6 50%,#d8ccc3);
+    background:-moz-linear-gradient(#203870e6 50%,#d8ccc3);
+    background:-o-linear-gradient(#203870e6 50%,#d8ccc3);
+    background:linear-gradient(#203870e6 50%,#d8ccc3);
  box-shadow:0px 5px 15px #515658;
- padding-top: 140px;
+ padding-top: 65px;
 }
 ul{
     list-style: none;
@@ -68,5 +75,5 @@ a{
   .full-width {
     width: 100%;
     padding: 15px 20px;
+   border-bottom: 1px solid rgb(46 66 114)
   }
-

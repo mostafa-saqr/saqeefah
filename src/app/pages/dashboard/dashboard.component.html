@@ -1,4 +1,5 @@
-<!-- <app-header></app-header> -->
+<!-- 
+<app-header></app-header> -->
 <div class="container-fluid">
 
     <div class="row">
@@ -10,10 +11,10 @@
                 <a routerLink="test">
                     <li class="full-width"> Test</li>
                 </a>
-                <a class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <li class="full-width">Website Settings</li>
+                <a>
+                    <li  class="accordion-button full-width collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemain" aria-expanded="false" aria-controls="collapsemain">Website Settings</li>
                 </a>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div id="collapsemain" class="accordion-collapse collapse" aria-labelledby="headingOne" >
 
                     <div class="accordion-body">
                         <ul class="px-0">
@@ -22,6 +23,9 @@
                             </a>
                             <a routerLink="social">
                                 <li class="full-width">Social</li>
+                            </a>
+                            <a routerLink="partner">
+                                <li class="full-width">Partner</li>
                             </a>
                         </ul>
                     </div>
@@ -37,37 +41,15 @@
 
             </ul>
         </div>
-        <div class="col-md-10 ps-5 " >
+        <div class="col-md-10 ps-5 ">
+            
+<section id="info-utile" class="">
+    <div class="container">
             <router-outlet></router-outlet>
+    </div>
+</section>
 
         </div>
     </div>
 </div>
 <!-- <app-footer></app-footer> -->
-<!-- 
-
-<div class="row">
-    <div class="col-md-3 ps-0 sidebar">
-        <ul>
-            <li><a routerLink="user">Users</a></li>
-            <li> <a routerLink="settings">Website Settings</a></li>
-            <li><a routerLink="projects">Projects</a> </li>
-            <li><a routerLink="Appartments">Appartments</a> </li>
-
-        </ul>
-    </div>
-    <div class="col-md-9 ps-5 ">
-        <router-outlet></router-outlet>
-        <app-footer></app-footer>
-
-    </div>
-</div> -->
-<!-- <div class="container">
-  <main #main>  
-
-            <router-outlet>
-            </router-outlet>
-         
-         </main>
-    
- </div> -->
