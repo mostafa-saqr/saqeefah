@@ -1,11 +1,12 @@
-<div class="accordion-item shadow mb-5">
+<div class="accordion" id="accordionExample">
+<div class="accordion-item shadow">
     <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button " type="button" data-bs-toggle="collapse"   [attr.data-bs-target]="'#collapse-' +collapseId" 
+        <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapsepartner" 
             aria-expanded="true" aria-controls="collapseOne">
-          <h5 class="secondary-color">{{sectionTitle}}</h5> 
+          <h5 class="secondary-color">Partner</h5> 
         </button>
     </h2>
-    <div id="{{'collapse-'+collapseId}}" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+    <div id="collapsepartner" class="accordion-collapse collapse show" aria-labelledby="headingOne">
         <div class="accordion-body">
             <form action="" class="row g-4" [formGroup]="myFormGroup" (submit)="onClickSubmit()" enctype="multipart/form-data">
                 <input type="hidden" formControlName="settingTypeId">
@@ -58,30 +59,6 @@
 
 
                 <div class="col-md-12">
-                    <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Select Icon  <span class="text-danger error" *ngIf="showError && myFormGroup.controls['iconCss'].errors?.['required']">
-                            * Required Field 
-                        </span></label>
-                        <div class="formg w-100 input-group">
-                            <span class="input-group-text"><i [ngClass]="iconCss"></i></span>
-                        
-                                <input  type="text" name="iconCss" class="form-control" placeholder="Choose an icon"
-                                formControlName="iconCss"
-                                [iconPicker]="iconCss"
-                                [ipIconPack]="['fa5']"
-                                [ipPosition]="'bottom'"
-                                [ipWidth]="'250px'"
-                                [ipIconSize]="'16px'"
-                                [ipIconVerticalPadding]="'6px'"
-                                [ipIconHorizontalPadding]="'10px'"
-                                [ipKeepSearchFilter]="'false'"
-                                [ipPlaceHolder]="'Choose an icon'"
-                                (iconPickerSelect)="onIconPickerSelect($event)"/>
-                               
-
-
-                        </div>
-                    </div>
                     <div class="my-1">
                         <label for="exampleFormControlInput1" class="form-label">Select Image <span class="text-danger error" *ngIf="showError && myFormGroup.controls['Image'].errors?.['required']">
                             * Required Field 

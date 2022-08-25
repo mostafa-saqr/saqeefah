@@ -29,6 +29,11 @@ export class SettingsService {
   getAllsettingsType(){
     return this.aPICallerService.get(`api/Setting/AllSettingTypes`);
   }
+ 
+  deleteSetting(settingTypeId:any,body:any):Observable<any>{
+    return this.aPICallerService.delete(`api/Setting?settingTypeId=${settingTypeId}`,body);
+
+  }
   
  
 }

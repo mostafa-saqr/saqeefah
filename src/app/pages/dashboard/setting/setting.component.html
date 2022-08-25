@@ -1,6 +1,3 @@
 <div class="accordion" id="accordionExample">
-
-  <app-setting-form *ngFor="let item of [1]" [collapseId]="item"></app-setting-form>
-
-
+  <app-setting-form *ngFor="let item of items" [collapseId]="item.num"  [sectionTitle]="item.title"></app-setting-form>
 </div>

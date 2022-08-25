@@ -10,11 +10,12 @@ import { SettingsService } from '../../../services/settings.service';
 export class SettingFormComponent implements OnInit {
 
   @Input() collapseId: number = 1;
-  //  iconCss = new FormControl();
-   iconCss = 'fas fa-user';
-
+  @Input('sectionTitle') sectionTitle :string =' ';
+  showError=false;
+   iconCss = 'fas fa-info';
   submitted: boolean = false;
-
+  ImageThumb: File = null;
+  formData: FormData = new FormData();
 
   public myFormGroup: FormGroup = new FormGroup({
     settingTypeId: new FormControl(0),
@@ -22,7 +23,9 @@ export class SettingFormComponent implements OnInit {
     TitleAr: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
     DescriptionEn: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
     DescriptionAr: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
-    iconCss: new FormControl(''),
+    Image:new FormControl('',[Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
+    iconCss: new FormControl('',[Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
+    
 
 
   });
@@ -35,10 +38,11 @@ export class SettingFormComponent implements OnInit {
 
     this.initializeFormGroup();
 
+
     this.setting.getAllsettings().subscribe(res => {
       // debugger
       if (res) {
-        console.log(res);
+        console.log('restttt:' ,res);
       }
       else {
 
@@ -46,11 +50,11 @@ export class SettingFormComponent implements OnInit {
     })
   }
 
-  ImageThumb: File = null
-  formData: FormData = new FormData()
+
   onInputChange(event) {
 
     if (event.target.files) {
+
       this.ImageThumb = <File>event.target.files[0]
       console.log('file data', this.ImageThumb)
     }
@@ -59,6 +63,7 @@ export class SettingFormComponent implements OnInit {
   onClickSubmit() {
     this.submitted = true;
     if (this.myFormGroup.invalid) {
+      this.showError=true;
       return;
     }
     let setting = {
@@ -68,6 +73,7 @@ export class SettingFormComponent implements OnInit {
       DescriptionEn: this.myFormGroup.value.DescriptionEn,
       DescriptionAr: this.myFormGroup.value.DescriptionAr,
       iconCss: this.myFormGroup.value.iconCss,
+      Image:this.myFormGroup.value.Image,
     };
     this.formData.append('SettingImage',this.ImageThumb, this.ImageThumb.name); 
     this.formData.append('TitleAr',setting.TitleAr); 
@@ -99,9 +105,7 @@ export class SettingFormComponent implements OnInit {
   }
   onIconPickerSelect(icon: string): void {
   this.iconCss=icon;
-    this.myFormGroup.controls['iconCss'].setValue(icon);
-
-    //this.iconCss.setValue(icon);
+  this.myFormGroup.controls['iconCss'].setValue(icon);
   }
 
 
@@ -112,6 +116,7 @@ export class SettingFormComponent implements OnInit {
       TitleAr: '',
       DescriptionEn: '',
       DescriptionAr: '',
+      Image:'',
       iconCss:'fas fa-user'
     })
   }

@@ -20,6 +20,7 @@ import { SocialmediaComponent } from './setting/socialmedia/socialmedia.componen
 import { TopHeaderComponent } from './navigator/top-header/top-header.component';
 import { IconPickerModule } from 'ngx-icon-picker';
 import { SettingFormComponent } from './setting/components/setting-form/setting-form.component';
+import { PartnerComponent } from './setting/partner/partner.component';
 
 
 
@@ -39,6 +40,7 @@ import { SettingFormComponent } from './setting/components/setting-form/setting-
             TopHeaderComponent,
             SocialmediaComponent,
             SettingFormComponent,
+            PartnerComponent,
            
   ],
   imports: [
