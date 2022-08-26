@@ -1,0 +1,85 @@
+
+
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item shadow">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapsepartner" 
+                aria-expanded="true" aria-controls="collapseOne">
+              <h5 class="secondary-color">Partner</h5> 
+            </button>
+        </h2>
+        <div id="collapsepartner" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+            <div class="accordion-body">
+                <form action="" class="row g-4" [formGroup]="myFormGroup" (submit)="onClickSubmit()" enctype="multipart/form-data">
+                    <input type="hidden" formControlName="settingTypeId">
+                    <div class="col-md-6">
+                        <div class="my-1 ">
+                            <label for="exampleFormControlInput1" class="form-label">TitleEn <span class="text-danger error" *ngIf="showError && myFormGroup.controls['TitleEn'].errors?.['required']">
+                                * Required Field 
+                            </span></label>
+                            <div class="formg">
+                                <input type="text" class="form-control" formControlName="TitleEn" placeholder="Fill Field">
+                               
+                            </div>
+                        </div>
+                        <div class="my-1">
+                            <label for="exampleFormControlInput1" class="form-label">DescriptionEn  <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionEn'].errors?.['required']">
+                                * Required Field 
+                            </span></label>
+                            <div class="formg">
+                                <textarea class="form-control" formControlName="DescriptionEn" rows="3"></textarea>
+                                
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                    <div class="col-md-6">
+                        <div class="my-1">
+                            <label for="exampleFormControlInput1" class="form-label">TitleAr <span class="text-danger error" *ngIf="showError && myFormGroup.controls['TitleAr'].errors?.['required']">
+                                * Required Field 
+                            </span></label>
+                            <div class="formg">
+                                <input type="text" class="form-control" formControlName="TitleAr" placeholder="Fill Field">
+                                
+                            </div>
+                        </div>
+                        <div class="my-1">
+                            <label for="exampleFormControlInput1" class="form-label">DescriptionAr 
+                                <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionAr'].errors?.['required']">
+                                    * Required Field 
+                                </span>
+                            </label>
+                            <div class="formg">
+                                <textarea class="form-control" formControlName="DescriptionAr" rows="3"></textarea>
+                                
+                            </div>
+                        </div>
+    
+    
+                    </div>
+    
+    
+                    <div class="col-md-12">
+                        <div class="my-1">
+                            <label for="exampleFormControlInput1" class="form-label">Select Image <span class="text-danger error" *ngIf="showError && myFormGroup.controls['Image'].errors?.['required']">
+                                * Required Field 
+                            </span> </label>
+                            <div class="formg w-100">
+                                <input type="file"  accept="image/*"  formControlName="Image" class="form-control  mb-3" (change)="onInputChange($event)" id="thumbnail">
+                                
+                                <button type="submit" class="btn btn-small btn-primary w-25 float-end  px-4  mt-2">Save
+                                </button>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+    
+                </form>
+    
+            </div>
+        </div>
+    </div>
+    
+    

@@ -32,14 +32,14 @@
 </mat-toolbar> -->
 
 <app-top-header></app-top-header>
-<nav class="navbar navbar-expand-lg  " [class]="generalService.checkNavIsTRansparent() ? 'navbar-dark' : 'navbar-light white-nav'">
+<nav class="navbar navbar-expand-lg  "  [class]="generalService.checkNavIsTRansparent() ? 'navbar-dark' : 'navbar-light white-nav'">
     <div class="container">
         <div class="position-relative">
             <a class="navbar-brand " [class]="generalService.checkNavIsTRansparent() ? 'home-logo' : 'inner-logo'" href="#">
                 <img [src]="generalService.checkNavIsTRansparent() ? '../../../assets/images/homelogo.jpg':'../../../assets/images/innerlogo.jpg'" alt="" srcset="">
 
             </a>
-
+         
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
