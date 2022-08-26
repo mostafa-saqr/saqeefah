@@ -23,21 +23,44 @@
             </div>
             <div class="col-lg-6 col-12">
                 <h2 class="mb-3 fw-bold">{{'getTouch' | translate}}</h2>
-                <form action="#">
+                <form [formGroup]="form" (submit)="onSubmit()">
+                    <input type="hidden" formControlName="id">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="{{'Name' | translate}}">
+                        <input type="text" class="form-control" formControlName="name" placeholder="{{'Name' | translate}}">
+                        <span class="text-danger error" *ngIf="showError && form.controls['name'].errors?.['required']">
+                            * Required Field 
+                        </span>
+                       
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="{{'Email' | translate}}">
+                        <input type="text" class="form-control" formControlName="email" placeholder="{{'Email' | translate}}">
+                        <span class="text-danger error" *ngIf="showError && form.controls['email'].errors?.['required']">
+                            * Required Field 
+                        </span>
+                        <span class="text-danger error" *ngIf="showError && form.controls['email'].errors?.['email']">
+                         *Invalid email pattern (should have '@')
+                      </span>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="{{'Phone' | translate}}">
+                        <input type="text" class="form-control" formControlName="phone"  placeholder="{{'Phone' | translate}}">
+                        <span class="text-danger error" *ngIf="showError && form.controls['phone'].errors?.['required']">
+                            * Required Field 
+                        </span>
+                        <span class="text-danger error" *ngIf="showError && form.controls['phone'].errors?.['pattern']">
+                           *Invalid Phone Number
+                      </span>
                     </div>
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="{{'message' | translate}}"></textarea>
+                        <textarea name="" id="" cols="30" rows="7" class="form-control" formControlName="message" placeholder="{{'message' | translate}}"></textarea>
+                        <span class="text-danger error" *ngIf="showError && form.controls['message'].errors?.['required']">
+                            * Required Field 
+                        </span>
+      
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="{{'SendMessage' | translate}}" class="btn btn-primary py-3 px-5">
+                        <button type="submit" value="{{'SendMessage' | translate}}" class="btn btn-primary py-3 px-5">
+                            {{'SendMessage' | translate}}
+                            </button>
                     </div>
                 </form>
             </div>

@@ -197,3 +197,11 @@ h5,
         margin: 0 10px 18px 18px;
     }
 }
+.form-group{
+    position: relative;
+}
+.error{
+    position: absolute;
+
+    top: -22px;
+}

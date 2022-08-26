@@ -27,6 +27,7 @@ import { RouterModule } from '@angular/router';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpLoaderFactory } from 'src/app/app.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -61,6 +62,8 @@ import { HttpLoaderFactory } from 'src/app/app.module';
     CommonModule,
     RouterModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     ComponentsModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",

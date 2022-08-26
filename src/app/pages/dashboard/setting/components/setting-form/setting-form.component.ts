@@ -21,6 +21,8 @@ export class SettingFormComponent implements OnInit {
   submitted: boolean = false;
   ImageThumb: File = null
   formData: FormData = new FormData()
+  showError:boolean=false;
+  spaceRegex=/^(\s+\S+\s*)*(?!\s).*$/;
 
   constructor(private setting: SettingsService) {
 
@@ -28,11 +30,11 @@ export class SettingFormComponent implements OnInit {
 
   public myFormGroup: FormGroup = new FormGroup({
     settingTypeId: new FormControl(0),
-    TitleEn: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
-    TitleAr: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
-    DescriptionEn: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
-    DescriptionAr: new FormControl('', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]),
-    iconCss: new FormControl(''),
+    TitleEn: new FormControl('',[Validators.required,Validators.pattern(this.spaceRegex)]),
+    TitleAr: new FormControl('',[Validators.required,Validators.pattern(this.spaceRegex)]),
+    DescriptionEn: new FormControl('',[Validators.required,Validators.pattern(this.spaceRegex)]),
+    DescriptionAr: new FormControl('', [Validators.required,Validators.pattern(this.spaceRegex)]),
+    iconCss: new FormControl('',[Validators.required,Validators.pattern(this.spaceRegex)]),
   });
  
 
@@ -59,6 +61,7 @@ export class SettingFormComponent implements OnInit {
     debugger; 
     this.submitted = true;
     if (this.myFormGroup.invalid) {
+      this.showError=true;
       return;
     }
     let setting = {
@@ -81,6 +84,7 @@ export class SettingFormComponent implements OnInit {
       res => {
         if (res.status = true) {
           alert(':: Submitted successfully');
+          this.showError=false;
           this.myFormGroup.reset();
           this.submitted = false;
         }
