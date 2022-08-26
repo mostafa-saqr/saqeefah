@@ -10,10 +10,12 @@ export class FeedbackService {
   constructor(private callApi : APICallerService) { }
 
   setFeedback(Model:any): Observable<any> {
-      return this.callApi.post(`/api/Client/Feedback`, Model)
+    debugger; 
+    console.log(Model); 
+      return this.callApi.post(`api/Client/Feedback`, Model)
   }
   getFeedback():Observable<any>{
-    return this.callApi.get(`/api/Client/Feedback`)
+    return this.callApi.get(`api/Client/Feedback`)
   }
 
 }
