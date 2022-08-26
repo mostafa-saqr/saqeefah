@@ -26,7 +26,7 @@ export class ProjectCardComponent implements OnInit {
     }
   ]
 
-  appRootUrl=environment.appRoot; 
+  appRootUrl=environment.appRoot+'/'; 
   
   constructor(public favorites:FavoritesService) { }
   

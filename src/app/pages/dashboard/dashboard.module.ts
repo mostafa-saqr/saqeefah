@@ -59,6 +59,9 @@ import { PartnerComponent } from './setting/pages/partner/partner.component';
 
       }
     }),
+  ],
+  exports:[
+    DashboardComponent
   ]
 })
 export class DashboardModule { }
