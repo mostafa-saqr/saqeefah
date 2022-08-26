@@ -1,17 +1,25 @@
-<footer class="footer-panel section-container dark-gray-bg">
+<footer class="footer-panel section-container">
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <h5 class="secondary-color mb-3">{{'aboutIndexTitle'|translate}}</h5>
-                <p>SAQEEFAH is the leader in online real estate and operator of the WK of real estate web site for consumers and real estate professionals. Real Estate of websites captures more than 20 million monthly visitors SAQEEFAH is the leader in online
-                    real estate and operator of the WK of real</p>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="assets/images/footerlogo.png" width="100" alt="">
+
+                    </div>
+                    <div class="col-md-9">
+                        <h5 class="">{{'aboutIndexTitle'|translate}}</h5>
+                        <p>SAQEEFAH is the leader in online real estate and operator of the WK of real estate web site for consumers and real estate professionals. Real Estate of websites captures more than 20 million monthly visitors SAQEEFAH is the leader
+                            in online real estate and operator of the WK of real</p>
+                    </div>
+                </div>
             </div>
             <div class="col-md-7">
                 <div class="row">
                     <div class="col-md-7">
                         <div class="row">
                             <div class="col-md-12">
-                                <h6> <span class="icon tagr-icon-address secondary-color"></span> {{'ourOffice' | translate}}</h6>
+                                <h6> <span class="icon tagr-icon-address"></span> {{'ourOffice' | translate}}</h6>
 
                             </div>
                             <div class="col-md-6">
@@ -25,27 +33,27 @@
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <form action=""  [formGroup]="form" (submit)="onSubmit()" >
-                        <h5 class="secondary-color mb-3">{{'Feedback' |translate}}</h5>
-                        <input type="hidden" formControlName="id">
-                       <div class="form-group">
-                        <input type="text" class="form-control mb-3" formControlName="email" placeholder="{{'Email' | translate}}">
-                        <span class="text-danger error" *ngIf="showError && form.controls['email'].errors?.['required']">
+                        <form action="" [formGroup]="form" (submit)="onSubmit()">
+                            <h5 class=" mb-3">{{'Feedback' |translate}}</h5>
+                            <input type="hidden" formControlName="id">
+                            <div class="form-group">
+                                <input type="text" class="form-control mb-3" formControlName="email" placeholder="{{'Email' | translate}}">
+                                <span class="text-danger error" *ngIf="showError && form.controls['email'].errors?.['required']">
                             * Required Field 
                         </span>
-                        <span class="text-danger error" *ngIf="showError && form.controls['email'].errors?.['email']">
+                                <span class="text-danger error" *ngIf="showError && form.controls['email'].errors?.['email']">
                            *Invalid email pattern (should have '@')
                       </span>
-                       </div>
-                      <div class="form-group">
-                        <textarea name="" placeholder="{{'Subject'|translate}}" formControlName="subject" class="form-control mb-3" id="" cols="30" rows="3"></textarea>
-                        <span class="text-danger error" *ngIf="showError && form.controls['subject'].errors?.['required']">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="" placeholder="{{'Subject'|translate}}" formControlName="subject" class="form-control mb-3" id="" cols="30" rows="3"></textarea>
+                                <span class="text-danger error" *ngIf="showError && form.controls['subject'].errors?.['required']">
                             * Required Field 
                         </span>
-                      </div>
-                       
-                        <button type="submit"  class="btn secondary-btn">{{'Submit'|translate}}</button>
-                    </form>
+                            </div>
+
+                            <button type="submit" class="btn more-btn">{{'Submit'|translate}}</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,7 @@
 .footer-panel {
+    color: $lightColor;
+    border-top: 10px solid #86815b;
+    background-image: url(../../../assets/images/footerbg.jpg);
     p {
         font-size: 13px;
         i {
@@ -7,6 +10,6 @@
         }
     }
     i {
-        color: $secondaryColor;
+        color: $lightColor;
     }
 }
