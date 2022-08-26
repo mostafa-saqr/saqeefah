@@ -1,7 +1,7 @@
 <div class="card" style="cursor: pointer;">
-    <div class="img-panel">
+    <div class="img-panel property-card">
         <div class="img-container">
-            <img [src]="appRootUrl+property.coverImage" class="card-img-top" alt="...">
+            <img [src]="property.coverImage ? appRootUrl+property.coverImage :'assets/images/home-placeHolder.webp'" class="card-img-top" alt="...">
         </div>
         <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="property.apartmentId" [class.active]="property.favorite" (click)="favorites.toggleFavorites(property)"></i>
 

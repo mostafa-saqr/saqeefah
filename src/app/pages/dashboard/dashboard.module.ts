@@ -57,6 +57,9 @@ import { SettingComponent } from './setting/pages/setting.component';
 
       }
     }),
+  ],
+  exports:[
+    DashboardComponent
   ]
 })
 export class DashboardModule { }

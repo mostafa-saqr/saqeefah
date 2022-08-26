@@ -58,8 +58,8 @@ import { UserlayoutModule } from './pages/userSite/userlayout/userlayout.module'
     AppRoutingModule,
     // UserlayoutModule,
     DashboardModule,
-    LoginModule,
-    FormsModule,
+    // LoginModule,
+    // FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     TranslateModule.forRoot({

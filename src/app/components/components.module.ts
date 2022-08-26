@@ -17,6 +17,9 @@ import { ModalComponent } from './modal/modal.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LogoSliderOneComponent } from './logo-slider-one/logo-slider-one.component';
+import { LogoSlidertowComponent } from './logo-slidertow/logo-slidertow.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 
@@ -28,12 +31,15 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     PropertyCardComponent,
     SearchFormComponent,
     ModalComponent,
-    GalleryComponent
+    GalleryComponent,
+    LogoSliderOneComponent,
+    LogoSlidertowComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule,
+    CarouselModule,
     GalleryModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
@@ -49,7 +55,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     PropertyCardComponent,
     SearchFormComponent,
     ModalComponent,
-    GalleryComponent
+    GalleryComponent,
+    LogoSliderOneComponent,
+    LogoSlidertowComponent
   ],
   providers: [
     MarkerService,

@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit,OnDestroy {
   }
 getAllProjects(){
   
-  this.projects.getAllProjects('1').subscribe((response:any)=>{
+  this.projects.getAllProjects(this.language.getLanguageID()).subscribe((response:any)=>{
     console.log('all projects',response)
     this.AllProjects = []
     this.projectsForSale =[]
