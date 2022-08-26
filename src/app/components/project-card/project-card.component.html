@@ -1,4 +1,4 @@
-<div class="card project-card">
+<div class="card project-card {{viewType}}">
     <div class="img-panel">
         <div class="img-container">
             <img [src]="project.coverImage ? appRootUrl+project.coverImage : 'assets/images/home-placeHolder.webp'" class="card-img-top" alt="..." data-bs-toggle="modal" [attr.data-bs-target]="'#modal'+project.projectId" style="cursor: pointer;">

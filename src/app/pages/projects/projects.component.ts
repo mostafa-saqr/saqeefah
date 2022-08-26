@@ -9,7 +9,7 @@ import { ProjectAndListService } from 'src/app/services/project-lists.service';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
-
+   view:string='grid3';
   constructor(private generalService:GenaricService, private projects:ProjectAndListService,private language:changeLanguageService) { }
   AllProjects:[] = []
   getAllProjects(){
@@ -23,10 +23,25 @@ export class ProjectsComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+    // this.view='grid3';
     this.getAllProjects()
     this.language.changeLanguageStatus.subscribe((data)=>{
       this.getAllProjects()
     })
+  }
+
+
+
+
+  toggleView(view:string){
+   if(view == 'grid3')
+     this.view='grid3';
+    if (view=='grid6')
+    this.view='grid6';
+    if (view == 'list')
+    this.view='list';
+
+
   }
 
 }
