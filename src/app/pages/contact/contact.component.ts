@@ -45,7 +45,7 @@ export class ContactComponent implements OnInit {
         
     this.contact.setContact(contact).subscribe(
       res => {
-        if (res.status = true) {
+        if (!res.Result.isError) {
           alert(':: Submitted successfully');
           this.showError=false;
           this.form.reset();

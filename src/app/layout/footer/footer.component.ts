@@ -45,11 +45,10 @@ export class FooterComponent implements OnInit {
         
     this.FB.setFeedback(feedback).subscribe(
       res => {
-        if (res.status = true) {
+        if (!res.Result.isError) {
           alert(':: Submitted successfully');
           this.showError=false;
           this.form.reset();
-          // this.submitted = false;
         }
         else {
           alert(':: Failed');
