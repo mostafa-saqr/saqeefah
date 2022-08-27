@@ -20,8 +20,8 @@ export class APIs {
  public static projects = {
   AddAttachments: 'api/Project/Attachments',
   AddMasterPlane:'api/Project/MasterPlane',
-  addSpecifications:'api/Project/Specifications'
-  // List:"api/Project/GetAll"
+  addSpecifications:'api/Project/Specifications',
+  GetProjects:"api/Project/GetProjects"
 
 };
  // property

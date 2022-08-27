@@ -6,26 +6,26 @@ import { Injectable } from '@angular/core';
 
 export class PopupService  {
   constructor() { }
-
+ 
   makeCapitalPopup(data: any): string {
     return `` +
     
       `
-      <a href="/project/11123">
+      <a href="/project/${data.projectId}">
       <div class="card project-card" style="width:300px" routerLink="/about" >
       <div class="img-panel">
           <img src="assets/images/list/p1.jpg" class="card-img-top" alt="...">
          
-          <div class="card-label">${data.state}</div>
+          <div class="card-label">${data.status}</div>
           <div class="card-mask"></div>
       </div>
       <div class="card-body">
           <div class="unit-location">
               <div class="row">
                   <div class="col-md-12">
-                      <h5>${data.state}</h5>
-                      <h6>${data.countery}</h6>
-  
+                      <h5>${data.status}</h5>
+                      <h6>${data.projectName}</h6>
+                      <h6>${data.city}</h6>
                   </div>
                   
               </div>
