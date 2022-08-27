@@ -20,9 +20,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>{{'CEOword' | translate}}</h2>
+                <h2>{{filterSetting(SettingTypes.ceoWord,'title')}}</h2>
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    {{filterSetting(SettingTypes.ceoWord,'description')}}
                 </p>
 
             </div>
@@ -39,12 +39,12 @@
         <div class="row mb-md-5 mb-3">
 
             <div class="col-md-6">
-                <img src="assets/images/img1.webp" class="img-fluid">
+                <img [src]="appRootUrl+filterSetting(SettingTypes.OurVision,'imagePath')" class="img-fluid">
             </div>
             <div class="col-md-6 about-div-text">
-                <h2>{{'vision' | translate}}</h2>
+                <h2>{{filterSetting(SettingTypes.OurVision,'title')}}</h2>
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    {{filterSetting(SettingTypes.OurVision,'description')}}
                 </p>
 
             </div>
@@ -69,17 +69,13 @@
         <div class="row mb-md-5 mb-3">
 
             <div class="col-md-6">
-                <img src="assets/images/img3.webp" class="img-fluid">
+                <img [src]="appRootUrl+filterSetting(SettingTypes.OurGoals,'imagePath')" class="img-fluid">
             </div>
             <div class="col-md-6 about-div-text">
-                <h2>{{'goals' | translate}} </h2>
-
-                <ul>
-                    <li>Improve building quality.</li>
-                    <li>Raise the lifestyle standards for the community.</li>
-                    <li>Contribute to creating an innovative environment.</li>
-                    <li>Embrace social responsibility.</li>
-                </ul>
+                <h2>{{filterSetting(SettingTypes.OurGoals,'title')}}</h2>
+                <p>
+                    {{filterSetting(SettingTypes.OurGoals,'description')}}
+                </p>
 
 
             </div>
@@ -89,12 +85,12 @@
         <div class="row mb-md-5 mb-3">
 
             <div class="col-md-6  order-md-1">
-                <img src="assets/images/img1.webp" class="img-fluid">
+                <img [src]="appRootUrl+filterSetting(SettingTypes.OurStory,'imagePath')" class="img-fluid">
             </div>
             <div class="col-md-6 about-div-text">
-                <h2>{{'designs' |translate}}</h2>
+                <h2>{{filterSetting(SettingTypes.OurStory,'title')}}</h2>
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    {{filterSetting(SettingTypes.OurStory,'description')}}
                 </p>
 
             </div>
@@ -107,67 +103,17 @@
 
 
 <!--===== Start About Meeting =====-->
-<section class="sectopn-parallex" style="background-image: url('assets/images/bg1.webp');">
+<section class="sectopn-parallex" [style]="'background-image: url('+appRootUrl+filterSetting(SettingTypes.ourMeeting,'imagePath')+');'">
     <div class="overlay"></div>
     <div class="container">
         <div class="row slider-text align-items-end justify-content-center">
             <div class="col-md-9  text-center">
-                <h2>{{'aboutMeetings' | translate}}</h2>
+                <h2>{{filterSetting(SettingTypes.ourMeeting,'title')}}</h2>
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                    survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    {{filterSetting(SettingTypes.ourMeeting,'description')}}
                 </p>
             </div>
         </div>
     </div>
 </section>
 <!--===== End About Meeting =====-->
-
-
-<!--===== Start Fashionable Designs =====-->
-<section class="section about-text-section fashionable-designs">
-    <div class="container">
-
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h2>{{'fashionableDesigns' | translate}}</h2>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="row row-img1">
-            <div class="col-md-8">
-                <img src="assets/images/bg2.webp" class="img-fluid">
-            </div>
-
-            <div class="col-md-4">
-                <img src="assets/images/bg1.webp" class="img-fluid">
-            </div>
-
-        </div>
-
-        <div class="row row-img2">
-            <div class="col-md-4">
-                <img src="assets/images/img1.webp" class="img-fluid">
-            </div>
-
-            <div class="col-md-4">
-                <img src="assets/images/img2.webp" class="img-fluid">
-            </div>
-
-            <div class="col-md-4">
-                <img src="assets/images/img3.webp" class="img-fluid">
-            </div>
-
-        </div>
-
-
-
-    </div>
-</section>
-<!--===== End Fashionable Designs =====-->

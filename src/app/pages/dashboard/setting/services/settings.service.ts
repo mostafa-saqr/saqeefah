@@ -20,8 +20,8 @@ export class SettingsService {
       return this.aPICallerService.get(`api/Setting?settingTypeId=${settingTypeId}`)
   }
 
-  getAllsettings(){
-    return this.aPICallerService.get(`api/Setting/AllSettings`)
+  getAllsettings(languageId){
+    return this.aPICallerService.get(`api/Setting/AllSettings?languageId=${languageId}`)
   }
 
   getAllsettingsType():Observable<Result<Array<ISettingType>>>{

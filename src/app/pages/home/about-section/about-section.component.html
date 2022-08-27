@@ -2,24 +2,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mb-3">
-                <h3> <span class="secondary-color">{{'aboutIndexTitle' | translate}}</span></h3>
-                <p>{{'aboutIndexDesc' | translate}}</p>
+                <h3> <span class="secondary-color">{{filterSetting(SettingTypes.AboutUs,'title')}}</span></h3>
+                <p>{{filterSetting(SettingTypes.AboutUs,'description')}}</p>
             </div>
             <div class="col-md-6">
-                <img src="assets/images/list/about.jpg" class="img-fluid" alt="" srcset="">
+                <img [src]="appRootUrl+filterSetting(SettingTypes.AboutUs,'imagePath')" class="img-fluid" alt="" srcset="">
             </div>
             <div class="col-md-6">
                 <div class="section-panel">
-                    <h4>{{'missionIndex' | translate}}</h4>
-                    <p>In addition, RealtySpace operates the largest real estate and rental advertising networks in the SAUDI ARABIA. in partnership with Livemile Homes!</p>
+                    <h4>{{filterSetting(SettingTypes.OurVision,'title')}}</h4>
+                    <p>{{filterSetting(SettingTypes.OurVision,'description')}}</p>
                 </div>
                 <div class="section-panel">
-                    <h4>{{'easyFind' | translate}}</h4>
-                    <p>In addition, RealtySpace operates the largest real estate and rental advertising networks in the SAUDI ARABIA. in partnership with Livemile Homes!</p>
-                </div>
-                <div class="section-panel">
-                    <h4>{{'goodSales'| translate}}</h4>
-                    <p>In addition, RealtySpace operates the largest real estate and rental advertising networks in the SAUDI ARABIA. in partnership with Livemile Homes!</p>
+                    <h4>{{filterSetting(SettingTypes.OurGoals,'title')}}</h4>
+                    <p>{{filterSetting(SettingTypes.OurGoals,'description')}}</p>
                 </div>
             </div>
         </div>

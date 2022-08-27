@@ -14,11 +14,17 @@ export enum ButtonTypes {
 
 
 
+
 export enum SettingTypes{
 
   AboutUs=100,
   OurVision=200, 
-  OurGoals=300, 
+  OurGoals=300,
+  OurStory = 400,
+  Panorama = 500,
+  ceoWord = 600,
+  ourMeeting = 700
+
   
 
 }

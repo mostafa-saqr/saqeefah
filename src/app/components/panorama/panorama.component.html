@@ -1,7 +1,7 @@
 <div class="panoram">
-    <div class="panorama-text container">
-        <h3>{{'bannerTitle' | translate}} <span class="home-txt">Home</span>
-            <p>{{'bannerDesc' | translate}}</p>
+    <div class="panorama-text container" *ngIf="setting">
+        <h3>{{setting.title}}
+            <p>{{setting.description}}</p>
         </h3>
     </div>
     <div id="container" style="width: 100%;height:100%"></div>
