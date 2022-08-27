@@ -15,8 +15,8 @@ import { SettingsService } from '../dashboard/setting/services/settings.service'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit,OnDestroy {
-  public stingTypes:Array<ISettingType>; 
-  websiteSetting=[]
+
+
   projectList = []
   AllProjects = []
   projectsForSale =[]
@@ -30,42 +30,9 @@ export class HomeComponent implements OnInit,OnDestroy {
   get SettingTypes(){
     return SettingTypes
   }
-  filterSetting(settingId,property = null){
-    
-    if(this.websiteSetting){
-    
-      let selectedSetting = this.websiteSetting.filter(setting => setting.settingTypeId == settingId)
-    
-      if(property != null){
-        return selectedSetting[0][property]
-      } else {
-        return selectedSetting[0]
-      }
-      
-    }
 
-  }
-  public getSettingTypes() {
+ 
 
-    this.siteSetting.getAllsettingsType().subscribe(r => {
-      
-     
-      if(!r.isError){
-       this.stingTypes= r.result["data"];
-       console.log('settingTypes', this.stingTypes);
-      }
-
-    });
-  }
-  getWebsiteSetting(){
-    this.siteSetting.getAllsettings(this.language.getLanguageID()).subscribe((response)=>{
-      
-    if(!response.isError){
-      this.websiteSetting = response.result.data
-    
-    }
-    })
-  }
 
 getAllProjects(){
   
@@ -83,15 +50,14 @@ getAllProjects(){
 }
 
   ngOnInit(): void {
-    this.getSettingTypes()
-    this.getWebsiteSetting()
+
     this.generalService.changeNavBarTheme({transparentNav:false})
     //console.log(this.generalService.checkNavIsTRansparent())
     this.getAllProjects()
   this.language.changeLanguageStatus.subscribe((data)=>{
     console.log('language updated',data)
     this.getAllProjects()
-    this.getWebsiteSetting()
+    
   })
   }
   ngOnDestroy(): void{

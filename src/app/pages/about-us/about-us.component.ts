@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
-import { GenaricService } from 'src/app/services/Genaric.service';
-import { ProjectAndListService } from 'src/app/services/project-lists.service';
 import { SettingTypes } from 'src/app/shared/Enums/enums';
-import { environment } from 'src/environments/environment';
-import { ISettingType } from '../dashboard/setting/models/settingType.interface';
 import { SettingsService } from '../dashboard/setting/services/settings.service';
 
 @Component({
@@ -13,84 +10,41 @@ import { SettingsService } from '../dashboard/setting/services/settings.service'
   styleUrls: ['./about-us.component.scss']
 })
 export class AboutUsComponent implements OnInit {
-  appRootUrl=environment.appRoot+'/'; 
-  public stingTypes:Array<ISettingType>; 
-  websiteSetting=[]
-  projectList = []
-  AllProjects = []
-  projectsForSale =[]
-  projectsForRent = []
-  constructor(private generalService:GenaricService, private projects:ProjectAndListService,
-    private language:changeLanguageService, private siteSetting:SettingsService) {
-   
-
-  
-  }
-  get SettingTypes(){
+  AboutUs
+  OurVision
+  OurGoals
+  OurStory
+  ceoWord 
+  ourMeeting
+public ourMeetingBg
+  get settingTypes(){
     return SettingTypes
   }
-  filterSetting(settingId,property = null){
-    
-    if(this.websiteSetting){
-    
-      let selectedSetting = this.websiteSetting.filter(setting => setting.settingTypeId == settingId)
-    
-      if(property != null){
-        return selectedSetting[0][property]
-      } else {
-        return selectedSetting[0]
-      }
-      
-    }
-
-  }
-  public getSettingTypes() {
-
-    this.siteSetting.getAllsettingsType().subscribe(r => {
-      
-     
-      if(!r.isError){
-       this.stingTypes= r.result["data"];
-       console.log('settingTypes', this.stingTypes);
-      }
-
-    });
-  }
-  getWebsiteSetting(){
-    this.siteSetting.getAllsettings(this.language.getLanguageID()).subscribe((response)=>{
-      
+  constructor(public setting:SettingsService, private language:changeLanguageService,private sanitizer:DomSanitizer) { }
+ getAboutSetting(){
+ return this.setting.getAllsettings(this.language.getLanguageID()).subscribe((response)=>{
     if(!response.isError){
-      this.websiteSetting = response.result.data
-    
+      let allSetting = response.result.data
+      this.AboutUs = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.AboutUs)[0];
+      this.OurVision = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurVision)[0];
+      this.OurGoals = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurGoals)[0];
+      this.OurStory = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurStory)[0];
+      this.ceoWord = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.ceoWord)[0];
+      this.ourMeeting = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.ourMeeting)[0];
+     
+        this.ourMeetingBg = this.setting.appRootUrl+this.ourMeeting.imagePath
+        console.log('website setting from about us page',this.ourMeetingBg)
+      
+
     }
+  })
+ }
+  ngOnInit(): void {
+    this. getAboutSetting()
+    this.language.changeLanguageStatus.subscribe((data)=>{
+      this. getAboutSetting()
+      
     })
   }
 
-getAllProjects(){
-  
-  this.projects.getAllProjects(this.language.getLanguageID()).subscribe((response:any)=>{
-    console.log('all projects',response)
-    this.AllProjects = []
-    this.projectsForSale =[]
-    this.projectsForRent = []
-    
-    this.AllProjects = response.result.data
-    this.projectsForSale = response.result.data.filter((item:any)=> item.status === 'For Sale' || item.status === 'متاح')
-    this.projectsForRent = response.result.data.filter((item:any)=> item.status === 'BookedUp')
-
-  })
-}
-
-  ngOnInit(): void {
-    this.getSettingTypes()
-    this.getWebsiteSetting()
-    this.generalService.changeNavBarTheme({transparentNav:false})
-    //console.log(this.generalService.checkNavIsTRansparent())
-    this.getAllProjects()
-  this.language.changeLanguageStatus.subscribe((data)=>{
-    console.log('language updated',data)
-    this.getAllProjects()
-    this.getWebsiteSetting()
-  })
-  }
 }

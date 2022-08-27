@@ -1,21 +1,25 @@
-<div class="about-section section-container gray-bg">
+<div class="about-section section-container gray-bg" *ngIf="AboutUs">
     <div class="container">
         <div class="row">
             <div class="col-md-12 mb-3">
-                <h3> <span class="secondary-color">{{filterSetting(SettingTypes.AboutUs,'title')}}</span></h3>
-                <p>{{filterSetting(SettingTypes.AboutUs,'description')}}</p>
+                <h3> <span class="secondary-color">{{AboutUs.title}}</span></h3>
+                <p>{{AboutUs.description}}</p>
             </div>
             <div class="col-md-6">
-                <img [src]="appRootUrl+filterSetting(SettingTypes.AboutUs,'imagePath')" class="img-fluid" alt="" srcset="">
+                <img [src]="setting.appRootUrl+AboutUs.imagePath" class="img-fluid" alt="" srcset="">
             </div>
             <div class="col-md-6">
                 <div class="section-panel">
-                    <h4>{{filterSetting(SettingTypes.OurVision,'title')}}</h4>
-                    <p>{{filterSetting(SettingTypes.OurVision,'description')}}</p>
+                    <h4>{{OurVision.title}}</h4>
+                    <p>{{OurVision.description}}</p>
                 </div>
                 <div class="section-panel">
-                    <h4>{{filterSetting(SettingTypes.OurGoals,'title')}}</h4>
-                    <p>{{filterSetting(SettingTypes.OurGoals,'description')}}</p>
+                    <h4>{{OurGoals.title}}</h4>
+                    <p>{{OurGoals.description}}</p>
+                </div>
+                <div class="section-panel">
+                    <h4>{{OurStory.title}}</h4>
+                    <p>{{OurStory.description}}</p>
                 </div>
             </div>
         </div>
