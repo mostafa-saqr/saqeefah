@@ -24,7 +24,7 @@ export class SettingComponent implements OnInit {
   public getSettingTypes() {
 
     this.settingsService.getAllsettingsType().subscribe(r => {
-      debugger; 
+      
      
       if(!r.isError){
        this.stingTypes= r.result["data"];

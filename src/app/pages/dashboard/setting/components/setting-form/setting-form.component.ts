@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SettingTypes } from 'src/app/shared/Enums/enums';
+import { environment } from 'src/environments/environment';
 import { SettingsService } from '../../services/settings.service';
 
 
@@ -16,8 +17,9 @@ export class SettingFormComponent implements OnInit {
   @Input() SettingTypeId: number;
 
   @Input() SettingTypeTitle: string;
-
-   iconCss = 'fas fa-user';
+  appRootUrl=environment.appRoot+'/';
+currentFormData:any
+   iconCss:any
   submitted: boolean = false;
   ImageThumb: File = null
   formData: FormData = new FormData()
@@ -39,13 +41,14 @@ export class SettingFormComponent implements OnInit {
  
 
   ngOnInit(): void {
+    console.log('img',this.ImageThumb)
     this.initializeFormGroup();
-    this.setting.getAllsettings().subscribe(res => {
-      if (res) {
-        console.log(res);
+    this.setting.getsettingsById(this.SettingTypeId).subscribe(res => {
+      if (!res.isError) {
+        this.currentFormData = res.result.data
+        console.log('current form data',this.currentFormData);
       }
-      else {
-      }
+      
     })
   }
 
@@ -58,7 +61,7 @@ export class SettingFormComponent implements OnInit {
   }
 
   onClickSubmit() {
-    debugger; 
+     
     this.submitted = true;
     if (this.myFormGroup.invalid) {
       this.showError=true;
@@ -72,7 +75,11 @@ export class SettingFormComponent implements OnInit {
       DescriptionAr: this.myFormGroup.value.DescriptionAr,
       iconCss: this.myFormGroup.value.iconCss,
     };
+    
+  if(this.ImageThumb != null){
     this.formData.append('SettingImage',this.ImageThumb, this.ImageThumb.name); 
+
+  }
     this.formData.append('TitleAr',setting.TitleAr); 
     this.formData.append('TitleEn',setting.TitleEn); 
     this.formData.append('DescriptionAr',setting.DescriptionAr); 
@@ -85,8 +92,9 @@ export class SettingFormComponent implements OnInit {
         if (res.status = true) {
           alert(':: Submitted successfully');
           this.showError=false;
-          this.myFormGroup.reset();
+          // this.myFormGroup.reset();
           this.submitted = false;
+          window.location.reload()
         }
         else {
           alert(':: Failed');
@@ -102,7 +110,7 @@ export class SettingFormComponent implements OnInit {
 
 
   initializeFormGroup() {
-    debugger
+    
     this.myFormGroup.setValue({
       settingTypeId: this.SettingTypeId,
       TitleEn: '',

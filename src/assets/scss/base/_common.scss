@@ -15,6 +15,20 @@
     background: #fff;
 }
 
+.delete-img {
+    position: absolute;
+    z-index: 200;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fb7676;
+    background: white;
+    font-size: 20px;
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 .section-container {
     padding: 70px 20px;
 }

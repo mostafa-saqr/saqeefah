@@ -12,6 +12,7 @@ import { ProjectAndListService } from 'src/app/services/project-lists.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit,OnDestroy {
+  websiteSetting = []
   projectList = []
   AllProjects = []
   projectsForSale =[]
@@ -20,6 +21,9 @@ export class HomeComponent implements OnInit,OnDestroy {
    
 
   
+  }
+  getWebsiteSetting(){
+
   }
 getAllProjects(){
   
