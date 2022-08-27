@@ -27,9 +27,9 @@
 
                                 <ul class="list-inline">
                                     <li class="list-inline-item"><span style="font-weight: 400;">{{'view' | translate}}</span></li>
-                                    <li class="list-inline-item view-icons"><span class="icon tagr-layout"></span></li>
-                                    <li class="list-inline-item view-icons"><span class="icon tagr-android-apps"></span></li>
-                                    <li class="list-inline-item view-icons"><span class="icon tagr-list-bullet"></span></li>
+                                    <li class="list-inline-item view-icons grid3" (click)="toggleView('grid3')"><span class="icon tagr-layout"></span></li>
+                                    <li class="list-inline-item view-icons grid6" (click)="toggleView('grid6')"><span class="icon tagr-android-apps"></span></li>
+                                    <li class="list-inline-item view-icons  list" (click)="toggleView('list')"><span class="icon tagr-list-bullet"></span></li>
                                 </ul>
                             </div>
                         </div>
@@ -45,9 +45,18 @@
         <div class="col-md-9">
 
             <div class="row">
-                <div class="col-md-3 mb-3" *ngFor="let item of AllProjects">
-                    <app-project-card [project]="item"></app-project-card>
+                <!-- <div class="col-md-3 mb-3" *ngFor="let item of AllProjects"> -->
+             
+                <div class="row" *ngIf="view == 'grid3'">
+                    <app-project-card  class="col-md-6  mb-3" [project]="item"  *ngFor="let item of AllProjects"></app-project-card>
                 </div>
+                <div class="row" *ngIf="view == 'grid6'">
+                    <app-project-card  class="col-md-3 mb-3" [project]="item"  *ngFor="let item of AllProjects"></app-project-card>
+                </div>
+                <div class="row" *ngIf="view == 'list'">
+                    <app-project-card  class="col-md-12 mb-3" [project]="item" [viewType]="'list'"  *ngFor="let item of AllProjects"></app-project-card>
+                </div>
+                <!-- </div> -->
                 <div class="col-md-12 text-center">
                     <button class="btn more-btn">Load more</button>
                 </div>

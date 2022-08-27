@@ -6,6 +6,7 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
 import { EditPropertyComponent } from './edit-property/edit-property.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { PropertyComponent } from './property/property.component';
+import { PartnerComponent } from './setting/pages/partner/partner.component';
 import { SettingComponent } from './setting/pages/setting.component';
 import { SocialmediaComponent } from './setting/pages/socialmedia/socialmedia.component';
 import { TestComponent } from './test/test.component';
@@ -48,6 +49,10 @@ const routes: Routes = [
       path:'social',
       component: SocialmediaComponent
     },
+    {path:'partner',
+    component:PartnerComponent
+      
+    }
   ]
   }
 ];

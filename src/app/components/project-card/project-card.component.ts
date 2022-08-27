@@ -9,7 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ProjectCardComponent implements OnInit {
   @Input() project:any
-  @Input() EditMode:boolean = false
+  @Input() EditMode:boolean = false;
+  @Input() viewType:string;
   homespecs = [1,1]
   itemSpecsIcon = [
     {
