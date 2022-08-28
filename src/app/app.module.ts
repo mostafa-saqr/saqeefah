@@ -40,6 +40,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginModule } from './pages/login/login.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { UserlayoutModule } from './pages/userSite/userlayout/userlayout.module';
+import { PropertiesComponent } from './pages/properties/properties.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -49,7 +52,8 @@ import { UserlayoutModule } from './pages/userSite/userlayout/userlayout.module'
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    TopHeaderComponent
+    TopHeaderComponent,
+    PropertiesComponent
  
   
   ],
@@ -59,6 +63,7 @@ import { UserlayoutModule } from './pages/userSite/userlayout/userlayout.module'
     AppRoutingModule,
     // UserlayoutModule,
     DashboardModule,
+    NgxSpinnerModule,
     // LoginModule,
     // FormsModule,
     ReactiveFormsModule,
@@ -72,6 +77,11 @@ import { UserlayoutModule } from './pages/userSite/userlayout/userlayout.module'
 
       }
     }),
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      preventDuplicates: true
+    }),
+    
     BrowserAnimationsModule,
   ],
   providers: [changeLanguageService, GenaricService,ProjectAndListService,

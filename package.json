@@ -32,6 +32,8 @@
     "mousetrap": "^1.6.5",
     "ngx-icon-picker": "^1.9.1",
     "ngx-owl-carousel-o": "^14.0.1",
+    "ngx-spinner": "^14.0.0",
+    "ngx-toastr": "^15.0.0",
     "panolens": "^0.10.4",
     "rxjs": "~7.5.0",
     "three": "^0.142.0",

@@ -45,7 +45,10 @@
                                 "input": "src/master-rtl.scss",
                                 "bundleName": "arStyle",
                                 "inject": false
-                            }
+                            },
+                           
+                            "node_modules/ngx-spinner/animations/timer.css",
+                            "node_modules/ngx-toastr/toastr.css"
                         ],
                         "scripts": [
                             "src/assets/js/tree.js",

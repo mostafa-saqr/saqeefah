@@ -11,7 +11,7 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
 import { EditPropertyComponent } from './edit-property/edit-property.component';
 import { TestComponent } from './test/test.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FooterComponent } from './navigator/footer/footer.component';
 import { HeaderComponent } from './navigator/header/header.component';
 import { SidebarComponent } from './navigator/sidebar/sidebar.component';
@@ -21,6 +21,11 @@ import { SettingFormComponent } from './setting/components/setting-form/setting-
 import { IconPickerModule } from 'ngx-icon-picker';
 import { SettingComponent } from './setting/pages/setting.component';
 import { PartnerComponent } from './setting/pages/partner/partner.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingInterceptor } from './Interceptor/loading.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ErrorInterceptor } from './Interceptor/error.interceptor';
 
 
 
@@ -50,6 +55,7 @@ import { PartnerComponent } from './setting/pages/partner/partner.component';
     FormsModule,
     ReactiveFormsModule,
     IconPickerModule,
+    NgxSpinnerModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
       loader: {
@@ -59,6 +65,14 @@ import { PartnerComponent } from './setting/pages/partner/partner.component';
 
       }
     }),
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      preventDuplicates: true
+    })
+    ,
+  ],
+  providers:[{provide:HTTP_INTERCEPTORS , useClass:LoadingInterceptor , multi:true},
+             {provide:HTTP_INTERCEPTORS , useClass:ErrorInterceptor , multi:true}
   ],
   exports:[
     DashboardComponent
