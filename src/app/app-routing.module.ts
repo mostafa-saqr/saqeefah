@@ -9,6 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { PlaceorderComponent } from './pages/placeorder/placeorder.component';
 import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
+import { PropertiesComponent } from './pages/properties/properties.component';
 import { PropertyDetailsComponent } from './pages/property-details/property-details.component';
 import { SearchComponent } from './pages/search/search.component';
 import { UserlayoutComponent } from './pages/userSite/userlayout/userlayout.component';
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'building/:id',
     component: ProjectDetailsComponent,
+  },
+  {
+    path: 'property',
+    component: PropertiesComponent,
   },
   {
     path: 'property/:id',

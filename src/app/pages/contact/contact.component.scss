@@ -51,15 +51,15 @@ h5,
 }
 
 .btn.btn-primary {
-    background: #af8f79;
-    border: 1px solid #af8f79;
+    background: var(--main-color);
+    border: 1px solid var(--main-color);
     color: #fff
 }
 
 .btn.btn-primary:hover {
-    border: 1px solid #af8f79;
+    border: 1px solid var(--main-color);
     background: transparent;
-    color: #af8f79
+    color: var(--main-color)
 }
 
 .heading-section h2 {
@@ -147,13 +147,13 @@ h5,
 }
 
 .contact-section .contact-info i {
-    color: #af8f79;
+    color: var(--main-color);
     font-size: 28px;
 }
 
 .contact-section .contact-info h5 {
     font-weight: 600;
-    color: #af8f79;
+    color: var(--main-color);
     font-size: 18px;
 }
 
@@ -202,6 +202,11 @@ h5,
 }
 .error{
     position: absolute;
-
-    top: -22px;
+    top: -16px;
+    font-size: 12px;
+    font-weight: 700;
 }
+.btn:disabled{
+    background-color: lightgrey !important;
+    border: none !important;
+  }

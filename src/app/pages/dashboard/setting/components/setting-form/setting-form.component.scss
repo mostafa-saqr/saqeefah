@@ -10,7 +10,17 @@
 .error{
     font-weight: bold;
 }
-
+.btn:disabled{
+  background-color: lightgrey !important;
+  border: none !important;
+}
+.accordion-button:not(.collapsed)::after{
+  background-image:#000 !important;
+ 
+}
+.accordion-button:not(.collapsed)::before{
+  background-image:#000 !important;
+}
 
 // .formg{
 //     width: 75%;

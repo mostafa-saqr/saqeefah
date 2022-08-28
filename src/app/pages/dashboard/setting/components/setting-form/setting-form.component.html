@@ -11,9 +11,9 @@
                 <div class="col-md-6">
                     <div class="my-1 ">
                         <label for="exampleFormControlInput1" class="form-label">Title En
-                            <span class="text-danger error" *ngIf="showError && myFormGroup.controls['TitleEn'].errors?.['required']">
+                            <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['TitleEn'].errors?.['required']">
                                 * Required Field 
-                            </span>
+                            </span> -->
 
                         </label>
                         <div class="formg">
@@ -22,9 +22,9 @@
                     </div>
                     <div class="my-1">
                         <label for="exampleFormControlInput1" class="form-label">Description  En 
-                            <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionEn'].errors?.['required']">
+                            <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionEn'].errors?.['required']">
                                 * Required Field 
-                            </span>
+                            </span> -->
                         </label>
                         <div class="formg">
                             <textarea class="form-control" formControlName="DescriptionEn" rows="3" [(ngModel)]="currentFormData.descriptionEn"></textarea>
@@ -36,9 +36,9 @@
                 <div class="col-md-6">
                     <div class="my-1">
                         <label for="exampleFormControlInput1" class="form-label">Title Ar
-                            <span class="text-danger error" *ngIf="showError && myFormGroup.controls['TitleAr'].errors?.['required']">
+                            <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['TitleAr'].errors?.['required']">
                                 * Required Field 
-                            </span>
+                            </span> -->
                    
                         </label>
                         <div class="formg">
@@ -47,9 +47,9 @@
                     </div>
                     <div class="my-1">
                         <label for="exampleFormControlInput1" class="form-label">Description Ar 
-                            <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionAr'].errors?.['required']">
+                            <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionAr'].errors?.['required']">
                                 * Required Field 
-                            </span>
+                            </span> -->
                         </label>
                         <div class="formg">
                             <textarea class="form-control" formControlName="DescriptionAr" [(ngModel)]="currentFormData.descriptionAr" rows="3"></textarea>
@@ -63,9 +63,9 @@
                 <div class="col-md-12">
                     <div class="my-1">
                         <label for="exampleFormControlInput1" class="form-label">Select Icon 
-                            <span class="text-danger error" *ngIf="showError && myFormGroup.controls['iconCss'].errors?.['required']">
+                            <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['iconCss'].errors?.['required']">
                                 * Required Field 
-                            </span>
+                            </span> -->
                         </label>
                         <div class="formg w-100 input-group">
                             <span class="input-group-text"><i [ngClass]="currentFormData.iconCss"></i></span>
@@ -93,7 +93,7 @@
                                     <input type="file" class="form-control mb-3" (change)="onInputChange($event)" id="thumbnail">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-small btn-primary w-25 float-end  px-4  mt-2">Save
+                            <button type="submit" [disabled]="myFormGroup.invalid" class="btn btn-small btn-primary w-25 float-end  px-4  mt-2">Save
                             </button>
                         </div>
                     </div>

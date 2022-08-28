@@ -1,13 +1,13 @@
 <div class="row">
     <div class="col-md-8">
-        <form enctype="multipart/form-data">
+        <form enctype="multipart/form-data" #myForm="ngForm">
             <h4 class="secondary-color mb-3">Property Gallery</h4>
             <label for="thumbnail">Add Property Cover Photo</label>
             <input type="file" class="form-control mb-3" (change)="onInputChange($event)" id="thumbnail">
             <label for="gallery">Add Project Gallery</label>
             <input type="file" class="form-control mb-3" (change)="onGalleryInputChange($event)" id="gallery" multiple>
-            <button [disabled]="uploadWorking" type="submit" class="btn btn-primary" (click)="uploadImage($event)">Submit</button>
-            <span *ngIf="uploadWorking">Loading ......</span>
+            <button [disabled]="myForm.invalid"  type="submit" class="btn btn-primary" (click)="uploadImage($event)">Submit</button>
+            <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
         </form>
     </div>
 </div>

@@ -9,20 +9,21 @@
 
         </p>
         <button type="submit" [disabled]="uploadWorking" class="btn btn-primary" (click)="UploadMasterPlane($event)">Submit</button>
-        <span *ngIf="uploadWorking">Loading ......</span> <span>{{masterPlaneUploadMessage}}</span>
+        <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
+         <span>{{masterPlaneUploadMessage}}</span>
     </div>
 </div>
 <hr>
 <div class="row">
     <div class="col-md-8">
-        <form enctype="multipart/form-data">
+        <form enctype="multipart/form-data"  #myForm="ngForm">
             <h4 class="secondary-color mb-3">Project Gallery</h4>
             <label for="thumbnail">Add Project Cover Photo</label>
             <input type="file" class="form-control mb-3" (change)="onInputChange($event)" id="thumbnail">
             <label for="gallery">Add Project Gallery</label>
             <input type="file" class="form-control mb-3" (change)="onGalleryInputChange($event)" id="gallery" multiple>
-            <button [disabled]="uploadWorking" type="submit" class="btn btn-primary" (click)="uploadImage($event)">Submit</button>
-            <span *ngIf="uploadWorking">Loading ......</span>
+            <button [disabled]="myForm.invalid" type="submit" class="btn btn-primary" (click)="uploadImage($event)">Submit</button>
+            <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
 
         </form>
     </div>
@@ -36,7 +37,7 @@
         <label for="granties">Add Project Granties</label>
         <input type="file" (change)="onGrantiesInputChange($event)" class="form-control mb-3" id="granties">
         <button type="submit" [disabled]="uploadWorking" (click)="UploadSpecifications($event)" class="btn btn-primary">Submit</button>
-        <span *ngIf="uploadWorking">Loading ......</span>
+        <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
 
 
     </div>

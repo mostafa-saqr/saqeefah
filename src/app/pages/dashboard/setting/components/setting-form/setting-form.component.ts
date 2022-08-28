@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { SettingTypes } from 'src/app/shared/Enums/enums';
 import { environment } from 'src/environments/environment';
 import { SettingsService } from '../../services/settings.service';
@@ -26,7 +27,7 @@ currentFormData:any
   showError:boolean=false;
   spaceRegex=/^(\s+\S+\s*)*(?!\s).*$/;
 
-  constructor(private setting: SettingsService) {
+  constructor(private setting: SettingsService ,  private toastr: ToastrService) {
 
   }
 
@@ -90,14 +91,18 @@ currentFormData:any
     this.setting.setSetting(this.formData).subscribe(
       res => {
         if (res.status = true) {
-          alert(':: Submitted successfully');
+          // alert(':: Submitted successfully');
+
+          
+          this.toastr.success(' :: Saved Successfully');
           this.showError=false;
           // this.myFormGroup.reset();
           this.submitted = false;
           window.location.reload()
         }
         else {
-          alert(':: Failed');
+          this.toastr.error(':: Failed')
+          //alert(':: Failed');
         }
 
       })

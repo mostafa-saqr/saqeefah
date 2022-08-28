@@ -11,6 +11,10 @@ i{
   margin: 0.2px 2px;
   
 }
+.accordion-button:not(.collapsed)::after{
+  background-image:#000 !important;
+ 
+}
 
 
 .formg{

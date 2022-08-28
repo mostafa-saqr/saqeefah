@@ -38,16 +38,17 @@ section{
     // float: right !important;
   }
   .accordion-body{
-    box-shadow:inset 4px 4px 4px #1f376d, inset -4px -4px 4px #1f376d;
+    box-shadow: inset 0px 2px 4px #858584;
+    background: #1c1c1c;
   }
 
 
 .sidebar{
     min-height: 92.8vh;
-    background:-webkit-linear-gradient(#203870e6 50%,#d8ccc3);
-    background:-moz-linear-gradient(#203870e6 50%,#d8ccc3);
-    background:-o-linear-gradient(#203870e6 50%,#d8ccc3);
-    background:linear-gradient(#203870e6 50%,#d8ccc3);
+    background:-webkit-linear-gradient(#000000 50%,rgb(134 129 91) );
+    background:-moz-linear-gradient(#000000 50%,rgb(134 129 91) );
+    background:-o-linear-gradient(#000000 50%,rgb(134 129 91) );
+    background:linear-gradient(#000000 50%,rgb(134 129 91) );
  box-shadow:0px 5px 15px #515658;
  padding-top: 65px;
 }
@@ -62,7 +63,10 @@ a{
     color: lightgray;
   }
   
-  
+  .btn:disabled{
+    background-color: lightgrey !important;
+    border: none !important;
+}
   li {
     
       color:#fff !important
@@ -75,5 +79,5 @@ a{
   .full-width {
     width: 100%;
     padding: 15px 20px;
-   border-bottom: 1px solid rgb(46 66 114)
+   border-bottom:1px solid rgb(136 131 89 / 36%);
   }

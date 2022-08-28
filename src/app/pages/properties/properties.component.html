@@ -1,8 +1,8 @@
 <div class="container pt-5 pb-5">
     <div class="row">
         <div class="col-md-12">
-            <h3 class="secondary-color mb-0"> {{'APARTMENTS' | translate}}</h3>
-            <h6 style="font-size: 15px;font-weight:400;" class="mb-0">{{Total}} {{'list founded' | translate}}</h6>
+            <h3 class="secondary-color mb-0">{{'Properties'|translate}}</h3>
+            <h6 class="mb-0">{{Total}} {{'Appartments' | translate}}</h6>
             <div class="row">
                 <div class="col-md-9">
                     <div class="filter-panel mt-3">
@@ -45,22 +45,23 @@
         <div class="col-md-9">
 
             <div class="row">
-                <!-- <div class="col-md-3 mb-3" *ngFor="let item of AllProjects"> -->
-               
+                <!-- <div class="col-md-6 mb-3" *ngFor="let item of listResult">
+                    <app-property-card [property]="item"></app-property-card>
+                </div> -->
                 <div [ngSwitch]="view">
 
-                <div class="row" *ngSwitchCase="'grid3'">
-                    <app-project-card  class="col-md-6  mb-3" [project]="item"  *ngFor="let item of AllProjects"></app-project-card>
+                    <div class="row" *ngSwitchCase="'grid3'">
+                    <app-property-card class=" col-12  col-md-6  mb-3" [property]="item"  *ngFor="let item of AllProperties"></app-property-card>
                 </div>
                 <div class="row" *ngSwitchCase="'grid6'">
-                    <app-project-card  class="col-md-3 mb-3" [project]="item"  *ngFor="let item of AllProjects"></app-project-card>
+                    <app-property-card  class="col-12 col-md-4 mb-3" [property]="item"  [viewType]="'grid6'"   *ngFor="let item of AllProperties"></app-property-card>
                 </div>
                 <div class="row" *ngSwitchCase="'list'">
-                    <app-project-card  class="col-md-12 mb-3" [project]="item" [viewType]="'list'"  *ngFor="let item of AllProjects"></app-project-card>
-                </div>
+                    <app-property-card  class="col-12 col-md-12 mb-3" [property]="item"  [viewType]="'list'"  *ngFor="let item of AllProperties"></app-property-card>
                 </div>
                 <div class="col-md-12 text-center">
                     <button class="btn more-btn">Load more</button>
+                </div>
                 </div>
             </div>
         </div>

@@ -10,8 +10,8 @@ import { environment } from 'src/environments/environment';
 })
 export class PropertyCardComponent implements OnInit {
   @Input() property:any
+  @Input() viewType:string;
   @Input() EditMode:boolean = false
-homespecs = [1,1,1,1,1,1]
 itemSpecsIcon = [
   {
     icon:true,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { FeedbackService } from 'src/app/services/feedback.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class FooterComponent implements OnInit {
     subject: new FormControl('',[Validators.required,Validators.pattern(this.spaceRegex)]),
   })
 
-  constructor(private FB:FeedbackService) { }
+  constructor(private FB:FeedbackService,private toastr :ToastrService) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -45,8 +46,9 @@ export class FooterComponent implements OnInit {
         
     this.FB.setFeedback(feedback).subscribe(
       res => {
-        if (!res.Result.isError) {
-          alert(':: Submitted successfully');
+        if (!res.errors) {
+          // alert(':: Submitted successfully');
+          this.toastr.success(' :: Submitted Successfully');
           this.showError=false;
           this.form.reset();
         }

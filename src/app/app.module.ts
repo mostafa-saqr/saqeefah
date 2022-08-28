@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -43,6 +43,8 @@ import { UserlayoutModule } from './pages/userSite/userlayout/userlayout.module'
 import { PropertiesComponent } from './pages/properties/properties.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import { LoadingInterceptor } from './pages/dashboard/Interceptor/loading.interceptor';
+import { ErrorInterceptor } from './pages/dashboard/Interceptor/error.interceptor';
 
 
 
@@ -85,7 +87,9 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
   ],
   providers: [changeLanguageService, GenaricService,ProjectAndListService,
-    FavoritesService,CompareService,AuthService,TestService
+    FavoritesService,CompareService,AuthService,TestService,
+    {provide:HTTP_INTERCEPTORS , useClass:LoadingInterceptor , multi:true},
+    {provide:HTTP_INTERCEPTORS , useClass:ErrorInterceptor , multi:true}
   
   ],
   bootstrap: [AppComponent]

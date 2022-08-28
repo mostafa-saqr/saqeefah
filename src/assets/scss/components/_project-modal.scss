@@ -17,15 +17,15 @@
   }
   
   .btn.btn-primary {
-    background: #af8f79;
-    border: 1px solid #af8f79;
+    background: var(--main-color);
+    border: 1px solid var(--main-color);
     color: #fff
   }
   
   .btn.btn-primary:hover {
-    border: 1px solid #af8f79;
+    border: 1px solid var(--main-color);
     background: transparent;
-    color: #af8f79
+    color: var(--main-color)
   }
 
   .btn.btn-primary:focus{
@@ -57,7 +57,7 @@
 
 
   .project-modal .modal-header{
-        background: #af8f79;
+        background: var(--main-color);
         text-align: center;
         display: inline-block;
         border-bottom: none;

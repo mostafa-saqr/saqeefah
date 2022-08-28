@@ -10,6 +10,7 @@ import { ProjectAndListService } from 'src/app/services/project-lists.service';
 })
 export class ProjectsComponent implements OnInit {
    view:string='grid3';
+   Total=0;
   constructor(private generalService:GenaricService, private projects:ProjectAndListService,private language:changeLanguageService) { }
   AllProjects:[] = []
   getAllProjects(){
@@ -18,12 +19,11 @@ export class ProjectsComponent implements OnInit {
     
       
       this.AllProjects = response.result.data
-     
+     this.Total= response.result.data.length;
   
     })
   }
   ngOnInit(): void {
-    // this.view='grid3';
     this.getAllProjects()
     this.language.changeLanguageStatus.subscribe((data)=>{
       this.getAllProjects()
