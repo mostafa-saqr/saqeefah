@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { CompareComponent } from './pages/compare/compare.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -74,11 +74,22 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
-
+  {
+    path: '',
+    redirectTo: '/',
+    pathMatch: 'full',
+  },
+  { path: '**', redirectTo: '' }
 ];
-
+const routerOptions: ExtraOptions = {
+  useHash: false,
+  scrollPositionRestoration: 'enabled',
+  anchorScrolling: 'enabled',
+  scrollOffset: [0, 64],
+  // ...any other options you'd like to use
+};
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, routerOptions)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
