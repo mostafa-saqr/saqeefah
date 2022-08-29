@@ -82,10 +82,10 @@ const routes: Routes = [
   { path: '**', redirectTo: '' }
 ];
 const routerOptions: ExtraOptions = {
-  useHash: false,
-  scrollPositionRestoration: 'enabled',
-  anchorScrolling: 'enabled',
-  scrollOffset: [0, 64],
+  useHash: true,
+  // scrollPositionRestoration: 'enabled',
+  // anchorScrolling: 'enabled',
+  // scrollOffset: [0, 64],
   // ...any other options you'd like to use
 };
 @NgModule({
