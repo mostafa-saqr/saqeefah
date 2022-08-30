@@ -27,28 +27,35 @@ projectDetails:any
   }
 getProjectDetails(){
   let projectId = this.route.snapshot.paramMap.get('id')
+  console.log('project id',projectId)
   this.projects.getProjectDetails(this.language.getLanguageID(),projectId).subscribe((response:any)=>{
     console.log('projectDetails',response)
 
-    this.projectDetails = response.data
+    if(!response.isError){
+      this.projectDetails = response.data
     this.sendBuildId = response.data.buildingApartments[0].build
-    this.getMapImageHardCode = this.sanitized.bypassSecurityTrustHtml(response.data.masterPlane.hardCode)
+    if(response.data.masterPlane != null){
+      this.getMapImageHardCode = this.sanitized.bypassSecurityTrustHtml(response.data.masterPlane.hardCode)
+
+    }
+
+    }
   })
 }
 ngAfterViewChecked() {
   
-  this.document.addEventListener('click',(e)=>{
+//   this.document.addEventListener('click',(e)=>{
     
-    let x  = (e.target as HTMLInputElement).dataset['href'];
-    if(x != undefined) {
-      this.goToSpecialBuilding(x)
+//     let x  = (e.target as HTMLInputElement).dataset['href'];
+//     if(x != undefined) {
+//       this.goToSpecialBuilding(x)
       
-    } else {
-      e.stopPropagation()
-    }
+//     } else {
+//       e.stopPropagation()
+//     }
     
   
- });
+//  });
 
 }
 }

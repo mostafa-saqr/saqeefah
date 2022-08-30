@@ -11,17 +11,19 @@ export class BuildingsComponent implements OnInit, AfterViewInit {
   propertIndex:number = 0
   propertyOfSelectedBuilding!:[]
   getBuildingProperty(building){
-    
-if(building != undefined){
-  let selectedBuild  = this.buildings.filter((item)=> item.build == building)
-  
-  this.propertyOfSelectedBuilding = selectedBuild[0].apartments
-  this.activeBuilding = this.buildings[0].build
-} else {
-  this.propertyOfSelectedBuilding = this.buildings[0].apartments
+    if(this.buildings != undefined){
+      if(building != undefined){
+        let selectedBuild  = this.buildings.filter((item)=> item.build == building)
+        
+        this.propertyOfSelectedBuilding = selectedBuild[0].apartments
+        this.activeBuilding = this.buildings[0].build
+      } else {
+        this.propertyOfSelectedBuilding = this.buildings[0].apartments
+      
+      
+      }
+    }
 
-
-}
   }
  
   constructor() { }

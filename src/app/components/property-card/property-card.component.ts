@@ -12,6 +12,7 @@ export class PropertyCardComponent implements OnInit {
   @Input() property:any
   @Input() viewType:string;
   @Input() EditMode:boolean = false
+  propertyLink = this.EditMode ? '../../property/' :"/property/";
 itemSpecsIcon = [
   {
     icon:true,

@@ -1,64 +1,60 @@
-
-
-
-
 /* -----------------------------------------------------custom-------------------------------------------------*/
 
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Oswald:wght@200;300;400;500;600;700&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap");
-
 body {
-  margin: auto;
-  width: 100%;
-  height: 100vh;
-  padding-top: 10%;
-  display: flex;
-  background: linear-gradient(180deg, rgb(7 7 7), rgb(45 45 45));
-  overflow: hidden;
-  flex-direction: column;
+    margin: auto;
+    width: 100%;
+    height: 100vh;
+    padding-top: 10%;
+    display: flex;
+    background: linear-gradient(180deg, rgb(7 7 7), rgb(45 45 45));
+    overflow: hidden;
+    flex-direction: column;
 }
 
 body::before {
-  background-image: url(https://assets.codepen.io/4927073/banner_image.svg);
-  content: "";
-  border-radius: 2px;
-  z-index: 0 !important;
-  overflow: hidden;
-  background-size: cover;
-  background-position: 50% 50%;
-  opacity: 0.7;
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  width: 100%;
-  height: 40%;
-  transform: rotate(0deg);
-  filter: drop-shadow(2px 4px 6px black);
+    background-image: url(https://assets.codepen.io/4927073/banner_image.svg);
+    content: "";
+    border-radius: 2px;
+    z-index: 0 !important;
+    overflow: hidden;
+    background-size: cover;
+    background-position: 50% 50%;
+    opacity: 0.7;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 40%;
+    transform: rotate(0deg);
+    filter: drop-shadow(2px 4px 6px black);
 }
 
 body::after {
-  content: "";
-  border-radius: 4px;
-  overflow: hidden;
-  transform: rotate(-40deg);
-  background: linear-gradient(40deg, black, #e85117, #ff0058, black);
-  z-index: -1 !important;
-  overflow: hidden;
-  filter: blur(30px);
-  background-size: cover;
-  background-position: 50% 50%;
-  opacity: 0;
-  position: fixed;
-  position: absolute;
-  right: 0%;
-  width: 50%;
-  height: 165%;
-  top: -45%;
+    content: "";
+    border-radius: 4px;
+    overflow: hidden;
+    transform: rotate(-40deg);
+    background: linear-gradient(40deg, black, #e85117, #ff0058, black);
+    z-index: -1 !important;
+    overflow: hidden;
+    filter: blur(30px);
+    background-size: cover;
+    background-position: 50% 50%;
+    opacity: 0;
+    position: fixed;
+    position: absolute;
+    right: 0%;
+    width: 50%;
+    height: 165%;
+    top: -45%;
 }
+
 
 /* ---- profile card ---- */
 
 .card {
-      /* background: gray; */
+    /* background: gray; */
     /* border-radius: 14pt; */
     /* max-width: 380pt; */
     /* min-width: 340pt; */
@@ -72,17 +68,18 @@ body::after {
 }
 
 .title {
-  background-image: url(https://img.freepik.com/fotos-premium/hoja-plata-hoja-brillante_38679-230.jpg?w=2000) !important;
-  background-position: 0% 25%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 18pt;
-  font-family: "Lato";
-  font-weight: 800;
-  background-size: 65% !important;
-  filter: drop-shadow(1.25px 1.25px 0.5px black);
+    background-image: url(https://img.freepik.com/fotos-premium/hoja-plata-hoja-brillante_38679-230.jpg?w=2000) !important;
+    background-position: 0% 25%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 18pt;
+    font-family: "Lato";
+    font-weight: 800;
+    background-size: 65% !important;
+    filter: drop-shadow(1.25px 1.25px 0.5px black);
 }
-.title span.price{
+
+.title span.price {
     color: red !important;
     -webkit-text-fill-color: red;
     font-family: "Roboto";
@@ -93,45 +90,43 @@ body::after {
 }
 
 .cover {
-  height: 150pt;
+    height: 150pt;
 }
 
 .user-image {
-//   border-radius: 50%;
-  width: 102px !important;
-  height: 102px !important;
-//   background: linear-gradient(90deg, #1d4ed8, #1e40af, #111827);
-background: linear-gradient(90deg, #e6e2bf, #5e5d58, #000000);
-  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
-    0 1px 5px 0 rgb(0 0 0 / 20%);
-  transform: translateY(-60%);
-  margin-left: 6pt;
+    //   border-radius: 50%;
+    width: 102px !important;
+    height: 102px !important;
+    //   background: linear-gradient(90deg, #1d4ed8, #1e40af, #111827);
+    background: linear-gradient(90deg, #e6e2bf, #5e5d58, #000000);
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+    transform: translateY(-60%);
+    margin-left: 6pt;
 }
 
 .user-image img {
-//   border-radius: 50%;
-  width: 90px !important;
-  padding-bottom: 0 !important;
-  padding-top: 0 !important;
-  height: 90px !important;
-  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
-    0 1px 5px 0 rgb(0 0 0 / 20%);
-  margin-top: 4pt;
-  margin-left: 4pt;
+    //   border-radius: 50%;
+    width: 90px !important;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    height: 90px !important;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+    margin-top: 4pt;
+    margin-left: 4pt;
 }
 
 .user-banner {
-  overflow: hidden;
-  position: relative;
-  display: flex;
-//   border-radius: 14pt 14pt 0 0;
-  width: 100%;
-  height: 160px !important;
-//   background-size: cover;
-//   background-image: url("https://assets.codepen.io/4927073/banner_image.svg");
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    //   border-radius: 14pt 14pt 0 0;
+    width: 100%;
+    height: 160px !important;
+    //   background-size: cover;
+    //   background-image: url("https://assets.codepen.io/4927073/banner_image.svg");
 }
 
-.user-banner img{
+.user-banner img {
     // position: absolute !important;
     /* width: inherit; */
     width: 33.3333333%;
@@ -140,19 +135,21 @@ background: linear-gradient(90deg, #e6e2bf, #5e5d58, #000000);
 }
 
 span.username {
-  font-family: "Roboto";
-  font-weight: 300;
-  font-size: 14pt !important;
-  margin: 0px 0pt 0px 2pt;
-  -webkit-text-fill-color: #466eeb;
-  filter: none !important;
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 14pt !important;
+    margin: 0px 0pt 0px 2pt;
+    -webkit-text-fill-color: #466eeb;
+    filter: none !important;
 }
-.num{
-   color: #86815b;
-   font-weight: 700;
-   margin-left: 5px;
+
+.num {
+    color: #86815b;
+    font-weight: 700;
+    margin-left: 5px;
 }
-.created{
+
+.created {
     position: absolute;
     top: 7px;
     right: -7px;
@@ -160,10 +157,10 @@ span.username {
     padding: 7px 25px;
     font-size: 16px;
     font-weight: 400;
-   
     color: white !important;
     font-weight: 400;
 }
+
 .created:after {
     content: "";
     bottom: -19px;
@@ -175,7 +172,7 @@ span.username {
 }
 
 .info {
-  padding: 7pt 14pt 7pt 14pt;
+    padding: 7pt 14pt 7pt 14pt;
 }
 
 .description {
@@ -188,15 +185,14 @@ span.username {
     border-bottom: 2px dashed #b1b1af
 }
 
-
 td.mystyle {
-  width: 80px !important;
-  padding: 20pt 0 12pt 0;
-  /*text-align: center; */
-  font-size: 12px;
-  color: #fff;
-  line-height: 3;
-  font-family: "Lato";
+    width: 80px !important;
+    padding: 20pt 0 12pt 0;
+    /*text-align: center; */
+    font-size: 12px;
+    color: #fff;
+    line-height: 3;
+    font-family: "Lato";
 }
 
 td.mystyle::before {
@@ -214,17 +210,17 @@ td.mystyle::before {
     position: absolute;
 }
 
-
 td.mystyle2 {
-  padding: 6pt 0 6pt 0;
-  text-align: center;
-  font-size: 11pt;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-family: "Roboto";
-  font-family: "Lato";
-  color: #eee;
+    padding: 6pt 0 6pt 0;
+    text-align: center;
+    font-size: 11pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: "Roboto";
+    font-family: "Lato";
+    color: #eee;
 }
+
 .card .user-banner .fav-icon {
     left: 9px;
     top: 7px;
@@ -233,20 +229,27 @@ td.mystyle2 {
     z-index: 2;
     position: absolute;
 }
-.specs-ele img{
-    width: 20px ;
+
+.fav-icon.active {
+    color: #fe5e5e !important;
 }
-.specs-count{
-    color:#86815b;
+
+.specs-ele img {
+    width: 20px;
+}
+
+.specs-count {
+    color: #86815b;
     font-weight: 700;
 }
-.spec-title{
-    color:#5e5d58;
+
+.spec-title {
+    color: #5e5d58;
     font-size: 12px !important;
     font-family: "Roboto Condensed"
 }
 
-.card .user-banner  .compare{
+.card .user-banner .compare {
     left: 40px;
     top: 7px;
     padding: 6px 10px;
@@ -257,6 +260,11 @@ td.mystyle2 {
     position: absolute;
     background-color: #6c646466;
 }
+
+.compare.active {
+    background-color: green !important;
+}
+
 .grid6 .title span.price {
     color: red !important;
     -webkit-text-fill-color: red;
@@ -266,22 +274,27 @@ td.mystyle2 {
     margin: 0px 0pt 0px 2pt;
     filter: none !important;
 }
-.grid6 .title{
+
+.grid6 .title {
     font-size: 13pt !important;
 }
-.grid6 .title .username{
+
+.grid6 .title .username {
     font-size: 10pt !important;
 }
-.grid6  .description{
 
-    font-size: 9pt !important;}
+.grid6 .description {
+    font-size: 9pt !important;
+}
 
-    .grid6 .specs-ele img{
-        width: 15px;
-    }
-    .grid6 .specs-count{
-        font-size: 10px !important;
-    }
-    .grid6 .specs-title{
-        font-size: 10px !important;
-    }
+.grid6 .specs-ele img {
+    width: 15px;
+}
+
+.grid6 .specs-count {
+    font-size: 10px !important;
+}
+
+.grid6 .specs-title {
+    font-size: 10px !important;
+}

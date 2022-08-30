@@ -1,4 +1,4 @@
-<owl-carousel-o [options]="customOptions">
+<owl-carousel-o [options]="customOptions" *ngIf="logos">
     <ng-template carouselSlide *ngFor="let item of logos">
         <img [src]="item" alt="">
     </ng-template>

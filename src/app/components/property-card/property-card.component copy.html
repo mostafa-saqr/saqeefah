@@ -1,15 +1,15 @@
-<div class="card property-card {{viewType}}"  style="cursor: pointer;">
+<div class="card property-card {{viewType}}" style="cursor: pointer;">
     <div class="img-panel d-flex">
         <div class="imagebox">
-        <div class="img-container">
-            <img [src]="property.coverImage ? appRootUrl+property.coverImage :'assets/images/home-placeHolder.webp'" class="card-img-top" alt="...">
-        </div>
-        <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="property.apartmentId" [class.active]="property.favorite" (click)="favorites.toggleFavorites(property)"></i>
+            <div class="img-container">
+                <img [src]="property.coverImage ? appRootUrl+property.coverImage :'assets/images/home-placeHolder.webp'" class="card-img-top" alt="...">
+            </div>
+            <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="property.apartmentId" [class.active]="property.favorite" (click)="favorites.toggleFavorites(property)"></i>
 
-        <div class="card-label">{{'Price : ' | translate}}{{property.apartment_Price}}</div>
-        <span class="edit-project" *ngIf="EditMode" [routerLink]="'../edit-property/'+property.project_Ref+'/'+property.apartment_Id">Edit</span>
-        <div class="compare" [attr.data-cardCompico-id]="property.apartmentId" [class.active]="property.Compare" (click)="compare.toggleCompare(property)">Compare</div>
-        <div class="card-mask" [routerLink]="'../../property/'+property.apartmentId"></div>
+            <div class="card-label">{{'Price : ' | translate}}{{property.apartment_Price}}</div>
+            <span class="edit-project" *ngIf="EditMode" [routerLink]="'../edit-property/'+property.project_Ref+'/'+property.apartment_Id">Edit</span>
+            <div class="compare" [attr.data-cardCompico-id]="property.apartmentId" [class.active]="property.Compare" (click)="compare.toggleCompare(property)">Compare</div>
+            <div class="card-mask" [routerLink]="'property/'+property.apartmentId"></div>
         </div>
         <div class="basic-info">
 

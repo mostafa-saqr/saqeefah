@@ -20,6 +20,7 @@ compareList:any[] = []
   }
 getCompareList(){
   let currentCompareLocalStorage = window.localStorage.getItem('Compare')!
+  if(currentCompareLocalStorage != null){
   let parsingCompare = JSON.parse(currentCompareLocalStorage)
   if(parsingCompare.length > 0){
     this.appartments.getCompareAppartmens(parsingCompare).subscribe((item:any)=>{
@@ -27,5 +28,6 @@ getCompareList(){
       this.compareList = item.data
     })
   }
+}
 }
 }

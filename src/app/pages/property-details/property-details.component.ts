@@ -18,8 +18,10 @@ propertyDetails:any
   }
 getPropertyDetails(){
 this.property.getAppartmentDetails(this.propertyId).subscribe((res:any)=>{
-this.propertyDetails = res.result.data
+if(!res.isError){
+  this.propertyDetails = res.result.data
 console.log('property',res)
+}
 })
 }
 }

@@ -10,9 +10,11 @@ export class CompareService {
     }
     getAllCompare(){
         let currentCompareLocalStorage = window.localStorage.getItem('Compare')!
+        if(currentCompareLocalStorage != null){
         let parsingCompare = JSON.parse(currentCompareLocalStorage)
     
         return parsingCompare
+        }
     }
     checkCompareCounter(){
         let  CompareOnLocalStorage = window.localStorage.getItem("Compare")
@@ -25,23 +27,28 @@ export class CompareService {
 
     }
     deleteListFromCompare(id:any){
+
         let currentCompareLocalStorage = window.localStorage.getItem('Compare')!
+        if(currentCompareLocalStorage != null){
                 let parsingCompare = JSON.parse(currentCompareLocalStorage)
                 let newCompareList= parsingCompare.filter((comp:any)=> comp != id)
                 window.localStorage.setItem("Compare",JSON.stringify(newCompareList))
                 this.changeComparetatus.emit()
+        }
     }
     checkCompare(element:any){
         let currentCompareLocalStorage = window.localStorage.getItem('Compare')!
-        let parsingCompare = JSON.parse(currentCompareLocalStorage)
+        if(currentCompareLocalStorage != null){
+            let parsingCompare = JSON.parse(currentCompareLocalStorage)
         
-            let checkEleOnCompare = parsingCompare.includes(element.apartmentId)
+            let checkEleOnCompare = parsingCompare.includes(element.apartment_Id)
             if(checkEleOnCompare){
                 element.Compare = true
             } else {
                 element.Compare = false
             }
         
+        }
        
     }
     toggleCompare(item:any){
@@ -50,17 +57,17 @@ export class CompareService {
             
                 let currentCompareLocalStorage = window.localStorage.getItem('Compare')!
                 let parsingCompare = JSON.parse(currentCompareLocalStorage)
-                let newCompareList= parsingCompare.filter((comp:any)=> comp != item.apartmentId)
+                let newCompareList= parsingCompare.filter((comp:any)=> comp != item.apartment_Id)
                 window.localStorage.setItem("Compare",JSON.stringify(newCompareList))
                 item.Compare = !item.Compare
-                let selectedEle = document.querySelector(`[data-cardCompico-id='${item.apartmentId}']`)
+                let selectedEle = document.querySelector(`[data-cardCompico-id='${item.apartment_Id}']`)
                 selectedEle?.classList.remove('active')
                 this.changeComparetatus.emit()
         } else {
             if (window.localStorage.getItem("Compare") === null) {
-                window.localStorage.setItem("Compare",JSON.stringify([item.apartmentId]))
+                window.localStorage.setItem("Compare",JSON.stringify([item.apartment_Id]))
                 item.Compare = !item.Compare
-                let selectedEle = document.querySelector(`[data-cardCompico-id='${item.apartmentId}']`)
+                let selectedEle = document.querySelector(`[data-cardCompico-id='${item.apartment_Id}']`)
                 selectedEle?.classList.add('active')
                 this.changeComparetatus.emit()
 
@@ -70,10 +77,10 @@ export class CompareService {
                 if(parsingCompare.length >2) {
                     alert('الحد الاقصى لمقارنة الوحدات 3 وحدات')
                 } else {
-                    let newCompareList= [...parsingCompare,item.apartmentId]
+                    let newCompareList= [...parsingCompare,item.apartment_Id]
                 window.localStorage.setItem("Compare",JSON.stringify(newCompareList))
                 item.Compare = !item.Compare
-                let selectedEle = document.querySelector(`[data-cardCompico-id='${item.apartmentId}']`)
+                let selectedEle = document.querySelector(`[data-cardCompico-id='${item.apartment_Id}']`)
                 selectedEle?.classList.add('active')
                 this.changeComparetatus.emit()
                 }

@@ -42,9 +42,11 @@ getAllProjects(){
     this.projectsForSale =[]
     this.projectsForRent = []
     
+   if(!response.isError){
     this.AllProjects = response.result.data
     this.projectsForSale = response.result.data.filter((item:any)=> item.status === 'For Sale' || item.status === 'متاح')
     this.projectsForRent = response.result.data.filter((item:any)=> item.status === 'BookedUp')
+   }
 
   })
 }

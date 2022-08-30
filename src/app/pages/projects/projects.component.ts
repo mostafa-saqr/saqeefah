@@ -18,8 +18,10 @@ export class ProjectsComponent implements OnInit {
       console.log('all projects',response)
     
       
-      this.AllProjects = response.result.data
-     this.Total= response.result.data.length;
+  if(!response.isError){
+    this.AllProjects = response.result.data
+    this.Total= response.result.data.length;
+  }
   
     })
   }

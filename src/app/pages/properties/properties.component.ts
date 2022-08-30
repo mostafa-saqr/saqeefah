@@ -37,10 +37,12 @@ export class PropertiesComponent implements OnInit {
     this.properties.getAllProperties().subscribe((response:any)=>{
       console.log('response',response)
       
-      this.AllProperties = response.result.data
-      console.log('all properities', this.AllProperties)
-      this.Total=response.result.data.length;
-      console.log('total',this.Total)
+  if(!response.isError){
+    this.AllProperties = response.result.data
+    console.log('all properities', this.AllProperties)
+    this.Total=response.result.data.length;
+    console.log('total',this.Total)
+  }
      
   
     })
