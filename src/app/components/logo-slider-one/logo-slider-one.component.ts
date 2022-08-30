@@ -8,12 +8,12 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class LogoSliderOneComponent implements OnInit {
 @Input() logos:string[]= [
-  'https://via.placeholder.com/150',
-  'https://via.placeholder.com/150',
-  'https://via.placeholder.com/150',
-  'https://via.placeholder.com/150',
-  'https://via.placeholder.com/150',
-  'https://via.placeholder.com/150',
+  'assets/images/list/l3.jpg',
+  'assets/images/list/l3.jpg',
+  'assets/images/list/l3.jpg',
+  'assets/images/list/l3.jpg',
+  'assets/images/list/l3.jpg',
+  'assets/images/list/l3.jpg',
 
 ]
 customOptions: OwlOptions = {

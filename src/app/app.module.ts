@@ -45,6 +45,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { LoadingInterceptor } from './pages/dashboard/Interceptor/loading.interceptor';
 import { ErrorInterceptor } from './pages/dashboard/Interceptor/error.interceptor';
+import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
 
 
 
@@ -89,8 +90,8 @@ import { ErrorInterceptor } from './pages/dashboard/Interceptor/error.intercepto
   providers: [changeLanguageService, GenaricService,ProjectAndListService,
     FavoritesService,CompareService,AuthService,TestService,
     {provide:HTTP_INTERCEPTORS , useClass:LoadingInterceptor , multi:true},
-    {provide:HTTP_INTERCEPTORS , useClass:ErrorInterceptor , multi:true}
-  
+    {provide:HTTP_INTERCEPTORS , useClass:ErrorInterceptor , multi:true},
+    {provide: LocationStrategy, useClass: PathLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

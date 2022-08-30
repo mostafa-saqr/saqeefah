@@ -26,6 +26,7 @@ export class FavoritesComponent implements OnInit {
   this.projectFavorites = []
     let allFavorites = this.favorite.getAllFavorites()
     
+   if(allFavorites != undefined){
     allFavorites.map((item:any) => {
       if(item.projectId != undefined){
         this.projectFavorites.push(item)
@@ -33,6 +34,7 @@ export class FavoritesComponent implements OnInit {
         this.propertyFavorites.push(item)
       }
     } )
+   }
 console.log( 'property favorites',this.propertyFavorites)
    }
 

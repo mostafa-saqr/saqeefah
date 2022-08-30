@@ -10,9 +10,12 @@ export class FavoritesService {
     }
     getAllFavorites(){
         let currentFavoritesLocalStorage = window.localStorage.getItem('favorites')!
-        let parsingFavorites = JSON.parse(currentFavoritesLocalStorage)
+        if(currentFavoritesLocalStorage != null){
+            let parsingFavorites = JSON.parse(currentFavoritesLocalStorage)
     
-        return parsingFavorites
+            return parsingFavorites
+        }
+        
     }
     checkFavoritesCounter(){
         let  favoritesOnLocalStorage = window.localStorage.getItem("favorites")
@@ -26,8 +29,9 @@ export class FavoritesService {
     }
     checkFavorites(element:any){
         let currentFavoritesLocalStorage = window.localStorage.getItem('favorites')!
-        let parsingFavorites = JSON.parse(currentFavoritesLocalStorage)
-        if(element.projectId != undefined){
+        if(currentFavoritesLocalStorage != null){
+            let parsingFavorites = JSON.parse(currentFavoritesLocalStorage)
+        if(element.projectId != undefined ){
             let checkEleOnFavorites = parsingFavorites.some((ele:any) => ele.projectId === element.projectId )
             if(checkEleOnFavorites){
                 element.favorite = true
@@ -36,12 +40,13 @@ export class FavoritesService {
                 element.favorite = false
             }
         } else {
-            let checkEleOnFavorites = parsingFavorites.some((ele:any) => ele.apartmentId === element.apartmentId )
+            let checkEleOnFavorites = parsingFavorites.some((ele:any) => ele.apartment_Id === element.apartment_Id )
             if(checkEleOnFavorites){
                 element.favorite = true
             } else {
                 element.favorite = false
             }
+        }
         }
        
     }
@@ -84,17 +89,17 @@ export class FavoritesService {
             
                 let currentFavoritesLocalStorage = window.localStorage.getItem('favorites')!
                 let parsingFavorites = JSON.parse(currentFavoritesLocalStorage)
-                let newFavoriteList= parsingFavorites.filter((fav:any)=> fav.apartmentId != item.apartmentId)
+                let newFavoriteList= parsingFavorites.filter((fav:any)=> fav.apartment_Id != item.apartment_Id)
                 window.localStorage.setItem("favorites",JSON.stringify(newFavoriteList))
                 item.favorite = !item.favorite
-                let selectedEle = document.querySelector(`[data-cardico-id='${item.apartmentId}']`)
+                let selectedEle = document.querySelector(`[data-cardico-id='${item.apartment_Id}']`)
                 selectedEle?.classList.remove('active')
                 this.changeFavoriteStatus.emit()
         } else {
             if (window.localStorage.getItem("favorites") === null) {
                 window.localStorage.setItem("favorites",JSON.stringify([item]))
                 item.favorite = !item.favorite
-                let selectedEle = document.querySelector(`[data-cardico-id='${item.apartmentId}']`)
+                let selectedEle = document.querySelector(`[data-cardico-id='${item.apartment_Id}']`)
                 selectedEle?.classList.add('active')
                 this.changeFavoriteStatus.emit()
 
@@ -104,7 +109,7 @@ export class FavoritesService {
                 let newFavoriteList= [...parsingFavorites,item]
                 window.localStorage.setItem("favorites",JSON.stringify(newFavoriteList))
                 item.favorite = !item.favorite
-                let selectedEle = document.querySelector(`[data-cardico-id='${item.apartmentId}']`)
+                let selectedEle = document.querySelector(`[data-cardico-id='${item.apartment_Id}']`)
                 selectedEle?.classList.add('active')
                 this.changeFavoriteStatus.emit()
 
