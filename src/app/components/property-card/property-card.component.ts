@@ -54,8 +54,8 @@ itemSpecsIcon = [
   constructor(public favorites:FavoritesService, public compare:CompareService) { }
 
   ngOnInit(): void {
-    this.favorites.checkFavorites(this.property)
-    this.compare.checkCompare(this.property)
+    // this.favorites.checkFavorites(this.property)
+    // this.compare.checkCompare(this.property)
 
   }
 

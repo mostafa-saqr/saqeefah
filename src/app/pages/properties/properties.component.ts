@@ -64,4 +64,9 @@ export class PropertiesComponent implements OnInit {
  
    }
 
+   filter(e){
+    this.AllProperties = e;
+   
+ }
+
 }

@@ -20,10 +20,12 @@ export class ProjectsComponent implements OnInit {
       
       this.AllProjects = response.result.data
      this.Total= response.result.data.length;
+    
   
     })
   }
   ngOnInit(): void {
+  
     this.getAllProjects()
     this.language.changeLanguageStatus.subscribe((data)=>{
       this.getAllProjects()
@@ -43,5 +45,10 @@ export class ProjectsComponent implements OnInit {
 
 
   }
-
+ 
+  filter(e){
+    this.AllProjects = e;
+   
+ }
+  
 }

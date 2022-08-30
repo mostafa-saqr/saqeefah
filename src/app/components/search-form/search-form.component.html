@@ -1,39 +1,87 @@
-<div class="serch-form">
-    <div class="mb-3 slider-container">
+<div class="serch-form" [ngSwitch]="searchAbout">
+    <!-- <div class="mb-3 slider-container">
         <label for="priceRange" class="form-label">Example range</label>
         <input type="range" class="form-range slider w-100" min="0" max="5" step="0.5" id="priceRange">
+    </div> -->
+   
+    <div class="box" *ngSwitchCase="'project'">
+        <form (ngSubmit)="ApplyFilterProject()" [formGroup]="form">
+        <!-- <div class="mb-3">
+            <label  class="form-label">{{'KEYWORD' | translate}}</label>
+            <input type="text" name="" formControlName="keyword" class="form-control" value="">
+        </div> -->
+        <div class="mb-3">
+            <label  class="form-label">{{'CITY' | translate}}</label>
+            <select class="form-select form-select-lg mb-3" formControlName="city" aria-label=".form-select-lg example">
+                <option selected>{{'--Please Select--' | translate}}</option>
+                <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
+              
+            </select>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">{{'DISTRICT' | translate}}</label>
+            <select class="form-select form-select-lg mb-3" formControlName="district" aria-label=".form-select-lg example">
+                <option selected>{{'--Please Select--' | translate}}</option>
+                <option *ngFor="let district of districts"   value="{{district}}">{{district}}</option>
+              
+            </select>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">{{'STATUS' | translate}}</label>
+            <select class="form-select form-select-lg mb-3" formControlName="status" aria-label=".form-select-lg example">
+                <option selected>{{'--Please Select--' | translate}}</option>
+                <option *ngFor="let state of status"   value="{{state}}">{{state}}</option>
+              
+            </select>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">{{'NUM. OF APPARTMENTS' | translate}}</label>
+            <input type="number" name="" min="0" formControlName="appartment" class="form-control" value="">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">{{'NUM. OF BUILDINGS' | translate}}</label>
+            <input type="number" name="" formControlName="building" min="0" class="form-control" value="">
+        </div>
+        <button type="submit" class="btn secondary-btn">Search</button>
+    </form>
     </div>
-    <div class="mb-3">
-        <label for="KeyWord" class="form-label">KEYWORD</label>
-        <input type="text" name="" class="form-control" value="">
+
+
+
+
+    <!-- --------------------------------filter property ---------------------------------------- -->
+
+
+    <div class="box" *ngSwitchCase="'property'">
+          <form (ngSubmit)="ApplyFilterProperty()" [formGroup]="form1">
+        
+        <div class="mb-3">
+            <label  class="form-label">{{'PRICE' | translate}}</label>
+            <select class="form-select form-select-lg mb-3" formControlName="price" aria-label=".form-select-lg example">
+                <option selected>{{'--Please Select--' | translate}}</option>
+                <option *ngFor="let price of prices" value="{{price}}">{{price | currency:'SAR':'\u0631\u002e\u0633\u002e'}}</option>
+              
+            </select>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">{{'NUM. OF BEDROOMS' | translate}}</label>
+            <input type="number" name="" min="0" formControlName="bedroom" class="form-control" value="">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">{{'NUM. OF HALLS' | translate}}</label>
+            <input type="number" name="" formControlName="hall" min="0" class="form-control" value="">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">{{'NUM. OF FLOOR' | translate}}</label>
+            <input type="number" name="" formControlName="floor" min="0" class="form-control" value="">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">{{'NUM. OF SALON' | translate}}</label>
+            <input type="number" name="" formControlName="salon" min="0" class="form-control" value="">
+        </div>
+    <button type="submit" class="btn secondary-btn">Search</button>
+    </form>
     </div>
-    <div class="mb-3">
-        <label for="KeyWord" class="form-label">LIST TYPE</label>
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            <option selected>---</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-    </div>
-    <div class="mb-3">
-        <label for="KeyWord" class="form-label">PROPERTY TYPE</label>
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            <option selected>---</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-    </div>
-    <div class="mb-3">
-        <label for="KeyWord" class="form-label">BEDROOMS</label>
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            <option selected>---</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-    </div>
-    <button type="" class="btn secondary-btn">Search</button>
+
 
 </div>

@@ -20,6 +20,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LogoSliderOneComponent } from './logo-slider-one/logo-slider-one.component';
 import { LogoSlidertowComponent } from './logo-slidertow/logo-slidertow.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -39,6 +40,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     CommonModule,
     HttpClientModule,
     RouterModule,
+    ReactiveFormsModule,
     CarouselModule,
     GalleryModule,
     TranslateModule.forRoot({
