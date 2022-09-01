@@ -125,6 +125,29 @@ export class APICallerService {
 
 
 
+  public postFormData(
+    url: string,
+    formData: any,
+    auth: boolean = true,
+    loader: string = '',
+    handleError: boolean = true
+  ): Observable<any> {
+    let _requestOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + this.tokenService.getToken(),
+      }),
+    };
+    let fUrl = this.serviceApiUrl + url;
+    return this.http.post(fUrl,formData,
+    {
+         headers:_requestOptions.headers
+    }
+  );
+   
+  }
+
+
+
 
 
 
