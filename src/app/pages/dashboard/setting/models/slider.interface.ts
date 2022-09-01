@@ -11,7 +11,8 @@ export interface ISlider {
     TitleAr: string;
     DescriptionAr: string;
     DescriptionEn: string;
-    IsActive?:boolean; 
+    IsActive?:boolean;
+    ISliderAttachment?:Array<ISliderAttachment>
 }
 export interface ISliderAttachment {
     attachmentId: number;

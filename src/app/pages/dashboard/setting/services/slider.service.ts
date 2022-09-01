@@ -23,7 +23,7 @@ export class SliderService {
     return this.callApi.get(`api/Slider?languageId=${languageId}`)
   }
 
-  
+
   UpdateSlider(body: ISlider): Observable<any> {
     var formdata = new FormData();
     formdata.append("Id", body.Id.toString());

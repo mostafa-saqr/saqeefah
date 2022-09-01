@@ -4,7 +4,7 @@ import { Editor, Toolbar } from 'ngx-editor';
 import { SliderTypes } from 'src/app/shared/Enums/enums';
 import { environment } from 'src/environments/environment';
 import jsonDoc from '../../models/doc';
-import { ISlider } from '../../models/slider.interface';
+import { ISlider, ISliderAttachment } from '../../models/slider.interface';
 import { SliderService } from '../../services/slider.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class PartnerComponent implements OnInit {
   editordoc = jsonDoc;
   appRootUrl = environment.appRoot + '/';
   slider: ISlider = {} as ISlider;
-
+  imageList:ISliderAttachment[] = [] ;
 
   public myFormGroup: FormGroup = new FormGroup({
     TitleEn: new FormControl('', [Validators.required]),
@@ -33,7 +33,7 @@ export class PartnerComponent implements OnInit {
 
 
   public myFormGroupForImages: FormGroup = new FormGroup({
-   
+
   });
 
 
@@ -43,6 +43,8 @@ export class PartnerComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeFormGroup();
+    this.getAllsliderAttatchment();
+
   }
 
 
@@ -56,7 +58,7 @@ export class PartnerComponent implements OnInit {
       TitleAr: this.myFormGroup.value.TitleAr,
       DescriptionEn: this.myFormGroup.value.DescriptionEn,
       DescriptionAr: this.myFormGroup.value.DescriptionAr,
-      IsActive:this.myFormGroup.value.IsActive, 
+      IsActive:this.myFormGroup.value.IsActive,
       Id: SliderTypes.OurPartners,
     };
     this.sliderService.UpdateSlider(this.slider).subscribe(r => {
@@ -64,7 +66,7 @@ export class PartnerComponent implements OnInit {
       if (!r.isError) {
         alert("success!");
       }else{
-        alert("faill"); 
+        alert("faill");
       }
     })
 
@@ -77,17 +79,17 @@ export class PartnerComponent implements OnInit {
       TitleAr: '',
       DescriptionEn: '',
       DescriptionAr: '',
-      IsActive:true, 
+      IsActive:true,
 
 
     })
   }
 
-  
+
 
   onInputChange(event) {
     if(event.target.files){
-      for  (var i =  0; i <  event.target.files.length; i++)  {  
+      for  (var i =  0; i <  event.target.files.length; i++)  {
         this.images.push(<File>event.target.files[i])
       }
     }
@@ -102,12 +104,31 @@ export class PartnerComponent implements OnInit {
   getAttachmentSlider(){
 
     this.sliderService.getAllSliders(SliderTypes.OurPartners).subscribe(r=>{
-        
-      
+
+
 
 
     });
   }
+ getAllsliderAttatchment()
+ {
+
+  this.sliderService.getAllSliderByid(SliderTypes.OurPartners).subscribe(res =>{
+    if(!res.isError)
+    {
+
+     // this.imageList= res.result.data;
+      alert('sucess')
+
+    }
+    else{
+
+      alert('failed');
+
+
+    }
+  })
+ }
 
 
 

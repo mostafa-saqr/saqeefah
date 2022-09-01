@@ -93,7 +93,7 @@
                 <div class="m-5">
 
                     <h1> Upload Images </h1>
-                    <form action="" class="row g-4" 
+                    <form action="" class="row g-4"
                         enctype="multipart/form-data">
 
                         <div class="col-md-12">
@@ -116,10 +116,10 @@
 
                                         <div class="col-md-12">
                                             <div class="current-image">
-                                                <div class="imagBox">
+                                                <div class="imagBox" *ngFor="let img of imageList">
                                                     <i class="far fa-times-circle delete-img"
-                                                        (click)="DeleteImage()"></i>
-                                                    <img [src]="appRootUrl" class="img-fluid" alt="">
+                                                        (click)="DeleteImage()" [id]="img.attachmentId"></i>
+                                                    <img [src]="appRootUrl+img.path" class="img-fluid" alt="">
                                                 </div>
                                             </div>
                                         </div>
