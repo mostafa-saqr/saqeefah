@@ -70,5 +70,8 @@ export class PropertiesComponent implements OnInit {
     this.AllProperties = e;
    
  }
+ refresh(){
+  window.location.reload();
+ }
 
 }

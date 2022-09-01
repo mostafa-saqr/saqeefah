@@ -26,6 +26,7 @@ import { LoadingInterceptor } from './Interceptor/loading.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ErrorInterceptor } from './Interceptor/error.interceptor';
+import { NgxEditorModule } from 'ngx-editor';
 
 
 
@@ -46,7 +47,7 @@ import { ErrorInterceptor } from './Interceptor/error.interceptor';
             TopHeaderComponent,
             SocialmediaComponent,
             PartnerComponent,
-           
+
   ],
   imports: [
     CommonModule,
@@ -56,6 +57,7 @@ import { ErrorInterceptor } from './Interceptor/error.interceptor';
     ReactiveFormsModule,
     IconPickerModule,
     NgxSpinnerModule,
+    NgxEditorModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
       loader: {

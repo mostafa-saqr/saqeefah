@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { GenaricService } from 'src/app/services/Genaric.service';
 import { ProjectAndListService } from 'src/app/services/project-lists.service';
+import { SliderService } from 'src/app/services/slider.service';
 import { SettingTypes } from 'src/app/shared/Enums/enums';
 import { ISettingType } from '../dashboard/setting/models/settingType.interface';
 import { SettingsService } from '../dashboard/setting/services/settings.service';
@@ -16,13 +17,13 @@ import { SettingsService } from '../dashboard/setting/services/settings.service'
 })
 export class HomeComponent implements OnInit,OnDestroy {
 
-
+  AllSlider=[];
   projectList = []
   AllProjects = []
   projectsForSale =[]
   projectsForRent = []
   constructor(private generalService:GenaricService, private projects:ProjectAndListService,
-    private language:changeLanguageService, private siteSetting:SettingsService) {
+    private language:changeLanguageService, private siteSetting:SettingsService,private slider :SliderService) {
    
 
   
@@ -55,10 +56,12 @@ getAllProjects(){
 
     this.generalService.changeNavBarTheme({transparentNav:false})
     //console.log(this.generalService.checkNavIsTRansparent())
-    this.getAllProjects()
+    this.getAllProjects();
+    this.getAllSlider();
   this.language.changeLanguageStatus.subscribe((data)=>{
     console.log('language updated',data)
-    this.getAllProjects()
+    this.getAllProjects();
+    this.getAllSlider();
     
   })
   }
@@ -68,4 +71,14 @@ getAllProjects(){
 
   }
 
+  getAllSlider(){
+    this.slider.getAllSliders(this.language.getLanguageID()).subscribe((response:any)=>{
+      console.log('all sliders',response)
+      
+  if(!response.isError){
+    this.AllSlider= response.result.data
+  }
+  
+    })
+  }
 }

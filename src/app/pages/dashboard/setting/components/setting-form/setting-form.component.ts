@@ -1,23 +1,27 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Editor, Toolbar } from 'ngx-editor';
 import { ToastrService } from 'ngx-toastr';
 import { SettingTypes } from 'src/app/shared/Enums/enums';
 import { environment } from 'src/environments/environment';
 import { SettingsService } from '../../services/settings.service';
-
+import jsonDoc from '../../models/doc';
 
 @Component({
   selector: 'app-setting-form',
   templateUrl: './setting-form.component.html',
   styleUrls: ['./setting-form.component.scss']
 })
-export class SettingFormComponent implements OnInit {
+export class SettingFormComponent implements OnInit,AfterViewInit,OnDestroy  {
 
   @Input() collapseId: number = 1;
 
   @Input() SettingTypeId: number;
 
   @Input() SettingTypeTitle: string;
+
+  SettingId:number;
+
   appRootUrl=environment.appRoot+'/';
 currentFormData:any
    iconCss:any
@@ -26,31 +30,51 @@ currentFormData:any
   formData: FormData = new FormData()
   showError:boolean=false;
   spaceRegex=/^(\s+\S+\s*)*(?!\s).*$/;
+  editordoc =jsonDoc;
+
+  editor: Editor;
+  editor1:Editor;
+  toolbar: Toolbar = [
+    ['bold', 'italic'],
+    ['underline', 'strike'],
+    ['code', 'blockquote'],
+    ['ordered_list', 'bullet_list'],
+    [{ heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
+    ['link', 'image'],
+    ['text_color', 'background_color'],
+    ['align_left', 'align_center', 'align_right', 'align_justify'],
+  ];
 
   constructor(private setting: SettingsService ,  private toastr: ToastrService) {
+
 
   }
 
   public myFormGroup: FormGroup = new FormGroup({
     settingTypeId: new FormControl(0),
-    TitleEn: new FormControl('',[Validators.required,Validators.pattern(this.spaceRegex)]),
-    TitleAr: new FormControl('',[Validators.required,Validators.pattern(this.spaceRegex)]),
-    DescriptionEn: new FormControl('',[Validators.required,Validators.pattern(this.spaceRegex)]),
-    DescriptionAr: new FormControl('', [Validators.required,Validators.pattern(this.spaceRegex)]),
-    iconCss: new FormControl('',[Validators.required,Validators.pattern(this.spaceRegex)]),
+    TitleEn: new FormControl('',[Validators.required]),
+    TitleAr: new FormControl('',[Validators.required]),
+    DescriptionEn: new FormControl([Validators.required]),
+    DescriptionAr: new FormControl([Validators.required]),
+    iconCss: new FormControl('',[Validators.required]),
   });
- 
+
 
   ngOnInit(): void {
-    console.log('img',this.ImageThumb)
+    console.log('img',this.ImageThumb);
+
     this.initializeFormGroup();
     this.setting.getsettingsById(this.SettingTypeId).subscribe(res => {
       if (!res.isError) {
         this.currentFormData = res.result.data
         console.log('current form data',this.currentFormData);
       }
-      
+
     })
+  }
+  ngAfterViewInit(): void{
+    this.editor = new Editor();
+    this.editor1 = new Editor();
   }
 
   onInputChange(event) {
@@ -62,7 +86,7 @@ currentFormData:any
   }
 
   onClickSubmit() {
-     
+
     this.submitted = true;
     if (this.myFormGroup.invalid) {
       this.showError=true;
@@ -76,25 +100,25 @@ currentFormData:any
       DescriptionAr: this.myFormGroup.value.DescriptionAr,
       iconCss: this.myFormGroup.value.iconCss,
     };
-    
+
   if(this.ImageThumb != null){
-    this.formData.append('SettingImage',this.ImageThumb, this.ImageThumb.name); 
+    this.formData.append('SettingImage',this.ImageThumb, this.ImageThumb.name);
 
   }
-    this.formData.append('TitleAr',setting.TitleAr); 
-    this.formData.append('TitleEn',setting.TitleEn); 
-    this.formData.append('DescriptionAr',setting.DescriptionAr); 
-    this.formData.append('DescriptionEn',setting.DescriptionEn); 
-    this.formData.append('SettingTypeId',setting.settingTypeId); 
-    this.formData.append('IconCss',setting.iconCss); 
-        
+    this.formData.append('TitleAr',setting.TitleAr);
+    this.formData.append('TitleEn',setting.TitleEn);
+    this.formData.append('DescriptionAr',setting.DescriptionAr);
+    this.formData.append('DescriptionEn',setting.DescriptionEn);
+    this.formData.append('SettingTypeId',setting.settingTypeId);
+    this.formData.append('IconCss',setting.iconCss);
+
     this.setting.setSetting(this.formData).subscribe(
       res => {
         if (res.status = true) {
           // alert(':: Submitted successfully');
 
-          
-          this.toastr.success(' :: Saved Successfully');
+
+          this.toastr.success(':: Saved Successfully');
           this.showError=false;
           // this.myFormGroup.reset();
           this.submitted = false;
@@ -115,7 +139,7 @@ currentFormData:any
 
 
   initializeFormGroup() {
-    
+
     this.myFormGroup.setValue({
       settingTypeId: this.SettingTypeId,
       TitleEn: '',
@@ -124,6 +148,16 @@ currentFormData:any
       DescriptionAr: '',
       iconCss:'fas fa-user'
     })
+  }
+
+  DeleteImage(settingId:number){
+
+
+  }
+
+  ngOnDestroy(): void {
+    this.editor.destroy();
+    this.editor1.destroy();
   }
 
 }

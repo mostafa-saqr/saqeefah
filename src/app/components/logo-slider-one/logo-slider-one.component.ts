@@ -7,15 +7,8 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./logo-slider-one.component.scss']
 })
 export class LogoSliderOneComponent implements OnInit {
-@Input() logos:string[]= [
-  'assets/images/list/l3.jpg',
-  'assets/images/list/l3.jpg',
-  'assets/images/list/l3.jpg',
-  'assets/images/list/l3.jpg',
-  'assets/images/list/l3.jpg',
-  'assets/images/list/l3.jpg',
+@Input() logos= [];
 
-]
 customOptions: OwlOptions = {
   loop: true,
   mouseDrag: false,

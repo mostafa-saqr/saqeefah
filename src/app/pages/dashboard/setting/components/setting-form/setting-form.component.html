@@ -12,7 +12,7 @@
                     <div class="my-1 ">
                         <label for="exampleFormControlInput1" class="form-label">Title En
                             <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['TitleEn'].errors?.['required']">
-                                * Required Field 
+                                * Required Field
                             </span> -->
 
                         </label>
@@ -21,13 +21,17 @@
                         </div>
                     </div>
                     <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Description  En 
+                        <label for="exampleFormControlInput1" class="form-label">Description  En
                             <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionEn'].errors?.['required']">
-                                * Required Field 
+                                * Required Field
                             </span> -->
                         </label>
                         <div class="formg">
-                            <textarea class="form-control" formControlName="DescriptionEn" rows="3" [(ngModel)]="currentFormData.descriptionEn"></textarea>
+                          <ngx-editor-menu [editor]="editor1" [toolbar]="toolbar">
+                          </ngx-editor-menu>
+                          <ngx-editor [editor]="editor1" formControlName="DescriptionEn"  [(ngModel)]="currentFormData.descriptionEn">
+                          </ngx-editor>
+                            <!-- <textarea class="form-control" formControlName="DescriptionEn" rows="3" [(ngModel)]="currentFormData.descriptionEn"></textarea> -->
                         </div>
                     </div>
 
@@ -37,22 +41,26 @@
                     <div class="my-1">
                         <label for="exampleFormControlInput1" class="form-label">Title Ar
                             <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['TitleAr'].errors?.['required']">
-                                * Required Field 
+                                * Required Field
                             </span> -->
-                   
+
                         </label>
                         <div class="formg">
                             <input type="text" class="form-control" formControlName="TitleAr" [(ngModel)]="currentFormData.titleAr" placeholder="Fill Field">
                         </div>
                     </div>
                     <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Description Ar 
+                        <label for="exampleFormControlInput1" class="form-label">Description Ar
                             <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionAr'].errors?.['required']">
-                                * Required Field 
+                                * Required Field
                             </span> -->
                         </label>
                         <div class="formg">
-                            <textarea class="form-control" formControlName="DescriptionAr" [(ngModel)]="currentFormData.descriptionAr" rows="3"></textarea>
+                          <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
+                          </ngx-editor-menu>
+                          <ngx-editor [editor]="editor" formControlName="DescriptionAr" [(ngModel)]="currentFormData.descriptionAr">
+                          </ngx-editor>
+                            <!-- <textarea class="form-control" formControlName="DescriptionAr" [(ngModel)]="currentFormData.descriptionAr" rows="3"></textarea> -->
                         </div>
                     </div>
 
@@ -62,9 +70,9 @@
 
                 <div class="col-md-12">
                     <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Select Icon 
+                        <label for="exampleFormControlInput1" class="form-label">Select Icon
                             <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['iconCss'].errors?.['required']">
-                                * Required Field 
+                                * Required Field
                             </span> -->
                         </label>
                         <div class="formg w-100 input-group">
@@ -81,17 +89,19 @@
                          </label>
                         <div class="formg w-100">
                             <div class="row">
-                                <div class="col-md-2">
-                                    <div class="current-image position-relative">
-                                        <i class="far fa-times-circle delete-img"></i>
 
-                                        <img [src]="appRootUrl+currentFormData.imagePath" class="img-fluid" alt="">
-
-                                    </div>
-                                </div>
-                                <div class="col-md-10">
+                                <div class="col-md-12">
                                     <input type="file" class="form-control mb-3" (change)="onInputChange($event)" id="thumbnail">
                                 </div>
+
+                                <div class="col-md-12">
+                                  <div class="current-image">
+                                    <div class="imagBox">
+                                      <i class="far fa-times-circle delete-img" (click)="DeleteImage(currentFormData.settingId)"></i>
+                                      <img [src]="appRootUrl+currentFormData.imagePath" class="img-fluid" alt="" >
+                                    </div>
+                                  </div>
+                              </div>
                             </div>
                             <button type="submit" [disabled]="myFormGroup.invalid" class="btn btn-small btn-primary w-25 float-end  px-4  mt-2">Save
                             </button>

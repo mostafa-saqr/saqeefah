@@ -51,5 +51,8 @@ export class ProjectsComponent implements OnInit {
     this.AllProjects = e;
    
  }
+ refresh(){
+  window.location.reload();
+ }
   
 }
