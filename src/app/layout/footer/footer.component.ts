@@ -15,7 +15,7 @@ export class FooterComponent implements OnInit {
   emailRegex=/^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/;
 
   form:FormGroup=new FormGroup({
-    id:new FormControl(0), 
+    id:new FormControl(0),
     email:new FormControl('',[Validators.required,Validators.email,Validators.pattern(this.spaceRegex)]),
     subject: new FormControl('',[Validators.required,Validators.pattern(this.spaceRegex)]),
   })
@@ -26,7 +26,7 @@ export class FooterComponent implements OnInit {
     this.initializeForm();
   }
 
-   
+
   onSubmit(){
     debugger;
     if (this.form.invalid) {
@@ -38,27 +38,27 @@ export class FooterComponent implements OnInit {
     let feedback = {
       email: this.form.value.email,
       subject: this.form.value.subject,
-    
+
     };
 
 
     console.log(feedback)
-        
+
     this.FB.setFeedback(feedback).subscribe(
       res => {
         if (!res.errors) {
           // alert(':: Submitted successfully');
-          this.toastr.success(' :: Submitted Successfully');
+          this.toastr.success(' :: Successfully Submitted ');
           this.showError=false;
           this.form.reset();
         }
         else {
-          alert(':: Failed');
+          this.toastr.error(' :: Failed Submitted');
         }
 
       })
-    
-    
+
+
   }
 
 
