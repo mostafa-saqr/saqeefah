@@ -10,6 +10,9 @@ export class ContactUsService {
   constructor(private callApi : APICallerService) { }
 
   setContact(Model:any): Observable<any> {
-      return this.callApi.post(`api/Client/ContactUs`, Model)
+      return this.callApi.post(`api/Client/ContactUs`, Model);
   }
+  getContact(): Observable<any> {
+    return this.callApi.get(`api/Client/ContactUs`);
+}
 }
