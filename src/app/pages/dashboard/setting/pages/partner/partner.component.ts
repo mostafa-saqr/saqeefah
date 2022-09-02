@@ -20,15 +20,15 @@ export class PartnerComponent implements OnInit {
   spaceregex = /^(\s+\S+\s*)*(?!\s).*$/;
   editordoc = jsonDoc;
   appRootUrl = environment.appRoot + '/';
-  slider: ISlider = {} as ISlider;
-  imageList:ISliderAttachment[] = [] ;
+  public slider: ISlider = {} as ISlider;
+  imageList: ISliderAttachment[] = [];
 
   public myFormGroup: FormGroup = new FormGroup({
     TitleEn: new FormControl('', [Validators.required]),
     TitleAr: new FormControl('', [Validators.required]),
     DescriptionEn: new FormControl(Validators.required),
     DescriptionAr: new FormControl(Validators.required),
-    IsActive:new FormControl(),
+    IsActive: new FormControl(),
   });
 
 
@@ -42,8 +42,10 @@ export class PartnerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.initializeFormGroup();
-    this.getAllsliderAttatchment();
+    this.getAllSliderAttatchments();
+
 
   }
 
@@ -54,24 +56,24 @@ export class PartnerComponent implements OnInit {
       return;
     }
     this.slider = {
-      TitleEn: this.myFormGroup.value.TitleEn,
-      TitleAr: this.myFormGroup.value.TitleAr,
-      DescriptionEn: this.myFormGroup.value.DescriptionEn,
-      DescriptionAr: this.myFormGroup.value.DescriptionAr,
-      IsActive:this.myFormGroup.value.IsActive,
-      Id: SliderTypes.OurPartners,
+      titleEn: this.myFormGroup.value.TitleEn,
+      titleAr: this.myFormGroup.value.TitleAr,
+      descriptionEn: this.myFormGroup.value.DescriptionEn,
+      descriptionAr: this.myFormGroup.value.DescriptionAr,
+      isActive: this.myFormGroup.value.IsActive,
+      id: SliderTypes.OurPartners,
     };
     this.sliderService.UpdateSlider(this.slider).subscribe(r => {
       debugger
       if (!r.isError) {
         alert("success!");
-      }else{
+        this.getAllSliderAttatchments(); 
+      } else {
         alert("faill");
       }
     })
 
   }
-
 
   initializeFormGroup() {
     this.myFormGroup.setValue({
@@ -79,57 +81,56 @@ export class PartnerComponent implements OnInit {
       TitleAr: '',
       DescriptionEn: '',
       DescriptionAr: '',
-      IsActive:true,
+      IsActive: true,
+    })
+  }
 
+  onInputChange(event) {
+    if (event.target.files) {
+      for (var i = 0; i < event.target.files.length; i++) {
+        this.images.push(<File>event.target.files[i])
+      }
+    }
+  }
+  DeleteImage(attachmentId: number) {
+    this.sliderService.deleteSliderAttachment(attachmentId).subscribe(r => {
+      if (!r.isError) {
+        alert("success")
+        this.getAllSliderAttatchments();
+      }
+    });
+  }
 
+  getAllSliderAttatchments() {
+    this.sliderService.getAllSliderByid(SliderTypes.OurPartners).subscribe(res => {
+      if (!res.isError) {
+        this.slider = res.result.data;
+      }
     })
   }
 
 
 
-  onInputChange(event) {
-    if(event.target.files){
-      for  (var i =  0; i <  event.target.files.length; i++)  {
-        this.images.push(<File>event.target.files[i])
+  uploadImages(e) {
+    e.preventDefault();
+    debugger; 
+    if (this.images.length > 0) {
+      let sliderTypeId= SliderTypes.OurPartners; 
+      this.formData.append('SliderId ',sliderTypeId.toString())
+      for (var  index = 0; index < this.images.length; index++) {
+        this.formData.append('Images', this.images[index], this.images[index].name);
       }
-    }
-  }
-
-
-
-  DeleteImage() {
-
-  }
-
-  getAttachmentSlider(){
-
-    this.sliderService.getAllSliders(SliderTypes.OurPartners).subscribe(r=>{
-
-
-
-
-    });
-  }
- getAllsliderAttatchment()
- {
-
-  this.sliderService.getAllSliderByid(SliderTypes.OurPartners).subscribe(res =>{
-    if(!res.isError)
-    {
-
-     // this.imageList= res.result.data;
-      alert('sucess')
-
-    }
-    else{
-
-      alert('failed');
+      this.sliderService.uploadAttachmentImagesSlider(this.formData).subscribe(r => {
+         if(!r.isError)
+         {
+           alert("success"); 
+         }
+      });
 
 
     }
-  })
- }
 
+  }
 
 
 }
