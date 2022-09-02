@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { GenaricService } from 'src/app/services/Genaric.service';
 import { ProjectAndListService } from 'src/app/services/project-lists.service';
-import { SliderService } from 'src/app/services/slider.service';
+import { SliderService } from 'src/app/pages/dashboard/setting/services/slider.service';
 import { SettingTypes } from 'src/app/shared/Enums/enums';
 import { ISettingType } from '../dashboard/setting/models/settingType.interface';
 import { SettingsService } from '../dashboard/setting/services/settings.service';
