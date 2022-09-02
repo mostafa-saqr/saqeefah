@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompareService } from 'src/app/services/compare.service';
 import { ProjectAndListService } from 'src/app/services/project-lists.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-compare',
@@ -9,6 +10,7 @@ import { ProjectAndListService } from 'src/app/services/project-lists.service';
 })
 export class CompareComponent implements OnInit {
 compareList:any[] = []
+appRootUrl = environment.appRoot+'/';
   constructor(private appartments:ProjectAndListService, public compareServ:CompareService) { }
 
   ngOnInit(): void {

@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 export class ModalComponent implements OnInit {
 @Input() Gallery:any[]
 @Input() modalId:string
+@Input() projectDetails:any
   constructor() { }
 
    appRootUrl=environment.appRoot; 

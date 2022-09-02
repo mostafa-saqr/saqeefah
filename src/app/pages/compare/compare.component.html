@@ -27,7 +27,7 @@
                             <th scope="col" class="border-0"></th>
 
                             <th scope="col" *ngFor="let item of compareList">
-                                <img src="assets/images/img1.webp">
+                                <img [src]="item.coverImage ? appRootUrl+item.coverImage :'assets/images/home-placeHolder.webp'">
                                 <h5>Floor ({{item.floor_Num}}) Apartment ({{item.apartment_Num}})</h5>
                             </th>
 
@@ -44,8 +44,6 @@
                             </th>
 
                             <td *ngFor="let item of compareList">Location1, Saudia Arabia</td>
-
-
 
                         </tr>
 
