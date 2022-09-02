@@ -236,7 +236,12 @@ a {
     transition: .3s all ease;
     color: #af8f79
 }
-
+.imageborders{
+    height: 150px;
+    width: 200px;
+    max-width: 200px;
+    max-height: 150px;
+  }
 a:hover,
 a:focus {
     text-decoration: none;
