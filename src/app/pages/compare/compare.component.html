@@ -27,7 +27,7 @@
                             <th scope="col" class="border-0"></th>
 
                             <th scope="col" *ngFor="let item of compareList">
-                                <img [src]="item.coverImage ? appRootUrl+item.coverImage :'assets/images/home-placeHolder.webp'">
+                                <img [src]="appRootUrl+item.coverImage" class="img-fluid imageborders" alt="">
                                 <h5>Floor ({{item.floor_Num}}) Apartment ({{item.apartment_Num}})</h5>
                             </th>
 
@@ -36,7 +36,7 @@
                     </thead>
                     <tbody>
 
-                        <tr>
+                        <!-- <tr>
 
                             <th scope="row">
                                 <img src="assets/images/compare-icons/location.png">
@@ -45,9 +45,11 @@
 
                             <td *ngFor="let item of compareList">Location1, Saudia Arabia</td>
 
-                        </tr>
 
-                        <tr>
+
+                        </tr> -->
+
+                        <!-- <tr>
 
                             <th scope="row">
                                 <img src="assets/images/compare-icons/area.png">
@@ -58,12 +60,9 @@
                                 {{item.apartment_Space}} m
                                 <sup>2</sup>
                             </td>
+                        </tr> -->
 
-
-
-                        </tr>
-
-                        <tr>
+                        <!-- <tr>
 
                             <th scope="row">
                                 <img src="assets/images/compare-icons/room.png">
@@ -74,9 +73,9 @@
 
 
 
-                        </tr>
+                        </tr> -->
 
-                        <tr>
+                        <!-- <tr>
 
                             <th scope="row">
                                 <img src="assets/images/compare-icons/air-conditioner.png">
@@ -87,10 +86,10 @@
 
 
 
-                        </tr>
+                        </tr> -->
 
 
-                        <tr>
+                        <!-- <tr>
 
                             <th scope="row">
                                 <img src="assets/images/compare-icons/bathroom.png">
@@ -101,12 +100,12 @@
 
 
 
-                        </tr>
+                        </tr> -->
 
 
 
 
-                        <tr>
+                        <!-- <tr>
 
                             <th scope="row">
                                 <img src="assets/images/compare-icons/kitchen.png">
@@ -115,7 +114,7 @@
 
                             <td *ngFor="let item of compareList">
                                 <i class="fa fa-check"></i>
-                            </td>
+                            </td> -->
 
                             <!-- <td>
                                 <i class="fa fa-check"></i>
@@ -125,10 +124,10 @@
                                 <i class="fa fa-times"></i>
                             </td> -->
 
-                        </tr>
+                        <!-- </tr> -->
 
 
-                        <tr>
+                        <!-- <tr>
 
                             <th scope="row">
                                 <img src="assets/images/compare-icons/furnished.png">
@@ -137,7 +136,7 @@
 
                             <td *ngFor="let item of compareList">
                                 <i class="fa fa-check"></i>
-                            </td>
+                            </td> -->
                             <!-- 
                             <td>
                                 <i class="fa fa-times"></i>
@@ -147,9 +146,9 @@
                                 <i class="fa fa-times"></i>
                             </td> -->
 
-                        </tr>
+                        <!-- </tr> -->
 
-                        <tr>
+                        <!-- <tr>
 
                             <th scope="row" class="mt-md-4">
                                 <img src="assets/images/compare-icons/price.png">
@@ -165,9 +164,40 @@
 
 
 
+                        </tr> -->
+
+
+                        <!-- <tr>
+
+                            <th scope="row">
+
+                            </th>
+
+                            <td *ngFor="let item of compareList">
+                                <a [routerLink]="['/property',item.apartment_Id]"
+                                    class="btn btn-primary px-4 ml-2">Buy</a>
+                                <a class="btn btn-danger px-4"
+                                    (click)="compareServ.deleteListFromCompare(item.apartment_Id)">Delete</a>
+                            </td>
+
+
+
+                        </tr> -->
+                        <tr *ngFor="let key of getKeys()">
+                            <ng-container *ngIf="key != 'apartment_Id' && key != 'coverImage'
+                            && key != 'images'&& key != 'videos' &&key!='statusId'
+                            &&key!='project_Ref'&&key!='build_Ref'&&key!='loor_Ref'">
+                            <th scope="row">
+                                <img src="assets/images/compare-icons/furnished.png">
+                                <h6>{{key}}</h6>
+                            </th>
+
+                            <td *ngFor="let item of compareList" >
+                                {{item[key]}}
+                            </td>
+                        </ng-container>
+
                         </tr>
-
-
                         <tr>
 
                             <th scope="row">
@@ -175,14 +205,15 @@
                             </th>
 
                             <td *ngFor="let item of compareList">
-                                <a [routerLink]="['/property',item.apartment_Id]" class="btn btn-primary px-4 ml-2">Buy</a>
-                                <a class="btn btn-danger px-4" (click)="compareServ.deleteListFromCompare(item.apartment_Id)">Delete</a>
+                                <!-- <a [routerLink]="['/property',item.apartment_Id]"
+                                    class="btn btn-primary px-4 ml-2">Buy</a> -->
+                                <a class="btn btn-danger px-4"
+                                    (click)="compareServ.deleteListFromCompare(item.apartment_Id)">Delete</a>
                             </td>
 
 
 
                         </tr>
-
 
 
                     </tbody>
