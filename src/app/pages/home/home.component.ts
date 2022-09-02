@@ -25,19 +25,19 @@ export class HomeComponent implements OnInit,OnDestroy {
   projectsForSaleSoon = []
   constructor(private generalService:GenaricService, private projects:ProjectAndListService,
     private language:changeLanguageService, private siteSetting:SettingsService,private slider :SliderService) {
-   
 
-  
+
+
   }
   get SettingTypes(){
     return SettingTypes
   }
 
- 
+
 
 
 getAllProjects(){
-  
+
   this.projects.getAllProjects(this.language.getLanguageID()).subscribe((response:any)=>{
     console.log('all projects',response)
     this.AllProjects = []
@@ -45,7 +45,7 @@ getAllProjects(){
     this.projectsForSaleSoon = []
     this.projectsBooked = []
 
-    
+
    if(!response.isError){
     this.AllProjects = response.result.data
     this.projectsForSale = response.result.data.filter((item:any)=> item.statusId == 1 )
@@ -67,7 +67,7 @@ getAllProjects(){
     console.log('language updated',data)
     this.getAllProjects();
     this.getAllSlider();
-    
+
   })
   }
   ngOnDestroy(): void{
@@ -78,12 +78,13 @@ getAllProjects(){
 
   getAllSlider(){
     this.slider.getAllSliders(this.language.getLanguageID()).subscribe((response:any)=>{
-      console.log('all sliders',response)
-      
+
+
   if(!response.isError){
-    this.AllSlider= response.result.data
+    console.log('all sliders',response)
+      this.AllSlider= response.result.data
   }
-  
+
     })
   }
 }

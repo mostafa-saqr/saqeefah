@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-logo-slider-one',
@@ -8,6 +9,7 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class LogoSliderOneComponent implements OnInit {
 @Input() logos= [];
+appRootUrl=environment.appRoot+'/';
 
 customOptions: OwlOptions = {
   loop: true,
