@@ -48,6 +48,7 @@ import { ErrorInterceptor } from './pages/dashboard/Interceptor/error.intercepto
 import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AuthGuard } from './shared/services/auth.guards';
 import { AttachmentService } from './pages/dashboard/services/attachment.service';
+import { siteInformationService } from './shared/services/siteInformation.service';
 
 
 
@@ -91,7 +92,7 @@ import { AttachmentService } from './pages/dashboard/services/attachment.service
     BrowserAnimationsModule,
   ],
   providers: [changeLanguageService, GenaricService,ProjectAndListService,
-    FavoritesService,CompareService,AuthService,TestService,AuthGuard,AttachmentService,
+    FavoritesService,CompareService,AuthService,TestService,AuthGuard,AttachmentService,siteInformationService,
     {provide:HTTP_INTERCEPTORS , useClass:LoadingInterceptor , multi:true},
     {provide:HTTP_INTERCEPTORS , useClass:ErrorInterceptor , multi:true},
     {provide: LocationStrategy, useClass: PathLocationStrategy}

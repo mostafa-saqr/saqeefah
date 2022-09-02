@@ -8,6 +8,8 @@ import { SliderService } from 'src/app/pages/dashboard/setting/services/slider.s
 import { SettingTypes } from 'src/app/shared/Enums/enums';
 import { ISettingType } from '../dashboard/setting/models/settingType.interface';
 import { SettingsService } from '../dashboard/setting/services/settings.service';
+import { siteInformationService } from 'src/app/shared/services/siteInformation.service';
+import { siteInfo } from '../Models/siteInfo';
 
 
 @Component({
@@ -18,13 +20,14 @@ import { SettingsService } from '../dashboard/setting/services/settings.service'
 export class HomeComponent implements OnInit,OnDestroy {
 
   AllSlider=[];
+
   projectList = []
   AllProjects = []
   projectsForSale =[]
   projectsBooked = []
   projectsForSaleSoon = []
   constructor(private generalService:GenaricService, private projects:ProjectAndListService,
-    private language:changeLanguageService, private siteSetting:SettingsService,private slider :SliderService) {
+    private language:changeLanguageService,private sieInfo:siteInformationService, private siteSetting:SettingsService,private slider :SliderService) {
 
 
 
@@ -67,6 +70,7 @@ getAllProjects(){
     console.log('language updated',data)
     this.getAllProjects();
     this.getAllSlider();
+ 
 
   })
   }
