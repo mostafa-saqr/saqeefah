@@ -33,7 +33,7 @@ public ourMeetingBg
       this.ourMeeting = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.ourMeeting)[0];
      
         this.ourMeetingBg = this.setting.appRootUrl+this.ourMeeting.imagePath
-        console.log('website setting from about us page',this.ourMeetingBg)
+        console.log('website setting from about us page',allSetting)
       
 
     }

@@ -20,19 +20,22 @@
 @import './assets/scss/components/project-modal';
 // pages
 @import './assets/scss/pages/search';
-@import './assets/scss/pages/_project-details';
+@import './assets/scss/pages/project-details';
+@import './assets/scss/pages/home';
 //toastr
 @import "../node_modules/ngx-toastr/toastr.css";
-
- //admin panel
+//admin panel
 //  @import './assets/css/Adminpanel';
 body {
     background: #F6F6F6;
 }
-:root{
-    --main-color:#86815b; 
+
+:root {
+    --main-color: #86815b;
 }
-.accordion-button:focus,.accordion-button:active{
+
+.accordion-button:focus,
+.accordion-button:active {
     outline: none !important;
     outline: 0 !important;
 }

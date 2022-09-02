@@ -118,12 +118,11 @@
      font-size: 16px;
  }
  
- .about-div img {
-     width: 100%;
-     height: 300px;
-     object-fit: cover
- }
- 
+ //  .about-div img {
+ //      width: 100%;
+ //      height: 300px;
+ //      object-fit: cover
+ //  }
  .about-div p {
      font-size: 15px;
  }
@@ -169,20 +168,6 @@
  
  .sectopn-parallex .slider-text p {
      color: #fff;
- }
- 
- .fashionable-designs .row-img1 img {
-     width: 100%;
-     height: 300px;
-     object-fit: cover;
-     margin-bottom: 2rem
- }
- 
- .fashionable-designs .row-img2 img {
-     width: 100%;
-     height: 300px;
-     object-fit: cover;
-     margin-bottom: 2rem
  }
  
  @media screen and (max-width: 768px) {
