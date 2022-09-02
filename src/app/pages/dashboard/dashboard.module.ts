@@ -28,6 +28,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { ErrorInterceptor } from './Interceptor/error.interceptor';
 import { NgxEditorModule } from 'ngx-editor';
 import { WebsiteInfoComponent } from './setting/pages/website-info/website-info.component';
+import { FeedbackListComponent } from './clientInterest/feedback-list/feedback-list.component';
+import { ContactUsListComponent } from './clientInterest/contact-us-list/contact-us-list.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 
@@ -49,6 +52,8 @@ import { WebsiteInfoComponent } from './setting/pages/website-info/website-info.
             SocialmediaComponent,
             PartnerComponent,
             WebsiteInfoComponent,
+            FeedbackListComponent,
+            ContactUsListComponent,
 
   ],
   imports: [
@@ -60,6 +65,7 @@ import { WebsiteInfoComponent } from './setting/pages/website-info/website-info.
     IconPickerModule,
     NgxSpinnerModule,
     NgxEditorModule,
+    DataTablesModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
       loader: {

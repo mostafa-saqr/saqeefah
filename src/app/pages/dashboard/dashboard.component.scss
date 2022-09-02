@@ -18,7 +18,7 @@ section{
 }
 
 
- 
+
   .accordion-button:not(.collapsed)::after{
     background-image:none !important;
     transform: none !important;
@@ -62,19 +62,19 @@ a{
   a:hover,a:active{
     color: lightgray;
   }
-  
+
   .btn:disabled{
     background-color: lightgrey !important;
     border: none !important;
 }
   li {
-    
+
       color:#fff !important
   }
   li:hover{
     box-shadow: inset 0px 0px 5px #d6dadc;
-    background-color: #b2bcc0;
-    
+    background-color: transparent;
+
   }
   .full-width {
     width: 100%;
