@@ -46,6 +46,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoadingInterceptor } from './pages/dashboard/Interceptor/loading.interceptor';
 import { ErrorInterceptor } from './pages/dashboard/Interceptor/error.interceptor';
 import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
+import { AuthGuard } from './shared/services/auth.guards';
+import { AttachmentService } from './pages/dashboard/services/attachment.service';
+
 
 
 
@@ -88,7 +91,7 @@ import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@a
     BrowserAnimationsModule,
   ],
   providers: [changeLanguageService, GenaricService,ProjectAndListService,
-    FavoritesService,CompareService,AuthService,TestService,
+    FavoritesService,CompareService,AuthService,TestService,AuthGuard,AttachmentService,
     {provide:HTTP_INTERCEPTORS , useClass:LoadingInterceptor , multi:true},
     {provide:HTTP_INTERCEPTORS , useClass:ErrorInterceptor , multi:true},
     {provide: LocationStrategy, useClass: PathLocationStrategy}

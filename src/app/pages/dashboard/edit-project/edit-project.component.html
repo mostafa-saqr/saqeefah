@@ -5,6 +5,12 @@
         <input type="file" class="form-control mb-3" id="masterPlane" (change)="onMasterPlaneInputChange($event)">
         <textarea rows="3" class="form-control mb-3" cols="" placeholder="add image map hard code" [(ngModel)]="imageMapHardCode"></textarea>
         <textarea rows="3" class="form-control mb-3" cols="" placeholder="project OverView" [(ngModel)]="projectOverView"></textarea>
+        <div class="col-md-3" *ngIf="mastePlanImage">
+            <div class="current-image position-relative">
+                <i class="fa fa-times-circle delete-img" (click)="deleteAttachment(1)"></i>
+                <img [src]="appRootUrl+mastePlanImage" class="img-fluid imageborders" alt="">
+            </div>
+        </div>
         <p>
 
         </p>
@@ -12,6 +18,7 @@
         <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
          <span>{{masterPlaneUploadMessage}}</span>
     </div>
+  
 </div>
 <hr>
 <div class="row">
@@ -20,8 +27,28 @@
             <h4 class="secondary-color mb-3">Project Gallery</h4>
             <label for="thumbnail">Add Project Cover Photo</label>
             <input type="file" class="form-control mb-3" (change)="onInputChange($event)" id="thumbnail">
+            <div class="col-md-3" *ngIf="coverImage">
+                <div class="current-image position-relative">
+                    <i class="fa fa-times-circle delete-img" (click)="deleteAttachment(4)"></i>
+                    <img [src]="appRootUrl+coverImage" class="img-fluid imageborders" alt="">
+                </div>
+            </div>
+            <p>
+
+            </p>
             <label for="gallery">Add Project Gallery</label>
             <input type="file" class="form-control mb-3" (change)="onGalleryInputChange($event)" id="gallery" multiple>
+           <div class="row">
+            <div class="col-md-3" *ngFor="let image of gallaryImages">
+                <div class="current-image position-relative">
+                    <i class="fa fa-times-circle delete-img" (click)="delete(image.attachmentId)"></i>
+                    <img [src]="appRootUrl+image.path"  class="img-fluid imageborders" alt="">
+                </div>
+            </div>
+        </div>
+        <p>
+
+        </p>
             <button [disabled]="myForm.invalid" type="submit" class="btn btn-primary" (click)="uploadImage($event)">Submit</button>
             <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
 
@@ -34,11 +61,30 @@
         <h4 class="secondary-color mb-3">Project Specifications</h4>
         <label for="specifications">Add Project Specification Photo</label>
         <input type="file" (change)="onSpecificationsInputChange($event)" class="form-control mb-3" id="specifications">
+        <div class="col-md-3" *ngIf="PspecificationsImage">
+            <div class="current-image position-relative">
+                <i class="fa fa-times-circle delete-img" (click)="deleteAttachment(2)"></i>
+                <img [src]="appRootUrl+PspecificationsImage" class="img-fluid imageborders" alt="">
+            </div>
+        </div>
+        <p>
+
+        </p>
         <label for="granties">Add Project Granties</label>
         <input type="file" (change)="onGrantiesInputChange($event)" class="form-control mb-3" id="granties">
-        <button type="submit" [disabled]="uploadWorking" (click)="UploadSpecifications($event)" class="btn btn-primary">Submit</button>
-        <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
+        <div class="col-md-3" *ngIf="PgrantiesImage">
+            <div class="current-image position-relative">
+                <i class="fa fa-times-circle delete-img" (click)="deleteAttachment(3)"></i>
+                <img [src]="appRootUrl+PgrantiesImage" class="img-fluid imageborders" alt="">
+            </div>
+        </div>
+        <p>
 
+        </p>
+        <button type="submit" [disabled]="uploadWorking" (click)="UploadSpecifications($event)" class="btn btn-primary">Submit</button>
+
+        <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
+     
 
     </div>
 </div>
