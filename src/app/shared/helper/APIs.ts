@@ -21,7 +21,7 @@ export class APIs {
   AddAttachments: 'api/Project/Attachments',
   AddMasterPlane:'api/Project/MasterPlane',
   addSpecifications:'api/Project/Specifications',
-  GetProjects:"api/Project/GetProjects"
+  GetProjects:"api/Project/ProjectsWithImagesAndVideos"
 
 };
  // property

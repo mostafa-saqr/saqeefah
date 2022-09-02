@@ -6,7 +6,7 @@
             <!-- <img [src]="'assets/images/list/p1.jpg'" class="card-img-top" alt="..." [routerLink]="['/project',project.projectId]" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;"> -->
         </div>
         <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="project.projectId" [class.active]="project.favorite" (click)="favorites.toggleFavorites(project)"></i>
-        <div class="card-label">{{project.status}}</div>
+        <div class="card-label " [class]="{'green': project.statusId == 1, 'orange': project.statusId == 2, 'pink': project.statusId == 3}">{{project.status}}</div>
         <span class="edit-project" *ngIf="EditMode" [routerLink]="'../edit-project/'+project.projectId">Edit</span>
         <a [href]="'https://www.google.com/maps/search/?api=1&query='+project.longitude+','+project.latitude" target="_blank" [title]="project.projectName+' location on google map'" class="location-onMap"><i class="icon tagr-vector "></i></a>
         <div class="card-mask" data-bs-toggle="modal" [attr.data-bs-target]="'#modal'+project.projectId"></div>

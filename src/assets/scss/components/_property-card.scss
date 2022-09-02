@@ -66,7 +66,6 @@
         .card-label {
             top: 7px;
             right: -7px;
-            background: $secondaryColor;
             padding: 7px 25px;
             font-size: 16px;
             font-weight: 400;
@@ -82,6 +81,15 @@
                 border-right: 7px solid transparent;
                 border-top: 19px solid #555;
             }
+        }
+        .green {
+            background: #4fc738 !important;
+        }
+        .orange {
+            background: #d27718 !important;
+        }
+        .pink {
+            background: #d21862 !important;
         }
     }
     .card-body {
