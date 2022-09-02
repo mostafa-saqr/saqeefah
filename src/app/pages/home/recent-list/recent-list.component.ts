@@ -7,7 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecentListComponent implements OnInit {
 @Input() projects:any
-@Input() projectsForSale:any
+@Input() projectsForSale:any;
+@Input() projectsBooked:any;
+@Input() projectsForSaleSoon:any;
+
+
 
   constructor() { }
 

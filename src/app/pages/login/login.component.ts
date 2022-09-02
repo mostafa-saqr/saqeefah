@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +23,7 @@ export class LoginComponent implements OnInit {
  
  error:any;
 
-  constructor(private router: Router,private titleService :Title) {
+  constructor(private router: Router,private titleService :Title,private loginService:LoginService) {
     this.titleService.setTitle("Saqeefa | Login"); 
 
     
@@ -40,28 +42,24 @@ export class LoginComponent implements OnInit {
 
  
  onSubmit(){
+  
  if(this.form.valid)
  {
    
     let loginview =
     {
      email: this.form.controls['userName'].value,
-     passWord : this.form.controls['passWord'].value,
+     passWord : this.form.controls['password'].value,
     }
-  //  this.service.login(loginview).subscribe(res=>{
-  //   if(res.status==true){
-  //   this.user=res;
-  //   this.error=this.user.error;
-  //   console.log( this.user);
-  //   console.log(this.error);
-  //   if(this.user.token!== "undefined" || this.user.token !== null)
-    
-  //  {
-  //     localStorage.setItem('token',this.user.token);
-  //     localStorage.setItem('userName',this.user.userName);
-     this.router.navigateByUrl('/dashboard');
-   
-  //  }
+    this.loginService.login(loginview).subscribe(res=>{
+      if(!res.isError)
+      {
+        localStorage.setItem("token",res.result.data.token);
+        localStorage.setItem("auth_data",JSON.stringify(res.result));
+
+        this.router.navigateByUrl('/dashboard');
+      }
+    })
   }
   else{
     this.hide=false;

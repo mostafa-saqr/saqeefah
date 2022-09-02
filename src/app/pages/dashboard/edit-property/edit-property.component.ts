@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectAndListService } from 'src/app/services/project-lists.service';
+import { environment } from 'src/environments/environment';
+import { AttachmentService } from '../services/attachment.service';
 @Component({
   selector: 'app-edit-property',
   templateUrl: './edit-property.component.html',
@@ -51,16 +53,43 @@ uploadImage(e){
  this.editproperty.uploadpropertyImage(this.formData).subscribe((resp)=>{
   console.log(resp)
   this.uploadWorking = false
+  this.ngOnInit();
 
  })
 }
-  constructor(private editproperty:ProjectAndListService, private route:ActivatedRoute, private sanitizer:DomSanitizer) { }
-
+  constructor(private attachmentService:AttachmentService,private editproperty:ProjectAndListService, private route:ActivatedRoute, private sanitizer:DomSanitizer) { }
+  coverImage:any;
+  gallaryImages:any[];
+  appRootUrl=environment.appRoot+'/';
   ngOnInit(): void {
     this.propertyId = this.route.snapshot.paramMap.get('propertyId');
     this.projectId = this.route.snapshot.paramMap.get('projectId');
-    
-    console.log('property id',this.propertyId,this.projectId)
+    this.editproperty.getAppartmentDetails(this.propertyId).subscribe(res=>{
+      if(!res.isError)
+      {
+        console.log(res)
+        this.coverImage=res.result['data']['coverImage'];
+        this.gallaryImages=res.result['data']['images'];
+      }
+    })
   }
+  delete(id:any){
+    this.attachmentService.deleteAttachment(id,"Apartment").subscribe(res=>{
+     if(!res.isError)
+     {
+       this.ngOnInit();
+     }
+        
+    })
+   }
+   deleteCover(){
+    this.attachmentService.deleteApartmentCover(this.propertyId).subscribe(res=>{
+      if(!res.isError)
+      {
+        this.ngOnInit();
+      }
+         
+     })
+   }
 
 }

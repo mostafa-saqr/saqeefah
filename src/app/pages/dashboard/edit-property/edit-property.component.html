@@ -4,8 +4,28 @@
             <h4 class="secondary-color mb-3">Property Gallery</h4>
             <label for="thumbnail">Add Property Cover Photo</label>
             <input type="file" class="form-control mb-3" (change)="onInputChange($event)" id="thumbnail">
+            <div class="col-md-3" *ngIf="coverImage">
+                <div class="current-image position-relative">
+                    <i class="fa fa-times-circle delete-img" (click)="deleteCover()"></i>
+                    <img [src]="appRootUrl+coverImage" class="img-fluid imageborders" alt="">
+                </div>
+            </div>
+            <p>
+
+            </p>
             <label for="gallery">Add Project Gallery</label>
             <input type="file" class="form-control mb-3" (change)="onGalleryInputChange($event)" id="gallery" multiple>
+            <div class="row">
+                <div class="col-md-3" *ngFor="let image of gallaryImages">
+                    <div class="current-image position-relative">
+                        <i class="fa fa-times-circle delete-img" (click)="delete(image.attachmentId)"></i>
+                        <img [src]="appRootUrl+image.path"  class="img-fluid imageborders" alt="">
+                    </div>
+                </div>
+            </div>
+            <p>
+    
+            </p>
             <button [disabled]="myForm.invalid"  type="submit" class="btn btn-primary" (click)="uploadImage($event)">Submit</button>
             <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
         </form>

@@ -21,7 +21,8 @@ export class HomeComponent implements OnInit,OnDestroy {
   projectList = []
   AllProjects = []
   projectsForSale =[]
-  projectsForRent = []
+  projectsBooked = []
+  projectsForSaleSoon = []
   constructor(private generalService:GenaricService, private projects:ProjectAndListService,
     private language:changeLanguageService, private siteSetting:SettingsService,private slider :SliderService) {
    
@@ -41,12 +42,16 @@ getAllProjects(){
     console.log('all projects',response)
     this.AllProjects = []
     this.projectsForSale =[]
-    this.projectsForRent = []
+    this.projectsForSaleSoon = []
+    this.projectsBooked = []
+
     
    if(!response.isError){
     this.AllProjects = response.result.data
-    this.projectsForSale = response.result.data.filter((item:any)=> item.status === 'For Sale' || item.status === 'متاح')
-    this.projectsForRent = response.result.data.filter((item:any)=> item.status === 'BookedUp')
+    this.projectsForSale = response.result.data.filter((item:any)=> item.statusId == 1 )
+    this.projectsForSaleSoon = response.result.data.filter((item:any)=> item.status == 2)
+    this.projectsBooked = response.result.data.filter((item:any)=> item.status == 3)
+
    }
 
   })

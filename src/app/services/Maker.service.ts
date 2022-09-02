@@ -13,7 +13,7 @@ export class MarkerService {
 
   constructor(private http: HttpClient,private popupService: PopupService , private aPICallerService:APICallerService, private language:changeLanguageService) { }
   makeCapitalMarkers(map: L.Map): void { 
-    debugger; 
+ 
      let ApiUrl=  APIs.projects.GetProjects+"?languageId="+this.language.getLanguageID(); 
     this.aPICallerService.get(ApiUrl).subscribe((res: any) => {
         for (const c of res.result.data) {

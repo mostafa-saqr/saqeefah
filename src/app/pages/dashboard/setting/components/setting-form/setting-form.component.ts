@@ -4,6 +4,7 @@ import { Editor, Toolbar } from 'ngx-editor';
 import { ToastrService } from 'ngx-toastr';
 import { SettingTypes } from 'src/app/shared/Enums/enums';
 import { environment } from 'src/environments/environment';
+import { AttachmentService } from '../../../services/attachment.service';
 import { SettingsService } from '../../services/settings.service';
 import jsonDoc from '../../models/doc';
 
@@ -45,7 +46,7 @@ currentFormData:any
     ['align_left', 'align_center', 'align_right', 'align_justify'],
   ];
 
-  constructor(private setting: SettingsService ,  private toastr: ToastrService) {
+  constructor(private setting: SettingsService ,  private toastr: ToastrService,private attachment:AttachmentService) {
 
 
   }
@@ -148,6 +149,15 @@ currentFormData:any
       iconCss:'fas fa-user'
     })
   }
+  delete(){
+    this.attachment.deleteSettingImage(this.SettingTypeId).subscribe(res=>{
+     if(!res.isError)
+     {
+       this.ngOnInit();
+     }
+        
+    })
+   }
 
   DeleteImage(settingId:number){
 

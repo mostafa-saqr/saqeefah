@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectAndListService } from 'src/app/services/project-lists.service';
+import { environment } from 'src/environments/environment';
+import { AttachmentService } from '../services/attachment.service';
 
 @Component({
   selector: 'app-edit-project',
@@ -15,13 +17,13 @@ export class EditProjectComponent implements OnInit {
   specificationsImage:File = null
   grantiesImage:File = null
   projectId:any
-projectImageThumb:File = null
-projectImageGallery:File[] = []
-formData:FormData = new FormData()
-masterPlaneFormData:FormData = new FormData
-specificationsFormData:FormData = new FormData
-uploadWorking:boolean = false
-masterPlaneUploadMessage:string
+  projectImageThumb:File = null
+  projectImageGallery:File[] = []
+  formData:FormData = new FormData()
+  masterPlaneFormData:FormData = new FormData
+  specificationsFormData:FormData = new FormData
+  uploadWorking:boolean = false
+  masterPlaneUploadMessage:string
 
 onInputChange(event){
  
@@ -60,7 +62,7 @@ uploadImage(e){
   
 
   this.uploadWorking = false
-  console.log('api project image',resp)
+  this.ngOnInit();
  })
 }
 onMasterPlaneInputChange(event){
@@ -78,7 +80,7 @@ UploadMasterPlane(e){
   this.masterPlaneFormData.append('HardCode',this.imageMapHardCode)
   this.masterPlaneFormData.append('ProjectOverview',this.projectOverView)
   this.editProject.uploadProjectMasterPlane(this.masterPlaneFormData).subscribe((resp)=>{
-    console.log(resp)
+    this.ngOnInit();
     this.uploadWorking = false;
     this.masterPlaneUploadMessage = resp.message
    })
@@ -109,15 +111,51 @@ UploadSpecifications(e){
 
   this.editProject.uploadProjectSpecifications(this.specificationsFormData).subscribe((resp)=>{
     this.uploadWorking = false
-    console.log(resp)
+   this.ngOnInit();
    })
   
 }
-  constructor(private editProject:ProjectAndListService, private route:ActivatedRoute, private sanitizer:DomSanitizer) { }
+  constructor(private editProject:ProjectAndListService, 
+    private route:ActivatedRoute, private sanitizer:DomSanitizer
+    ,private attachmentService:AttachmentService) { }
+mastePlanImage:any;
+coverImage:any;
+PgrantiesImage:any;
+PspecificationsImage:any;
+gallaryImages:any[];
 
+appRootUrl=environment.appRoot+'/';
   ngOnInit(): void {
     this.projectId = this.route.snapshot.paramMap.get('id');
-    console.log('project id',this.projectId)
+   this.editProject.getProjectDetails("1",this.projectId).subscribe(x=>{
+    if(x['succeeded'])
+    {
+      if(x['data']['masterPlane']!=null)this.mastePlanImage=x['data']['masterPlane']['masterPlaneImage'];
+      this.coverImage=x['data']['coverImage'];
+      this.gallaryImages=x['data']['images'];
+      if(x['data']['specifications']!=null)this.PgrantiesImage=x['data']['specifications']['grantiesImage'];
+      if(x['data']['specifications']!=null)this.PspecificationsImage=x['data']['specifications']['specificationsImage'];
+    }
+
+   })
+  }
+  delete(id:any){
+   this.attachmentService.deleteAttachment(id,"Project").subscribe(res=>{
+    if(!res.isError)
+    {
+      console.log(res)
+      this.ngOnInit();
+    }  
+   })
+  }
+  deleteAttachment(type:number){
+    this.attachmentService.deleteProjectAttachments(this.projectId,type).subscribe(res=>{
+      debugger
+      if(!res.isError)
+      {
+        this.ngOnInit();
+      }  
+     })
   }
 
 }
