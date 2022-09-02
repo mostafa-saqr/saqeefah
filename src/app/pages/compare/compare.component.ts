@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CompareService } from 'src/app/services/compare.service';
 import { ProjectAndListService } from 'src/app/services/project-lists.service';
+import { environment } from 'src/environments/environment';
+import { compare } from '../Models/Compare';
 
 @Component({
   selector: 'app-compare',
@@ -8,7 +10,8 @@ import { ProjectAndListService } from 'src/app/services/project-lists.service';
   styleUrls: ['./compare.component.scss']
 })
 export class CompareComponent implements OnInit {
-compareList:any[] = []
+compareList:compare[] = [] as compare[];
+
   constructor(private appartments:ProjectAndListService, public compareServ:CompareService) { }
 
   ngOnInit(): void {
@@ -24,10 +27,19 @@ getCompareList(){
   let parsingCompare = JSON.parse(currentCompareLocalStorage)
   if(parsingCompare.length > 0){
     this.appartments.getCompareAppartmens(parsingCompare).subscribe((item:any)=>{
-      console.log(item)
       this.compareList = item.data
+      console.log(item)
     })
   }
 }
+}
+
+appRootUrl=environment.appRoot+'/';
+getKeys(){
+  let returned:any;
+  if(this.compareList.length>0)
+      returned= Object.keys(this.compareList[0]);
+
+      return returned;
 }
 }
