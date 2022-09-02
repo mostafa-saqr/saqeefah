@@ -81,9 +81,9 @@
                          </label>
                         <div class="formg w-100">
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-2" *ngIf="currentFormData.imagePath">
                                     <div class="current-image position-relative">
-                                        <i class="far fa-times-circle delete-img"></i>
+                                        <i class="far fa-times-circle delete-img " (click)="delete()"></i>
 
                                         <img [src]="appRootUrl+currentFormData.imagePath" class="img-fluid" alt="">
 
