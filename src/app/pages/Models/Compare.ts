@@ -47,6 +47,7 @@ toilet_Num:Number;
 trace:Number;
 
 // videos:any[]
+
 }
 
 export interface image{

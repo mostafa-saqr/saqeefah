@@ -97,7 +97,7 @@
                                 <div class="col-md-12">
                                   <div class="current-image" *ngIf="currentFormData.imagePath != null">
                                     <div class="imagBox d-inline-block mx-2">
-                                      <i class="far fa-times-circle delete-img" (click)="DeleteImage(currentFormData.settingId)"></i>
+                                      <i class="far fa-times-circle delete-img" (click)="delete()"></i>
                                       <img [src]="appRootUrl+currentFormData.imagePath" class="img-fluid" style="height:150px" alt="" >
                                     </div>
                                   </div>

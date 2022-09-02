@@ -40,7 +40,6 @@ export class SliderService {
 
  
   deleteSliderAttachment(id: any): Observable<Result<BaseResponse>> {
-    debugger; 
    let attachmentsIds=[]; 
    attachmentsIds.push(id); 
     return this.callApi.post(`api/Slider/DeleteAttachments`, {attachmentsIds})
@@ -48,7 +47,6 @@ export class SliderService {
 
 
   uploadAttachmentImagesSlider(formData: any): Observable<Result<BaseResponse>> {
-    debugger
     return this.callApi.postWithAttachment(`api/Slider/Attachments`, formData); 
   }
   

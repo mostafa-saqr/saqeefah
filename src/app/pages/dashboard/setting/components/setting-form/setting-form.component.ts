@@ -122,7 +122,8 @@ currentFormData:any
           this.showError=false;
           // this.myFormGroup.reset();
           this.submitted = false;
-          window.location.reload()
+          //window.location.reload()
+          this.ngOnInit();
         }
         else {
           this.toastr.error(':: Failed Saved')
@@ -151,10 +152,13 @@ currentFormData:any
   }
   delete(){
     this.attachment.deleteSettingImage(this.SettingTypeId).subscribe(res=>{
-     if(!res.isError)
-     {
+      if (!res.isError) {
+        this.toastr.success(":: Successfully Deleted")
        this.ngOnInit();
-     }
+      }
+      else{
+        this.toastr.error(":: Failed Deleted")
+      }
         
     })
    }
