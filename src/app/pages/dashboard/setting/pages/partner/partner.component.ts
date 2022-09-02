@@ -131,7 +131,7 @@ export class PartnerComponent implements OnInit,OnDestroy{
 
   uploadImages(e) {
     e.stopPropagation();
-    debugger;
+debugger
     if (this.images.length > 0) {
       let sliderTypeId= SliderTypes.OurPartners;
       this.formData.append('SliderId ',sliderTypeId.toString())
@@ -139,12 +139,13 @@ export class PartnerComponent implements OnInit,OnDestroy{
         this.formData.append('Images', this.images[index], this.images[index].name);
       }
       this.sliderService.uploadAttachmentImagesSlider(this.formData).subscribe(r => {
-         if(!r.isError)
+        console.log(r)
+         if(r['succeeded'])
          {
           this.toastr.success(":: Successfully Uploaded")
          }
          else{
-          this.toastr.error(":: Failed Uploaded")
+          this.toastr.error(r['message'])
          }
       });
 
