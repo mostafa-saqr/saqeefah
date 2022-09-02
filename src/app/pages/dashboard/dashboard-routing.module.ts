@@ -9,6 +9,7 @@ import { PropertyComponent } from './property/property.component';
 import { PartnerComponent } from './setting/pages/partner/partner.component';
 import { SettingComponent } from './setting/pages/setting.component';
 import { SocialmediaComponent } from './setting/pages/socialmedia/socialmedia.component';
+import { WebsiteInfoComponent } from './setting/pages/website-info/website-info.component';
 import { TestComponent } from './test/test.component';
 import { UsersComponent } from './users/users.component';
 
@@ -39,11 +40,11 @@ const routes: Routes = [
     },
     {
       path:'edit-property/:projectId/:propertyId',
-      component: EditPropertyComponent 
+      component: EditPropertyComponent
     },
     {
       path:'test',
-      component: TestComponent 
+      component: TestComponent
     },
     {
       path:'social',
@@ -51,7 +52,11 @@ const routes: Routes = [
     },
     {path:'partner',
     component:PartnerComponent
-      
+
+    },
+    {path:'websiteInfo',
+    component:WebsiteInfoComponent,
+
     }
   ]
   }

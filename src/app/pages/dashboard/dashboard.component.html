@@ -1,6 +1,6 @@
-<ngx-spinner type="timer">
+<!-- <ngx-spinner type="timer">
     <h5>Loading</h5>
-</ngx-spinner>
+</ngx-spinner> -->
 <!-- <app-header></app-header> -->
 <div class="container-fluid">
 
@@ -29,6 +29,9 @@
                             <a routerLink="partner">
                                 <li class="full-width">Partner</li>
                             </a>
+                            <a routerLink="websiteInfo">
+                              <li class="full-width">Website Information</li>
+                            </a>
                         </ul>
                     </div>
                 </div>
@@ -44,9 +47,12 @@
             </ul>
         </div>
         <div class="col-md-10 ps-5 ">
-            
+
 <section id="info-utile" class="">
     <div class="container">
+      <ngx-spinner type="timer">
+        <h5>Loading</h5>
+    </ngx-spinner>
             <router-outlet></router-outlet>
     </div>
 </section>

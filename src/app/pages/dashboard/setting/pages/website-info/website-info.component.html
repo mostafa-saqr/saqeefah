@@ -1,0 +1,49 @@
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item shadow">
+      <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapsepartner"
+              aria-expanded="true" aria-controls="collapseOne">
+              <h5 class="secondary-color">Website Information</h5>
+          </button>
+      </h2>
+      <div id="collapsepartner" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+          <div class="accordion-body">
+              <form action="" class="row g-4" [formGroup]="myFormGroup" (submit)="onClickSubmit($event)"
+                  enctype="multipart/form-data">
+                  <div class="col-12 mt-2">
+
+                      <div class="my-3">
+                          <label for="exampleFormControlInput1" class="form-label my-2">Website Information
+                              <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionEn'].errors?.['required']">
+                              * Required Field
+                          </span> -->
+                          </label>
+                          <div class="formg">
+                            <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
+                            </ngx-editor-menu>
+                            <ngx-editor [editor]="editor"
+                            [disabled]="false"
+                            [placeholder]="'Type here...'" formControlName="websiteInfo">
+                            </ngx-editor>
+                              <!-- <textarea class="form-control" formControlName="websiteInfo" rows="3"></textarea> -->
+
+                          </div>
+                      </div>
+
+                  </div>
+                  <div class="col-md-12">
+                      <div class="my-1">
+                          <div class="formg w-100">
+                              <button type="submit" class="btn btn-small btn-primary w-25 float-end  px-4  mt-2"
+                                  [disabled]="myFormGroup.invalid">Update
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+
+
+
+          </div>
+      </div>
+  </div>

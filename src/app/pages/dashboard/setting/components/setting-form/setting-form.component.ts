@@ -12,7 +12,7 @@ import jsonDoc from '../../models/doc';
   templateUrl: './setting-form.component.html',
   styleUrls: ['./setting-form.component.scss']
 })
-export class SettingFormComponent implements OnInit,AfterViewInit,OnDestroy  {
+export class SettingFormComponent implements OnInit,OnDestroy  {
 
   @Input() collapseId: number = 1;
 
@@ -61,7 +61,9 @@ currentFormData:any
 
 
   ngOnInit(): void {
-    console.log('img',this.ImageThumb);
+   // console.log('img',this.ImageThumb);
+    this.editor = new Editor();
+    this.editor1 = new Editor();
 
     this.initializeFormGroup();
     this.setting.getsettingsById(this.SettingTypeId).subscribe(res => {
@@ -72,10 +74,7 @@ currentFormData:any
 
     })
   }
-  ngAfterViewInit(): void{
-    this.editor = new Editor();
-    this.editor1 = new Editor();
-  }
+
 
   onInputChange(event) {
 
@@ -118,15 +117,15 @@ currentFormData:any
           // alert(':: Submitted successfully');
 
 
-          this.toastr.success(':: Saved Successfully');
+          this.toastr.success(':: Successfully Saved');
           this.showError=false;
           // this.myFormGroup.reset();
           this.submitted = false;
           window.location.reload()
         }
         else {
-          this.toastr.error(':: Failed')
-          //alert(':: Failed');
+          this.toastr.error(':: Failed Saved')
+
         }
 
       })

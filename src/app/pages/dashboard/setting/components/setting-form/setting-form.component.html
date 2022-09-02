@@ -20,8 +20,8 @@
                             <input type="text" class="form-control" formControlName="TitleEn" [(ngModel)]="currentFormData.titleEn" placeholder="Fill Field">
                         </div>
                     </div>
-                    <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Description  En
+                    <div class="my-3">
+                        <label for="exampleFormControlInput1" class="form-label mb-2">Description  En
                             <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionEn'].errors?.['required']">
                                 * Required Field
                             </span> -->
@@ -49,8 +49,8 @@
                             <input type="text" class="form-control" formControlName="TitleAr" [(ngModel)]="currentFormData.titleAr" placeholder="Fill Field">
                         </div>
                     </div>
-                    <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Description Ar
+                    <div class="my-3">
+                        <label for="exampleFormControlInput1" class="form-label mb-2">Description Ar
                             <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionAr'].errors?.['required']">
                                 * Required Field
                             </span> -->
@@ -95,10 +95,10 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                  <div class="current-image">
-                                    <div class="imagBox">
+                                  <div class="current-image" *ngIf="currentFormData.imagePath != null">
+                                    <div class="imagBox d-inline-block mx-2">
                                       <i class="far fa-times-circle delete-img" (click)="DeleteImage(currentFormData.settingId)"></i>
-                                      <img [src]="appRootUrl+currentFormData.imagePath" class="img-fluid" alt="" >
+                                      <img [src]="appRootUrl+currentFormData.imagePath" class="img-fluid" style="height:150px" alt="" >
                                     </div>
                                   </div>
                               </div>

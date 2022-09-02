@@ -42,4 +42,63 @@
     }
   }
 }
+/* checkbox style */@at-root
+.containerRadio {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin: 12px auto;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
+.containerRadio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+ .checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+}
+
+.containerRadio:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+.containerRadio input:checked~.checkmark {
+  background-color: #af8f79;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.containerRadio input:checked~.checkmark:after {
+  display: block;
+}
+
+.containerRadio .checkmark:after {
+  left: 7px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ErrorInterceptor } from './Interceptor/error.interceptor';
 import { NgxEditorModule } from 'ngx-editor';
+import { WebsiteInfoComponent } from './setting/pages/website-info/website-info.component';
 
 
 
@@ -47,6 +48,7 @@ import { NgxEditorModule } from 'ngx-editor';
             TopHeaderComponent,
             SocialmediaComponent,
             PartnerComponent,
+            WebsiteInfoComponent,
 
   ],
   imports: [

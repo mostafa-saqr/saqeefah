@@ -1,6 +1,7 @@
-import { AfterViewChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Editor, Toolbar } from 'ngx-editor';
+import { ToastrService } from 'ngx-toastr';
 import { SliderTypes } from 'src/app/shared/Enums/enums';
 import { environment } from 'src/environments/environment';
 import jsonDoc from '../../models/doc';
@@ -12,13 +13,27 @@ import { SliderService } from '../../services/slider.service';
   templateUrl: './partner.component.html',
   styleUrls: ['./partner.component.scss']
 })
-export class PartnerComponent implements OnInit {
-
+export class PartnerComponent implements OnInit,OnDestroy{
+  @Output() public click: EventEmitter<MouseEvent> = new EventEmitter();
   showError = false;
   images: Array<File> = [];
   formData: FormData = new FormData();
   spaceregex = /^(\s+\S+\s*)*(?!\s).*$/;
-  editordoc = jsonDoc;
+  editordoc =jsonDoc;
+
+  editor: Editor;
+  editor1:Editor;
+  toolbar: Toolbar = [
+    ['bold', 'italic'],
+    ['underline', 'strike'],
+    ['code', 'blockquote'],
+    ['ordered_list', 'bullet_list'],
+    [{ heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
+    ['link', 'image'],
+    ['text_color', 'background_color'],
+    ['align_left', 'align_center', 'align_right', 'align_justify'],
+  ];
+
   appRootUrl = environment.appRoot + '/';
   public slider: ISlider = {} as ISlider;
   imageList: ISliderAttachment[] = [];
@@ -32,17 +47,15 @@ export class PartnerComponent implements OnInit {
   });
 
 
-  public myFormGroupForImages: FormGroup = new FormGroup({
-
-  });
 
 
 
-  constructor(private sliderService: SliderService) {
+  constructor(private sliderService: SliderService,private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
-
+    this.editor = new Editor();
+    this.editor1 = new Editor();
     this.initializeFormGroup();
     this.getAllSliderAttatchments();
 
@@ -50,7 +63,9 @@ export class PartnerComponent implements OnInit {
   }
 
 
-  onClickSubmit() {
+  onClickSubmit(e) {
+    e.stopPropagation();
+    this.click.emit(e);
     if (this.myFormGroup.invalid) {
       this.showError = true;
       return;
@@ -66,10 +81,10 @@ export class PartnerComponent implements OnInit {
     this.sliderService.UpdateSlider(this.slider).subscribe(r => {
       debugger
       if (!r.isError) {
-        alert("success!");
-        this.getAllSliderAttatchments(); 
+       this.toastr.success(":: Successfully Updated")
+        this.getAllSliderAttatchments();
       } else {
-        alert("faill");
+        this.toastr.error(':: Failed Updated');
       }
     })
 
@@ -95,8 +110,11 @@ export class PartnerComponent implements OnInit {
   DeleteImage(attachmentId: number) {
     this.sliderService.deleteSliderAttachment(attachmentId).subscribe(r => {
       if (!r.isError) {
-        alert("success")
+        this.toastr.success(":: Successfully Deleted")
         this.getAllSliderAttatchments();
+      }
+      else{
+        this.toastr.error(":: Failed Deleted")
       }
     });
   }
@@ -112,10 +130,10 @@ export class PartnerComponent implements OnInit {
 
 
   uploadImages(e) {
-    e.preventDefault();
-    debugger; 
+    e.stopPropagation();
+    debugger;
     if (this.images.length > 0) {
-      let sliderTypeId= SliderTypes.OurPartners; 
+      let sliderTypeId= SliderTypes.OurPartners;
       this.formData.append('SliderId ',sliderTypeId.toString())
       for (var  index = 0; index < this.images.length; index++) {
         this.formData.append('Images', this.images[index], this.images[index].name);
@@ -123,7 +141,10 @@ export class PartnerComponent implements OnInit {
       this.sliderService.uploadAttachmentImagesSlider(this.formData).subscribe(r => {
          if(!r.isError)
          {
-           alert("success"); 
+          this.toastr.success(":: Successfully Uploaded")
+         }
+         else{
+          this.toastr.error(":: Failed Uploaded")
          }
       });
 
@@ -132,5 +153,9 @@ export class PartnerComponent implements OnInit {
 
   }
 
+  ngOnDestroy(): void {
+    this.editor.destroy();
+    this.editor1.destroy();
+  }
 
 }
