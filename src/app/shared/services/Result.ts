@@ -3,3 +3,8 @@ export class Result<T>{
   result: T ; 
   handledResponse:boolean
 };
+
+
+
+
+

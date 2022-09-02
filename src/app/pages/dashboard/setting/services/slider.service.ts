@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { BaseResponse } from 'src/app/shared/services/BaseResponse';
 import { Result } from 'src/app/shared/services/Result';
 import { environment } from 'src/environments/environment';
 import { APICallerService } from '../../../../shared/services/apicaller.service';
@@ -15,6 +16,7 @@ export class SliderService {
   }
 
   getAllSliderByid(sliderId: number): Observable<Result<ISliderResponses>> {
+    debugger
     return this.callApi.get(`api/Slider/GetslidersByIdForAdmin?sliderId=${sliderId}`);
   }
 
@@ -25,27 +27,31 @@ export class SliderService {
 
 
   UpdateSlider(body: ISlider): Observable<any> {
+    debugger
     var formdata = new FormData();
-    formdata.append("Id", body.Id.toString());
-    formdata.append("IsActive", body.IsActive ? "true" : "false");
-    formdata.append("TitleAr", body.TitleAr);
-    formdata.append("TitleEn", body.TitleEn);
-    formdata.append("DescriptionAr", body.DescriptionAr);
-    formdata.append("DescriptionEn", body.DescriptionEn);
+    formdata.append("Id", body.id.toString());
+    formdata.append("IsActive", body.isActive ? "true" : "false");
+    formdata.append("TitleAr", body.titleAr);
+    formdata.append("TitleEn", body.titleEn);
+    formdata.append("DescriptionAr", body.descriptionAr);
+    formdata.append("DescriptionEn", body.descriptionEn);
     return this.callApi.postFormData(`api/Slider/Editslider`, formdata)
   }
 
-  setSliderAttatchement(body: any): Observable<any> {
-    return this.callApi.post(`api/Slider/Attachments`, body)
+ 
+  deleteSliderAttachment(id: any): Observable<Result<BaseResponse>> {
+    debugger; 
+   let attachmentsIds=[]; 
+   attachmentsIds.push(id); 
+    return this.callApi.post(`api/Slider/DeleteAttachments`, {attachmentsIds})
   }
-  deleteSliderAttachment(id: any): Observable<any> {
-    return this.callApi.delete(`api/Slider/Attachments`, id)
 
+
+  uploadAttachmentImagesSlider(formData: any): Observable<Result<BaseResponse>> {
+    debugger
+    return this.callApi.postWithAttachment(`api/Slider/Attachments`, formData); 
   }
-
-
-
-
+  
 
 
 }
