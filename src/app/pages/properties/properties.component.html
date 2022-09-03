@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <h3 class="secondary-color mb-0">{{'Properties'|translate}}</h3>
-            <h6 class="mb-0">{{Total}} {{'Appartments' | translate}}</h6>
+            <h6 class="mb-0">{{AllProperties.length}} {{'Appartments' | translate}}</h6>
             <div class="row">
                 <div class="col-md-9">
                     <div class="filter-panel mt-3">
@@ -60,9 +60,9 @@
                     <div class="row" *ngSwitchCase="'list'">
                         <app-property-card class="col-12 col-md-12 mb-3" [property]="item" [viewType]="'list'" *ngFor="let item of AllProperties"></app-property-card>
                     </div>
-                    <div class="col-md-12 text-center">
+                    <!-- <div class="col-md-12 text-center">
                         <button class="btn more-btn">Load more</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

@@ -78,7 +78,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">{{'NUM. OF FLOOR' | translate}}</label>
-                <input type="number" name="" formControlName="floor" min="0" class="form-control" value="">
+                <input type="number" (change)=" ApplyFilterProperty()" name="" formControlName="floor" min="0" class="form-control" value="">
             </div>
             <div class="mb-3">
                 <label class="form-label">{{'NUM. OF SALON' | translate}}</label>
