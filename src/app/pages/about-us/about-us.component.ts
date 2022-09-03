@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
+import { ProjectAndListService } from 'src/app/services/project-lists.service';
 import { SettingTypes } from 'src/app/shared/Enums/enums';
 import { SettingsService } from '../dashboard/setting/services/settings.service';
 
@@ -16,11 +17,17 @@ export class AboutUsComponent implements OnInit {
   OurStory
   ceoWord 
   ourMeeting
+  projectList = []
+  AllProjects = []
+  projectsForSale =[]
+  projectsBooked = []
+  projectsForSaleSoon = []
 public ourMeetingBg
   get settingTypes(){
     return SettingTypes
   }
-  constructor(public setting:SettingsService, private language:changeLanguageService,private sanitizer:DomSanitizer) { }
+  constructor(public setting:SettingsService, private language:changeLanguageService,private sanitizer:DomSanitizer,
+    private projects:ProjectAndListService) { }
  getAboutSetting(){
  return this.setting.getAllsettings(this.language.getLanguageID()).subscribe((response)=>{
     if(!response.isError){
@@ -39,10 +46,34 @@ public ourMeetingBg
     }
   })
  }
+ 
+getAllProjects(){
+  this.projects.getFilteredProjects(this.language.getLanguageID(),6/*both reserved and sold projects*/ ).subscribe((response:any)=>{
+    console.log('all projects',response)
+    this.AllProjects = []
+    // this.projectsForSale =[]
+    // this.projectsForSaleSoon = []
+    this.projectsBooked = []
+
+
+   if(response.succeeded){
+    this.AllProjects = response.data
+    // this.projectsForSale = response.data?.filter((item:any)=> item.statusId == 1 )
+    // this.projectsForSaleSoon = response.data?.filter((item:any)=> item.status == 2)
+    this.projectsBooked = response.data?.filter((item:any)=> item.status == 3)
+
+   }
+
+  })
+}
+
   ngOnInit(): void {
+    // this. getAboutSetting()
     this. getAboutSetting()
+    this.getAllProjects();
     this.language.changeLanguageStatus.subscribe((data)=>{
       this. getAboutSetting()
+      this.getAllProjects();
       
     })
   }

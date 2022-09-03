@@ -40,20 +40,19 @@ export class HomeComponent implements OnInit,OnDestroy {
 
 
 getAllProjects(){
-
-  this.projects.getAllProjects(this.language.getLanguageID()).subscribe((response:any)=>{
+  this.projects.getFilteredProjects(this.language.getLanguageID(),0/*both ready for sale and soon for sale*/ ).subscribe((response:any)=>{
     console.log('all projects',response)
     this.AllProjects = []
     this.projectsForSale =[]
     this.projectsForSaleSoon = []
-    this.projectsBooked = []
+    // this.projectsBooked = []
 
 
-   if(!response.isError){
-    this.AllProjects = response.result.data
-    this.projectsForSale = response.result.data.filter((item:any)=> item.statusId == 1 )
-    this.projectsForSaleSoon = response.result.data.filter((item:any)=> item.status == 2)
-    this.projectsBooked = response.result.data.filter((item:any)=> item.status == 3)
+   if(response.succeeded){
+    this.AllProjects = response.data
+    this.projectsForSale = response.data?.filter((item:any)=> item.statusId == 1 )
+    this.projectsForSaleSoon = response.data?.filter((item:any)=> item.status == 2)
+    // this.projectsBooked = response.data?.filter((item:any)=> item.status == 3)
 
    }
 

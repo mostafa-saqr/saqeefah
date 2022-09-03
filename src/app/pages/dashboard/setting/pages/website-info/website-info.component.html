@@ -10,13 +10,11 @@
           <div class="accordion-body">
               <form action="" class="row g-4" [formGroup]="myFormGroup" (submit)="onClickSubmit($event)"
                   enctype="multipart/form-data">
-                  <div class="col-12 mt-2">
+                  <!-- <div class="col-12 mt-2">
 
                       <div class="my-3">
                           <label for="exampleFormControlInput1" class="form-label my-2">Website Information
-                              <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionEn'].errors?.['required']">
-                              * Required Field
-                          </span> -->
+                        
                           </label>
                           <div class="formg">
                             <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
@@ -25,12 +23,39 @@
                             [disabled]="false"
                             [placeholder]="'Type here...'" formControlName="websiteInfo">
                             </ngx-editor>
-                              <!-- <textarea class="form-control" formControlName="websiteInfo" rows="3"></textarea> -->
-
+                             
                           </div>
                       </div>
 
-                  </div>
+                  </div> --><p></p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Information Type</label>
+                            <select class="form-select" formControlName="key" (change)="onChange($event)">
+                                <option  value=""  ></option>
+                                <option *ngFor="let i of items" [value]="i.id">{{i.value}}</option>
+                                  
+                                </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="">Arabic Value</label>
+
+                        <div class="form-group input-group">
+                            <input type="text"  formControlName="valueAr" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">English Value</label>
+
+                        <div class="form-group input-group">
+                            <input type="text"  formControlName="valueEn" class="form-control">
+                        </div>
+                    </div>
+                </div>
                   <div class="col-md-12">
                       <div class="my-1">
                           <div class="formg w-100">
