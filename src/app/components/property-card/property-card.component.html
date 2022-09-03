@@ -24,9 +24,29 @@
 
         <div class="unit-specs">
             <div class="row">
-                <div class="col-md-4 mb-2" *ngFor="let item of itemSpecsIcon; let i = index">
-                    <span class="specs-ele"> <i *ngIf="itemSpecsIcon[i].icon" [class]="itemSpecsIcon[i].src"></i> <img [src]="itemSpecsIcon[i].src" width="20"  *ngIf="!itemSpecsIcon[i].icon" alt=""> <span class="specs-count"><span class="counter me-1">{{itemSpecsIcon[i].count}}</span>{{itemSpecsIcon[i].type}}</span>
-                    </span>
+                <div class="col-md-4 mb-2">
+                    <i *ngIf="itemSpecsIcon[0].icon" [class]="itemSpecsIcon[0].src"></i>
+                    <img [src]="itemSpecsIcon[0].src" width="20" *ngIf="!itemSpecsIcon[0].icon" alt=""> > {{property.bed_Room_Num}} Rooms
+                </div>
+                <div class="col-md-4 mb-2">
+                    <i *ngIf="itemSpecsIcon[1].icon" [class]="itemSpecsIcon[1].src"></i>
+                    <img [src]="itemSpecsIcon[1].src" width="20" *ngIf="!itemSpecsIcon[1].icon" alt=""> > {{property.toilet_Num}} Bathroom
+                </div>
+                <div class="col-md-4 mb-2">
+                    <i *ngIf="itemSpecsIcon[2].icon" [class]="itemSpecsIcon[2].src"></i>
+                    <img [src]="itemSpecsIcon[2].src" width="20" *ngIf="!itemSpecsIcon[2].icon" alt=""> > {{property.servant_Room}} Kitchen
+                </div>
+                <div class="col-md-4 mb-2">
+                    <i *ngIf="itemSpecsIcon[3].icon" [class]="itemSpecsIcon[3].src"></i>
+                    <img [src]="itemSpecsIcon[3].src" width="20" *ngIf="!itemSpecsIcon[3].icon" alt=""> > {{property.salon}} Salon
+                </div>
+                <div class="col-md-4 mb-2">
+                    <i *ngIf="itemSpecsIcon[4].icon" [class]="itemSpecsIcon[4].src"></i>
+                    <img [src]="itemSpecsIcon[4].src" width="20" *ngIf="!itemSpecsIcon[4].icon" alt=""> > {{property.hall}} Hall
+                </div>
+                <div class="col-md-4 mb-2">
+                    <i *ngIf="itemSpecsIcon[5].icon" [class]="itemSpecsIcon[5].src"></i>
+                    <img [src]="itemSpecsIcon[5].src" width="20" *ngIf="!itemSpecsIcon[5].icon" alt=""> > {{property.floor_Num}} Foor
                 </div>
 
             </div>

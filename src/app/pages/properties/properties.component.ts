@@ -70,6 +70,13 @@ export class PropertiesComponent implements OnInit {
     this.AllProperties = e;
    
  }
+ sortAssending(){
+  this.AllProperties.sort((a:any, b:any) => b.projectName.localeCompare(a.projectName))
+  console.log(this.AllProperties)
+ }
+ sortDessending(){
+  this.AllProperties.sort((a:any, b:any) => a.projectName - b.projectName);
+ }
  refresh(){
   window.location.reload();
  }
