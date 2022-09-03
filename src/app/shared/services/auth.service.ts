@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { APICallerService } from './apicaller.service';
-import { IUser }  from './IUser'; 
+import { IUser }  from './IUser';
 
 @Injectable()
 export class AuthService {
@@ -41,13 +41,17 @@ export class AuthService {
     let data = localStorage.getItem(this.token);
     let _token = data;
   //  let _token="eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJhZG1pbkBhZG1pbi5jb20iLCJuYW1lIjoiMDEyMjIzMyIsIm5iZiI6MTY2MDkwMDA2NCwiZXhwIjoxNjYzNDkyMDY0LCJpYXQiOjE2NjA5MDAwNjR9.39aD7NCP2nmtWhEBnJo70pxp1Q9o0yu_iI2qjpAzz8cLS13OVW6PocOe_x8ABXOo-QvSgc7UQjzGsjIhTF8-NQ"
-    
+
     return _token;
   }
 
   getUsername(): string {
     let data: any = JSON.parse(localStorage.getItem(this.USER_KEY));
     return data?.data?.fullName;
+  }
+  getUseremail():string{
+    let data: any = JSON.parse(localStorage.getItem(this.USER_KEY));
+    return data?.data?.email;
   }
 
   getCurrentUserId(): string {

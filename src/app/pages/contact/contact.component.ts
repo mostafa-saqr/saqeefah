@@ -15,10 +15,10 @@ export class ContactComponent implements OnInit {
   phoneregex='(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})'
   form: FormGroup= new FormGroup({
     id: new FormControl(0),
-    name:new FormControl('', [Validators.required,Validators.pattern(this.spaceRegex)]),
-    email:new FormControl('', [Validators.required,Validators.pattern(this.spaceRegex),Validators.email]),
-    phone: new FormControl('', [Validators.required,Validators.pattern(this.spaceRegex),Validators.pattern(this.phoneregex)]),
-    message:new FormControl('', [Validators.required,Validators.pattern(this.spaceRegex)])
+    name:new FormControl('', [Validators.required]),
+    email:new FormControl('', [Validators.required]),
+    phone: new FormControl('', [Validators.required]),
+    message:new FormControl('', [Validators.required])
   })
 
   constructor(private contact:ContactUsService ,private toastr : ToastrService) { }
