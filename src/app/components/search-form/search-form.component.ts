@@ -207,22 +207,32 @@ getFilterValue(filter){
 
   
     this.FilteredProperty  = this.AllProperties.filter((x:any) => {
-     if(formdata.price == x.apartment_Price ||formdata.bedroom ==  x.bed_Room_Num ||  formdata.hall == x.hall  || formdata.salon == x.salon|| formdata.floor == x.floor_Num ){
+    //  if(formdata.price == x.apartment_Price ||formdata.bedroom ==  x.bed_Room_Num ||  formdata.hall == x.hall  || formdata.salon == x.salon|| formdata.floor == x.floor_Num ){
       
-        return x;
+    //     return x;
         
 
    
+    //   }
+    if(
+      (x.apartment_Price  >= formdata.price)&&
+      (formdata.bedroom == null || formdata.bedroom ==  x.bed_Room_Num)&&
+      (formdata.hall==null || formdata.hall == x.hall)&&
+      (formdata.salon == null || formdata.salon == x.salon)&&
+      (formdata.floor==null || formdata.floor == x.floor_Num)
+    )
+     { 
+        return x;
+        
       }
-     
      
     });
 
    
 
     console.log('filtered obj:', this.FilteredProperty );
-    this.form1.reset();
-    this.initializeFormGroup1();
+    // this.form1.reset();
+    // this.initializeFormGroup1();
 
 
    this.obj.emit(this.FilteredProperty );
