@@ -81,8 +81,6 @@ getAllProjects(){
 
   getAllSlider(){
     this.slider.getAllSliders(this.language.getLanguageID()).subscribe((response:any)=>{
-
-
   if(!response.isError){
     console.log('all sliders',response)
       this.AllSlider= response.result.data

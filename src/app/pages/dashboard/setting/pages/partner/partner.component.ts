@@ -101,6 +101,7 @@ export class PartnerComponent implements OnInit,OnDestroy{
   }
 
   onInputChange(event) {
+    this.images=[]; 
     if (event.target.files) {
       for (var i = 0; i < event.target.files.length; i++) {
         this.images.push(<File>event.target.files[i])

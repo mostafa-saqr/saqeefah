@@ -25,7 +25,9 @@ export class BuildingsComponent implements OnInit, AfterViewInit {
     }
 
   }
- 
+  filter(e){
+this.propertyOfSelectedBuilding = e
+  }
   constructor() { }
 
   ngOnInit(): void {
