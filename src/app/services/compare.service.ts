@@ -74,6 +74,11 @@ export class CompareService {
               } else {
                 let currentCompareLocalStorage = window.localStorage.getItem('Compare')!
                 let parsingCompare = JSON.parse(currentCompareLocalStorage)
+                if(parsingCompare.length>0)
+                {
+                            let newCompareList= parsingCompare.filter((comp:any)=> (comp != null||comp!=''))
+                            window.localStorage.setItem("Compare",JSON.stringify(newCompareList))
+                }
                 if(parsingCompare.length >2) {
                     alert('الحد الاقصى لمقارنة الوحدات 3 وحدات')
                 } else {

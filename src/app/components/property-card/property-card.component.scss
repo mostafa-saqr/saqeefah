@@ -1,167 +1,76 @@
-// .user-image {
-//     //   border-radius: 50%;
-//     width: 102px !important;
-//     height: 102px !important;
-//     //   background: linear-gradient(90deg, #1d4ed8, #1e40af, #111827);
-//     background: linear-gradient(90deg, #e6e2bf, #5e5d58, #000000);
-//     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
-//     transform: translateY(-60%);
-//     margin-left: 6pt;
-// }
-// .user-image img {
-//     //   border-radius: 50%;
-//     width: 90px !important;
-//     padding-bottom: 0 !important;
-//     padding-top: 0 !important;
-//     height: 90px !important;
-//     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
-//     margin-top: 4pt;
-//     margin-left: 4pt;
-// }
-// .user-banner {
-//     overflow: hidden;
-//     position: relative;
-//     height: 90px !important;
-// }
-// span.username {
-//     font-family: "Roboto";
-//     font-weight: 300;
-//     font-size: 14pt !important;
-//     margin: 0px 0pt 0px 2pt;
-//     -webkit-text-fill-color: #466eeb;
-//     filter: none !important;
-// }
-// .num {
-//     color: #86815b;
-//     font-weight: 700;
-//     margin-left: 5px;
-// }
-// .created {
-//     position: absolute;
-//     top: 7px;
-//     right: -7px;
-//     background: #86815b;
-//     padding: 7px 25px;
-//     font-size: 16px;
-//     font-weight: 400;
-//     color: white !important;
-//     font-weight: 400;
-// }
-// .created:after {
-//     content: "";
-//     bottom: -19px;
-//     right: 0;
-//     position: absolute;
-//     border-left: 0px solid transparent;
-//     border-right: 7px solid transparent;
-//     border-top: 19px solid #555;
-// }
-// .info {
-//     padding: 7pt 14pt 7pt 14pt;
-// }
-// .description {
-//     color: #5e5d58;
-//     font-family: "Lato";
-//     font-size: 12pt !important;
-//     font-weight: 300;
-//     font-family: "Roboto Condensed" !important;
-//     font-weight: 500;
-//     border-bottom: 2px dashed #b1b1af
-// }
-// td.mystyle {
-//     width: 80px !important;
-//     padding: 20pt 0 12pt 0;
-//     /*text-align: center; */
-//     font-size: 12px;
-//     color: #fff;
-//     line-height: 3;
-//     font-family: "Lato";
-// }
-// td.mystyle::before {
-//     content: "";
-//     display: flex;
-//     width: 44px;
-//     height: 33px;
-//     /* border-radius: 10pt !important; */
-//     /* margin-left: 32pt !important; */
-//     /* margin-top: -8pt !important; */
-//     text-shadow: 0 0 2.5px #000000, 1px 1px 1px rgb(0 0 0);
-//     box-shadow: 0.875px 0.875px 1.8px 0 hsl(0deg 0% 0% / 30%), inset -0.875px -0.875px 1.8px 0 hsl(0deg 0% 0%), inset -0.5px -0.5px 1px 0 hsl(227deg 12% 38%), inset 0.5px 0.5px 1px 0 hsl(227deg 12% 45%);
-//     background: #252528;
-//     z-index: -1 !important;
-//     position: absolute;
-// }
-// td.mystyle2 {
-//     padding: 6pt 0 6pt 0;
-//     text-align: center;
-//     font-size: 11pt;
-//     letter-spacing: 2px;
-//     text-transform: uppercase;
-//     font-family: "Roboto";
-//     font-family: "Lato";
-//     color: #eee;
-// }
-// .card .user-banner .fav-icon {
-//     left: 9px;
-//     top: 7px;
-//     font-size: 21px;
-//     color: white;
-//     z-index: 2;
-//     position: absolute;
-// }
-// .fav-icon.active {
-//     color: #fe5e5e !important;
-// }
-// .specs-ele img {
-//     width: 20px;
-// }
-// .specs-count {
-//     color: #86815b;
-//     font-weight: 700;
-// }
-// .spec-title {
-//     color: #5e5d58;
-//     font-size: 12px !important;
-//     font-family: "Roboto Condensed"
-// }
-// .card .user-banner .compare {
-//     left: 40px;
-//     top: 7px;
-//     padding: 6px 10px;
-//     border-radius: 15px;
-//     font-size: 14px;
-//     color: white;
-//     z-index: 2;
-//     position: absolute;
-//     background-color: #6c646466;
-// }
-// .compare.active {
-//     background-color: green !important;
-// }
-// .grid6 .title span.price {
-//     color: red !important;
-//     -webkit-text-fill-color: red;
-//     font-family: "Roboto";
-//     font-weight: 300;
-//     font-size: 12pt !important;
-//     margin: 0px 0pt 0px 2pt;
-//     filter: none !important;
-// }
-// .grid6 .title {
-//     font-size: 13pt !important;
-// }
-// .grid6 .title .username {
-//     font-size: 10pt !important;
-// }
-// .grid6 .description {
-//     font-size: 9pt !important;
-// }
-// .grid6 .specs-ele img {
-//     width: 15px;
-// }
-// .grid6 .specs-count {
-//     font-size: 10px !important;
-// }
-// .grid6 .specs-title {
-//     font-size: 10px !important;
-// }
+
+
+.card.list{
+  display: flex !important;
+
+
+}
+.card.list .img-panel{
+  width: 40% !important;
+}
+.card.list .img-panel {
+  position: static !important;
+}
+.card.list .img-panel .card-mask {
+  background-image: linear-gradient(rgb(0 0 0 / 9%), rgba(0, 0, 0, 0)) !important;
+}
+.card.list .card-body
+{position: absolute;
+left: 40%;
+top: 30px;
+color: #86815b;
+}
+
+.card.list .unit-location h6{
+  font-size: 20px !important;
+}
+.card.list .unit-specs{
+  z-index: 6;
+  background:transparent !important;
+  left: 45% !important;
+  top: 35% !important;
+  bottom: initial !important;
+}
+.card.list .list-inline-item{
+  display: block !important;
+  margin-bottom: 5px !important;
+  color: rgba(0, 0, 0, 0.7490196078) !important;
+  font-weight: bold !important;
+}
+.card.list .icon{
+  margin-right: 5px !important;
+  font-weight: bold !important;
+}
+.project-card .specs-ele{
+
+  font-weight: 700 !important;
+
+}
+.card.list .img-panel .img-container {
+  height: 211px !important;
+}
+.card.list .img-panel .card-label{
+  width: 150px !important;
+}
+.card.list .card-img-top {
+  border-top-left-radius: 0 !important;
+   border-top-right-radius: 0 !important;
+}
+.card.list .card-img-top:hover{
+  cursor: pointer !important;
+
+
+
+}
+.imagebox,.img-container,.img-container img{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+.card.grid6 .img-panel .moreSpcs{
+  font-size: 13px !important;
+}
+.card.grid6 h5{
+  font-size: .8rem !important;
+}
