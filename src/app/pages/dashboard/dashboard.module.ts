@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import {ComponentsModule, HttpLoaderFactory} from '../../components/components.module'
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {ComponentsModule} from '../../components/components.module'
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { UsersComponent } from './users/users.component';
@@ -31,6 +32,7 @@ import { WebsiteInfoComponent } from './setting/pages/website-info/website-info.
 import { FeedbackListComponent } from './clientInterest/feedback-list/feedback-list.component';
 import { ContactUsListComponent } from './clientInterest/contact-us-list/contact-us-list.component';
 import { DataTablesModule } from 'angular-datatables';
+import { PlaceOrderComponent } from './clientInterest/place-order/place-order.component';
 
 
 
@@ -54,6 +56,7 @@ import { DataTablesModule } from 'angular-datatables';
             WebsiteInfoComponent,
             FeedbackListComponent,
             ContactUsListComponent,
+            PlaceOrderComponent,
 
   ],
   imports: [
@@ -66,15 +69,16 @@ import { DataTablesModule } from 'angular-datatables';
     NgxSpinnerModule,
     NgxEditorModule,
     DataTablesModule,
-    TranslateModule.forRoot({
-      defaultLanguage: "en",
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+    // TranslateModule.forRoot({
+    //   defaultLanguage: "en",
+    //   loader: {
+    //     provide: TranslateLoader,
+    //     useFactory: HttpLoaderFactory,
+    //     deps: [HttpClient]
 
-      }
-    }),
+    //   }
+    // }),
+    TranslateModule.forChild(),
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true
@@ -89,3 +93,6 @@ import { DataTablesModule } from 'angular-datatables';
   ]
 })
 export class DashboardModule { }
+// export function HttpLoaderFactory(http: HttpClient) {
+//   return new TranslateHttpLoader(http, '../../../assets/i18n/', '.json');
+// }

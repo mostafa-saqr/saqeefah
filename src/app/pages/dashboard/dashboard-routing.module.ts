@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactUsListComponent } from './clientInterest/contact-us-list/contact-us-list.component';
 import { FeedbackListComponent } from './clientInterest/feedback-list/feedback-list.component';
+import { PlaceOrderComponent } from './clientInterest/place-order/place-order.component';
 
 import { DashboardComponent } from './dashboard.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
@@ -67,6 +68,10 @@ const routes: Routes = [
     {
       path:'feedbacklist',
       component:FeedbackListComponent
+    },
+    {
+      path:'placeOrder',
+      component:PlaceOrderComponent
     }
   ]
   }

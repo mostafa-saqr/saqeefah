@@ -66,6 +66,10 @@ return result;
     getCompareAppartmens(compareArray:[]){
         return this.http.post(`${this.appRootUrl}/api/Apartment/CompareApartments`,{apartmentIds:compareArray})
     }
+    getFilteredProjects(lang:any,filter:any){
+        
+        return this.http.get(`${this.appRootUrl}/api/Project/ProjectsWithImagesAndVideosWithFilteration?languageId=`+lang+"&filterId="+filter)
+    }
 }
     function POST(POST: any, arg1: string, fd: FormData, arg3: string) {
         throw new Error('Function not implemented.');

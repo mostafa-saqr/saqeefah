@@ -8,7 +8,6 @@ export class siteInformationService {
 
   }
   public getAllInformation(lang:any){
-    
     return this.caller.get("api/WebsiteInformationSetting/GetAllWebsiteInformationSetting?languageId="+lang,false);
   }
   public postInformation(model:any){
