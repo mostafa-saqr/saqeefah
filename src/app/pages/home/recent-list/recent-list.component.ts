@@ -10,6 +10,10 @@ export class RecentListComponent implements OnInit {
 @Input() projectsForSale:any;
 @Input() projectsBooked:any;
 @Input() projectsForSaleSoon:any;
+@Input() isHome:boolean=false;
+@Input() isAbout:boolean=false;
+
+
 
 
 
