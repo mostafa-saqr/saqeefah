@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { ContactUsService } from 'src/app/services/contact-us.service';
+import { siteInformationService } from 'src/app/shared/services/siteInformation.service';
+import { siteInfo } from '../Models/siteInfo';
 
 @Component({
   selector: 'app-contact',
@@ -20,16 +23,33 @@ export class ContactComponent implements OnInit {
     phone: new FormControl('', [Validators.required,Validators.pattern(this.spaceRegex),Validators.pattern(this.phoneregex)]),
     message:new FormControl('', [Validators.required,Validators.pattern(this.spaceRegex)])
   })
+  siteInformation:siteInfo;
 
-  constructor(private contact:ContactUsService ,private toastr : ToastrService) { }
+
+  constructor(private contact:ContactUsService ,private toastr : ToastrService,
+    private siteInfo:siteInformationService,private language:changeLanguageService) { }
 
   ngOnInit(): void {
     this.initializeForm();
+    ;
+    this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
+  
+      if(!x.isError)
+      {
+        if(x.result['succeeded'])
+        {
+          this.siteInformation=x.result['data'];
+        }
+        else{
+
+        }
+      }
+      
+    })
   }
 
 
   onSubmit(){
-    debugger;
     if (this.form.invalid) {
       this.showError=true;
       return;
