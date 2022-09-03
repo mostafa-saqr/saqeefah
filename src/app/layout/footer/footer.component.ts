@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { siteInfo } from 'src/app/pages/Models/siteInfo';
+import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { FeedbackService } from 'src/app/services/feedback.service';
+import { siteInformationService } from 'src/app/shared/services/siteInformation.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +12,7 @@ import { FeedbackService } from 'src/app/services/feedback.service';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-
+  siteInformation:siteInfo;
   showError:boolean=false;
   spaceRegex=/^(\s+\S+\s*)*(?!\s).*$/;
   emailRegex=/^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/;
@@ -20,10 +23,26 @@ export class FooterComponent implements OnInit {
     subject: new FormControl('',[Validators.required,Validators.pattern(this.spaceRegex)]),
   })
 
-  constructor(private FB:FeedbackService,private toastr :ToastrService) { }
+  constructor(private FB:FeedbackService,private toastr :ToastrService,
+    private language:changeLanguageService,
+    private siteInfo:siteInformationService) { }
 
   ngOnInit(): void {
     this.initializeForm();
+    this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
+  
+      if(!x.isError)
+      {
+        if(x.result['succeeded'])
+        {
+          this.siteInformation=x.result['data'];
+        }
+        else{
+  
+        }
+      }
+      
+    })
   }
 
 

@@ -141,6 +141,7 @@
     "Specifications": "Specifications",
     "BrentwoodPoint": "Brentwood Point",
     "Granties": "Granties",
+<<<<<<< HEAD
     "dashboard":"Dashboard",
      "id":"id",
       "interest_Date": "interest Date",
@@ -228,6 +229,9 @@
     "Warning:":"Warning:",
     "Your data will not be shared with any third party, and when you match one of our current or future projects, we will contact you on your email or mobile number above.":"Your data will not be shared with any third party, and when you match one of our current or future projects, we will contact you on your email or mobile number above.",
     "Send request":"Send Request"
+=======
+    "apartment_Num":"apartment Num"
+>>>>>>> cefd50c00f6a2796f93822ab058b6e3762251186
 
 
 }

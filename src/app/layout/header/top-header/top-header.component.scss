@@ -1,3 +1,17 @@
+<<<<<<< HEAD
 .cursor:hover{
   cursor: pointer;
 }
+=======
+button {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+>>>>>>> cefd50c00f6a2796f93822ab058b6e3762251186
