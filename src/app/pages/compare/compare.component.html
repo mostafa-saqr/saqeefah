@@ -188,12 +188,14 @@
                             && key != 'images'&& key != 'videos' &&key!='statusId'
                             &&key!='project_Ref'&&key!='build_Ref'&&key!='loor_Ref'">
                             <th scope="row">
-                                <img src="assets/images/compare-icons/furnished.png">
-                                <h6>{{key}}</h6>
+                                <!-- <img src="assets/images/compare-icons/furnished.png"> -->
+                                <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                                <h6> {{key |translate}} </h6>
                             </th>
 
                             <td *ngFor="let item of compareList" >
                                 {{item[key]}}
+                              
                             </td>
                         </ng-container>
 
