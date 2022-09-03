@@ -18,14 +18,14 @@
               
             </select>
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label class="form-label">{{'DISTRICT' | translate}}</label>
                 <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProject()" formControlName="district" aria-label=".form-select-lg example">
                 <option selected>{{'--Please Select--' | translate}}</option>
                 <option *ngFor="let district of districts"   value="{{district}}">{{district}}</option>
               
             </select>
-            </div>
+            </div> -->
             <div class="mb-3">
                 <label class="form-label">{{'STATUS' | translate}}</label>
                 <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProject()" formControlName="status" aria-label=".form-select-lg example">
@@ -36,13 +36,13 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">{{'NUM. OF APPARTMENTS' | translate}}</label>
-                <input type="number" name="" min="0" formControlName="appartment" class="form-control" value="">
+                <input type="number" name="" min="0" (change)="ApplyFilterProject()" formControlName="appartment" class="form-control" value="">
             </div>
             <div class="mb-3">
                 <label class="form-label">{{'NUM. OF BUILDINGS' | translate}}</label>
-                <input type="number" name="" formControlName="building" min="0" class="form-control" value="">
+                <input type="number" name="" (change)="ApplyFilterProject()" formControlName="building" min="0" class="form-control" value="">
             </div>
-            <button type="submit" class="btn secondary-btn">Search</button>
+            <!-- <button type="submit" class="btn secondary-btn">Search</button> -->
         </form>
     </div>
 
