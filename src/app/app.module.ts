@@ -69,7 +69,7 @@ import { siteInformationService } from './shared/services/siteInformation.servic
     ComponentsModule,
     AppRoutingModule,
     // UserlayoutModule,
-    DashboardModule,
+    // DashboardModule,
     NgxSpinnerModule,
     // LoginModule,
     // FormsModule,
@@ -103,5 +103,5 @@ export class AppModule {
   
 }
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
