@@ -3,47 +3,47 @@
         <label for="priceRange" class="form-label">Example range</label>
         <input type="range" class="form-range slider w-100" min="0" max="5" step="0.5" id="priceRange">
     </div> -->
-   
+
     <div class="box" *ngSwitchCase="'project'">
         <form (ngSubmit)="ApplyFilterProject()" [formGroup]="form">
-        <!-- <div class="mb-3">
+            <!-- <div class="mb-3">
             <label  class="form-label">{{'KEYWORD' | translate}}</label>
             <input type="text" name="" formControlName="keyword" class="form-control" value="">
         </div> -->
-        <div class="mb-3">
-            <label  class="form-label">{{'CITY' | translate}}</label>
-            <select class="form-select form-select-lg mb-3" formControlName="city" aria-label=".form-select-lg example">
+            <div class="mb-3">
+                <label class="form-label">{{'CITY' | translate}}</label>
+                <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProject()" formControlName="city" aria-label=".form-select-lg example">
                 <option selected>{{'--Please Select--' | translate}}</option>
                 <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
               
             </select>
-        </div>
-        <div class="mb-3">
-            <label  class="form-label">{{'DISTRICT' | translate}}</label>
-            <select class="form-select form-select-lg mb-3" formControlName="district" aria-label=".form-select-lg example">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{'DISTRICT' | translate}}</label>
+                <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProject()" formControlName="district" aria-label=".form-select-lg example">
                 <option selected>{{'--Please Select--' | translate}}</option>
                 <option *ngFor="let district of districts"   value="{{district}}">{{district}}</option>
               
             </select>
-        </div>
-        <div class="mb-3">
-            <label  class="form-label">{{'STATUS' | translate}}</label>
-            <select class="form-select form-select-lg mb-3" formControlName="status" aria-label=".form-select-lg example">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{'STATUS' | translate}}</label>
+                <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProject()" formControlName="status" aria-label=".form-select-lg example">
                 <option selected>{{'--Please Select--' | translate}}</option>
                 <option *ngFor="let state of status"   value="{{state}}">{{state}}</option>
               
             </select>
-        </div>
-        <div class="mb-3">
-            <label  class="form-label">{{'NUM. OF APPARTMENTS' | translate}}</label>
-            <input type="number" name="" min="0" formControlName="appartment" class="form-control" value="">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">{{'NUM. OF BUILDINGS' | translate}}</label>
-            <input type="number" name="" formControlName="building" min="0" class="form-control" value="">
-        </div>
-        <button type="submit" class="btn secondary-btn">Search</button>
-    </form>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{'NUM. OF APPARTMENTS' | translate}}</label>
+                <input type="number" name="" min="0" formControlName="appartment" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{'NUM. OF BUILDINGS' | translate}}</label>
+                <input type="number" name="" formControlName="building" min="0" class="form-control" value="">
+            </div>
+            <button type="submit" class="btn secondary-btn">Search</button>
+        </form>
     </div>
 
 
@@ -53,9 +53,9 @@
 
 
     <div class="box" *ngSwitchCase="'property'">
-          <form (ngSubmit)="ApplyFilterProperty()" [formGroup]="form1">
-        
-        <!-- <div class="mb-3">
+        <form (ngSubmit)="ApplyFilterProperty()" [formGroup]="form1">
+
+            <!-- <div class="mb-3">
             <label  class="form-label">{{'PRICE' | translate}}</label>
             <select class="form-select form-select-lg mb-3" formControlName="price" aria-label=".form-select-lg example">
                 <option selected>{{'--Please Select--' | translate}}</option>
@@ -63,28 +63,28 @@
               
             </select>
         </div> -->
-        <div class="mb-3 slider-container">
-            <label for="priceRange" class="form-label">{{'PRICE' | translate}}</label>
-            <input type="range" class="form-range slider w-100"  formControlName="price" min="1.000.000" max="100.000.000" step="2.000.000" id="priceRange">
-        </div>
-        <div class="mb-3">
-            <label  class="form-label">{{'NUM. OF BEDROOMS' | translate}}</label>
-            <input type="number" name="" min="0" formControlName="bedroom" class="form-control" value="">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">{{'NUM. OF HALLS' | translate}}</label>
-            <input type="number" name="" formControlName="hall" min="0" class="form-control" value="">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">{{'NUM. OF FLOOR' | translate}}</label>
-            <input type="number" name="" formControlName="floor" min="0" class="form-control" value="">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">{{'NUM. OF SALON' | translate}}</label>
-            <input type="number" name="" formControlName="salon" min="0" class="form-control" value="">
-        </div>
-    <button type="submit" class="btn secondary-btn">Search</button>
-    </form>
+            <div class="mb-3 slider-container">
+                <label for="priceRange" class="form-label">{{'PRICE' | translate}}</label>
+                <input type="range" class="form-range slider w-100" formControlName="price" min="1.000.000" max="100.000.000" step="2.000.000" id="priceRange">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{'NUM. OF BEDROOMS' | translate}}</label>
+                <input type="number" name="" min="0" formControlName="bedroom" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{'NUM. OF HALLS' | translate}}</label>
+                <input type="number" name="" formControlName="hall" min="0" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{'NUM. OF FLOOR' | translate}}</label>
+                <input type="number" name="" formControlName="floor" min="0" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{'NUM. OF SALON' | translate}}</label>
+                <input type="number" name="" formControlName="salon" min="0" class="form-control" value="">
+            </div>
+            <button type="submit" class="btn secondary-btn">Search</button>
+        </form>
     </div>
 
 

@@ -1,144 +1,72 @@
-<div class="min-w-screen min-h-screen bg-white flex items-center justify-center {{viewType}}" style="cursor: pointer;">
-    <div class="card">
-        <div class="cover">
-            <div class="user-banner">
-                <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="property.apartment_Id" [class.active]="property.favorite" (click)="favorites.toggleFavorites(property)"></i>
-                <div class="compare" [attr.data-cardCompico-id]="property.apartment_Id" [class.active]="property.Compare" (click)="compare.toggleCompare(property)">Compare</div>
-                <img [routerLink]="propertyLink+property.apartment_Id" src='assets/images/home-placeHolder.webp' class="w-100" *ngIf="property.images.length == 0" alt="" />
-                <img [routerLink]="propertyLink+property.apartment_Id" [src]="image.path? appRootUrl+image.path :'assets/images/home-placeHolder.webp'" *ngFor="let image of property.images" alt="" id="{{image.attachmentId}}" />
+<div class="card property-card {{viewType}}" style="cursor: pointer;">
+    <div class="img-panel d-flex">
+        <div class="imagebox">
+            <div class="img-container">
+                <img [src]="property.coverImage ? appRootUrl+property.coverImage :'assets/images/home-placeHolder.webp'" class="card-img-top" alt="...">
             </div>
-            <div class="user-image">
-                <img [routerLink]="propertyLink+property.apartment_Id" [src]="property.coverImage ? appRootUrl+property.coverImage :'assets/images/home-placeHolder.webp'" alt="" />
+            <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="property.apartment_Id" [class.active]="property.favorite" (click)="favorites.toggleFavorites(property)"></i>
+
+            <div class="card-label" [class]="{'green': property.statusId == 1, 'orange': property.statusId == 2, 'pink': property.statusId == 3}">{{property.status}}</div>
+            <span class="edit-project" *ngIf="EditMode" [routerLink]="'../edit-property/'+property.project_Ref+'/'+property.apartment_Id">Edit</span>
+            <div class="compare" [attr.data-cardCompico-id]="property.apartment_Id" [class.active]="property.Compare" (click)="compare.toggleCompare(property)">Compare</div>
+            <div class="card-mask" [routerLink]="'property/'+property.apartment_Id"></div>
+            <div class="unit-price">
+                <h5 class="mb-0">Price : {{property.apartment_Price}} ر.س</h5>
 
             </div>
-            <div class="created" *ngIf="EditMode" [routerLink]="'../edit-property/'+property.project_Ref+'/'+property.apartment_Id">
-                <i class="fas fa-edit"></i> Edit
+            <div class="moreSpcs" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+property.apartment_Id">
+                more specs
             </div>
-
         </div>
 
-        <!-- <div class="profile"></div> -->
-        <div class="info">
-            <div class="title">
-                {{' City' | translate}}
-                <span class="username mx-1">status</span>
-                <span class=" price ">{{'Price :' | translate}} {{property.apartment_Price | currency:'SAR':'\u0631\u002e\u0633\u002e'}}</span>
-            </div>
-            <div class="description mt-2">
+    </div>
+    <div class="card-body">
 
-
-                <ul class="row pl-0">
-                    <div class="col-12 col-md-6 pl-0">
-                        <!-- <li><span>{{'Project Reference:'| translate}}</span> <span class="num">{{property.project_Ref}}</span></li> -->
-                        <li><span>{{'Build Reference:'| translate}}</span><span class="num">{{property.build_Ref}}</span></li>
-                        <li><span>{{'Basic Space:'| translate}}</span><span class="num">{{property.basic_Space}}</span></li>
-                        <li><span>{{'Additional Space:'| translate}}</span><span class="num">{{property.additional_Space}}</span></li>
-                    </div>
-                    <div class="col-12 col-md-6 px-0">
-                        <li><span>{{'Appartment Number:'| translate}}</span><span class="num">{{property.apartment_Num}}</span></li>
-                        <li><span>{{'Appartment Space:'| translate}}</span><span class="num">{{property.apartment_Space}}</span></li>
-                        <li><span>{{'Floor_Ref:'| translate}}</span> <span class="num">{{property.floor_Ref}}</span></li>
-                        <li><span>{{'P-Intrance:'| translate}} </span><span class="num">{{property.p_Intrance}}</span></li>
-                    </div>
-
-                </ul>
-
-            </div>
-            <!-- <div class="created">
-         <i class="fas fa-edit"></i> Edit
-        </div> -->
-
-
-            <div class="unit-specs mt-2">
-                <div class="row">
-                    <div class="col-md-4 mb-2">
-                        <span class="specs-ele">
-                        <img src="../../../assets/images/floor.png" alt=""> 
-                    
-                        <span class="specs-count mx-1 ">{{property.floor_Num}}</span>
-                        <span class="specs-title ">Floor</span>
-                        </span>
-                    </div>
-                    <div class="col-md-4  mb-2">
-                        <span class="specs-ele">
-                        <img src="../../../assets/images/bedroom.png" alt=""> 
-                        <span class="specs-count mx-1">{{property.bed_Room_Num}}</span>
-                        <span class="specs-title ">Bedroom</span>
-                        </span>
-                    </div>
-                    <div class="col-md-4  mb-2">
-                        <span class="specs-ele">
-                        <img src="../../../assets/images/salon.png" alt=""> 
-                        <span class="specs-count mx-1">{{property.salon}}</span>
-                        <span class="specs-title ">Salon</span>
-                        </span>
-                    </div>
-                    <div class="col-md-4  mb-2">
-                        <span class="specs-ele">
-                        <img src="../../../assets/images/hall.png" alt=""> 
-                        <span class="specs-count mx-1">{{property.hall}}</span>
-                        <span class="specs-title ">Hall</span>
-                        </span>
-                    </div>
-
-                    <div class="col-md-4  mb-2">
-                        <span class="specs-ele">
-                        <img src="../../../assets/images/toilet.png" alt=""> 
-                        <span class="specs-count mx-1">{{property.toilet_Num}}</span>
-                        <span class="specs-title ">Bathroom</span>
-                        </span>
-                    </div>
-                    <div class="col-md-4  mb-2">
-                        <span class="specs-ele">
-                        <img src="../../../assets/images/store.png" alt=""> 
-                        <span class="specs-count mx-1">{{property.store}}</span>
-                        <span class="specs-title ">Store</span>
-                        </span>
-                    </div>
-                    <div class="col-md-4  mb-2">
-                        <span class="specs-ele">
-                        <img src="../../../assets/images/balcon.png" alt=""> 
-                        <span class="specs-count mx-1">{{property.balcon}}</span>
-                        <span class="specs-title ">Balcon</span>
-                        </span>
-                    </div>
-                    <div class="col-md-4  mb-2">
-                        <span class="specs-ele">
-                        <img src="../../../assets/images/trace1.png" alt=""> 
-                        <span class="specs-count mx-1">{{property.trace}}</span>
-                        <span class="specs-title ">Trace</span>
-                        </span>
-                    </div>
-
-                    <div class="col-md-4  mb-2">
-                        <span class="specs-ele">
-                        <img src="../../../assets/images/roof.png" alt=""> 
-                        <span class="specs-count mx-1">{{property.roof}}</span>
-                        <span class="specs-title ">Roof</span>
-                        </span>
-                    </div>
-
-                    <div class="col-md-4  mb-2">
-                        <span class="specs-ele">
-                        <img src="../../../assets/images/parking.png" alt=""> 
-                        <span class="specs-count mx-1">{{property.parking}}</span>
-                        <span class="specs-title ">Parking</span>
-                        </span>
-                    </div>
-                    <div class="col-md-6  mb-2">
-                        <span class="specs-ele">
-                        <img src="../../../assets/images/servantRoom.png" alt=""> 
-                        <span class="specs-count mx-1">{{property.servant_Room}}</span>
-                        <span class="specs-title ">Servantroom</span>
-                        </span>
-                    </div>
-
+        <div class="unit-specs">
+            <div class="row">
+                <div class="col-md-4 mb-2" *ngFor="let item of itemSpecsIcon; let i = index">
+                    <span class="specs-ele"> <i *ngIf="itemSpecsIcon[i].icon" [class]="itemSpecsIcon[i].src"></i> <img [src]="itemSpecsIcon[i].src" width="20"  *ngIf="!itemSpecsIcon[i].icon" alt=""> <span class="specs-count"><span class="counter me-1">{{itemSpecsIcon[i].count}}</span>{{itemSpecsIcon[i].type}}</span>
+                    </span>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
 </div>
 
 
-<app-modal [Gallery]="property.images" [modalId]="property.project_Ref"></app-modal>
+<div *ngIf="property" class="modal fade" [id]="'exampleModal'+property.apartment_Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">More Specs</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="basic-info">
+
+
+
+                    <ul class="list-inline other-specs">
+                        <li class="list-inline-item "><span class="">{{'Project Reference:'| translate}}{{property.project_Ref}}</span></li>
+                        <li class="list-inline-item "><span class="">{{'Build Reference:'| translate}}{{property.build_Ref}}</span></li>
+                        <li class="list-inline-item "><span class="">{{'Appartment Number:'| translate}}{{property.apartment_Num}}</span></li>
+                        <li class="list-inline-item "><span class="">{{'Appartment Space:'| translate}}{{property.apartment_Space}}</span></li>
+                        <li class="list-inline-item "><span class="">{{'Additional Space:'| translate}}{{property.additional_Space}}</span></li>
+                        <li class="list-inline-item "><span class="">{{'Basic Space:'| translate}}{{property.basic_Space}}</span></li>
+                        <li class="list-inline-item "><span class="">{{'P-Intrance:'| translate}} {{property.p_Intrance}}</span></li>
+                    </ul>
+
+
+
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>

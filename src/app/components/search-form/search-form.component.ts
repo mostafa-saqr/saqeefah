@@ -26,11 +26,11 @@ export class SearchFormComponent implements OnInit {
 
 
   public form: FormGroup = new FormGroup({
-    city: new FormControl(''),
-    status: new FormControl(''),
-    district: new FormControl(''),
-    building: new FormControl(null),
-    appartment: new FormControl(null),
+    city: new FormControl(),
+    status: new FormControl(),
+    district: new FormControl(),
+    building: new FormControl(),
+    appartment: new FormControl(),
     
 
 
@@ -118,6 +118,17 @@ export class SearchFormComponent implements OnInit {
 
 
 
+getFilterValue(filter){
+  let filterdObject = {}
+  for (var key in filter) {
+        
+    if (filter[key] != null ){
+      filterdObject[key] = filter[key]
+ 
+  }
+  }
+  return filterdObject
+}
 
 
 
@@ -125,7 +136,7 @@ export class SearchFormComponent implements OnInit {
 
     if(this.form.value){
 
-    this.FilteredProject = [];
+ 
      
     let formdata = {
       city: this.form.value.city,
@@ -137,8 +148,25 @@ export class SearchFormComponent implements OnInit {
 
 
   
+    // this.FilteredProject = this.AllProjects.filter((x:any) => {
+    //  if(formdata.city == x.city && formdata.status ==  x.status  &&  formdata.district == x.district  && formdata.building == x.numberOfBuildings&& formdata.appartment == x.numberOfUnits )
+    //  { 
+    //     return x;
+        
+    //   }
+     
+     
+    // });
+    console.log(formdata)
+   
     this.FilteredProject = this.AllProjects.filter((x:any) => {
-     if(formdata.city == x.city ||formdata.status ==  x.status  ||  formdata.district == x.district  || formdata.building == x.numberOfBuildings|| formdata.appartment == x.numberOfUnits )
+     if(
+      (formdata.city == null || formdata.city == x.city )&& 
+      (formdata.status == null || formdata.status ==  x.status)&&
+      (formdata.district==null || formdata.district == x.district)&&
+      (formdata.building == null || formdata.building == x.numberOfBuildings)&&
+      (formdata.appartment==null || formdata.appartment == x.numberOfUnits)
+      )
      { 
         return x;
         
@@ -146,12 +174,7 @@ export class SearchFormComponent implements OnInit {
      
      
     });
-
-   
-
-    // console.log('filtered obj:', this.FilteredProject);
-    this.form.reset();
-    this.initializeFormGroup();
+ 
 
 
    this.obj.emit(this.FilteredProject);
