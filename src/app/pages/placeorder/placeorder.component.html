@@ -131,7 +131,7 @@
                         <div class="col-lg-4 col-12">
                             <div class="form-group">
                                 <label for="">District</label>
-                                <select class="form-select" formControlName="district">
+                                <select class="form-select" formControlName="district" (change)="onChange2($event)">
                                         <option value=0></option>
                                         <option *ngFor="let i of districts" [value]="i.id">{{i.value}}</option>
                                     </select>
