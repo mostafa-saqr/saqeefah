@@ -13,6 +13,7 @@ import { ProjectAndListService } from 'src/app/services/project-lists.service';
 export class SearchFormComponent implements OnInit {
   @Input() search: any;
   @Input() searchAbout: any;
+  @Input() proId: any;
   @Output() obj = new EventEmitter<{}>();
   AllProjects: [] = []
   AllProperties: [] = [];
@@ -23,7 +24,8 @@ export class SearchFormComponent implements OnInit {
   public status: string[] = [];
   public districts: string[] = [];
   public prices:string[] = [];
-
+  public statusProp: string[] = [];
+  
 
   public form: FormGroup = new FormGroup({
     city: new FormControl(),
@@ -41,7 +43,7 @@ export class SearchFormComponent implements OnInit {
     hall: new FormControl(null),
     floor: new FormControl(null),
     salon: new FormControl(null),
-
+    status: new FormControl(),
   });
 
 
@@ -101,7 +103,6 @@ export class SearchFormComponent implements OnInit {
 
   getAllProperties() {
     this.projects.getAllProperties().subscribe((response: any) => {
-
       this.AllProperties = response.result.data
       response.result.data.forEach((element) => {
         if (this.prices.indexOf(element.apartment_Price) === -1) {
@@ -109,7 +110,10 @@ export class SearchFormComponent implements OnInit {
           // console.log('x city:',this.cities)
         }
 
-
+        if (this.statusProp.indexOf(element.status) === -1) {
+          this.statusProp.push(element.status);
+          //console.log('x status:',this.status)
+        }
 
     })
   })
@@ -202,6 +206,7 @@ getFilterValue(filter){
       hall: this.form1.value.hall,
       salon: this.form1.value.salon,
       floor: this.form1.value.floor,
+      status: this.form1.value.status,
     }
 
 
@@ -219,7 +224,8 @@ getFilterValue(filter){
       (formdata.bedroom == null || formdata.bedroom ==  x.bed_Room_Num)&&
       (formdata.hall==null || formdata.hall == x.hall)&&
       (formdata.salon == null || formdata.salon == x.salon)&&
-      (formdata.floor==null || formdata.floor == x.floor_Num)
+      (formdata.floor==null || formdata.floor == x.floor_Num)&&
+      (formdata.status == null || formdata.status ==  x.status)
     )
      { 
         return x;
@@ -269,7 +275,7 @@ getFilterValue(filter){
       salon: null,
       bedroom: null,
       floor: null,
-    
+      status: '',
 
 
     })

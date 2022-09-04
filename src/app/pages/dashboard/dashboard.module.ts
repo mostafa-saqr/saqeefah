@@ -33,6 +33,8 @@ import { FeedbackListComponent } from './clientInterest/feedback-list/feedback-l
 import { ContactUsListComponent } from './clientInterest/contact-us-list/contact-us-list.component';
 import { DataTablesModule } from 'angular-datatables';
 import { PlaceOrderComponent } from './clientInterest/place-order/place-order.component';
+import { changeLanguageService } from 'src/app/services/changeLanguage.service';
+import { GenaricService } from 'src/app/services/Genaric.service';
 
 
 
@@ -69,30 +71,32 @@ import { PlaceOrderComponent } from './clientInterest/place-order/place-order.co
     NgxSpinnerModule,
     NgxEditorModule,
     DataTablesModule,
-    // TranslateModule.forRoot({
-    //   defaultLanguage: "en",
-    //   loader: {
-    //     provide: TranslateLoader,
-    //     useFactory: HttpLoaderFactory,
-    //     deps: [HttpClient]
+    TranslateModule.forRoot({
+      defaultLanguage: "en",
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
 
-    //   }
-    // }),
-    TranslateModule.forChild(),
+      }
+    }),
+    // TranslateModule.forChild(),
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
-      preventDuplicates: true
+      preventDuplicates: true,
+    
     })
-    ,
+    
   ],
   providers:[{provide:HTTP_INTERCEPTORS , useClass:LoadingInterceptor , multi:true},
-             {provide:HTTP_INTERCEPTORS , useClass:ErrorInterceptor , multi:true}
+             {provide:HTTP_INTERCEPTORS , useClass:ErrorInterceptor , multi:true},
+             changeLanguageService, GenaricService,
   ],
   exports:[
     DashboardComponent
   ]
 })
 export class DashboardModule { }
-// export function HttpLoaderFactory(http: HttpClient) {
-//   return new TranslateHttpLoader(http, '../../../assets/i18n/', '.json');
-// }
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+}
