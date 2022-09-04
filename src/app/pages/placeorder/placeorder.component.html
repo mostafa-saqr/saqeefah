@@ -37,26 +37,26 @@
 <section class="section place-order-form bg-light">
     <div class="container">
         <div class="row">
-            <form action="#">
+            <form action="" class="row g-4" [formGroup]="myFormGroup" (submit)="onClickSubmit($event)"
+            enctype="multipart/form-data">
 
                 <div class="col-md-12 mb-5">
+                
                     <h4 class="fw-bold">
                         <i class="fas fa-users"></i> Personal Information</h4>
-
-
                     <div class="row">
 
                         <div class="col-lg-4 col-12">
                             <div class="form-group">
                                 <label for="">Name</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" formControlName="client_Name">
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-12">
                             <div class="form-group">
                                 <label for="">Email Address</label>
-                                <input type="text" class="form-control">
+                                <input type="email" class="form-control" formControlName="client_Mail">
                             </div>
                         </div>
 
@@ -65,28 +65,36 @@
 
                             <div class="form-group input-group">
                                 <span class="input-group-text">966+</span>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" formControlName="client_Mobile">
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-12">
+                        <!-- <div class="col-lg-4 col-12">
                             <div class="form-group">
                                 <label for="">Purpose of purchase</label>
-                                <select class="form-select">
+                                <select class="form-select" formControlName="purpose">
                                         <option value="">Residence</option>
                                         <option value="">Investment</option>
                                     </select>
                             </div>
+                        </div> -->
+
+ <div class="col-lg-4 col-12">
+                            <div class="form-group">
+                                <label for="">Project</label>
+                                <select class="form-select" formControlName="project_Ref">
+                                        <option value=0></option>
+                                        <option *ngFor="let i of projects" [value]="i.id">{{i.value}}</option>
+                                    </select>
+                            </div>
                         </div>
-
-
                         <div class="col-lg-4 col-12">
                             <div class="form-group">
                                 <label for="">Payment method</label>
-                                <select class="form-select">
-                                        <option value="">Cash</option>
-                                        <option value="">Real estate financing from a financing authority</option>
-                                    </select>
+                                <select class="form-select" formControlName="payment_Method">
+                                        <option value=0></option>
+                                        <option *ngFor="let i of paymentMethods" [value]="i.id">{{i.value}}</option>
+                                   </select>
                             </div>
                         </div>
 
@@ -104,17 +112,25 @@
                         <div class="col-lg-4 col-12">
                             <div class="form-group">
                                 <label for="">City</label>
-                                <select class="form-select">
-                                        <option value="">Riyadh</option>
-                                        <option value="">...</option>
+                                <select class="form-select" formControlName="city" (change)="onChange($event)">
+                                        <option value=0></option>
+                                        <option *ngFor="let i of cities" [value]="i.id">{{i.value}}</option>
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12">
+                            <div class="form-group">
+                                <label for="">District</label>
+                                <select class="form-select" formControlName="district">
+                                        <option value=0></option>
+                                        <option *ngFor="let i of districts" [value]="i.id">{{i.value}}</option>
                                     </select>
                             </div>
                         </div>
 
-
                     </div>
 
-
+<!-- 
                     <div class="row  mb-4 bg-white">
 
                         <div class="col-md-12">
@@ -218,7 +234,7 @@
                         </div>
 
 
-                    </div>
+                    </div> -->
 
                     <!-- <div class="row  mb-2">
 
@@ -248,49 +264,25 @@
                         <div class="col-md-6 mb-4">
                           <div class="form-group">
                             <label for="">Price</label>
-                            <input type="text" class="form-control">
+                            <input type="number" class="form-control" formControlName="price_Avg">
                              </div>
-                            <!-- <div class="form-group">
-                                <label for="">Price Range</label>
-                                <select class="form-select form-select-small">
-                                        <option value="">Less than 800,000 SR</option>
-                                        <option value="">Less than 800,000 SR</option>
-                                    </select>
-                                <small>The lower the price, the fewer the advantages of the project in terms of space, location,
-                                        or the luxury of the project.</small>
-                            </div> -->
                         </div>
 
 
-                        <div class="col-md-6 mb-4">
-                          <div class="form-group">
-                            <label for="">{{'Project Size' | translate}}</label>
-                            <input type="text" class="form-control">
-                             </div>
-                            <!-- <div class="form-group">
-                                <label for="">Project Size</label>
-                                <select class="form-select form-select-small">
-                                        <option value="">Less than 80 apartments</option>
-                                        <option value="">Less than 80 apartments</option>
-                                    </select>
-                                <small>The larger the project, the more common services will be, such as a gym, a board of events,
-                                        a common dining hall, and others.</small>
-                            </div> -->
-                        </div>
-
+                     
 
                         <div class="col-md-6 mb-4">
                             <div class="form-group">
 
                                 <label  class="form-label">{{'Number Of Bedrooms' | translate}}</label>
-                                <input type="number" name="" min="0"  class="form-control" value="">
+                                <input type="number" name="" min="0"  class="form-control" formControlName="bed_Room">
                             </div>
                         </div>
 
                         <div class="col-md-6 mb-4">
                             <div class="form-group">
                                 <label for="">The area of the apartment</label>
-                                <input type="text" name=""  class="form-control" value="">
+                                <input type="text" name=""  class="form-control" formControlName="space_Avg">
                                 <!-- <small>Including private spaces such as the roof and others.</small> -->
                             </div>
                         </div>
@@ -374,14 +366,14 @@
 
                                     <div class="col-lg-2 col-6">
                                         <label class="containerRadio form-check-label" >Yes
-                                                <input class="form-check-input" type="radio" value="">
+                                                <input class="form-check-input" type="radio" [value]="1" [checked]="myFormGroup.controls['parking'].value" formControlName="parking">
                                                 <span class="checkmark"></span>
                                           </label>
                                     </div>
 
                                     <div class="col-lg-2 col-6">
                                         <label class="containerRadio form-check-label">No
-                                                <input  class="form-check-input" type="radio" value="">
+                                                <input  class="form-check-input" type="radio"  [value]="0" [checked]="!myFormGroup.controls['parking'].value" formControlName="parking">
                                                 <span class="checkmark"></span>
                                             </label>
                                     </div>
@@ -404,14 +396,14 @@
 
                                   <div class="col-lg-2 col-6">
                                       <label class="containerRadio">Yes
-                                              <input type="radio" value="">
+                                              <input type="radio"  [value]="1" [checked]="myFormGroup.controls['store'].value" formControlName="store">
                                               <span class="checkmark"></span>
                                           </label>
                                   </div>
 
                                   <div class="col-lg-2 col-6">
                                       <label class="containerRadio">No
-                                              <input type="radio" value="">
+                                              <input type="radio"  [value]="0" [checked]="!myFormGroup.controls['store'].value" formControlName="store">
                                               <span class="checkmark"></span>
                                           </label>
                                   </div>
@@ -434,14 +426,14 @@
 
                                 <div class="col-lg-2 col-6">
                                     <label class="containerRadio">Yes
-                                            <input type="radio" value="">
+                                            <input type="radio"  [value]="1" [checked]="myFormGroup.controls['terace'].value" formControlName="terace">
                                             <span class="checkmark"></span>
                                         </label>
                                 </div>
 
                                 <div class="col-lg-2 col-6">
                                     <label class="containerRadio">No
-                                            <input type="radio" value="">
+                                            <input type="radio"  [value]="0" [checked]="!myFormGroup.controls['terace'].value" formControlName="terace">
                                             <span class="checkmark"></span>
                                         </label>
                                 </div>
@@ -464,14 +456,14 @@
 
                               <div class="col-lg-2 col-6">
                                   <label class="containerRadio">Yes
-                                          <input type="radio" value="">
+                                          <input type="radio" [value]="1" [checked]="myFormGroup.controls['balcony'].value" formControlName="balcony">
                                           <span class="checkmark"></span>
                                       </label>
                               </div>
 
                               <div class="col-lg-2 col-6">
                                   <label class="containerRadio">No
-                                          <input type="radio" value="">
+                                          <input type="radio" [value]="0" [checked]="!myFormGroup.controls['balcony'].value" formControlName="balcony">
                                           <span class="checkmark"></span>
                                       </label>
                               </div>
@@ -494,14 +486,14 @@
 
                             <div class="col-lg-2 col-6">
                                 <label class="containerRadio">Yes
-                                        <input type="radio" value="">
+                                        <input type="radio" [value]="1" [checked]="myFormGroup.controls['roof'].value" formControlName="roof">
                                         <span class="checkmark"></span>
                                     </label>
                             </div>
 
                             <div class="col-lg-2 col-6">
                                 <label class="containerRadio">No
-                                        <input type="radio" value="">
+                                        <input type="radio" [value]="0" [checked]="!myFormGroup.controls['roof'].value" formControlName="roof">
                                         <span class="checkmark"></span>
                                     </label>
                             </div>
@@ -524,16 +516,17 @@
 
                           <div class="col-lg-2 col-6">
                               <label class="containerRadio">Yes
-                                      <input type="radio" value="">
-                                      <span class="checkmark"></span>
+                                    <input type="radio" [value]="1" [checked]="myFormGroup.controls['servent_Room'].value" formControlName="servent_Room" >
+                                    <span class="checkmark"></span>
                                   </label>
+                            
                           </div>
 
                           <div class="col-lg-2 col-6">
-                              <label class="containerRadio">No
-                                      <input type="radio" value="">
-                                      <span class="checkmark"></span>
-                                  </label>
+                            <label class="containerRadio">No
+                                <input type="radio" [value]="0" [checked]="!myFormGroup.controls['servent_Room'].value" formControlName="servent_Room">
+                                 <span class="checkmark"></span>
+                            </label> 
                           </div>
 
                       </div>
@@ -551,7 +544,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Would you like to add additional notes?</label>
-                                <textarea class="form-control" rows="5"></textarea>
+                                <textarea class="form-control" rows="5" formControlName="additional_Reqst"></textarea>
                             </div>
 
                         </div>
@@ -563,7 +556,9 @@
 
 
                             <div class="form-group mt-3">
-                                <input type="submit" value="Send request" class="btn btn-primary py-3 px-5">
+                                <button type="submit" class="btn btn-small btn-primary w-25 float-end  px-4  mt-2"
+                                [disabled]="myFormGroup.invalid">Submit
+                            </button>
                             </div>
                         </div>
 
