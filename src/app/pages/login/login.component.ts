@@ -11,41 +11,34 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  
-  hide=true;
-  showError=false;
+
+  hide=false;
+  showError:boolean;
   // user = <IUser>{}
   form:FormGroup = new FormGroup({
     userName: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   })
 
- 
+
  error:any;
 
-  constructor(private router: Router,private titleService :Title,private loginService:LoginService) {
-    this.titleService.setTitle("Saqeefa | Login"); 
+  constructor(private router: Router,private titleService :Title,private loginService:LoginService, private  authService :AuthService) {
+    this.titleService.setTitle("Saqeefa | Login");
 
-    
+
      }
 
   ngOnInit(): void {
-   
-    // let token = localStorage.getItem("token");
 
-    // if (token != "undefined" || token != null) 
-    // {
-    //     this.router.navigateByUrl('/dashboard')
-      
-    // } 
   }
 
- 
+
  onSubmit(){
-  
- if(this.form.valid)
- {
-   
+
+
+//  if(this.form.valid)
+//  {
     let loginview =
     {
      email: this.form.controls['userName'].value,
@@ -57,24 +50,22 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("token",res.result.data.token);
         localStorage.setItem("auth_data",JSON.stringify(res.result));
 
-        this.router.navigateByUrl('/dashboard');
+       this.showError= this.authService.isUserLoggedIn()
+       this.router.navigateByUrl('/dashboard');
+
+
+      }
+      else{
+
+        this.hide=true;
+        this.router.navigateByUrl('/login');
+
       }
     })
   }
-  else{
-    this.hide=false;
 
-  }
 
-     
-  //  },
-  //  error=>{
-  //   this.hide=false ;}
-  //  );
- }
-//  else{
-//   this.showError=true;
+
 
 //  }
-// }
 }
