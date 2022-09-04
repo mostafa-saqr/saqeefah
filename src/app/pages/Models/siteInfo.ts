@@ -12,5 +12,7 @@ export interface siteInfo{58264
     phone: string,
     fax: string,
     mail: string,
-    workinfHours: string
+    workinfHours: string,
+    RecentListTitle: string,
+    RecentListDescription: string
 }

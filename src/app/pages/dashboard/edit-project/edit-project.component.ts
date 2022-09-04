@@ -35,6 +35,7 @@ export class EditProjectComponent implements OnInit {
     }
   }
   onGalleryInputChange(event) {
+    this.projectImageGallery=[]; 
     if (event.target.files) {
       for (var i = 0; i < event.target.files.length; i++) {
         this.projectImageGallery.push(<File>event.target.files[i])
@@ -55,7 +56,9 @@ export class EditProjectComponent implements OnInit {
       if (!resp.isError) {
         this.toastr.success(":: Successfully Deleted")
         this.ngOnInit();
-        this.uploadWorking = false
+        this.uploadWorking = false;
+        this.projectImageGallery=[]; 
+        
       }
       else{
         this.toastr.error(":: Failed Deleted")

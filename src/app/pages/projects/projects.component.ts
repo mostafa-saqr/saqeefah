@@ -52,7 +52,7 @@ export class ProjectsComponent implements OnInit {
    
  }
  sortAssending(value){
-   if(value == 1) {
+   if(value == 2) {
     this.AllProjects.sort((a:any, b:any) => a.projectName.localeCompare(b.projectName))
 
    } else {
@@ -61,6 +61,12 @@ export class ProjectsComponent implements OnInit {
    }
 
  }
+
+
+
+
+
+
 
  refresh(){
   window.location.reload();
