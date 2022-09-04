@@ -176,13 +176,14 @@ export class PlaceorderComponent implements OnInit,OnDestroy  {
       additional_Reqst:''
     })
   }
-
+  showError:boolean=false;
   onClickSubmit($event){
  if(this.myFormGroup.valid){
   this.service.Post(this.myFormGroup.value).subscribe(res=>{
         if(!res.isError)
         {
           this.toastr.success(":: Successfully Updated")
+          this.showError=false
           this.ngOnInit();
         }
         else{
@@ -190,7 +191,9 @@ export class PlaceorderComponent implements OnInit,OnDestroy  {
         }
   })
   } else {
-    // this.toastr.error(':: Failed Updated');
+   this.showError=true;
+   this.toastr.warning(":: Please Correct your inputs")
+
   }
   }
 
