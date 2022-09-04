@@ -8,7 +8,7 @@
     <div class="col-md-9">
         <div class="row" *ngIf="propertyOfSelectedBuilding">
             <div class="col-md-6 mb-3" *ngFor="let item of propertyOfSelectedBuilding">
-                <app-property-card [property]="item"></app-property-card>
+                <app-property-card [fromDetails]="true" [property]="item"></app-property-card>
             </div>
         </div>
     </div>
