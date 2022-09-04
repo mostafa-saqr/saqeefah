@@ -43,7 +43,7 @@ export class PropertiesComponent implements OnInit {
     this.Total=response.result.data.length;
     console.log('total',this.Total)
   }
-     
+  this.sortByPrice('l2h');
   
     })
   }
@@ -70,15 +70,38 @@ export class PropertiesComponent implements OnInit {
     this.AllProperties = e;
    
  }
- sortAssending(){
-  this.AllProperties.sort((a:any, b:any) => b.projectName.localeCompare(a.projectName))
-  console.log(this.AllProperties)
- }
- sortDessending(){
-  this.AllProperties.sort((a:any, b:any) => a.projectName - b.projectName);
- }
+//  sortAssending(){
+//   this.AllProperties.sort((a:any, b:any) => b.projectName.localeCompare(a.projectName))
+//   console.log(this.AllProperties)
+//  }
+//  sortDessending(){
+//   this.AllProperties.sort((a:any, b:any) => a.projectName - b.projectName);
+//  }
  refresh(){
   window.location.reload();
  }
+
+
+ sortAssending(value){
+  if(value == 1) {
+   this.AllProperties.sort((a:any, b:any) => a.price.localeCompare(b.price))
+
+  } else {
+ this.AllProperties.sort((a:any, b:any) => b.price.localeCompare(a.price))
+
+  }
+
+}
+
+sortByPrice(option){
+  debugger
+  if(option =='l2h'){
+    this.AllProperties.sort((a:any, b:any) => Number(a.apartment_Price) - Number(b.apartment_Price));
+  }else if(option =='h2l'){
+    this.AllProperties.sort((a:any, b:any) => Number(b.apartment_Price) - Number(a.apartment_Price));
+  }
+}
+
+
 
 }
