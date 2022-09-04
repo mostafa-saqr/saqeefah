@@ -11,8 +11,10 @@ import { environment } from 'src/environments/environment';
 export class PropertyCardComponent implements OnInit {
   @Input() property:any
   @Input() viewType:string;
-  @Input() EditMode:boolean = false
-  propertyLink = this.EditMode ? '../../property/' :"../property/";
+  @Input() EditMode!:boolean 
+  @Input() fromDetails!:boolean 
+
+  propertyLink!:string
 itemSpecsIcon = [
   {
     icon:true,
@@ -57,7 +59,7 @@ itemSpecsIcon = [
   ngOnInit(): void {
     this.favorites.checkFavorites(this.property)
      this.compare.checkCompare(this.property)
-
+this.propertyLink = this.EditMode || this.fromDetails ? '../../property/' :"/property/";
   }
 
 }
