@@ -1,6 +1,6 @@
 
 import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { siteInfo } from 'src/app/pages/Models/siteInfo';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { CompareService } from 'src/app/services/compare.service';
@@ -31,21 +31,24 @@ export class TopHeaderComponent implements OnInit, AfterViewInit {
    this.compare.changeComparetatus.subscribe((value)=>{
     this.compare.checkCompareCounter()
    })
-   this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
+   this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+    this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
   
-    if(!x.isError)
-    {
-      if(x.result['succeeded'])
+      if(!x.isError)
       {
-        this.siteInformation=x.result['data'];
+        if(x.result['succeeded'])
+        {
+          this.siteInformation=x.result['data'];
+        }
+        else{
+  
+        }
       }
-      else{
+      
+    })
+   
+  });
 
-      }
-    }
-    
-  })
- 
   }
   
   ngAfterViewInit(): void {

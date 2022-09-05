@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { siteInfo } from 'src/app/pages/Models/siteInfo';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
@@ -25,24 +26,28 @@ export class FooterComponent implements OnInit {
 
   constructor(private FB:FeedbackService,private toastr :ToastrService,
     private language:changeLanguageService,
-    private siteInfo:siteInformationService) { }
+    private siteInfo:siteInformationService,
+    private translate:TranslateService) { }
 
   ngOnInit(): void {
     this.initializeForm();
-    this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
   
-      if(!x.isError)
-      {
-        if(x.result['succeeded'])
+        if(!x.isError)
         {
-          this.siteInformation=x.result['data'];
+          if(x.result['succeeded'])
+          {
+            this.siteInformation=x.result['data'];
+          }
+          else{
+    
+          }
         }
-        else{
-  
-        }
-      }
-      
-    })
+        
+      })
+    });
+ 
   }
 
 
