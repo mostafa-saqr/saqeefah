@@ -9,8 +9,9 @@ import { environment } from 'src/environments/environment';
 })
 export class ProjectCardComponent implements OnInit {
   @Input() project:any
-  @Input() EditMode:boolean = false;
+  @Input() EditMode!:boolean ;
   @Input() viewType:string;
+  projectLink!:string
   homespecs = [1,1]
   itemSpecsIcon = [
     {
@@ -34,6 +35,7 @@ export class ProjectCardComponent implements OnInit {
   ngOnInit(): void {
     this.favorites.checkFavorites(this.project)
    // console.log('project from project-page',this.project)
+   this.projectLink = this.EditMode  ? '../../project/' :"/project/";
   }
 
 }
