@@ -15,5 +15,7 @@ export interface siteInfo{58264
     workinfHours: string,
     aboutSaqeefafooterDesc:string,
     recentListTitle: string,
-    recentListDescription: string
+    recentListDescription: string,
+    projectsTitle:string,
+    projectDesc: string
 }
