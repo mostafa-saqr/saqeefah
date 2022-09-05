@@ -1,9 +1,9 @@
 <div class="container mt-5">
     <div class="row" *ngIf="projectDetails">
         <div class="col-md-12">
-            <h3 class="secondary-color mb-0">{{projectDetails.projectName}}</h3>
-            <h6>{{projectDetails.adress}}, {{projectDetails.city}}</h6>
-            <p>{{projectDetails.numberOfBuildings}} Buildings | {{projectDetails.numberOfUnits}} Appartments</p>
+            <h3 class="secondary-color mb-0">{{projectDetails.projectName | translate}}</h3>
+            <h6>{{projectDetails.adress | translate}}, {{projectDetails.city | translate}}</h6>
+            <p>{{projectDetails.numberOfBuildings}} {{'Buildings' | translate}} | {{projectDetails.numberOfUnits}} {{'Appartments' | translate}}</p>
 
 
             <div id="myTab" role="tablist">
@@ -25,9 +25,9 @@
                             </map>
                         </div>
                         <div class="col-md-4">
-                            <h4 class="secondary-color">Project Overview</h4>
+                            <h4 class="secondary-color">{{'ProjectOverview' | translate}}</h4>
                             <p *ngIf="projectDetails && projectDetails.masterPlane != null&& projectDetails.masterPlane.projectOverview!='undefined'">
-                                {{projectDetails.masterPlane.projectOverview}}
+                                {{projectDetails.masterPlane.projectOverview |translate}}
                             </p>
                         </div>
                     </div>

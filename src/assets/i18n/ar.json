@@ -231,6 +231,8 @@
     "dashboard":"لوحة التحكم",
     "soonForSale":"قريبا للبيع",
     "--Please Select--":"--اختار--",
+    "sortByProNameAtoZ":"تصنيف حسب اسم المشروع أ الي ي",
+    "sortByProNameZtoA":"تصنيف حسب اسم المشروع ي الي أ",
     "PRICE":"PRICE",
     "CITY":"المدينة",
     "STATUS":"الحالة",
