@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {ComponentsModule} from '../../components/components.module'
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -72,11 +72,20 @@ import { GenaricService } from 'src/app/services/Genaric.service';
     NgxEditorModule,
     DataTablesModule,
     TranslateModule.forChild({
-      loader: { provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient] },
+      defaultLanguage: 'en',
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      },
       extend: true
-    }),
+  }),
+    // TranslateModule.forChild({
+    //   loader: { provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient] },
+    //   extend: true
+    // }),
     // TranslateModule.forRoot({
-    //   defaultLanguage: "en",
+    //   defaultLanguage: "ar",
     //   loader: {
     //     provide: TranslateLoader,
     //     useFactory: HttpLoaderFactory,
@@ -100,7 +109,18 @@ import { GenaricService } from 'src/app/services/Genaric.service';
     DashboardComponent
   ]
 })
-export class DashboardModule { }
+export class DashboardModule { 
+  /**
+   *
+   */
+  constructor( private language:changeLanguageService,private translate: TranslateService) {
+   this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+  //   let l =this.language.getCurrentLanguage();
+  //   this.language.changeLanguge(l);
+  //  this.translate.use(l);
+  });
+  }
+}
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '../../../assets/i18n/', '.json');
 }

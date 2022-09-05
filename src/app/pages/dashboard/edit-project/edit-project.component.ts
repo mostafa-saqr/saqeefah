@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { ProjectAndListService } from 'src/app/services/project-lists.service';
 import { environment } from 'src/environments/environment';
+import { MasterPlan } from '../../Models/masterPlan';
+import { pickList } from '../../Models/picklist';
 import { AttachmentService } from '../services/attachment.service';
 
 @Component({
@@ -14,6 +16,8 @@ import { AttachmentService } from '../services/attachment.service';
 })
 export class EditProjectComponent implements OnInit {
   projectOverView: string
+  masterPlanData:MasterPlan[]=[] as MasterPlan[];
+  types:pickList[]=[]as pickList[];
   imageMapHardCode: string
   masterPlaneImage: File = null
   specificationsImage: File = null
@@ -45,6 +49,7 @@ export class EditProjectComponent implements OnInit {
   uploadImage(e) {
     this.uploadWorking = true
     e.preventDefault();
+    this.formData = new FormData()
     this.formData.append('CoverImage', this.projectImageThumb, this.projectImageThumb.name)
 
     this.formData.append('Project_Id', this.projectId)
@@ -73,10 +78,13 @@ export class EditProjectComponent implements OnInit {
 
   }
   UploadMasterPlane(e) {
+    this.masterPlaneFormData=new FormData();
+    
     this.uploadWorking = true
     this.masterPlaneFormData.append('Project_Id', this.projectId)
     this.masterPlaneFormData.append('MasterPlaneImage', this.masterPlaneImage, this.masterPlaneImage.name)
-    this.masterPlaneFormData.append('HardCode', this.imageMapHardCode)
+    let data=JSON.stringify(this.masterPlanData);
+    this.masterPlaneFormData.append('JsonMapCodeString', data)
     this.masterPlaneFormData.append('ProjectOverview', this.projectOverView)
     this.editProject.uploadProjectMasterPlane(this.masterPlaneFormData).subscribe((resp) => {
       if (!resp.isError) {
@@ -136,6 +144,8 @@ export class EditProjectComponent implements OnInit {
 
   appRootUrl = environment.appRoot + '/';
   ngOnInit(): void {
+    
+ 
     this.projectId = this.route.snapshot.paramMap.get('id');
     this.editProject.getProjectDetails(this.language.getLanguageID(), this.projectId).subscribe(x => {
       if (x['succeeded']) {
@@ -151,9 +161,28 @@ export class EditProjectComponent implements OnInit {
         else
           this.PspecificationsImage = null;
 
+          this.initData(x['data']['masterPlane']['mapCodeArray']);
+
       }
 
     })
+   
+  }
+  initData(x:any){
+    if(this.types.length==0)
+    {
+      this.types.push({id:'Rect',value:'Rect'});
+      this.types.push({id:'Poly',value:'Poly'});
+      this.types.push({id:'Circle',value:'Circle'});
+    }
+
+if(x.length==0)
+  this.masterPlanData.push({id:'',cords:'',shape:''});
+  else{
+    x.forEach(e=>{
+      this.masterPlanData.push({id:e.id,cords:e.cords,shape:e.shape});
+    });
+  }
   }
   delete(id: any) {
     this.attachmentService.deleteAttachment(id, "Project").subscribe(res => {
@@ -176,6 +205,29 @@ export class EditProjectComponent implements OnInit {
         this.toastr.error(":: Failed Deleted")
       }
     })
+  }
+  addData(){
+    this.masterPlanData.push({id:'',cords:'',shape:''});
+  }
+  DeleteData(ind:any){
+    this.masterPlanData.splice(ind,1);
+  }
+  onchange(event,index,t){
+    switch(t){
+      case 1:
+    this.masterPlanData[index].shape=event.target.value;
+        break;
+        case 2:
+    this.masterPlanData[index].id=event.target.value;
+
+          break;
+          case 3:
+    this.masterPlanData[index].cords=event.target.value;
+
+            break;
+
+    }
+
   }
 
 }

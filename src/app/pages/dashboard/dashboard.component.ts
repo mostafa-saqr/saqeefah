@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -14,21 +14,31 @@ export class DashboardComponent implements OnInit {
   user:string;
    email:string;
   constructor(private language:changeLanguageService,private router: Router, private auth: AuthService,private translate: TranslateService) {
-  this.translate.setDefaultLang('en');
-    // this.translate.use('ar')
+
+  //   this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+  //     let l =this.language.getCurrentLanguage();
+  //     alert(this.language)
+  //   this.language.changeLanguge(l);
+  //  this.translate.use(l);
+  // });
 
   }
 
   ngOnInit(): void {
     this.user=this.auth.getUsername();
     this.email=this.auth.getUseremail();
+    let l =this.language.getCurrentLanguage();
+    this.language.changeLanguge(l);
+   this.translate.use(l);
+
+ 
     this.language.changeLanguageStatus.subscribe((data)=>{
-      // the lang to use, if the lang isn't available, it will use the current loader to get them
 
       this.ngOnInit()
   console.log('language status from dashbao')
 
-   })
+    })
+
 
   }
 
