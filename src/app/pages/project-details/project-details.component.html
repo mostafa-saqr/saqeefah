@@ -19,8 +19,8 @@
 
 
                             <img *ngIf="projectDetails.masterPlane != null" [src]="appRootUrl+projectDetails.masterPlane.masterPlaneImage" usemap="#image-map" class="img-fluid">
-                            <map name="image-map" *ngIf="imageMap.length > 0">
-                                <area *ngFor="let item of imageMap" (click)="goToSpecialBuilding(item.id)"   [attr.coords]="item.cords" [attr.shape]="item.shape">
+                            <map name="image-map" *ngIf="projectDetails.masterPlane.mapCodeArray.length > 0">
+                                <area *ngFor="let item of projectDetails.masterPlane.mapCodeArray" (click)="goToSpecialBuilding(item.id)"   [attr.coords]="item.cords" [attr.shape]="item.shape">
                                 
                             </map>
                         </div>
