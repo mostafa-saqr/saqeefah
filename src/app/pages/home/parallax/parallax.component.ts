@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { siteInformationService } from 'src/app/shared/services/siteInformation.service';
 import { siteInfo } from '../../Models/siteInfo';
@@ -18,20 +18,23 @@ export class ParallaxComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
   
-      if(!x.isError)
-      {
-        if(x.result['succeeded'])
+        if(!x.isError)
         {
-          this.siteInformation=x.result['data'];
+          if(x.result['succeeded'])
+          {
+            this.siteInformation=x.result['data'];
+          }
+          else{
+    
+          }
         }
-        else{
-  
-        }
-      }
-      
-    })
+        
+      })
+    });
+
   }
 
 }
