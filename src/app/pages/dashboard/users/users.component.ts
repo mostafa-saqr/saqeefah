@@ -63,12 +63,12 @@ export class UsersComponent implements OnInit ,OnDestroy {
     // if (this.form.invalid) {
     //   return;
     // }
-
+    console.log(this.form.value); 
     this.formAdmin={
-      email:this.form.value.controls.email,
-      phone:this.form.value.controls.phone,
-      password:this.form.value.controls.password,
-      fullName:this.form.value.controls.fullName
+      email:this.form.value.email,
+      phone:this.form.value.phone,
+      password:this.form.value.password,
+      fullName:this.form.value.fullName
     }
     console.log("formAdmin",this.formAdmin)
 
