@@ -71,22 +71,26 @@ import { GenaricService } from 'src/app/services/Genaric.service';
     NgxSpinnerModule,
     NgxEditorModule,
     DataTablesModule,
-    TranslateModule.forRoot({
-      defaultLanguage: "en",
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-
-      }
+    TranslateModule.forChild({
+      loader: { provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient] },
+      extend: true
     }),
+    // TranslateModule.forRoot({
+    //   defaultLanguage: "en",
+    //   loader: {
+    //     provide: TranslateLoader,
+    //     useFactory: HttpLoaderFactory,
+    //     deps: [HttpClient]
+
+    //   }
+    // }),
     // TranslateModule.forChild(),
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true,
-    
+
     })
-    
+
   ],
   providers:[{provide:HTTP_INTERCEPTORS , useClass:LoadingInterceptor , multi:true},
              {provide:HTTP_INTERCEPTORS , useClass:ErrorInterceptor , multi:true},
@@ -98,5 +102,5 @@ import { GenaricService } from 'src/app/services/Genaric.service';
 })
 export class DashboardModule { }
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, '../../../assets/i18n/', '.json');
 }

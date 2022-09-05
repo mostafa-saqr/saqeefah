@@ -30,7 +30,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.initializeForm();
     this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
-  
+
       if(!x.isError)
       {
         if(x.result['succeeded'])
@@ -38,10 +38,10 @@ export class FooterComponent implements OnInit {
           this.siteInformation=x.result['data'];
         }
         else{
-  
+
         }
       }
-      
+
     })
   }
 
@@ -66,13 +66,13 @@ export class FooterComponent implements OnInit {
     this.FB.setFeedback(feedback).subscribe(
       res => {
         if (!res.errors) {
-          // alert(':: Submitted successfully');
-          this.toastr.success(' :: Successfully Submitted ');
+
+          this.toastr.success(' Successfully Submitted ');
           this.showError=false;
           this.form.reset();
         }
         else {
-          this.toastr.error(' :: Failed Submitted');
+          this.toastr.error(' Failed Submitted');
         }
 
       })

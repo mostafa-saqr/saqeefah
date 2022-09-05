@@ -54,7 +54,7 @@ export class WebsiteInfoComponent implements OnInit,OnDestroy  {
         else{
         }
       }
-      
+
     })
   }
   initializeFormGroup() {
@@ -76,15 +76,15 @@ export class WebsiteInfoComponent implements OnInit,OnDestroy  {
   this.siteInformation.postInformation(model).subscribe(res=>{
         if(!res.isError)
         {
-          this.toastr.success(":: Successfully Updated")
+          this.toastr.success(" Successfully Updated")
           this.ngOnInit();
         }
         else{
-          this.toastr.error(':: Failed Updated');
+          this.toastr.error(' Failed Updated');
         }
   })
   } else {
-    // this.toastr.error(':: Failed Updated');
+
   }
   }
 

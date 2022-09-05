@@ -1,15 +1,15 @@
 <div class="container mt-5">
     <div class="row" *ngIf="projectDetails">
         <div class="col-md-12">
-            <h3 class="secondary-color mb-0">{{projectDetails.projectName}}</h3>
+            <h3 class="secondary-color mb-0">{{projectDetails.projectName | translate}}</h3>
             <h6>{{projectDetails.adress}}</h6>
-            <p>{{projectDetails.numberOfBuildings}} Buildings | {{projectDetails.numberOfUnits}} Appartments</p>
+            <p>{{projectDetails.numberOfBuildings}} {{'Buildings' | translate}} | {{projectDetails.numberOfUnits}} {{'Appartments' | translate}}</p>
 
 
             <div id="myTab" role="tablist">
-                <a class="nav-link" (click)="activeBuildingTab = false" [class.active]="!activeBuildingTab" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" [attr.aria-selected]="!activeBuildingTab">Master Plane</a>
-                <a class="nav-link" (click)="activeBuildingTab = true" [class.active]="activeBuildingTab" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" [attr.aria-selected]="activeBuildingTab">Buildings</a>
-                <a class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Specifications</a>
+                <a class="nav-link" (click)="activeBuildingTab = false" [class.active]="!activeBuildingTab" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" [attr.aria-selected]="!activeBuildingTab">{{'MasterPlan' | translate}}</a>
+                <a class="nav-link" (click)="activeBuildingTab = true" [class.active]="activeBuildingTab" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" [attr.aria-selected]="activeBuildingTab">{{'Buildings' | translate}}</a>
+                <a class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">{{'Specifications' | translate}}</a>
 
             </div>
             <div class="tab-content" id="myTabContent">
@@ -26,7 +26,7 @@
                             <map name="image-map" *ngIf="getMapImageHardCode" [innerHTML]="getMapImageHardCode"></map>
                         </div>
                         <div class="col-md-4">
-                            <h4 class="secondary-color">Project Overview</h4>
+                            <h4 class="secondary-color">{{'ProjectOverview' | translate}}</h4>
                             <p *ngIf="projectDetails.masterPlane != null">
                                 {{projectDetails.masterPlane.projectOverview}}
                             </p>
@@ -41,7 +41,7 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <h5 class="secondary-color">Specifications</h5>
+                                <h5 class="secondary-color">{{'Specifications' | translate}}</h5>
                                 <div class="specs-panel">
 
                                     <img [src]="appRootUrl+projectDetails.specifications.specificationsImage" *ngIf="projectDetails.specifications != null" class="img-fluid" alt="">
@@ -49,7 +49,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                <h5 class="secondary-color">Granties</h5>
+                                <h5 class="secondary-color">{{'Granties' | translate}}</h5>
                                 <div class="specs-panel">
 
                                     <img *ngIf="projectDetails.specifications != null" [src]="appRootUrl+projectDetails.specifications.grantiesImage" class="img-fluid" alt="">

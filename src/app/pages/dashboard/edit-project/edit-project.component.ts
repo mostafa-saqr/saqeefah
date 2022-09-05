@@ -53,12 +53,12 @@ export class EditProjectComponent implements OnInit {
     }
     this.editProject.uploadProjectImage(this.formData).subscribe((resp) => {
       if (!resp.isError) {
-        this.toastr.success(":: Successfully Deleted")
+        this.toastr.success(":: Successfully Uploaded")
         this.ngOnInit();
         this.uploadWorking = false
       }
       else{
-        this.toastr.error(":: Failed Deleted")
+        this.toastr.error(":: Failed Uploaded")
       }
     })
   }
@@ -77,13 +77,13 @@ export class EditProjectComponent implements OnInit {
     this.masterPlaneFormData.append('ProjectOverview', this.projectOverView)
     this.editProject.uploadProjectMasterPlane(this.masterPlaneFormData).subscribe((resp) => {
       if (!resp.isError) {
-        this.toastr.success(":: Successfully Deleted")
+        this.toastr.success(":: Successfully Updated")
         this.ngOnInit();
         this.uploadWorking = false
         this.masterPlaneUploadMessage = resp.message
       }
       else{
-        this.toastr.error(":: Failed Deleted")
+        this.toastr.error(":: Failed Updated")
       }
     })
 
@@ -108,14 +108,14 @@ export class EditProjectComponent implements OnInit {
     this.specificationsFormData.append('Specifications', this.specificationsImage, this.specificationsImage.name)
     this.specificationsFormData.append('Granties', this.grantiesImage, this.grantiesImage.name)
     this.editProject.uploadProjectSpecifications(this.specificationsFormData).subscribe((resp) => {
-   
+
       if (!resp.isError) {
-        this.toastr.success(":: Successfully Deleted")
+        this.toastr.success(":: Successfully Uploaded")
         this.uploadWorking = false
         this.ngOnInit();
       }
       else{
-        this.toastr.error(":: Failed Deleted")
+        this.toastr.error(":: Failed Uploaded")
       }
     })
 

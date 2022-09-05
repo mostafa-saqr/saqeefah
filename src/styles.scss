@@ -60,3 +60,36 @@ body {
   padding: 5px;
   background-color: white !important;
 }
+h4{
+  text-transform: capitalize;
+}
+i:hover{
+  cursor: pointer;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width:8px;
+  height: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #000;
+  border-radius: 0px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+      // box-shadow: inset 0 0 5px #dedede;
+      background: var(--main-color);
+      border-radius: 20px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    cursor: pointer ;
+    background: var(--main-color);
+  }

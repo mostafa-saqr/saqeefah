@@ -26,3 +26,11 @@ li {
 // @import '../node_modules/bootstrap/dist/css/bootstrap.rtl.css';
 // @import '../node_modules/bootstrap/dist/css/bootstrap-utilities.rtl.css';
 @import './assets/scss/base/ar';
+.short-cut-menu{
+  right: -80px !important;
+
+}
+.containerRadio ,.form-group.input-group{
+  direction: ltr;
+}
+

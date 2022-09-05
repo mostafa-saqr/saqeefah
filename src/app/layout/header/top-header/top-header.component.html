@@ -1,37 +1,16 @@
 <div class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-4 col-md-6">
                 <ul class="list-inline social-links">
                     <li class="list-inline-item"><a [href]="siteInformation?.facebookURL"><i class="icon tagr-social-facebook"></i></a></li>
                     <li class="list-inline-item"><a [href]="siteInformation?.linkedinURL"><i class="icon tagr-social-linkedin"></i></a></li>
                     <li class="list-inline-item"><a [href]="siteInformation?.twitterURL"><i class="icon tagr-social-twitter"></i></a></li>
                     <li class="list-inline-item"><a [href]="siteInformation?.googleURL"><i class="icon tagr-social-google-plus"></i></a></li>
 
-                    <!-- <li class="list-inline-item">
-                        <button (click)="route(siteInformation.facebookURL)">
-                        <i class="icon tagr-social-facebook"></i>
-                        </button>
-                    </li>
-                    <li class="list-inline-item">
-                        <button (click)="route(siteInformation.linkedinURL)">
-                        <i class="icon tagr-social-linkedin"></i>
-                        </button>
-                    </li>
-                    <li class="list-inline-item">
-                        <button (click)="route(siteInformation.twitterURL)">
-                        <i class="icon tagr-social-twitter"></i>
-                        </button>
-                    </li>
-                    <li class="list-inline-item">
-                        <button (click)="route(siteInformation.googleURL)">
-                        <i class="icon tagr-social-google-plus"></i>
-                        </button>
-                    </li> -->
-                    
                 </ul>
             </div>
-            <div class="col-md-6 text-end">
+            <div class="col-8 col-md-6 text-end">
                 <ul class="list-inline topheader-links">
 
                     <li class="list-inline-item"><a routerLink="/favorites"><span class="badge bg-secondary">{{favorite.checkFavoritesCounter()}}</span> {{'favorites' | translate}} |</a></li>

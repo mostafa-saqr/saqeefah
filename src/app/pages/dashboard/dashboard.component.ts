@@ -24,12 +24,12 @@ export class DashboardComponent implements OnInit {
     this.email=this.auth.getUseremail();
     this.language.changeLanguageStatus.subscribe((data)=>{
       // the lang to use, if the lang isn't available, it will use the current loader to get them
-  
+
       this.ngOnInit()
   console.log('language status from dashbao')
- 
+
    })
-   
+
   }
 
   logout(){

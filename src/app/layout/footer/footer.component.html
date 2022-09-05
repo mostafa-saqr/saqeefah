@@ -9,8 +9,7 @@
                     </div>
                     <div class="col-md-9">
                         <h5 class="">{{'aboutIndexTitle'|translate}}</h5>
-                        <p>SAQEEFAH is the leader in online real estate and operator of the WK of real estate web site for consumers and real estate professionals. Real Estate of websites captures more than 20 million monthly visitors SAQEEFAH is the leader
-                            in online real estate and operator of the WK of real</p>
+                        <p>{{siteInformation?.aboutSaqeefafooterDesc}}</p>
                     </div>
                 </div>
             </div>
@@ -39,8 +38,8 @@
                             <div class="form-group">
                                 <input type="text" class="form-control mb-3" formControlName="email" placeholder="{{'Email' | translate}}">
                                 <!-- <span class="text-danger error" *ngIf="showError && form.controls['email'].errors?.['required']">
-                            * Required Field 
-                        </span> 
+                            * Required Field
+                        </span>
                                 <span class="text-danger error" *ngIf="showError && form.controls['email'].errors?.['email']">
                            *Invalid email pattern (should have '@')
                       </span>-->
@@ -48,7 +47,7 @@
                             <div class="form-group">
                                 <textarea name="" placeholder="{{'Subject'|translate}}" formControlName="subject" class="form-control mb-3" id="" cols="30" rows="3"></textarea>
                                 <!-- <span class="text-danger error" *ngIf="showError && form.controls['subject'].errors?.['required']">
-                            * Required Field 
+                            * Required Field
                         </span> -->
                             </div>
 

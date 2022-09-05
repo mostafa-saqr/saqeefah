@@ -1,7 +1,7 @@
 <div class="accordion-item mb-5">
     <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse-' +collapseId" aria-expanded="true" aria-controls="collapseOne">
-            <h5 class="secondary-color">{{SettingTypeTitle}}</h5>
+            <h5 class="secondary-color">{{SettingTypeTitle | translate}}</h5>
         </button>
     </h2>
     <div id="{{'collapse-'+collapseId}}" class="accordion-collapse collapse show" aria-labelledby="headingOne">
@@ -10,7 +10,7 @@
                 <input type="hidden" formControlName="settingTypeId">
                 <div class="col-md-6">
                     <div class="my-1 ">
-                        <label for="exampleFormControlInput1" class="form-label">Title En
+                        <label for="exampleFormControlInput1" class="form-label">{{'Title En' | translate}}
                             <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['TitleEn'].errors?.['required']">
                                 * Required Field
                             </span> -->
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="my-3">
-                        <label for="exampleFormControlInput1" class="form-label mb-2">Description  En
+                        <label for="exampleFormControlInput1" class="form-label mb-2">{{'Description  En' | translate}}
                             <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionEn'].errors?.['required']">
                                 * Required Field
                             </span> -->
@@ -39,7 +39,7 @@
 
                 <div class="col-md-6">
                     <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Title Ar
+                        <label for="exampleFormControlInput1" class="form-label">{{'Title Ar' | translate}}
                             <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['TitleAr'].errors?.['required']">
                                 * Required Field
                             </span> -->
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <div class="my-3">
-                        <label for="exampleFormControlInput1" class="form-label mb-2">Description Ar
+                        <label for="exampleFormControlInput1" class="form-label mb-2">{{'Description Ar' | translate}}
                             <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['DescriptionAr'].errors?.['required']">
                                 * Required Field
                             </span> -->
@@ -70,7 +70,7 @@
 
                 <div class="col-md-12">
                     <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Select Icon
+                        <label for="exampleFormControlInput1" class="form-label">{{'Select Icon' | translate}}
                             <!-- <span class="text-danger error" *ngIf="showError && myFormGroup.controls['iconCss'].errors?.['required']">
                                 * Required Field
                             </span> -->
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class="my-1">
-                        <label for="exampleFormControlInput1" class="form-label">Select Image
+                        <label for="exampleFormControlInput1" class="form-label">{{'Select Image' | translate}}
                          </label>
                         <div class="formg w-100">
                             <div class="row">
@@ -96,14 +96,15 @@
 
                                 <div class="col-md-12">
                                   <div class="current-image" *ngIf="currentFormData.imagePath != null">
-                                    <div class="imagBox d-inline-block mx-2">
+                                    <div class="imagBox d-inline-block mx-1 mb-2">
                                       <i class="far fa-times-circle delete-img" (click)="delete()"></i>
                                       <img [src]="appRootUrl+currentFormData.imagePath" class="img-fluid" style="height:150px" alt="" >
                                     </div>
                                   </div>
                               </div>
                             </div>
-                            <button type="submit" [disabled]="myFormGroup.invalid" class="btn btn-small btn-primary w-25 float-end  px-4  mt-2">Save
+                            <button type="submit" [disabled]="myFormGroup.invalid" class="btn btn-small btn-primary w-25 float-end  px-4  mt-2">
+                            {{'Update' | translate}}
                             </button>
                         </div>
                     </div>
