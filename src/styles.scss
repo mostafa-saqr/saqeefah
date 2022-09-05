@@ -67,7 +67,14 @@ i:hover{
   cursor: pointer;
 }
 
+#myTab a.active {
+  color: white;
+  background: var(--main-color);
+}
 
+.containerRadio input:checked ~ .checkmark{
+  background-color: var(--main-color);
+}
 
 /* width */
 ::-webkit-scrollbar {

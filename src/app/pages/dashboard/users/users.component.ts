@@ -58,7 +58,7 @@ export class UsersComponent implements OnInit ,OnDestroy {
   }
 
    setAdmin(event){
-debugger
+   debugger
 
     // if (this.form.invalid) {
     //   return;

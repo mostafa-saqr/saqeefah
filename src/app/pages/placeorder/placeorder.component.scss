@@ -20,15 +20,15 @@
 }
 
 .btn.btn-primary {
-    background: #af8f79;
-    border: 1px solid #af8f79;
+    background:var(--main-color);
+    border: 1px solid var(--main-color);
     color: #fff
 }
 
 .btn.btn-primary:hover {
-    border: 1px solid #af8f79;
+    border: 1px solid var(--main-color);
     background: transparent;
-    color: #af8f79
+    color: var(--main-color)
 }
 
 .heading-section h2 {
@@ -81,7 +81,7 @@
 /*===== Place Order CSS =====*/
 
 .place-order-div h2 {
-    color: #af8f79;
+    color:var(--main-color);
     text-transform: capitalize;
     font-weight: 600;
     margin-bottom: 15px
@@ -92,12 +92,12 @@
 }
 
 .place-order-form h4 {
-    color: #af8f79;
+    color:var(--main-color);
     text-transform: capitalize;
     font-weight: 500;
     font-size: 22px;
     margin-bottom: 30px;
-    border-bottom: dashed 1px #af8f79;
+    border-bottom: dashed 1px var(--main-color);
 }
 
 .place-order-form h4 i {
@@ -149,8 +149,8 @@
     font-weight: 400;
     line-height: 1.5;
     text-align: center;
-    color: #af8f79;
-    background-color: #e5dccb;
+    color: #fff;
+    background-color: var(--main-color);
     height: 40px;
     border-radius: 0;
     border: none
@@ -191,7 +191,7 @@
 }
 
 .place-order-form .containerRadio input:checked~.checkmark {
-    background-color: #af8f79;
+    background-color: var(--main-color);
 }
 
 .place-order-form .checkmark:after {
