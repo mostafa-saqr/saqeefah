@@ -14,6 +14,6 @@ export interface siteInfo{58264
     mail: string,
     workinfHours: string,
     aboutSaqeefafooterDesc:string,
-    RecentListTitle: string,
-    RecentListDescription: string
+    recentListTitle: string,
+    recentListDescription: string
 }

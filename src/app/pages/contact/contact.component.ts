@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { ContactUsService } from 'src/app/services/contact-us.service';
@@ -27,25 +28,28 @@ export class ContactComponent implements OnInit {
 
 
   constructor(private contact:ContactUsService ,private toastr : ToastrService,
-    private siteInfo:siteInformationService,private language:changeLanguageService) { }
+    private siteInfo:siteInformationService,private language:changeLanguageService, private translate:TranslateService) { }
 
   ngOnInit(): void {
     this.initializeForm();
-    ;
-    this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
-  
-      if(!x.isError)
-      {
-        if(x.result['succeeded'])
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => 
+    {
+      this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
+        if(!x.isError)
         {
-          this.siteInformation=x.result['data'];
+          if(x.result['succeeded'])
+          {
+            this.siteInformation=x.result['data'];
+          }
         }
-        else{
-
-        }
-      }
+        
+      })
       
-    })
+    }); 
+    
+
+
+
   }
 
 

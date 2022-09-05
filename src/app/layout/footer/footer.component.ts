@@ -31,9 +31,9 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => 
+    {
       this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
-  
         if(!x.isError)
         {
           if(x.result['succeeded'])
@@ -46,6 +46,7 @@ export class FooterComponent implements OnInit {
         }
         
       })
+      
     });
  
   }
