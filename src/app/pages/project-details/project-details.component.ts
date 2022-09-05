@@ -21,28 +21,13 @@ imageMap = []
   appRootUrl = environment.appRoot+'/';
   ngOnInit(): void {
     this.getProjectDetails()
-    this.getMapImage()
+
   }
   goToSpecialBuilding(build:string){
     this.sendBuildId = build;
     this.activeBuildingTab = true
   }
-  getMapImage(){
-    setTimeout(() => {
-      this.imageMap = [
-        {
-          id:'V',
-          cords:'251,119,225,159,269,159,268,130',
-          shape:'poly'
-        },
-        {
-          id:'U',
-          cords:'295,42,275,77,290,87,314,85,331,73,337,64',
-          shape:'poly'
-        }
-      ] 
-    }, 3000);
-  }
+
 getProjectDetails(){
   let projectId = this.route.snapshot.paramMap.get('id')
   console.log('project id',projectId)
