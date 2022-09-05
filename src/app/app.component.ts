@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { AfterViewInit, Component,OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
 import { changeLanguageService } from './services/changeLanguage.service';
@@ -11,9 +11,9 @@ import { PreloaderService } from './services/preloader.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,AfterViewInit {
   title = 'saqeefah';
-constructor(public translate: TranslateService,private lang:changeLanguageServiceprivate preloader: PreloaderService , private loader : BusyService){
+constructor(public translate: TranslateService,private lang:changeLanguageService  , private loader : BusyService){
 this.loader.busy();
 }
 ngOnInit(): void {
