@@ -13,7 +13,8 @@ import { ProjectAndListService } from 'src/app/services/project-lists.service';
 export class SearchFormComponent implements OnInit {
   @Input() search: any;
   @Input() searchAbout: any;
-  @Input() proId: any;
+  @Input() propList: any;
+  
   @Output() obj = new EventEmitter<{}>();
   AllProjects: [] = []
   AllProperties: [] = [];
@@ -209,7 +210,31 @@ getFilterValue(filter){
       status: this.form1.value.status,
     }
 
-
+    if(this.propList){
+      this.FilteredProperty  = this.propList.filter((x:any) => {
+        //  if(formdata.price == x.apartment_Price ||formdata.bedroom ==  x.bed_Room_Num ||  formdata.hall == x.hall  || formdata.salon == x.salon|| formdata.floor == x.floor_Num ){
+          
+        //     return x;
+            
+    
+       
+        //   }
+        if(
+          (x.apartment_Price  >= formdata.price)&&
+          (formdata.bedroom == null || formdata.bedroom ==  x.bed_Room_Num)&&
+          (formdata.hall==null || formdata.hall == x.hall)&&
+          (formdata.salon == null || formdata.salon == x.salon)&&
+          (formdata.floor==null || formdata.floor == x.floor_Num)&&
+          (formdata.status == null || formdata.status ==  x.status)
+        )
+         { 
+         
+            return x;
+            
+          }
+         
+        });
+    }else{
   
     this.FilteredProperty  = this.AllProperties.filter((x:any) => {
     //  if(formdata.price == x.apartment_Price ||formdata.bedroom ==  x.bed_Room_Num ||  formdata.hall == x.hall  || formdata.salon == x.salon|| formdata.floor == x.floor_Num ){
@@ -228,12 +253,13 @@ getFilterValue(filter){
       (formdata.status == null || formdata.status ==  x.status)
     )
      { 
+     
         return x;
         
       }
      
     });
-
+  }
    
 
     console.log('filtered obj:', this.FilteredProperty );
