@@ -10,15 +10,18 @@ export class BuildingsComponent implements OnInit, AfterViewInit {
   @Input() activeBuilding:any
   propertIndex:number = 0
   propertyOfSelectedBuilding!:[]
+  propertyOfSelectedBuildingForFilter!:[]
   getBuildingProperty(building){
     if(this.buildings != undefined){
       if(building != undefined){
         let selectedBuild  = this.buildings.filter((item)=> item.build == building)
         
         this.propertyOfSelectedBuilding = selectedBuild[0].apartments
+        this.propertyOfSelectedBuildingForFilter =  this.propertyOfSelectedBuilding;
         this.activeBuilding = this.buildings[0].build
       } else {
         this.propertyOfSelectedBuilding = this.buildings[0].apartments
+        this.propertyOfSelectedBuildingForFilter =  this.propertyOfSelectedBuilding;
       
       
       }

@@ -1,37 +1,20 @@
 <div class="serch-form" [ngSwitch]="searchAbout">
-    <!-- <div class="mb-3 slider-container">
-        <label for="priceRange" class="form-label">Example range</label>
-        <input type="range" class="form-range slider w-100" min="0" max="5" step="0.5" id="priceRange">
-    </div> -->
-
     <div class="box" *ngSwitchCase="'project'">
         <form (ngSubmit)="ApplyFilterProject()" [formGroup]="form">
-            <!-- <div class="mb-3">
-            <label  class="form-label">{{'KEYWORD' | translate}}</label>
-            <input type="text" name="" formControlName="keyword" class="form-control" value="">
-        </div> -->
             <div class="mb-3">
                 <label class="form-label">{{'CITY' | translate}}</label>
                 <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProject()" formControlName="city" aria-label=".form-select-lg example">
                 <option selected>{{'--Please Select--' | translate}}</option>
-                <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
-              
+                <option *ngFor="let city of cities" value="{{city}}">{{city | translate}}</option>
+
             </select>
             </div>
-            <!-- <div class="mb-3">
-                <label class="form-label">{{'DISTRICT' | translate}}</label>
-                <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProject()" formControlName="district" aria-label=".form-select-lg example">
-                <option selected>{{'--Please Select--' | translate}}</option>
-                <option *ngFor="let district of districts"   value="{{district}}">{{district}}</option>
-              
-            </select>
-            </div> -->
             <div class="mb-3">
                 <label class="form-label">{{'STATUS' | translate}}</label>
                 <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProject()" formControlName="status" aria-label=".form-select-lg example">
                 <option selected>{{'--Please Select--' | translate}}</option>
-                <option *ngFor="let state of status"   value="{{state}}">{{state}}</option>
-              
+                <option *ngFor="let state of status"   value="{{state}}">{{state | translate}}</option>
+
             </select>
             </div>
             <div class="mb-3">
@@ -42,7 +25,6 @@
                 <label class="form-label">{{'NUM. OF BUILDINGS' | translate}}</label>
                 <input type="number" name="" (change)="ApplyFilterProject()" formControlName="building" min="0" class="form-control" value="">
             </div>
-            <!-- <button type="submit" class="btn secondary-btn">Search</button> -->
         </form>
     </div>
 
@@ -55,18 +37,10 @@
     <div class="box" *ngSwitchCase="'property'">
         <form (ngSubmit)="ApplyFilterProperty()" [formGroup]="form1">
 
-            <!-- <div class="mb-3">
-            <label  class="form-label">{{'PRICE' | translate}}</label>
-            <select class="form-select form-select-lg mb-3" formControlName="price" aria-label=".form-select-lg example">
-                <option selected>{{'--Please Select--' | translate}}</option>
-                <option *ngFor="let price of prices" value="{{price}}">{{price | currency:'SAR':'\u0631\u002e\u0633\u002e'}}</option>
-              
-            </select>
-        </div> -->
             <div class="mb-3 slider-container">
                 <label for="priceRange" class="form-label">{{'PRICE' | translate}}</label>
                 <input type="range" class="form-range slider w-100" (change)=" ApplyFilterProperty()" formControlName="price" min="200000" max="70000000" step="200000" id="priceRange" #priceSilder>
-                <span>{{priceSilder.value}}ر.س</span>
+                <span>{{priceSilder.value}}{{'ر.س' | translate}}</span>
             </div>
             <div class="mb-3">
                 <label class="form-label">{{'STATUS' | translate}}</label>
@@ -92,7 +66,7 @@
                 <label class="form-label">{{'NUM. OF SALON' | translate}}</label>
                 <input type="number" (change)=" ApplyFilterProperty()" name="" formControlName="salon" min="0" class="form-control" value="">
             </div>
-            <!-- <button type="submit" class="btn secondary-btn">Search</button> -->
+
         </form>
     </div>
 

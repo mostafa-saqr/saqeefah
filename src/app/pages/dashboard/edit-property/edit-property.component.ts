@@ -51,13 +51,13 @@ export class EditPropertyComponent implements OnInit {
 
     this.editproperty.uploadpropertyImage(this.formData).subscribe((resp) => {
       if (!resp.isError) {
-        this.toastr.success(":: Successfully Deleted")
+        this.toastr.success(":: Successfully Updated")
         this.ngOnInit();
         this.uploadWorking = false;
         this.propertyImageGallery=[]; 
       }
       else {
-        this.toastr.error(":: Failed Deleted")
+        this.toastr.error(":: Failed Updated")
       }
 
     })

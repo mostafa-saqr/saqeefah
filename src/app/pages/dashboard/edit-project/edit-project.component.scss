@@ -8,3 +8,11 @@
     max-width: 100px;
     max-height: 100px;
   }
+  .imagBox{
+    position: relative;
+    // width: 200px;
+  }
+  .current-image{
+    padding: 5px;
+    border: 2px dashed #dadada;
+  }

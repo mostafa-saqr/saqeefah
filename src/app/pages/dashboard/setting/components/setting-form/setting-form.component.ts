@@ -115,10 +115,8 @@ currentFormData:any
     this.setting.setSetting(this.formData).subscribe(
       res => {
         if (res.status = true) {
-          // alert(':: Submitted successfully');
 
-
-          this.toastr.success(':: Successfully Saved');
+          this.toastr.success('Successfully Updated');
           this.showError=false;
           // this.myFormGroup.reset();
           this.submitted = false;
@@ -126,7 +124,7 @@ currentFormData:any
           this.ngOnInit();
         }
         else {
-          this.toastr.error(':: Failed Saved')
+          this.toastr.error('Failed Updated')
 
         }
 
@@ -153,20 +151,17 @@ currentFormData:any
   delete(){
     this.attachment.deleteSettingImage(this.SettingTypeId).subscribe(res=>{
       if (!res.isError) {
-        this.toastr.success(":: Successfully Deleted")
+        this.toastr.success("Successfully Deleted")
        this.ngOnInit();
       }
       else{
-        this.toastr.error(":: Failed Deleted")
+        this.toastr.error("Failed Deleted")
       }
-        
+
     })
    }
 
-  DeleteImage(settingId:number){
 
-
-  }
 
   ngOnDestroy(): void {
     this.editor.destroy();

@@ -6,16 +6,16 @@
             </div>
             <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="property.apartment_Id" [class.active]="property.favorite" (click)="favorites.toggleFavorites(property)"></i>
 
-            <div class="card-label" [class]="{'green': property.statusId == 1, 'orange': property.statusId == 2, 'pink': property.statusId == 3}">{{property.status}}</div>
-            <span class="edit-project" *ngIf="EditMode" [routerLink]="propertyLink+property.project_Ref+'/'+property.apartment_Id">Edit</span>
-            <div class="compare" [attr.data-cardCompico-id]="property.apartment_Id" [class.active]="property.Compare" (click)="compare.toggleCompare(property)">Compare</div>
+            <div class="card-label" [class]="{'green': property.statusId == 1, 'orange': property.statusId == 2, 'pink': property.statusId == 3}">{{property.status | translate}}</div>
+            <span class="edit-project" *ngIf="EditMode" [routerLink]="propertyLink+property.project_Ref+'/'+property.apartment_Id">{{'Edit' | translate}}</span>
+            <div class="compare" [attr.data-cardCompico-id]="property.apartment_Id" [class.active]="property.Compare" (click)="compare.toggleCompare(property)">{{'Compare' | translate}}</div>
             <div class="card-mask" *ngIf="appRootUrl" [routerLink]="propertyLink+property.apartment_Id"></div>
             <div class="unit-price">
-                <h5 class="mb-0">Price : {{property.apartment_Price}} ر.س</h5>
+                <h5 class="mb-0">{{'Price :' | translate}} {{property.apartment_Price}} {{'ر.س' | translate}}</h5>
 
             </div>
             <div class="moreSpcs" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+property.apartment_Id">
-                more specs
+               {{'more specs' | translate}}
             </div>
         </div>
 
@@ -26,27 +26,27 @@
             <div class="row">
                 <div class="col-md-4 mb-2">
                     <i *ngIf="itemSpecsIcon[0].icon" [class]="itemSpecsIcon[0].src"></i>
-                    <img [src]="itemSpecsIcon[0].src" width="20" *ngIf="!itemSpecsIcon[0].icon" alt=""> > {{property.bed_Room_Num}} Rooms
+                    <img [src]="itemSpecsIcon[0].src" width="20" *ngIf="!itemSpecsIcon[0].icon" alt=""> > {{property.bed_Room_Num}} {{'Rooms'| translate}}
                 </div>
                 <div class="col-md-4 mb-2">
                     <i *ngIf="itemSpecsIcon[1].icon" [class]="itemSpecsIcon[1].src"></i>
-                    <img [src]="itemSpecsIcon[1].src" width="20" *ngIf="!itemSpecsIcon[1].icon" alt=""> > {{property.toilet_Num}} Bathroom
+                    <img [src]="itemSpecsIcon[1].src" width="20" *ngIf="!itemSpecsIcon[1].icon" alt=""> > {{property.toilet_Num}} {{'Bathroom' | translate}}
                 </div>
                 <div class="col-md-4 mb-2">
                     <i *ngIf="itemSpecsIcon[2].icon" [class]="itemSpecsIcon[2].src"></i>
-                    <img [src]="itemSpecsIcon[2].src" width="20" *ngIf="!itemSpecsIcon[2].icon" alt=""> > {{property.servant_Room}} Kitchen
+                    <img [src]="itemSpecsIcon[2].src" width="20" *ngIf="!itemSpecsIcon[2].icon" alt=""> > {{property.servant_Room}} {{'Kitchen' | translate}}
                 </div>
                 <div class="col-md-4 mb-2">
                     <i *ngIf="itemSpecsIcon[3].icon" [class]="itemSpecsIcon[3].src"></i>
-                    <img [src]="itemSpecsIcon[3].src" width="20" *ngIf="!itemSpecsIcon[3].icon" alt=""> > {{property.salon}} Salon
+                    <img [src]="itemSpecsIcon[3].src" width="20" *ngIf="!itemSpecsIcon[3].icon" alt=""> > {{property.salon}} {{'Salon' | translate}}
                 </div>
                 <div class="col-md-4 mb-2">
                     <i *ngIf="itemSpecsIcon[4].icon" [class]="itemSpecsIcon[4].src"></i>
-                    <img [src]="itemSpecsIcon[4].src" width="20" *ngIf="!itemSpecsIcon[4].icon" alt=""> > {{property.hall}} Hall
+                    <img [src]="itemSpecsIcon[4].src" width="20" *ngIf="!itemSpecsIcon[4].icon" alt=""> > {{property.hall}} {{'Hall' | translate}}
                 </div>
                 <div class="col-md-4 mb-2">
                     <i *ngIf="itemSpecsIcon[5].icon" [class]="itemSpecsIcon[5].src"></i>
-                    <img [src]="itemSpecsIcon[5].src" width="20" *ngIf="!itemSpecsIcon[5].icon" alt=""> > {{property.floor_Num}} Foor
+                    <img [src]="itemSpecsIcon[5].src" width="20" *ngIf="!itemSpecsIcon[5].icon" alt=""> > {{property.floor_Num}} {{'Floor'| translate}}
                 </div>
 
             </div>
@@ -59,7 +59,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">More Specs</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{'more specs' | translate}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{'Close' | translate}}</button>
 
             </div>
         </div>

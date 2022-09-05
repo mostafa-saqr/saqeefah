@@ -41,14 +41,14 @@
             enctype="multipart/form-data">
 
                 <div class="col-md-12 mb-5">
-                
+
                     <h4 class="fw-bold">
-                        <i class="fas fa-users"></i> Personal Information</h4>
+                        <i class="fas fa-users"></i>{{'Personal Information' | translate}}</h4>
                     <div class="row">
 
                         <div class="col-lg-4 col-12">
                             <div class="form-group">
-                                <label for="">Name</label>
+                                <label for="">{{'Name' | translate}}</label>
                                 <input type="text" class="form-control" formControlName="client_Name">
                                  <span class="text-danger error" *ngIf=" showError&&myFormGroup.controls['client_Name'].errors?.['required']">
                                         * Required Field
@@ -58,7 +58,7 @@
 
                         <div class="col-lg-4 col-12">
                             <div class="form-group">
-                                <label for="">Email Address</label>
+                                <label for="">{{'Email Address' | translate}}</label>
                                 <input type="email" class="form-control" formControlName="client_Mail">
                                 <span class="text-danger error" *ngIf=" showError&&myFormGroup.controls['client_Mail'].errors?.['email']">
                                     * Email form Field
@@ -72,26 +72,16 @@
                             <div class="form-group input-group">
                                 <span class="input-group-text">966+</span>
                                 <input type="text" class="form-control" formControlName="client_Mobile">
-                              
+
                             </div>
                             <span class="text-danger error" *ngIf=" showError&&myFormGroup.controls['client_Mobile'].errors?.['required']">
                                 * Required Field
                         </span>
                         </div>
 
-                        <!-- <div class="col-lg-4 col-12">
+            <div class="col-lg-4 col-12">
                             <div class="form-group">
-                                <label for="">Purpose of purchase</label>
-                                <select class="form-select" formControlName="purpose">
-                                        <option value="">Residence</option>
-                                        <option value="">Investment</option>
-                                    </select>
-                            </div>
-                        </div> -->
-
- <div class="col-lg-4 col-12">
-                            <div class="form-group">
-                                <label for="">Project</label>
+                                <label for="">{{'Project' | translate}}</label>
                                 <select class="form-select" formControlName="project_Ref">
                                         <option value=0></option>
                                         <option *ngFor="let i of projects" [value]="i.id">{{i.value}}</option>
@@ -100,7 +90,7 @@
                         </div>
                         <div class="col-lg-4 col-12">
                             <div class="form-group">
-                                <label for="">Payment method</label>
+                                <label for="">{{'Payment method' | translate}}</label>
                                 <select class="form-select" formControlName="payment_Method">
                                         <option value=0></option>
                                         <option *ngFor="let i of paymentMethods" [value]="i.id">{{i.value}}</option>
@@ -121,7 +111,7 @@
 
                         <div class="col-lg-4 col-12">
                             <div class="form-group">
-                                <label for="">City</label>
+                                <label for="">{{'City' | translate}}</label>
                                 <select class="form-select" formControlName="city" (change)="onChange($event)">
                                         <option value=0></option>
                                         <option *ngFor="let i of cities" [value]="i.id">{{i.value}}</option>
@@ -130,8 +120,8 @@
                         </div>
                         <div class="col-lg-4 col-12">
                             <div class="form-group">
-                                <label for="">District</label>
-                                <select class="form-select" formControlName="district">
+                                <label for="">{{'District' | translate}}</label>
+                                <select class="form-select" formControlName="district" (change)="onChange2($event)">
                                         <option value=0></option>
                                         <option *ngFor="let i of districts" [value]="i.id">{{i.value}}</option>
                                     </select>
@@ -140,126 +130,6 @@
 
                     </div>
 
-<!-- 
-                    <div class="row  mb-4 bg-white">
-
-                        <div class="col-md-12">
-                            <div class="form-group pt-3 pb-3">
-                                <label for="">{{'District' | translate}}</label>
-
-                                <div class="row">
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Al Taawun
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Al Rabiea
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Al Rawda
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Al Rayyan
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Al Arid
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Al Aqiq
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Al Taawun
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Al Rabiea
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Al Rawda
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Al Rayyan
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Al Arid
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-
-
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Al Aqiq
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-                        </div>
-
-
-                    </div> -->
-
-                    <!-- <div class="row  mb-2">
-
-                        <div class="col-lg-4 col-12">
-                            <div class="form-group">
-                                <label for="">All Districts</label>
-                                <select class="form-select">
-                                        <option value="">Riyadh</option>
-                                        <option value="">...</option>
-                                    </select>
-                            </div>
-                        </div>
-
-
-                    </div> -->
 
                 </div>
 
@@ -271,17 +141,17 @@
                     <div class="row">
 
 
-                        <div class="col-md-6 mb-4">
+                        <div class="col-md-4 mb-4">
                           <div class="form-group">
-                            <label for="">Price</label>
+                            <label for="">{{'Price' | translate}}</label>
                             <input type="number" class="form-control" formControlName="price_Avg">
                              </div>
                         </div>
 
 
-                     
 
-                        <div class="col-md-6 mb-4">
+
+                        <div class="col-md-4 mb-4">
                             <div class="form-group">
 
                                 <label  class="form-label">{{'Number Of Bedrooms' | translate}}</label>
@@ -289,9 +159,9 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 mb-4">
+                        <div class="col-md-4 mb-4">
                             <div class="form-group">
-                                <label for="">The area of the apartment</label>
+                                <label for="">{{'The area of the apartment' | translate}}</label>
                                 <input type="text" name=""  class="form-control" formControlName="space_Avg">
                                 <!-- <small>Including private spaces such as the roof and others.</small> -->
                             </div>
@@ -300,89 +170,24 @@
 
                     </div>
 
-                    <!-- <div class="row  mb-4 bg-white">
+                    <div class="row">
+                    <div class="col-md-4 mb-4 bg-white">
 
                         <div class="col-md-12">
                             <div class="form-group pt-3 pb-3">
-                                <label for="">Other Project Specifications
-                                        <small>(
-                                            <span class="text-danger fw-bold">{{ 'No' | translate}}te: </span> Some specifications increase the size of the apartment, which leads to a high price, so
-                                            we hope to choose the three most important specifications)</small>
-                                    </label>
+                                <label for="">{{"include 'Parking' in the unit" | translate}}</label>
 
                                 <div class="row">
 
                                     <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Specification 1
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Specification 2
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Specification 3
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Specification 4
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Specification 5
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio">Specification 6
-                                                <input type="checkbox" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                    </div>
-
-
-                                </div>
-
-
-                            </div>
-                        </div>
-
-
-                    </div> -->
-
-
-
-                    <div class="row  mb-4 bg-white">
-
-                        <div class="col-md-12">
-                            <div class="form-group pt-3 pb-3">
-                                <label for="">{{"Would you like to include 'Parking' in the establishment of the unit" | translate}}</label>
-
-                                <div class="row">
-
-                                    <div class="col-lg-2 col-6">
-                                        <label class="containerRadio form-check-label" >Yes
+                                        <label class="containerRadio form-check-label" >{{ 'Yes' | translate}}
                                                 <input class="form-check-input" type="radio" [value]="1" [checked]="myFormGroup.controls['parking'].value" formControlName="parking">
                                                 <span class="checkmark"></span>
                                           </label>
                                     </div>
 
                                     <div class="col-lg-2 col-6">
-                                        <label class="containerRadio form-check-label">No
+                                        <label class="containerRadio form-check-label">{{ 'No' | translate}}
                                                 <input  class="form-check-input" type="radio"  [value]="0" [checked]="!myFormGroup.controls['parking'].value" formControlName="parking">
                                                 <span class="checkmark"></span>
                                             </label>
@@ -396,23 +201,23 @@
 
 
                     </div>
-                    <div class="row  mb-4 bg-white">
+                    <div class="col-md-4 mb-4 bg-white">
 
                       <div class="col-md-12">
                           <div class="form-group pt-3 pb-3">
-                              <label for="">{{"Would you like to include 'Store' in the establishment of the unit" | translate}}</label>
+                              <label for="">{{"include 'Store' in the unit" | translate}}</label>
 
                               <div class="row">
 
                                   <div class="col-lg-2 col-6">
-                                      <label class="containerRadio">Yes
+                                      <label class="containerRadio">{{ 'Yes' | translate}}
                                               <input type="radio"  [value]="1" [checked]="myFormGroup.controls['store'].value" formControlName="store">
                                               <span class="checkmark"></span>
                                           </label>
                                   </div>
 
                                   <div class="col-lg-2 col-6">
-                                      <label class="containerRadio">No
+                                      <label class="containerRadio">{{ 'No' | translate}}
                                               <input type="radio"  [value]="0" [checked]="!myFormGroup.controls['store'].value" formControlName="store">
                                               <span class="checkmark"></span>
                                           </label>
@@ -426,23 +231,23 @@
 
 
                   </div>
-                  <div class="row  mb-4 bg-white">
+                  <div class="col-md-4 mb-4 bg-white">
 
                     <div class="col-md-12">
                         <div class="form-group pt-3 pb-3">
-                            <label for="">{{"Would you like to include 'Terrace' in the establishment of the unit" | translate}}</label>
+                            <label for="">{{"include 'Terrace' in the unit" | translate}}</label>
 
                             <div class="row">
 
                                 <div class="col-lg-2 col-6">
-                                    <label class="containerRadio">Yes
+                                    <label class="containerRadio">{{ 'Yes' | translate}}
                                             <input type="radio"  [value]="1" [checked]="myFormGroup.controls['terace'].value" formControlName="terace">
                                             <span class="checkmark"></span>
                                         </label>
                                 </div>
 
                                 <div class="col-lg-2 col-6">
-                                    <label class="containerRadio">No
+                                    <label class="containerRadio">{{ 'No' | translate}}
                                             <input type="radio"  [value]="0" [checked]="!myFormGroup.controls['terace'].value" formControlName="terace">
                                             <span class="checkmark"></span>
                                         </label>
@@ -456,23 +261,23 @@
 
 
                 </div>
-                <div class="row  mb-4 bg-white">
+                <div class="col-md-4 mb-4 bg-white">
 
                   <div class="col-md-12">
                       <div class="form-group pt-3 pb-3">
-                          <label for="">{{"Would you like to include 'Balcony' in the establishment of the unit" | translate}}</label>
+                          <label for="">{{"include 'Balcony' in the unit" | translate}}</label>
 
                           <div class="row">
 
                               <div class="col-lg-2 col-6">
-                                  <label class="containerRadio">Yes
+                                  <label class="containerRadio">{{ 'Yes' | translate}}
                                           <input type="radio" [value]="1" [checked]="myFormGroup.controls['balcony'].value" formControlName="balcony">
                                           <span class="checkmark"></span>
                                       </label>
                               </div>
 
                               <div class="col-lg-2 col-6">
-                                  <label class="containerRadio">No
+                                  <label class="containerRadio">{{ 'No' | translate}}
                                           <input type="radio" [value]="0" [checked]="!myFormGroup.controls['balcony'].value" formControlName="balcony">
                                           <span class="checkmark"></span>
                                       </label>
@@ -486,23 +291,23 @@
 
 
               </div>
-              <div class="row  mb-4 bg-white">
+              <div class="col-md-4  mb-4 bg-white">
 
                 <div class="col-md-12">
                     <div class="form-group pt-3 pb-3">
-                        <label for="">{{"Would you like to include 'Roof' in the establishment of the unit" | translate}}</label>
+                        <label for="">{{"include 'Roof' in the unit" | translate}}</label>
 
                         <div class="row">
 
                             <div class="col-lg-2 col-6">
-                                <label class="containerRadio">Yes
+                                <label class="containerRadio">{{ 'Yes' | translate}}
                                         <input type="radio" [value]="1" [checked]="myFormGroup.controls['roof'].value" formControlName="roof">
                                         <span class="checkmark"></span>
                                     </label>
                             </div>
 
                             <div class="col-lg-2 col-6">
-                                <label class="containerRadio">No
+                                <label class="containerRadio">{{ 'No' | translate}}
                                         <input type="radio" [value]="0" [checked]="!myFormGroup.controls['roof'].value" formControlName="roof">
                                         <span class="checkmark"></span>
                                     </label>
@@ -516,29 +321,29 @@
 
 
             </div>
-            <div class="row  mb-4 bg-white">
+            <div class="col-md-4  mb-4 bg-white">
 
               <div class="col-md-12">
                   <div class="form-group pt-3 pb-3">
                       <label for="">
-                       {{"Would you like to include 'Servant Room' in the establishment of the unit" | translate}}
+                       {{"include 'Servant Room' in the unit" | translate}}
                       </label>
 
                       <div class="row">
 
                           <div class="col-lg-2 col-6">
-                              <label class="containerRadio">Yes
+                              <label class="containerRadio">{{ 'Yes' | translate}}
                                     <input type="radio" [value]="1" [checked]="myFormGroup.controls['servent_Room'].value" formControlName="servent_Room" >
                                     <span class="checkmark"></span>
                                   </label>
-                            
+
                           </div>
 
                           <div class="col-lg-2 col-6">
-                            <label class="containerRadio">No
+                            <label class="containerRadio">{{ 'No' | translate}}
                                 <input type="radio" [value]="0" [checked]="!myFormGroup.controls['servent_Room'].value" formControlName="servent_Room">
                                  <span class="checkmark"></span>
-                            </label> 
+                            </label>
                           </div>
 
                       </div>
@@ -549,13 +354,14 @@
 
 
           </div>
+          </div>
 
                     <div class="row">
 
 
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="">Would you like to add additional notes?</label>
+                        <div class="col-md-12 bg-white">
+                            <div class="form-group mt-3">
+                                <label for="">{{'Would you like to add additional notes?' | translate}}</label>
                                 <textarea class="form-control" rows="5" formControlName="additional_Reqst"></textarea>
                             </div>
 
@@ -567,9 +373,9 @@
 
 
 
-                            <div class="form-group mt-3">
-                                <button type="submit" class="btn btn-small btn-primary w-25 float-end  px-4  mt-2"
-                              >Submit
+                            <div class="form-group mt-3 mx-auto text-center w-100">
+                                <button type="submit" class="btn btn-small btn-primary w-25 mt-2"
+                              >{{'Send request' | translate}}
                             </button>
                             </div>
                         </div>

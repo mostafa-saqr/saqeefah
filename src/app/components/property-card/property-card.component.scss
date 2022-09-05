@@ -74,3 +74,15 @@ color: #86815b;
 .card.grid6 h5{
   font-size: .8rem !important;
 }
+
+.edit-project{
+  box-shadow: 2px 3px 3px #aeaeae;
+    border-bottom: 3px solid #afafaf;
+}
+.edit-project:hover{
+  cursor: pointer !important;
+  transform: translateY(2px);
+}
+h5{
+font-size: 1rem;
+}

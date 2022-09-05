@@ -81,10 +81,10 @@ export class PartnerComponent implements OnInit,OnDestroy{
     this.sliderService.UpdateSlider(this.slider).subscribe(r => {
       debugger
       if (!r.isError) {
-       this.toastr.success(":: Successfully Updated")
+       this.toastr.success("Successfully Updated")
         this.getAllSliderAttatchments();
       } else {
-        this.toastr.error(':: Failed Updated');
+        this.toastr.error('Failed Updated');
       }
     })
 
@@ -101,7 +101,7 @@ export class PartnerComponent implements OnInit,OnDestroy{
   }
 
   onInputChange(event) {
-    this.images=[]; 
+    this.images=[];
     if (event.target.files) {
       for (var i = 0; i < event.target.files.length; i++) {
         this.images.push(<File>event.target.files[i])
@@ -111,11 +111,11 @@ export class PartnerComponent implements OnInit,OnDestroy{
   DeleteImage(attachmentId: number) {
     this.sliderService.deleteSliderAttachment(attachmentId).subscribe(r => {
       if (!r.isError) {
-        this.toastr.success(":: Successfully Deleted")
+        this.toastr.success("Successfully Deleted")
         this.getAllSliderAttatchments();
       }
       else{
-        this.toastr.error(":: Failed Deleted")
+        this.toastr.error("Failed Deleted")
       }
     });
   }
@@ -141,7 +141,7 @@ export class PartnerComponent implements OnInit,OnDestroy{
       this.sliderService.uploadAttachmentImagesSlider(this.formData).subscribe(r => {
          if(r['succeeded'])
          {
-          this.toastr.success(":: Successfully Uploaded"); 
+          this.toastr.success("Successfully Uploaded");
           this.getAllSliderAttatchments();
          }
          else{

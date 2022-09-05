@@ -150,3 +150,8 @@ th,h4,li{
   text-transform: capitalize !important;
 }
 
+.active li
+{     box-shadow: inset 0px 0px 12px #d6dadc;
+  background-color: black;
+
+}

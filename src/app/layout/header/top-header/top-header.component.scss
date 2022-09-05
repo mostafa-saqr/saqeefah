@@ -11,6 +11,11 @@ button {
     color: #069;
     text-decoration: underline;
     cursor: pointer;
-    
+
   }
 
+  @media screen and (max-width: 480px) {
+    .topheader-link li a, .social-links li a{
+      font-size: 13px;
+    }
+  }

@@ -90,6 +90,7 @@ export class PlaceorderComponent implements OnInit,OnDestroy  {
       {
         if(res.result?.data.length>0)
         {
+          
           res.result.data.forEach(element => {
             let item:pickList={} as pickList;
             item.id=element.id
@@ -203,11 +204,20 @@ export class PlaceorderComponent implements OnInit,OnDestroy  {
   }
     onChange(event) {
       if(event.target.value!=""){
-        this.myFormGroup.controls['district'].patchValue('');
+        this.myFormGroup.controls['district'].patchValue(0);
+        this.districts=[] as pickList[];
        this.loadDistricts(event.target.value);
       }
+      
   }
-
+  onChange2(event) {
+    
+    if(event.target.value!=""){
+      let x=this.myFormGroup.controls['district'].value;
+    //  this.loadDistricts(event.target.value);
+    }
+    
+}
 
 }
 

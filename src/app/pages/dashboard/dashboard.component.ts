@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   user:string;
    email:string;
   constructor(private language:changeLanguageService,private router: Router, private auth: AuthService,private translate: TranslateService) {
-    this.translate.setDefaultLang('en');
+  this.translate.setDefaultLang('en');
     // this.translate.use('ar')
 
   }
@@ -24,12 +24,12 @@ export class DashboardComponent implements OnInit {
     this.email=this.auth.getUseremail();
     this.language.changeLanguageStatus.subscribe((data)=>{
       // the lang to use, if the lang isn't available, it will use the current loader to get them
-  
+
       this.ngOnInit()
   console.log('language status from dashbao')
- 
+
    })
-   
+
   }
 
   logout(){
