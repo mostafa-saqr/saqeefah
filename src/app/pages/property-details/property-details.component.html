@@ -155,11 +155,24 @@
 
         </div>
         <div class="col-md-3">
+            <form action=""  [formGroup]="myFormGroup" (submit)="onClickSubmit($event)"
+            enctype="multipart/form-data">
             <h5 class="secondary-color mb-3">PLACE ORDER</h5>
-            <input type="text" class="form-control mb-3" placeholder="Email">
-            <input type="text" class="form-control mb-3" placeholder="Phone">
-            <textarea name="" placeholder="Subject" class="form-control mb-3" id="" cols="30" rows="3"></textarea>
-            <button class="btn secondary-btn">Submit</button>
+            <input type="text" class="form-control mb-3" placeholder="Name" formControlName="client_Name">
+            <span class="text-danger error" *ngIf=" showError&&myFormGroup.controls['client_Name'].errors?.['required']">
+                * Required Field
+                 </span>
+            <input type="text" class="form-control mb-3" placeholder="Email" formControlName="client_Mail">
+            <span class="text-danger error" *ngIf=" showError&&myFormGroup.controls['client_Mail'].errors?.['email']">
+                * Email form Field
+        </span>
+            <input type="text" class="form-control mb-3" placeholder="Phone" formControlName="client_Mobile">
+            <span class="text-danger error" *ngIf=" showError&&myFormGroup.controls['client_Mobile'].errors?.['required']">
+                * Required Field
+        </span>
+            <textarea name="" placeholder="Subject" class="form-control mb-3" id="" cols="30" rows="3" formControlName="additional_Reqst"></textarea>
+            <input class="btn secondary-btn" type="submit" value="Submit">
+            </form>
         </div>
     </div>
 </div>
