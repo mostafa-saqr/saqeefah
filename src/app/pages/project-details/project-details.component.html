@@ -1,9 +1,9 @@
 <div class="container mt-5">
     <div class="row" *ngIf="projectDetails">
         <div class="col-md-12">
-            <h3 class="secondary-color mb-0">{{projectDetails.projectName | translate}}</h3>
-            <h6>{{projectDetails.adress}}</h6>
-            <p>{{projectDetails.numberOfBuildings}} {{'Buildings' | translate}} | {{projectDetails.numberOfUnits}} {{'Appartments' | translate}}</p>
+            <h3 class="secondary-color mb-0">{{projectDetails.projectName}}</h3>
+            <h6>{{projectDetails.adress}}, {{projectDetails.city}}</h6>
+            <p>{{projectDetails.numberOfBuildings}} Buildings | {{projectDetails.numberOfUnits}} Appartments</p>
 
 
             <div id="myTab" role="tablist">
@@ -19,15 +19,14 @@
 
 
                             <img *ngIf="projectDetails.masterPlane != null" [src]="appRootUrl+projectDetails.masterPlane.masterPlaneImage" usemap="#image-map" class="img-fluid">
-                            <!-- <map name="image-map">
-                                <area  data-value="U"   coords="295,42,275,77,290,87,314,85,331,73,337,64" shape="poly">
-                                <area  data-value="V" coords="251,119,225,159,269,159,268,130" shape="poly">
-                            </map> -->
-                            <map name="image-map" *ngIf="getMapImageHardCode" [innerHTML]="getMapImageHardCode"></map>
+                            <map name="image-map" *ngIf="imageMap.length > 0">
+                                <area *ngFor="let item of imageMap" (click)="goToSpecialBuilding(item.id)"   [attr.coords]="item.cords" [attr.shape]="item.shape">
+
+                            </map>
                         </div>
                         <div class="col-md-4">
-                            <h4 class="secondary-color">{{'ProjectOverview' | translate}}</h4>
-                            <p *ngIf="projectDetails.masterPlane != null">
+                            <h4 class="secondary-color">Project Overview</h4>
+                            <p *ngIf="projectDetails && projectDetails.masterPlane != null&& projectDetails.masterPlane.projectOverview!='undefined'">
                                 {{projectDetails.masterPlane.projectOverview}}
                             </p>
                         </div>

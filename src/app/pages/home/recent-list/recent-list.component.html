@@ -3,18 +3,21 @@
 
         <div class="row">
             <div class="col-md-12">
-                <h4 class="text-center">{{'recentList'|translate}}</h4>
+                <h4 class="text-center">  {{siteInformation?.RecentListTitle}} </h4>
+
                 <p class="text-center">
-                {{"Your home should fit the way you live, with spaces and features that appeal to the entire family. Before you begin looking at homes, make a list of your priorities: location, size, lot, amenities, etc. Establish a set of minimum requirements and a 'wish list'. Minimum requirements are things that a house must have for you to consider it, while a 'wish list' covers things that you'd like to have but aren't essential." | translate}}</p>
+                    {{siteInformation?.RecentListDescription}}
+                </p>
+
             </div>
             <div class="col-md-12">
 
                 <div class="text-center" id="myTab" role="tablist">
                     <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">{{'all' |translate}}</a>
-                    <a *ngIf="!isAbout" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">{{'forSale' |translate}}</a>
-                    <a *ngIf="!isAbout" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">{{'soonForSale' |translate}}</a>
-                    <a *ngIf="!isHome" class="nav-link" id="booked-tab" data-bs-toggle="tab" data-bs-target="#booked" type="button" role="tab" aria-controls="booked" aria-selected="false">{{'BookedUp' |translate}}</a>
-                    <a *ngIf="!isHome" class="nav-link" id="sold-tab" data-bs-toggle="tab" data-bs-target="#sold" type="button" role="tab" aria-controls="sold" aria-selected="false">{{'SoldUp' |translate}}</a>
+                    <a *ngIf="!isAbout" class="nav-link green" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">{{'forSale' |translate}}</a>
+                    <a *ngIf="!isAbout" class="nav-link orange" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">{{'soonForSale' |translate}}</a>
+                    <a *ngIf="!isHome" class="nav-link pink" id="booked-tab" data-bs-toggle="tab" data-bs-target="#booked" type="button" role="tab" aria-controls="booked" aria-selected="false">{{'BookedUp' |translate}}</a>
+                    <a *ngIf="!isHome" class="nav-link moave" id="sold-tab" data-bs-toggle="tab" data-bs-target="#sold" type="button" role="tab" aria-controls="sold" aria-selected="false">{{'SoldUp' |translate}}</a>
 
                 </div>
                 <div class="tab-content" id="myTabContent">

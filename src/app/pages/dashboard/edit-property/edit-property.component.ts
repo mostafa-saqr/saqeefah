@@ -26,6 +26,7 @@ export class EditPropertyComponent implements OnInit {
     }
   }
   onGalleryInputChange(event) {
+    this.propertyImageGallery=[]; 
     if (event.target.files) {
       for (var i = 0; i < event.target.files.length; i++) {
         this.propertyImageGallery.push(<File>event.target.files[i])
@@ -53,6 +54,7 @@ export class EditPropertyComponent implements OnInit {
         this.toastr.success(":: Successfully Updated")
         this.ngOnInit();
         this.uploadWorking = false;
+        this.propertyImageGallery=[]; 
       }
       else {
         this.toastr.error(":: Failed Updated")

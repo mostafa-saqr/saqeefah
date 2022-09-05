@@ -49,6 +49,7 @@ import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@a
 import { AuthGuard } from './shared/services/auth.guards';
 import { AttachmentService } from './pages/dashboard/services/attachment.service';
 import { siteInformationService } from './shared/services/siteInformation.service';
+import { PlaceOrderService } from './services/placeOrder.service';
 
 
 
@@ -92,7 +93,8 @@ import { siteInformationService } from './shared/services/siteInformation.servic
     BrowserAnimationsModule,
   ],
   providers: [changeLanguageService, GenaricService,ProjectAndListService,
-    FavoritesService,CompareService,AuthService,TestService,AuthGuard,AttachmentService,siteInformationService,
+    FavoritesService,CompareService,AuthService,TestService,AuthGuard,AttachmentService,
+    siteInformationService,PlaceOrderService,
     {provide:HTTP_INTERCEPTORS , useClass:LoadingInterceptor , multi:true},
     {provide:HTTP_INTERCEPTORS , useClass:ErrorInterceptor , multi:true},
     {provide: LocationStrategy, useClass: PathLocationStrategy}

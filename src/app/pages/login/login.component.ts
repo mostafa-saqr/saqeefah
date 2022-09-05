@@ -47,13 +47,18 @@ export class LoginComponent implements OnInit {
     this.loginService.login(loginview).subscribe(res=>{
       if(!res.isError)
       {
-        localStorage.setItem("token",res.result.data.token);
-        localStorage.setItem("auth_data",JSON.stringify(res.result));
-
-       this.showError= this.authService.isUserLoggedIn()
-       this.router.navigateByUrl('/dashboard');
-
-
+        if(res.result.succeeded)
+        {
+          localStorage.setItem("token",res.result?.data?.token);
+          localStorage.setItem("auth_data",JSON.stringify(res.result));
+  
+         this.showError= this.authService.isUserLoggedIn()
+         this.router.navigateByUrl('/dashboard');
+        }
+        else{
+          this.hide=true;
+          this.router.navigateByUrl('/login');
+        }
       }
       else{
 

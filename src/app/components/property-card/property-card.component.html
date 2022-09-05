@@ -2,14 +2,14 @@
     <div class="img-panel d-flex">
         <div class="imagebox">
             <div class="img-container">
-                <img [src]="property.coverImage ? appRootUrl+property.coverImage :'assets/images/home-placeHolder.webp'" width="100%"  class="card-img-top" alt="...">
+                <img [src]="property.coverImage ? appRootUrl+property.coverImage :'assets/images/home-placeHolder.webp'" width="100%" class="card-img-top" alt="...">
             </div>
             <i class="icon tagr-icon-heart fav-icon" [attr.data-cardIco-id]="property.apartment_Id" [class.active]="property.favorite" (click)="favorites.toggleFavorites(property)"></i>
 
-            <div class="card-label" [class]="{'green': property.statusId == 1, 'orange': property.statusId == 2, 'pink': property.statusId == 3}">{{property.status | translate}}</div>
-            <span class="edit-project" *ngIf="EditMode" [routerLink]="'../edit-property/'+property.project_Ref+'/'+property.apartment_Id">{{'Edit' | translate}}</span>
-            <div class="compare" [attr.data-cardCompico-id]="property.apartment_Id" [class.active]="property.Compare" (click)="compare.toggleCompare(property)">{{'Compare' | translate}}</div>
-            <div class="card-mask" [routerLink]="propertyLink+property.apartment_Id"></div>
+            <div class="card-label" [class]="{'green': property.statusId == 1, 'orange': property.statusId == 2, 'pink': property.statusId == 3}">{{property.status}}</div>
+            <span class="edit-project" *ngIf="EditMode" [routerLink]="propertyLink+property.project_Ref+'/'+property.apartment_Id">Edit</span>
+            <div class="compare" [attr.data-cardCompico-id]="property.apartment_Id" [class.active]="property.Compare" (click)="compare.toggleCompare(property)">Compare</div>
+            <div class="card-mask" *ngIf="appRootUrl" [routerLink]="propertyLink+property.apartment_Id"></div>
             <div class="unit-price">
                 <h5 class="mb-0">{{'Price :' | translate}} {{property.apartment_Price}} {{'ر.س' | translate}}</h5>
 
