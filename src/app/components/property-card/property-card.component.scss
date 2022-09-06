@@ -1,5 +1,21 @@
 
-
+.imgIcon {
+  height: 20px;
+  width: 20px;
+}
+.imgIcon1 {
+  height: 18px;
+  width: 18px;
+}
+.col-md-4{
+  display: inline-flex;
+}
+.unit-specs span.text{
+  font-size: 12px;
+}
+.card.grid6 .unit-specs span{
+  font-size: 9px !important;
+}
 .card.list{
   display: flex !important;
 
