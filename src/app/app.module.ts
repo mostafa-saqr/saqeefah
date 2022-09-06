@@ -77,7 +77,7 @@ import { PlaceOrderService } from './services/placeOrder.service';
     ReactiveFormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
-      defaultLanguage: "en",
+      defaultLanguage: "ar",
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

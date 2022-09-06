@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   user:string;
    email:string;
   constructor(private language:changeLanguageService,private router: Router, private auth: AuthService,private translate: TranslateService) {
-  this.translate.setDefaultLang('en');
+  this.translate.setDefaultLang('ar');
     // this.translate.use('ar')
 
   }

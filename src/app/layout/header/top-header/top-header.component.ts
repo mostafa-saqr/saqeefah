@@ -18,10 +18,10 @@ export class TopHeaderComponent implements OnInit, AfterViewInit {
   constructor(public language:changeLanguageService,private translate: TranslateService,
     public favorite:FavoritesService, public compare:CompareService,
     private siteInfo:siteInformationService) {
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('ar');
 
     // the lang to use, if the lang isn't available, it will use the current loader to get them
-   translate.use('en');
+   translate.use('ar');
    }
 
   ngOnInit(): void {
@@ -52,7 +52,7 @@ export class TopHeaderComponent implements OnInit, AfterViewInit {
   }
   
   ngAfterViewInit(): void {
-    this.changeLanguage('en')
+   
   }
  
 changeLanguage(lang:string){
