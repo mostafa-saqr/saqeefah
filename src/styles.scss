@@ -33,7 +33,9 @@ body {
 :root {
     --main-color: #86815b;
 }
-
+th{
+  text-align: center !important;
+}
 .accordion-button:focus,
 .accordion-button:active {
     outline: none !important;

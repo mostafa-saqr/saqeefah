@@ -78,7 +78,7 @@
 }
 
 .containerRadio input:checked~.checkmark {
-  background-color: #af8f79;
+  background-color: var(--main-color);
 }
 
 .checkmark:after {

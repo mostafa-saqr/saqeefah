@@ -114,7 +114,7 @@ h5,
 /*===== About CSS =====*/
 
 .about-text-section h2 {
-    color: #af8f79;
+    color: var(--main-color);
     text-transform: capitalize;
     font-weight: 600;
     margin-bottom: 15px
@@ -234,7 +234,7 @@ a {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease;
-    color: #af8f79
+    color: var(--main-color)
 }
 .imageborders{
     height: 150px;
@@ -245,7 +245,7 @@ a {
 a:hover,
 a:focus {
     text-decoration: none;
-    color: #af8f79;
+    color: var(--main-color);
     outline: none !important
 }
 
@@ -359,7 +359,7 @@ h5,
 
 .comparison-section h5 {
     font-size: 17px;
-    color: #af8f79;
+    color: var(--main-color);
     margin-top: 15px;
     font-weight: 700
 }
@@ -368,7 +368,8 @@ h5,
     display: flex;
     padding-left: 50px;
     padding-right: 50px;
-    color: #af8f79;
+    color: var(--main-color);
+    text-transform: capitalize;
     text-align: center
 }
 

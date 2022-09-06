@@ -39,3 +39,9 @@ li {
   direction: ltr;
 }
 
+.card.list .card-body {
+  position: absolute;
+  right: 40%;
+  top: 30px;
+  color: var(--main-color);
+}
