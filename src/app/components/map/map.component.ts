@@ -1,6 +1,10 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import * as L from 'leaflet';
+import { siteInfo } from 'src/app/pages/Models/siteInfo';
+import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { MarkerService } from 'src/app/services/Maker.service';
+import { siteInformationService } from 'src/app/shared/services/siteInformation.service';
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';
@@ -20,7 +24,7 @@ L.Marker.prototype.options.icon = iconDefault;
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements AfterViewInit {
+export class MapComponent implements OnInit , AfterViewInit {
    map:any;
 
   private initMap(): void {
@@ -36,14 +40,31 @@ export class MapComponent implements AfterViewInit {
     this.map.scrollWheelZoom.disable()
     tiles.addTo(this.map);
   }
-  
-  constructor(private markerService: MarkerService) { }
+  siteInformation:siteInfo;
+
+  constructor(private markerService: MarkerService,private siteInfo:siteInformationService,private language:changeLanguageService, private translate:TranslateService) { }
   ngAfterViewInit(): void {
     this.initMap();
     this.markerService.makeCapitalMarkers(this.map);
   }
 
-  // ngOnInit(): void {
-  // }
+  ngOnInit(): void {
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) =>
+    {
+      this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
+        if(!x.isError)
+        {
+          if(x.result['succeeded'])
+          {
+            this.siteInformation=x.result['data'];
+          }
+        }
+
+      })
+
+    });
+
+
+  }
 
 }

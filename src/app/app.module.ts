@@ -70,7 +70,7 @@ import { PlaceOrderService } from './services/placeOrder.service';
     ComponentsModule,
     AppRoutingModule,
     // UserlayoutModule,
-    // DashboardModule,
+    DashboardModule,
     NgxSpinnerModule,
     // LoginModule,
     // FormsModule,
@@ -83,7 +83,7 @@ import { PlaceOrderService } from './services/placeOrder.service';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
 
-      }
+      },isolate:false
     }),
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',

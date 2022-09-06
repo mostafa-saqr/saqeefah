@@ -60,10 +60,6 @@ changeLanguage(lang:string){
   this.translate.use(lang);
 }
 getPageLang(){
-
-}
-route(url:any){
-  window.location.href=url;
-}
-
-}
+   
+  }
+ 
