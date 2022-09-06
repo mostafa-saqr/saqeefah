@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -19,6 +20,7 @@ customOptions: OwlOptions = {
   dots: false,
   navSpeed: 700,
   navText: ['', ''],
+  rtl:this.language.checkRtl(),
   responsive: {
     0: {
       items: 1
@@ -36,7 +38,7 @@ customOptions: OwlOptions = {
   nav: true
 }
 
-  constructor() { }
+  constructor(private language:changeLanguageService) { }
 
   ngOnInit(): void {
   }
