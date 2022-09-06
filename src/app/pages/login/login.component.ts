@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
  error:any;
 
   constructor(private router: Router,private titleService :Title,private loginService:LoginService, private  authService :AuthService) {
-    this.titleService.setTitle("Saqeefa | Login");
+    // this.titleService.setTitle("Saqeefa | Login");
 
 
      }
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         {
           localStorage.setItem("token",res.result?.data?.token);
           localStorage.setItem("auth_data",JSON.stringify(res.result));
-  
+
          this.showError= this.authService.isUserLoggedIn()
          this.router.navigateByUrl('/dashboard');
         }

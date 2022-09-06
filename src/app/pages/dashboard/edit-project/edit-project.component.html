@@ -6,7 +6,7 @@
         <div class="row" *ngFor="let i of masterPlanData; let ind = index">
             <div class="col-md-6 col-12">
                 <div class="form-group">
-                    <label for="">Shape</label>
+                    <label for="">{{'Shape' | translate}}</label>
                     <select class="form-select" (change)="onchange($event,ind,1)" [ngModel]="i.shape">
                             <option value=""></option>
                             <option *ngFor="let i of types" [value]="i.id">{{i.value}}</option>
@@ -15,14 +15,14 @@
             </div>
             <div class="col-md-6 col-12">
                 <div class="form-group">
-                    <label for="">Link</label>
+                    <label for="">{{'Link' | translate}}</label>
                     <input type="text" class="form-control"   [ngModel]="i.id" (change)="onchange($event,ind,2)">
                 </div>
-                
+
             </div>
             <div class="col-md-6 col-12">
                 <div class="form-group">
-                    <label for="">Cords</label>
+                    <label for="">{{'Cords'| translate}}</label>
                     <input type="text" class="form-control"   [ngModel]="i.cords" (change)="onchange($event,ind,3)">
                 </div>
             </div>
