@@ -70,20 +70,20 @@ import { PlaceOrderService } from './services/placeOrder.service';
     ComponentsModule,
     AppRoutingModule,
     // UserlayoutModule,
-    // DashboardModule,
+    DashboardModule,
     NgxSpinnerModule,
     // LoginModule,
     // FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
-      defaultLanguage: "en",
+      defaultLanguage: "ar",
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
 
-      }
+      },isolate:false
     }),
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',

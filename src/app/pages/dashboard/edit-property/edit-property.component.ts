@@ -37,6 +37,7 @@ export class EditPropertyComponent implements OnInit {
   uploadImage(e) {
     this.uploadWorking = true
     e.preventDefault();
+    this.formData=new FormData();
     this.formData.append('CoverImage', this.propertyImageThumb, this.propertyImageThumb.name)
 
     this.formData.append('Apartment_Id', this.propertyId)

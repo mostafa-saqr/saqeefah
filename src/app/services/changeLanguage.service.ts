@@ -25,6 +25,12 @@ export class changeLanguageService  {
         return LanguageID
        
     }
+    checkRtl(){
+        let htmlTag = document.getElementsByTagName("html")[0] as HTMLHtmlElement;
+       
+        let LanguageRtl= htmlTag.lang === "ar" ? true : false;
+        return LanguageRtl
+    }
     getCurrentLanguage(){
         let htmlTag = this.document.getElementsByTagName("html")[0] as HTMLHtmlElement;
         let currentLang = htmlTag.getAttribute('lang')

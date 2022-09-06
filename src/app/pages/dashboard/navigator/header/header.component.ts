@@ -16,10 +16,10 @@ export class HeaderComponent implements OnInit {
     constructor(private language:changeLanguageService,private translate: TranslateService,
       public generalService:GenaricService
       ) {
-      translate.setDefaultLang('en');
+      translate.setDefaultLang('ar');
   
       // the lang to use, if the lang isn't available, it will use the current loader to get them
-     translate.use('en');
+     translate.use('ar');
      }
   
     ngOnInit(): void {
