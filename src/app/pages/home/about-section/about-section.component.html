@@ -6,7 +6,9 @@
                 <div [innerHTML]="AboutUs.description"></div>
             </div>
             <div class="col-md-6 pt-3">
-                <img [src]="setting.appRootUrl+AboutUs.imagePath" class="img-fluid" alt="" srcset="">
+                <div class="image-rounded">
+                    <img [src]="setting.appRootUrl+AboutUs.imagePath" class="img-fluid" alt="" srcset="">
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="section-panel">
