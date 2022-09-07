@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { changeLanguageService } from './services/changeLanguage.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BusyService } from './pages/dashboard/services/busy.service';
-import { PreloaderService } from './services/preloader.service';
+
 
 @Component({
   selector: 'app-root',

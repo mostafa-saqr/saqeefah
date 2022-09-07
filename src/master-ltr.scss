@@ -6,3 +6,9 @@ $left: left;
 $right: right;
 @import'./node_modules/bootstrap/scss/bootstrap';
 @import './styles.scss';
+.card.list .card-body {
+  position: absolute;
+  left: 40%;
+  top: 30px;
+  color: var(--main-color);
+}

@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
     this.language.changeLanguge(l);
    this.translate.use(l);
 
- 
+
     this.language.changeLanguageStatus.subscribe((data)=>{
 
       this.ngOnInit()

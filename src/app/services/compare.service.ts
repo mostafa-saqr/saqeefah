@@ -9,12 +9,14 @@ export class CompareService {
 
     }
     getAllCompare(){
+
         let currentCompareLocalStorage = window.localStorage.getItem('Compare')!
         if(currentCompareLocalStorage != null){
         let parsingCompare = JSON.parse(currentCompareLocalStorage)
-    
         return parsingCompare
         }
+
+
     }
     checkCompareCounter(){
         let  CompareOnLocalStorage = window.localStorage.getItem("Compare")
@@ -40,16 +42,16 @@ export class CompareService {
         let currentCompareLocalStorage = window.localStorage.getItem('Compare')!
         if(currentCompareLocalStorage != null){
             let parsingCompare = JSON.parse(currentCompareLocalStorage)
-        
+
             let checkEleOnCompare = parsingCompare.includes(element.apartment_Id)
             if(checkEleOnCompare){
                 element.Compare = true
             } else {
                 element.Compare = false
             }
-        
+
         }
-       
+
     }
     removeCompareNullValue(){
         let currentCompareLocalStorage = window.localStorage.getItem('Compare')!
@@ -61,9 +63,9 @@ export class CompareService {
         }
     }
     toggleCompare(item:any){
-       
+
             if(item.Compare){
-            
+
                 let currentCompareLocalStorage = window.localStorage.getItem('Compare')!
                 let parsingCompare = JSON.parse(currentCompareLocalStorage)
                 let newCompareList= parsingCompare.filter((comp:any)=> comp != item.apartment_Id)
@@ -98,10 +100,10 @@ export class CompareService {
                 selectedEle?.classList.add('active')
                 this.changeComparetatus.emit()
                 }
-                
+
 
               }
-            
+
 
         }
         }}

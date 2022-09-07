@@ -89,9 +89,12 @@ export class EditProjectComponent implements OnInit {
     this.editProject.uploadProjectMasterPlane(this.masterPlaneFormData).subscribe((resp) => {
       if (!resp.isError) {
         this.toastr.success(":: Successfully Updated")
-        this.ngOnInit();
         this.uploadWorking = false
         this.masterPlaneUploadMessage = resp.message
+        this.masterPlanData=[] as MasterPlan[];
+        this.ngOnInit();
+        // this.uploadWorking = false
+        // this.masterPlaneUploadMessage = resp.message
       }
       else{
         this.toastr.error(":: Failed Updated")
@@ -160,8 +163,9 @@ export class EditProjectComponent implements OnInit {
           this.PspecificationsImage = x['data']['specifications']['specificationsImage'];
         else
           this.PspecificationsImage = null;
-
-          this.initData(x['data']['masterPlane']['mapCodeArray']);
+          console.log(x['data'])
+          this.projectOverView=x['data'].masterPlane?.projectOverview;
+          this.initData(x['data'].masterPlane?.mapCodeArray);
 
       }
 
