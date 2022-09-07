@@ -216,7 +216,7 @@ getFilterValue(filter){
           
         //     return x;
             
-    
+
        
         //   }
         if(
@@ -225,7 +225,7 @@ getFilterValue(filter){
           (formdata.hall==null || formdata.hall == x.hall)&&
           (formdata.salon == null || formdata.salon == x.salon)&&
           (formdata.floor==null || formdata.floor == x.floor_Num)&&
-          (formdata.status == null || formdata.status ==  x.status)
+          (formdata.status == 'all' || formdata.status ==  x.status)
         )
          { 
          
@@ -241,7 +241,7 @@ getFilterValue(filter){
       
     //     return x;
         
-
+    console.log('form status',formdata.status)
    
     //   }
     if(
@@ -250,7 +250,7 @@ getFilterValue(filter){
       (formdata.hall==null || formdata.hall == x.hall)&&
       (formdata.salon == null || formdata.salon == x.salon)&&
       (formdata.floor==null || formdata.floor == x.floor_Num)&&
-      (formdata.status == null || formdata.status ==  x.status)
+      (formdata.status == 'all' || formdata.status ==  x.status)
     )
      { 
      

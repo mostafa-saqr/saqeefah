@@ -25,10 +25,12 @@ export class TopHeaderComponent implements OnInit, AfterViewInit {
    }
 
   ngOnInit(): void {
+    this.compare.removeCompareNullValue()
    this.favorite.changeFavoriteStatus.subscribe((value)=>{
     this.favorite.checkFavoritesCounter()
    })
    this.compare.changeComparetatus.subscribe((value)=>{
+    this.compare.removeCompareNullValue()
     this.compare.checkCompareCounter()
    })
    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
