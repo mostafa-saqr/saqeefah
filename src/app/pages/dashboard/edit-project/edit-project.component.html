@@ -53,7 +53,8 @@
         <p>
 
         </p>
-        <button type="submit" [disabled]="uploadWorking" class="btn btn-primary" (click)="UploadMasterPlane($event)">{{'Update' | translate}}</button>
+        <button type="submit" class="btn btn-primary" (click)="UploadMasterPlane($event)">{{'Update' | translate}}</button>
+        <!-- <button type="submit" [disabled]="uploadWorking" class="btn btn-primary" (click)="UploadMasterPlane($event)">{{'Update' | translate}}</button> -->
         <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
          <span>{{masterPlaneUploadMessage}}</span>
     </div>
@@ -94,7 +95,8 @@
         <p>
 
         </p>
-            <button [disabled]="myForm.invalid" type="submit" class="btn btn-primary" (click)="uploadImage($event)">{{'Upload' | translate}}</button>
+        <button type="submit" class="btn btn-primary" (click)="uploadImage($event)">{{'Upload' | translate}}</button>
+            <!-- <button [disabled]="myForm.invalid" type="submit" class="btn btn-primary" (click)="uploadImage($event)">{{'Upload' | translate}}</button> -->
             <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
 
         </form>
@@ -126,7 +128,8 @@
         <p>
 
         </p>
-        <button type="submit" [disabled]="uploadWorking" (click)="UploadSpecifications($event)" class="btn btn-primary">{{'Upload'|translate}}</button>
+        <button type="submit" (click)="UploadSpecifications($event)" class="btn btn-primary">{{'Upload'|translate}}</button>
+        <!-- <button type="submit" [disabled]="uploadWorking" (click)="UploadSpecifications($event)" class="btn btn-primary">{{'Upload'|translate}}</button> -->
 
         <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
 

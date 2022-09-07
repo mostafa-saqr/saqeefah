@@ -31,7 +31,8 @@
             <p>
 
             </p>
-            <button [disabled]="myForm.invalid"  type="submit" class="btn btn-primary" (click)="uploadImage($event)">{{'Update' | translate}}</button>
+            <button  type="submit" class="btn btn-primary" (click)="uploadImage($event)">{{'Update' | translate}}</button>
+            <!-- <button [disabled]="myForm.invalid"  type="submit" class="btn btn-primary" (click)="uploadImage($event)">{{'Update' | translate}}</button> -->
             <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
         </form>
     </div>

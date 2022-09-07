@@ -18,6 +18,7 @@
 
 
       <form class="login-form" (ngSubmit)="onSubmit()" [formGroup]="form">
+        <p class="message" *ngIf="hide">* Username or Password is Incorrect</p>
         <div class="form-group">
           <input type="text"  formControlName="userName" placeholder="username"/>
         <span class="text-danger error" *ngIf="showError && form.controls['userName'].errors?.['required']">
@@ -30,8 +31,9 @@
           *Required Password
         </span>
         </div>
+
         <button type="submit">login</button>
-        <p class="message" *ngIf="hide">* Username or Password is Incorrect</p>
+
       </form>
     </div>
   </div>
