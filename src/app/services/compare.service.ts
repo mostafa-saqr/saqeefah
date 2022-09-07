@@ -51,6 +51,15 @@ export class CompareService {
         }
        
     }
+    removeCompareNullValue(){
+        let currentCompareLocalStorage = window.localStorage.getItem('Compare')!
+        if(currentCompareLocalStorage != null){
+            let parsingCompare = JSON.parse(currentCompareLocalStorage)
+            let chechedCompare = parsingCompare.filter(item => item != null)
+            window.localStorage.setItem("Compare",JSON.stringify(chechedCompare))
+             
+        }
+    }
     toggleCompare(item:any){
        
             if(item.Compare){

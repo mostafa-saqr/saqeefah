@@ -17,8 +17,8 @@
 <section class="section bg-light comparison-section">
 
     <div class="container">
-
-        <div class="row">
+        <h3 *ngIf="!compareAvalable">There is no selected Appartments to compare, please choose items. </h3>
+        <div class="row" *ngIf="compareAvalable">
 
             <div class="table-responsive bg-white">
                 <table class="table table-bordered">
@@ -116,7 +116,7 @@
                                 <i class="fa fa-check"></i>
                             </td> -->
 
-                            <!-- <td>
+                        <!-- <td>
                                 <i class="fa fa-check"></i>
                             </td>
 
@@ -137,7 +137,7 @@
                             <td *ngFor="let item of compareList">
                                 <i class="fa fa-check"></i>
                             </td> -->
-                            <!--
+                        <!--
                             <td>
                                 <i class="fa fa-times"></i>
                             </td>
@@ -187,17 +187,17 @@
                             <ng-container *ngIf="key != 'apartment_Id' && key != 'coverImage'
                             && key != 'images'&& key != 'videos' &&key!='statusId'
                             &&key!='project_Ref'&&key!='build_Ref'&&key!='loor_Ref'">
-                            <th scope="row">
-                               <span class="" style="margin: 0 5px;">
+                                <th scope="row">
+                                    <span class="" style="margin: 0 5px;">
                                 <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
                                 </span>
-                                <h6>{{key | translate}}</h6>
-                            </th>
+                                    <h6>{{key | translate}}</h6>
+                                </th>
 
-                            <td *ngFor="let item of compareList" >
-                                {{item[key]}}
-                            </td>
-                        </ng-container>
+                                <td *ngFor="let item of compareList">
+                                    {{item[key]}}
+                                </td>
+                            </ng-container>
 
                         </tr>
                         <tr>
@@ -209,8 +209,7 @@
                             <td *ngFor="let item of compareList">
                                 <!-- <a [routerLink]="['/property',item.apartment_Id]"
                                     class="btn btn-primary px-4 ml-2">Buy</a> -->
-                                <a class="btn btn-danger px-4"
-                                    (click)="compareServ.deleteListFromCompare(item.apartment_Id)">{{'Delete' | translate}}</a>
+                                <a class="btn btn-danger px-4" (click)="compareServ.deleteListFromCompare(item.apartment_Id)">{{'Delete' | translate}}</a>
                             </td>
 
 

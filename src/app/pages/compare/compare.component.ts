@@ -11,7 +11,7 @@ import { compare } from '../Models/Compare';
 })
 export class CompareComponent implements OnInit {
 compareList:compare[] = [] as compare[];
-
+compareAvalable!:boolean ;
   constructor(private appartments:ProjectAndListService, public compareServ:CompareService) { }
 
   ngOnInit(): void {
@@ -26,11 +26,16 @@ getCompareList(){
   if(currentCompareLocalStorage != null){
   let parsingCompare = JSON.parse(currentCompareLocalStorage)
   if(parsingCompare.length > 0){
+    this.compareAvalable = true
     this.appartments.getCompareAppartmens(parsingCompare).subscribe((item:any)=>{
       this.compareList = item.data
       console.log(item)
     })
+  } else {
+    this.compareAvalable = false
   }
+}else {
+  this.compareAvalable = false
 }
 }
 
