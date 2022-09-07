@@ -32,12 +32,11 @@ export class EditProjectComponent implements OnInit {
   masterPlaneUploadMessage: string
 
   onInputChange(event) {
-
-
     if (event.target.files) {
       this.projectImageThumb = <File>event.target.files[0]
     }
   }
+
   onGalleryInputChange(event) {
     this.projectImageGallery=[]; 
     if (event.target.files) {
@@ -47,11 +46,14 @@ export class EditProjectComponent implements OnInit {
     }
   }
   uploadImage(e) {
+    debugger; 
     this.uploadWorking = true
     e.preventDefault();
-    this.formData = new FormData()
+    this.formData = new FormData();
+    if(this.projectImageThumb)
+    {
     this.formData.append('CoverImage', this.projectImageThumb, this.projectImageThumb.name)
-
+    }
     this.formData.append('Project_Id', this.projectId)
 
     for (var i = 0; i < this.projectImageGallery.length; i++) {
@@ -167,6 +169,9 @@ export class EditProjectComponent implements OnInit {
           this.projectOverView=x['data'].masterPlane?.projectOverview;
           this.initData(x['data'].masterPlane?.mapCodeArray);
 
+           this.projectImageThumb= null; 
+           this.projectImageGallery= null; 
+           this.masterPlaneImage=null; 
       }
 
     })
