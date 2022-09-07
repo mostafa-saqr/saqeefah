@@ -29,12 +29,12 @@ export class MapComponent implements OnInit , AfterViewInit {
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ 24.779163,46.885942  ],
+      center: [ 24.61163,46.785942],
       zoom: 3
     });
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 22,
-      minZoom: 6,
+      maxZoom: 30,
+      minZoom: 11,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
     this.map.scrollWheelZoom.disable()
