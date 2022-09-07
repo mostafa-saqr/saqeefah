@@ -170,8 +170,8 @@ export class EditProjectComponent implements OnInit {
           this.initData(x['data'].masterPlane?.mapCodeArray);
 
            this.projectImageThumb= null; 
-           this.projectImageGallery= null; 
-           this.masterPlaneImage=null; 
+           this.projectImageGallery= []; 
+        
       }
 
     })
