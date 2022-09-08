@@ -38,8 +38,12 @@ export class EditPropertyComponent implements OnInit {
     this.uploadWorking = true
     e.preventDefault();
     this.formData=new FormData();
-    this.formData.append('CoverImage', this.propertyImageThumb, this.propertyImageThumb.name)
 
+    if(this.propertyImageThumb)
+    {
+      this.formData.append('CoverImage', this.propertyImageThumb, this.propertyImageThumb.name)
+    }
+    
     this.formData.append('Apartment_Id', this.propertyId)
     this.formData.append('Project_Id', this.projectId)
 
