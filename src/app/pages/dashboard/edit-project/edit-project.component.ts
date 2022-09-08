@@ -46,11 +46,7 @@ export class EditProjectComponent implements OnInit {
     }
   }
   uploadImage(e) {
-<<<<<<< HEAD
-    debugger
-=======
-    debugger; 
->>>>>>> c3dfe50ee156b9c3eed9ff688c45c5f012dcab75
+    debugger;
     this.uploadWorking = true
     e.preventDefault();
     this.formData = new FormData();
@@ -173,9 +169,9 @@ export class EditProjectComponent implements OnInit {
           this.projectOverView=x['data'].masterPlane?.projectOverview;
           this.initData(x['data'].masterPlane?.mapCodeArray);
 
-           this.projectImageThumb= null; 
-           this.projectImageGallery= []; 
-        
+           this.projectImageThumb= null;
+           this.projectImageGallery= [];
+
       }
 
     })
