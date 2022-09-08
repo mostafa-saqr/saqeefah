@@ -11,6 +11,8 @@ export class PropertiesComponent implements OnInit {
   view:string='grid3';
   Total=0;
   AllProperties:[] = []
+  filteredProperties:[] = []
+
   // listResult = [
   //   {
   //     img:'assets/images/list/l2.jpg'
@@ -35,13 +37,14 @@ export class PropertiesComponent implements OnInit {
 
   getAllProperties(){
     this.properties.getAllProperties().subscribe((response:any)=>{
-      console.log('response',response)
+      // console.log('response',response)
       
   if(!response.isError){
     this.AllProperties = response.result.data
+    this.filteredProperties = response.result.data
     console.log('all properities', this.AllProperties)
     this.Total=response.result.data.length;
-    console.log('total',this.Total)
+    // console.log('total',this.Total)
   }
   this.sortByPrice('l2h');
   
@@ -67,7 +70,7 @@ export class PropertiesComponent implements OnInit {
    }
 
    filter(e){
-    this.AllProperties = e;
+    this.filteredProperties = e;
    
  }
 //  sortAssending(){
@@ -94,7 +97,6 @@ export class PropertiesComponent implements OnInit {
 }
 
 sortByPrice(option){
-  debugger
   if(option =='l2h'){
     this.AllProperties.sort((a:any, b:any) => Number(a.apartment_Price) - Number(b.apartment_Price));
   }else if(option =='h2l'){
