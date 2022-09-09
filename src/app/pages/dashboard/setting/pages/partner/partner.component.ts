@@ -59,7 +59,6 @@ export class PartnerComponent implements OnInit,OnDestroy{
     this.initializeFormGroup();
     this.getAllSliderAttatchments();
 
-
   }
 
 
@@ -79,7 +78,6 @@ export class PartnerComponent implements OnInit,OnDestroy{
       id: SliderTypes.OurPartners,
     };
     this.sliderService.UpdateSlider(this.slider).subscribe(r => {
-      debugger
       if (!r.isError) {
        this.toastr.success("Successfully Updated")
         this.getAllSliderAttatchments();
@@ -113,6 +111,8 @@ export class PartnerComponent implements OnInit,OnDestroy{
       if (!r.isError) {
         this.toastr.success("Successfully Deleted")
         this.getAllSliderAttatchments();
+        this.ngOnInit();
+        
       }
       else{
         this.toastr.error("Failed Deleted")
@@ -132,6 +132,7 @@ export class PartnerComponent implements OnInit,OnDestroy{
 
   uploadImages(e) {
     e.stopPropagation();
+    debugger
     if (this.images.length > 0) {
       let sliderTypeId= SliderTypes.OurPartners;
       this.formData = new FormData();
