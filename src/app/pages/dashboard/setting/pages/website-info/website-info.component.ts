@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Editor, Toolbar } from 'ngx-editor';
 import { ToastrService } from 'ngx-toastr';
 import { siteInfo } from 'src/app/pages/Models/siteInfo';
@@ -36,10 +37,18 @@ export class WebsiteInfoComponent implements OnInit,OnDestroy  {
   });
 
   constructor(private toastr: ToastrService,private siteInformation:siteInformationService,
-    private language:changeLanguageService) { }
+    private language:changeLanguageService,private translate:TranslateService) { }
 
   ngOnInit(): void {
     // this.editor = new Editor();
+    this.getAllSiteInformation();
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => 
+    {
+     this.getAllSiteInformation();
+      
+    }); 
+  }
+  getAllSiteInformation(){
     this.siteInformation.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
       if(!x.isError)
       {

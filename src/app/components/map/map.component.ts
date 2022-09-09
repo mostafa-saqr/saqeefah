@@ -49,22 +49,25 @@ export class MapComponent implements OnInit , AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.getAllSiteInformation();
     this.translate.onLangChange.subscribe((event: LangChangeEvent) =>
     {
-      this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
-        if(!x.isError)
-        {
-          if(x.result['succeeded'])
-          {
-            this.siteInformation=x.result['data'];
-          }
-        }
-
-      })
-
+      this.getAllSiteInformation();
     });
 
 
+  }
+  getAllSiteInformation(){
+    this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
+      if(!x.isError)
+      {
+        if(x.result['succeeded'])
+        {
+          this.siteInformation=x.result['data'];
+        }
+      }
+
+    })
   }
 
 }

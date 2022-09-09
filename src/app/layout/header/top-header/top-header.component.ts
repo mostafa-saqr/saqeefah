@@ -33,7 +33,14 @@ export class TopHeaderComponent implements OnInit, AfterViewInit {
     this.compare.removeCompareNullValue()
     this.compare.checkCompareCounter()
    })
+   this.getAllSiteInformation();
    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+    this.getAllSiteInformation();
+   
+  });
+
+  }
+  getAllSiteInformation(){
     this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
   
       if(!x.isError)
@@ -48,11 +55,7 @@ export class TopHeaderComponent implements OnInit, AfterViewInit {
       }
       
     })
-   
-  });
-
   }
-  
   ngAfterViewInit(): void {
    
   }

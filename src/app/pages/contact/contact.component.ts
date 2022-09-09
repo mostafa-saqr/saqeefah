@@ -32,27 +32,26 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.getAllSiteInformation();
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => 
     {
-      this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
-        if(!x.isError)
-        {
-          if(x.result['succeeded'])
-          {
-            this.siteInformation=x.result['data'];
-          }
-        }
-        
-      })
+     this.getAllSiteInformation();
       
     }); 
-    
-
-
-
   }
 
-
+  getAllSiteInformation(){
+    this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
+      if(!x.isError)
+      {
+        if(x.result['succeeded'])
+        {
+          this.siteInformation=x.result['data'];
+        }
+      }
+      
+    })
+  }
   onSubmit(){
     if (this.form.invalid) {
       this.showError=true;

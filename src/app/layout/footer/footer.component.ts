@@ -31,27 +31,29 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.getSiteInformation();
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => 
     {
-      this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
-        if(!x.isError)
-        {
-          if(x.result['succeeded'])
-          {
-            this.siteInformation=x.result['data'];
-          }
-          else{
-    
-          }
-        }
-        
-      })
-      
+        this.getSiteInformation();
     });
  
   }
 
+getSiteInformation(){
+  this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
+    if(!x.isError)
+    {
+      if(x.result['succeeded'])
+      {
+        this.siteInformation=x.result['data'];
+      }
+      else{
 
+      }
+    }
+    
+  })
+}
   onSubmit(){
     debugger;
     if (this.form.invalid) {
