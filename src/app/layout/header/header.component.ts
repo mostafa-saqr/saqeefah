@@ -15,7 +15,7 @@ nav = {
   navtransparentMode:false
 } 
   home = [1,1,1,1,1,1,1,1]
-  constructor(private language:changeLanguageService,private translate: TranslateService,
+  constructor(public language:changeLanguageService,private translate: TranslateService,
     public generalService:GenaricService
     ) {
       translate.setDefaultLang('ar');

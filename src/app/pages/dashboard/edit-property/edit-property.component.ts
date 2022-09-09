@@ -26,7 +26,7 @@ export class EditPropertyComponent implements OnInit {
     }
   }
   onGalleryInputChange(event) {
-    this.propertyImageGallery=[]; 
+    this.propertyImageGallery=[];
     if (event.target.files) {
       for (var i = 0; i < event.target.files.length; i++) {
         this.propertyImageGallery.push(<File>event.target.files[i])
@@ -56,13 +56,13 @@ export class EditPropertyComponent implements OnInit {
 
     this.editproperty.uploadpropertyImage(this.formData).subscribe((resp) => {
       if (!resp.isError) {
-        this.toastr.success(":: Successfully Updated")
+        this.toastr.success("Successfully Updated")
         this.ngOnInit();
         this.uploadWorking = false;
-        this.propertyImageGallery=[]; 
+        this.propertyImageGallery=[];
       }
       else {
-        this.toastr.error(":: Failed Updated")
+        this.toastr.error("Failed Updated")
       }
 
     })
@@ -86,11 +86,11 @@ export class EditPropertyComponent implements OnInit {
   delete(id: any) {
     this.attachmentService.deleteAttachment(id, "Apartment").subscribe(res => {
       if (!res.isError) {
-        this.toastr.success(":: Successfully Deleted")
+        this.toastr.success("Successfully Deleted")
         this.ngOnInit();
       }
       else {
-        this.toastr.error(":: Failed Deleted")
+        this.toastr.error("Failed Deleted")
       }
 
     })
@@ -98,11 +98,11 @@ export class EditPropertyComponent implements OnInit {
   deleteCover() {
     this.attachmentService.deleteApartmentCover(this.propertyId).subscribe(res => {
       if (!res.isError) {
-        this.toastr.success(":: Successfully Deleted")
+        this.toastr.success("Successfully Deleted")
         this.ngOnInit();
       }
       else {
-        this.toastr.error(":: Failed Deleted")
+        this.toastr.error("Failed Deleted")
       }
 
     })

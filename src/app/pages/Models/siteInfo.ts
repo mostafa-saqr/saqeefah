@@ -1,4 +1,4 @@
-export interface siteInfo{58264
+export interface siteInfo{
     whatsAppNumber: string,
     address:string,
     facebookURL: string,
@@ -17,5 +17,8 @@ export interface siteInfo{58264
     recentListTitle: string,
     recentListDescription: string,
     projectsTitle:string,
-    projectDesc: string
+    projectDesc: string,
+    CountApartmentsStatistic:string,
+    CountEmployessSoudiStatistic:string,
+    CountProjectsStatistic:string
 }

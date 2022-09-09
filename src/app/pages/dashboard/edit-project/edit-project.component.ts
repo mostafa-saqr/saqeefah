@@ -38,7 +38,7 @@ export class EditProjectComponent implements OnInit {
   }
 
   onGalleryInputChange(event) {
-    this.projectImageGallery=[]; 
+    this.projectImageGallery=[];
     if (event.target.files) {
       for (var i = 0; i < event.target.files.length; i++) {
         this.projectImageGallery.push(<File>event.target.files[i])
@@ -46,7 +46,7 @@ export class EditProjectComponent implements OnInit {
     }
   }
   uploadImage(e) {
-    debugger; 
+    debugger;
     this.uploadWorking = true
     e.preventDefault();
     this.formData = new FormData();
@@ -61,14 +61,14 @@ export class EditProjectComponent implements OnInit {
     }
     this.editProject.uploadProjectImage(this.formData).subscribe((resp) => {
       if (!resp.isError) {
-        this.toastr.success(":: Successfully Uploaded")
+        this.toastr.success("Successfully Uploaded")
         this.ngOnInit();
         this.uploadWorking = false;
-        this.projectImageGallery=[]; 
-        
+        this.projectImageGallery=[];
+
       }
       else{
-        this.toastr.error(":: Failed Uploaded")
+        this.toastr.error("Failed Uploaded")
       }
     })
   }
@@ -81,7 +81,7 @@ export class EditProjectComponent implements OnInit {
   }
   UploadMasterPlane(e) {
     this.masterPlaneFormData=new FormData();
-    
+
     this.uploadWorking = true
     this.masterPlaneFormData.append('Project_Id', this.projectId)
     this.masterPlaneFormData.append('MasterPlaneImage', this.masterPlaneImage, this.masterPlaneImage.name)
@@ -90,7 +90,7 @@ export class EditProjectComponent implements OnInit {
     this.masterPlaneFormData.append('ProjectOverview', this.projectOverView)
     this.editProject.uploadProjectMasterPlane(this.masterPlaneFormData).subscribe((resp) => {
       if (!resp.isError) {
-        this.toastr.success(":: Successfully Updated")
+        this.toastr.success("Successfully Updated")
         this.uploadWorking = false
         this.masterPlaneUploadMessage = resp.message
         this.masterPlanData=[] as MasterPlan[];
@@ -99,7 +99,7 @@ export class EditProjectComponent implements OnInit {
         // this.masterPlaneUploadMessage = resp.message
       }
       else{
-        this.toastr.error(":: Failed Updated")
+        this.toastr.error("Failed Updated")
       }
     })
 
@@ -126,12 +126,12 @@ export class EditProjectComponent implements OnInit {
     this.editProject.uploadProjectSpecifications(this.specificationsFormData).subscribe((resp) => {
 
       if (!resp.isError) {
-        this.toastr.success(":: Successfully Uploaded")
+        this.toastr.success("Successfully Uploaded")
         this.uploadWorking = false
         this.ngOnInit();
       }
       else{
-        this.toastr.error(":: Failed Uploaded")
+        this.toastr.error("Failed Uploaded")
       }
     })
 
@@ -149,8 +149,8 @@ export class EditProjectComponent implements OnInit {
 
   appRootUrl = environment.appRoot + '/';
   ngOnInit(): void {
-    
- 
+
+
     this.projectId = this.route.snapshot.paramMap.get('id');
     this.editProject.getProjectDetails(this.language.getLanguageID(), this.projectId).subscribe(x => {
       if (x['succeeded']) {
@@ -169,13 +169,13 @@ export class EditProjectComponent implements OnInit {
           this.projectOverView=x['data'].masterPlane?.projectOverview;
           this.initData(x['data'].masterPlane?.mapCodeArray);
 
-           this.projectImageThumb= null; 
-           this.projectImageGallery= []; 
-        
+           this.projectImageThumb= null;
+           this.projectImageGallery= [];
+
       }
 
     })
-   
+
   }
   initData(x:any){
     if(this.types.length==0)
@@ -196,22 +196,22 @@ if(x.length==0)
   delete(id: any) {
     this.attachmentService.deleteAttachment(id, "Project").subscribe(res => {
       if (!res.isError) {
-        this.toastr.success(":: Successfully Deleted")
+        this.toastr.success("Successfully Deleted")
        this.ngOnInit();
       }
       else{
-        this.toastr.error(":: Failed Deleted")
+        this.toastr.error("Failed Deleted")
       }
     })
   }
   deleteAttachment(type: number) {
     this.attachmentService.deleteProjectAttachments(this.projectId, type).subscribe(res => {
       if (!res.isError) {
-        this.toastr.success(":: Successfully Deleted")
+        this.toastr.success("Successfully Deleted")
        this.ngOnInit();
       }
       else{
-        this.toastr.error(":: Failed Deleted")
+        this.toastr.error("Failed Deleted")
       }
     })
   }

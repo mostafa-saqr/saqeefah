@@ -11,7 +11,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { PropertyComponent } from './property/property.component';
 import { PartnerComponent } from './setting/pages/partner/partner.component';
 import { SettingComponent } from './setting/pages/setting.component';
-import { SocialmediaComponent } from './setting/pages/socialmedia/socialmedia.component';
+
 import { WebsiteInfoComponent } from './setting/pages/website-info/website-info.component';
 import { TestComponent } from './test/test.component';
 import { UsersComponent } from './users/users.component';
@@ -49,10 +49,7 @@ const routes: Routes = [
       path:'test',
       component: TestComponent
     },
-    {
-      path:'social',
-      component: SocialmediaComponent
-    },
+
     {path:'partner',
     component:PartnerComponent
 

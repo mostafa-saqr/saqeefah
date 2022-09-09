@@ -1,6 +1,6 @@
 
 .logo {
-  
+
   position: absolute;
   left: 38%;
   top:-45px;
@@ -16,11 +16,11 @@
 
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  
+
   display: block;
   position: relative;
 }
- 
+
 .content-body::before{
   content: "";
 position: absolute;
@@ -29,9 +29,9 @@ position: absolute;
   right: 0;
   width: 100%;
   height: 100%;
- 
+
     background:#ffffffbf;
- 
+
  background: linear-gradient(45deg,#00000096 50%, #ffffffbf 50%);
   background:-webkit-linear-gradient(45deg,#00000096 50%, #ffffffbf 50%);
   background:-moz-linear-gradient(45deg,#00000096 50%, #ffffffbf 50%);
@@ -43,7 +43,7 @@ position: absolute;
 
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus
  { -webkit-text-fill-color: var(--main-color);
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
@@ -51,7 +51,7 @@ input:-webkit-autofill:focus
 }
 
 
-// 
+//
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
@@ -87,7 +87,7 @@ text-align: left;
 height: 75px;
 }
 .error{
-font-weight: 700;
+font-weight: bold;
 
 }
 .form button {
@@ -108,10 +108,10 @@ cursor: pointer;
 background: var(--main-color);
 }
 .form .message {
-margin: 15px 0 0;
+// margin: 15px 0 0;
 color: crimson;
-font-weight: 700;
-font-size: 13px;
+font-weight: bold;
+font-size: 16px;
 }
 .form .message a {
 color: #4CAF50;
