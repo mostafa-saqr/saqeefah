@@ -20,7 +20,6 @@ export class ParallaxComponent implements OnInit {
   ngOnInit(): void {
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
-  
         if(!x.isError)
         {
           if(x.result['succeeded'])
