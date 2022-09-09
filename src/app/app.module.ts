@@ -50,6 +50,7 @@ import { AuthGuard } from './shared/services/auth.guards';
 import { AttachmentService } from './pages/dashboard/services/attachment.service';
 import { siteInformationService } from './shared/services/siteInformation.service';
 import { PlaceOrderService } from './services/placeOrder.service';
+import { SiteInformationSharedService } from './services/site-information-shared.service';
 
 
 
@@ -94,7 +95,7 @@ import { PlaceOrderService } from './services/placeOrder.service';
   ],
   providers: [changeLanguageService, GenaricService,ProjectAndListService,
     FavoritesService,CompareService,AuthService,TestService,AuthGuard,AttachmentService,
-    siteInformationService,PlaceOrderService,
+    siteInformationService,PlaceOrderService,SiteInformationSharedService,
     {provide:HTTP_INTERCEPTORS , useClass:LoadingInterceptor , multi:true},
     {provide:HTTP_INTERCEPTORS , useClass:ErrorInterceptor , multi:true},
     {provide: LocationStrategy, useClass: PathLocationStrategy}

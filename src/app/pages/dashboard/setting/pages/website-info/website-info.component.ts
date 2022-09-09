@@ -5,6 +5,7 @@ import { Editor, Toolbar } from 'ngx-editor';
 import { ToastrService } from 'ngx-toastr';
 import { siteInfo } from 'src/app/pages/Models/siteInfo';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
+import { SiteInformationSharedService } from 'src/app/services/site-information-shared.service';
 import { siteInformationService } from 'src/app/shared/services/siteInformation.service';
 import jsonDoc from '../../models/doc'
 
@@ -37,35 +38,44 @@ export class WebsiteInfoComponent implements OnInit,OnDestroy  {
   });
 
   constructor(private toastr: ToastrService,private siteInformation:siteInformationService,
-    private language:changeLanguageService,private translate:TranslateService) { }
+    private language:changeLanguageService,private translate:TranslateService,
+    private shared:SiteInformationSharedService) { }
 
   ngOnInit(): void {
     // this.editor = new Editor();
-    this.getAllSiteInformation();
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => 
-    {
-     this.getAllSiteInformation();
+    // this.getAllSiteInformation();
+    // this.translate.onLangChange.subscribe((event: LangChangeEvent) => 
+    // {
+    //  this.getAllSiteInformation();
       
-    }); 
+    // }); 
   }
-  getAllSiteInformation(){
-    this.siteInformation.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
-      if(!x.isError)
-      {
-        if(x.result['succeeded'])
-        {
-          this.siteInformations=x.result['data'];
-          Object.keys(this.siteInformations).forEach(k=>{
-            this.items.push({id:k,value:k});
-          });
-          this.initializeFormGroup();
-        }
-        else{
-        }
-      }
+  ngAfterContentChecked() {
+    this.siteInformations=this.shared.siteInformation;
+    Object.keys(this.siteInformations).forEach(k=>{
+                this.items.push({id:k,value:k});
+              });
+              this.initializeFormGroup();
+    // console.log("shared data : ",this.shared.siteInformation)
+  }
+  // getAllSiteInformation(){
+  //   this.siteInformation.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
+  //     if(!x.isError)
+  //     {
+  //       if(x.result['succeeded'])
+  //       {
+  //         this.siteInformations=x.result['data'];
+  //         Object.keys(this.siteInformations).forEach(k=>{
+  //           this.items.push({id:k,value:k});
+  //         });
+  //         this.initializeFormGroup();
+  //       }
+  //       else{
+  //       }
+  //     }
 
-    })
-  }
+  //   })
+  // }
   initializeFormGroup() {
     this.myFormGroup.setValue({
       key: '',

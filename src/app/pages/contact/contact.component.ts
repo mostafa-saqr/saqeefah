@@ -4,6 +4,7 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { ContactUsService } from 'src/app/services/contact-us.service';
+import { SiteInformationSharedService } from 'src/app/services/site-information-shared.service';
 import { siteInformationService } from 'src/app/shared/services/siteInformation.service';
 import { siteInfo } from '../Models/siteInfo';
 
@@ -27,31 +28,34 @@ export class ContactComponent implements OnInit {
   siteInformation:siteInfo;
 
 
-  constructor(private contact:ContactUsService ,private toastr : ToastrService,
+  constructor(private contact:ContactUsService ,private toastr : ToastrService,private shared:SiteInformationSharedService,
     private siteInfo:siteInformationService,private language:changeLanguageService, private translate:TranslateService) { }
 
   ngOnInit(): void {
     this.initializeForm();
-    this.getAllSiteInformation();
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => 
-    {
-     this.getAllSiteInformation();
+    // this.getAllSiteInformation();
+    // this.translate.onLangChange.subscribe((event: LangChangeEvent) => 
+    // {
+    //  this.getAllSiteInformation();
       
-    }); 
+    // }); 
   }
-
-  getAllSiteInformation(){
-    this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
-      if(!x.isError)
-      {
-        if(x.result['succeeded'])
-        {
-          this.siteInformation=x.result['data'];
-        }
-      }
+  ngAfterContentChecked() {
+    this.siteInformation=this.shared.siteInformation;
+    // console.log("shared data : ",this.shared.siteInformation)
+  }
+  // getAllSiteInformation(){
+  //   this.siteInfo.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
+  //     if(!x.isError)
+  //     {
+  //       if(x.result['succeeded'])
+  //       {
+  //         this.siteInformation=x.result['data'];
+  //       }
+  //     }
       
-    })
-  }
+  //   })
+  // }
   onSubmit(){
     if (this.form.invalid) {
       this.showError=true;
