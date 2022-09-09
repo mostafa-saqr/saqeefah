@@ -134,6 +134,7 @@ export class PartnerComponent implements OnInit,OnDestroy{
     e.stopPropagation();
     if (this.images.length > 0) {
       let sliderTypeId= SliderTypes.OurPartners;
+      this.formData = new FormData();
       this.formData.append('SliderId',sliderTypeId.toString())
       for (var  index = 0; index < this.images.length; index++) {
         this.formData.append('Images', this.images[index], this.images[index].name);
@@ -143,6 +144,7 @@ export class PartnerComponent implements OnInit,OnDestroy{
          {
           this.toastr.success("Successfully Uploaded");
           this.getAllSliderAttatchments();
+          this.images=[]; 
          }
          else{
           this.toastr.error(r['message'])
