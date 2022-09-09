@@ -1,5 +1,5 @@
 <app-top-header></app-top-header>
-<nav class="navbar navbar-expand-lg  " [class]="generalService.checkNavIsTRansparent() ? 'navbar-dark' : 'navbar-light white-nav'">
+<nav class="navbar navbar-expand-lg fixed-header-mobile " [class]="generalService.checkNavIsTRansparent() ? 'navbar-dark' : 'navbar-light white-nav'">
     <div class="container">
         <div class="position-relative">
             <a class="navbar-brand " [class]="generalService.checkNavIsTRansparent() ? 'home-logo' : 'inner-logo'" href="#">
@@ -17,7 +17,7 @@
                     <a class="nav-link " aria-current="page" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">{{'home' |translate}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" routerLink="/about" routerLinkActive="active" >{{'about' |translate}} </a>
+                    <a class="nav-link " aria-current="page" routerLink="/about" routerLinkActive="active">{{'about' |translate}} </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" routerLink="/property" routerLinkActive="active">{{'properties' |translate}}</a>
@@ -34,9 +34,10 @@
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" routerLink="/dashboard" routerLinkActive="active">{{'dashboard' | translate}}</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" (click)="changeLanguage('en')">en</a>
-                </li> -->
+                <li class="nav-item d-lg-none">
+                    <a class="nav-link " aria-current="page" (click)="changeLanguage(language.getCurrentLanguage()=='en'?'ar':'en')">{{'lang' | translate}}</a>
+                </li>
+
 
             </ul>
 

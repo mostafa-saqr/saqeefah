@@ -16,6 +16,7 @@ customOptions: OwlOptions = {
   loop: true,
   mouseDrag: false,
   touchDrag: false,
+  autoWidth:false,
   pullDrag: false,
   dots: false,
   navSpeed: 700,

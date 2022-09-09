@@ -9,11 +9,11 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="row g-3 align-items-center">
-                                    <div class="col-auto">
+                                    <div class="col-lg-auto col-md-12 d-none d-lg-block">
                                         <label for="inputPassword6" class="col-form-label"> {{'SortBy' |translate}}</label>
                                     </div>
-                                    <div class="col-auto">
-                                        <select class="filter-select"  #sort (change)="sortByPrice(sort.value)" aria-label=".form-select-lg example">
+                                    <div class="col-lg-auto col-md-12">
+                                        <select class="filter-select" #sort (change)="sortByPrice(sort.value)" aria-label=".form-select-lg example">
                                             <option selected value="l2h" >{{'priceLow' | translate}}</option>
                                             <option value="h2l" >{{'priceHigh' | translate}}</option>
 
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="col-md-9">
+        <div class="col-md-9 order-lg-1 order-2">
 
             <div class="row">
                 <!-- <div class="col-md-6 mb-3" *ngFor="let item of listResult">
@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 order-lg-2 order-1">
 
             <app-search-form [searchAbout]="'property'" (obj)="filter($event)"></app-search-form>
         </div>
