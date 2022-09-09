@@ -314,6 +314,8 @@
   "Shape":"Shape",
    "Cords":"Cords",
    "Link":"Link",
+   "serventRoom":"Servent Room",
+   "dressRoom":"Dress Room", 
    "CountApartmentsStatistic":"Housing units",
    "CountEmployessSoudiStatistic":"A professional Saudi employee",
    "CountProjectsStatistic":"Housing project",

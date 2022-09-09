@@ -34,109 +34,55 @@
             <br/>
             <div class="serch-form">
                 <div class="row mb-3">
-                    <label class="form-label">{{'InternalStation' | translate}}</label>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'Yes' | translate}}
-                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="internalStation">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'No' | translate}}
-                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="internalStation">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
+
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" (change)=" ApplyFilterProperty()"  id="InternalStation" formControlName="InternalStation">
+                        <label class="form-check-label" for="InternalStation" >{{'InternalStation' | translate}}</label>
+                      </div>
+                    
                 </div>
                 <div class="row mb-3">
-                    <label class="form-label">{{'dressRoom' | translate}}</label>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'Yes' | translate}}
-                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="dressRoom">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'No' | translate}}
-                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="dressRoom">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" (change)=" ApplyFilterProperty()"  id="dressRoom" formControlName="dressRoom">
+                        <label class="form-check-label" for="dressRoom" >{{'dressRoom' | translate}}</label>
+                      </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="form-label">{{'serventRoom' | translate}}</label>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'Yes' | translate}}
-                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"   formControlName="serventRoom">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'No' | translate}}
-                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"   formControlName="serventRoom">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" (change)=" ApplyFilterProperty()"  id="serventRoom" formControlName="serventRoom">
+                        <label class="form-check-label" for="serventRoom" >{{'serventRoom' | translate}}</label>
+                      </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="form-label">{{'store' | translate}}</label>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'Yes' | translate}}
-                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="store">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'No' | translate}}
-                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="store">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
+
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" (change)=" ApplyFilterProperty()"  id="store" formControlName="store">
+                        <label class="form-check-label" for="store" >{{'store' | translate}}</label>
+                      </div>
+
                 </div>
                 <div class="row mb-3">
-                    <label class="form-label">{{'roof' | translate}}</label>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'Yes' | translate}}
-                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="roof">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'No' | translate}}
-                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="roof">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
+                    
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" (change)=" ApplyFilterProperty()"  id="roof" formControlName="roof">
+                        <label class="form-check-label" for="roof" >{{'roof' | translate}}</label>
+                      </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="form-label">{{'salon' | translate}}</label>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'Yes' | translate}}
-                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="salon">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'No' | translate}}
-                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="salon">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
+                    
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" (change)=" ApplyFilterProperty()"  id="salon" formControlName="salon">
+                        <label class="form-check-label" for="salon" >{{'salon' | translate}}</label>
+                      </div>
                 </div>
+
                 <div class="row mb-3">
-                    <label class="form-label">{{'p_Intrance' | translate}}</label>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'Yes' | translate}}
-                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="p_Intrance">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
-                    <div class="col-lg-6 col-6">
-                        <label class="containerRadio">{{ 'No' | translate}}
-                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="p_Intrance">
-                                <span class="checkmark"></span>
-                            </label>
-                    </div>
+
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" (change)=" ApplyFilterProperty()"  id="p_Intrance" formControlName="p_Intrance">
+                        <label class="form-check-label" for="p_Intrance" >{{'p_Intrance' | translate}}</label>
+                      </div>
+
                 </div>
                 <div class="row mb-3">
                     <button type="button" (click)="clearFilter()" class="btn btn-small btn-primary ">Clear</button>

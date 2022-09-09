@@ -14,13 +14,13 @@ appRootUrl=environment.appRoot+'/';
 
 customOptions: OwlOptions = {
   loop: true,
-  mouseDrag: false,
-  touchDrag: false,
+  mouseDrag: true,
+  touchDrag: true,
   autoWidth:false,
   pullDrag: false,
   dots: false,
   autoplay:true,
-  navSpeed:300,
+  navSpeed:200,
   navText: ['', ''],
   rtl:this.language.checkRtl(),
   responsive: {
