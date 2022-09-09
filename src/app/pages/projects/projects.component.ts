@@ -10,9 +10,11 @@ import { ProjectAndListService } from 'src/app/services/project-lists.service';
 })
 export class ProjectsComponent implements OnInit {
    view:string='grid3';
-   Total=0;
+  //  Total=0;
   constructor(private generalService:GenaricService, private projects:ProjectAndListService,private language:changeLanguageService) { }
   AllProjects:[] = []
+  filteredProjects:[] = []
+
   getAllProjects(){
     this.projects.getAllProjects(this.language.getLanguageID()).subscribe((response:any)=>{
       console.log('all projects',response)
@@ -20,7 +22,8 @@ export class ProjectsComponent implements OnInit {
       
   if(!response.isError){
     this.AllProjects = response.result.data
-    this.Total= response.result.data.length;
+    this.filteredProjects=response.result.data
+    // this.Total= response.result.data.length;
   }
   
     })
@@ -48,15 +51,15 @@ export class ProjectsComponent implements OnInit {
   }
  
   filter(e){
-    this.AllProjects = e;
+    this.filteredProjects = e;
    
  }
  sortAssending(value){
    if(value == 2) {
-    this.AllProjects.sort((a:any, b:any) => a.projectName.localeCompare(b.projectName))
+    this.filteredProjects.sort((a:any, b:any) => a.projectName.localeCompare(b.projectName))
 
    } else {
-  this.AllProjects.sort((a:any, b:any) => b.projectName.localeCompare(a.projectName))
+  this.filteredProjects.sort((a:any, b:any) => b.projectName.localeCompare(a.projectName))
 
    }
 

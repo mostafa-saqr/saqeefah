@@ -1,209 +1,147 @@
-<div class="serch-form" [ngSwitch]="searchAbout">
-    <div class="box" *ngSwitchCase="'project'">
-        <form (ngSubmit)="ApplyFilterProject()" [formGroup]="form">
-            <div class="mb-3">
-                <label class="form-label">{{'CITY' | translate}}</label>
-                <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProject()" formControlName="city" aria-label=".form-select-lg example">
-                <option selected>{{'--Please Select--' | translate}}</option>
-                <option *ngFor="let city of cities" value="{{city}}">{{city | translate}}</option>
-
-            </select>
+<div class="" >
+    <div class="box">
+        <form (ngSubmit)="ApplyFilterProperty()" [formGroup]="form">
+            <div class="serch-form">
+                <div class="mb-3" *ngIf="searchInallProjects">
+                    <label class="form-label">{{'ProjectId' | translate}}</label>
+                    <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProperty()" formControlName="projectId" aria-label=".form-select-lg example">
+                    <option selected value='all'>{{'--Please Select--' | translate}}</option>
+                    <option *ngFor="let p of projects"   value="{{p.id}}">{{p.value}}</option>
+                </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{{'STATUS' | translate}}</label>
+                    <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProperty()" formControlName="status" aria-label=".form-select-lg example">
+                    <option selected value='all'>{{'--Please Select--' | translate}}</option>
+                    <option *ngFor="let state of apartmentsStatus"   value="{{state.id}}">{{state.value}}</option>
+                </select>
+                </div>
+                <div class="mb-3 slider-container">
+                    <label for="priceRange" class="form-label">{{'PRICE' | translate}}</label>
+                    <input type="range" class="form-range slider w-100" (change)=" ApplyFilterProperty()" formControlName="price" [min]="minPrice" [max]="maxPrice" [step]="priceStep" id="priceRange" #priceSilder>
+                    <span>{{priceSilder.value}}{{'ر.س' | translate}}</span>
+                </div>
+                <div class="mb-3 slider-container">
+                    <label for="AreaRange" class="form-label">{{'Area' | translate}}</label>
+                    <input type="range" class="form-range slider w-100" (change)=" ApplyFilterProperty()" formControlName="totalArea" [min]="minArea" [max]="maxArea" [step]="areaStep" id="areaRange" #areaSilder>
+                    <span>{{areaSilder.value}}{{'م2' | translate}}</span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{{'NUM. OF BEDROOMS' | translate}}</label>
+                    <input type="number" (input)=" ApplyFilterProperty()" name="" min="0" formControlName="bedroom" class="form-control" >
+                </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label">{{'STATUS' | translate}}</label>
-                <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProject()" formControlName="status" aria-label=".form-select-lg example">
-                <option selected>{{'--Please Select--' | translate}}</option>
-                <option *ngFor="let state of status"   value="{{state}}">{{state | translate}}</option>
-
-            </select>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">{{'NUM. OF APPARTMENTS' | translate}}</label>
-                <input type="number" name="" min="0" (change)="ApplyFilterProject()" formControlName="appartment" class="form-control" value="">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">{{'NUM. OF BUILDINGS' | translate}}</label>
-                <input type="number" name="" (change)="ApplyFilterProject()" formControlName="building" min="0" class="form-control" value="">
+            <br/>
+            <div class="serch-form">
+                <div class="row mb-3">
+                    <label class="form-label">{{'InternalStation' | translate}}</label>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'Yes' | translate}}
+                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="internalStation">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'No' | translate}}
+                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="internalStation">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="form-label">{{'dressRoom' | translate}}</label>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'Yes' | translate}}
+                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="dressRoom">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'No' | translate}}
+                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="dressRoom">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="form-label">{{'serventRoom' | translate}}</label>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'Yes' | translate}}
+                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"   formControlName="serventRoom">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'No' | translate}}
+                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"   formControlName="serventRoom">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="form-label">{{'store' | translate}}</label>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'Yes' | translate}}
+                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="store">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'No' | translate}}
+                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="store">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="form-label">{{'roof' | translate}}</label>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'Yes' | translate}}
+                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="roof">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'No' | translate}}
+                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="roof">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="form-label">{{'salon' | translate}}</label>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'Yes' | translate}}
+                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="salon">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'No' | translate}}
+                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="salon">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="form-label">{{'p_Intrance' | translate}}</label>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'Yes' | translate}}
+                                <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="p_Intrance">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                    <div class="col-lg-6 col-6">
+                        <label class="containerRadio">{{ 'No' | translate}}
+                                <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="p_Intrance">
+                                <span class="checkmark"></span>
+                            </label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <button type="button" (click)="clearFilter()" class="btn btn-small btn-primary ">Clear</button>
+                </div>
             </div>
         </form>
     </div>
-
-
-
-
-    <!-- --------------------------------filter property ---------------------------------------- -->
-
-
-    <div class="box" *ngSwitchCase="'property'">
-        <form (ngSubmit)="ApplyFilterProperty()" [formGroup]="form1">
-            <div class="mb-3">
-                <label class="form-label">{{'ProjectId' | translate}}</label>
-                <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProperty()" formControlName="projectId" aria-label=".form-select-lg example">
-                <option selected value='all'>{{'--Please Select--' | translate}}</option>
-                <option *ngFor="let p of projects"   value="{{p.id}}">{{p.value}}</option>
-              
-            </select>
-            </div>
-             <div class="mb-3">
-                <label class="form-label">{{'STATUS' | translate}}</label>
-                <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProperty()" formControlName="status" aria-label=".form-select-lg example">
-                <option selected value='all'>{{'--Please Select--' | translate}}</option>
-                <option *ngFor="let state of apartmentsStatus"   value="{{state.id}}">{{state.value}}</option>
-              
-            </select>
-            </div>
-            <div class="mb-3 slider-container">
-                <label for="priceRange" class="form-label">{{'PRICE' | translate}}</label>
-                <input type="range" class="form-range slider w-100" (change)=" ApplyFilterProperty()" formControlName="price" [min]="minPrice" [max]="maxPrice" [step]="priceStep" id="priceRange" #priceSilder>
-                <span>{{priceSilder.value}}{{'ر.س' | translate}}</span>
-            </div>
-           
-            <!-- <div class="mb-3">
-                <label class="form-label">{{'Area' | translate}}</label>
-                <input type="number" (input)=" ApplyFilterProperty()" name="" min="0" formControlName="totalArea" class="form-control" >
-            </div> -->
-            <div class="mb-3 slider-container">
-                <label for="AreaRange" class="form-label">{{'Area' | translate}}</label>
-                <input type="range" class="form-range slider w-100" (change)=" ApplyFilterProperty()" formControlName="totalArea" [min]="minArea" [max]="maxArea" [step]="areaStep" id="areaRange" #areaSilder>
-                <span>{{areaSilder.value}}{{'م2' | translate}}</span>
-            </div>
-            <div class="row mb-3">
-                <label class="form-label">{{'InternalStation' | translate}}</label>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'Yes' | translate}}
-                            <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="internalStation">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'No' | translate}}
-                            <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="internalStation">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">{{'NUM. OF BEDROOMS' | translate}}</label>
-                <input type="number" (input)=" ApplyFilterProperty()" name="" min="0" formControlName="bedroom" class="form-control" >
-            </div>
-
-            <div class="row mb-3">
-                <label class="form-label">{{'dressRoom' | translate}}</label>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'Yes' | translate}}
-                            <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="dressRoom">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'No' | translate}}
-                            <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="dressRoom">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-            </div>
-
-            <div class="row mb-3">
-                <label class="form-label">{{'serventRoom' | translate}}</label>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'Yes' | translate}}
-                            <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"   formControlName="serventRoom">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'No' | translate}}
-                            <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"   formControlName="serventRoom">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-            </div>
-            <div class="row mb-3">
-                <label class="form-label">{{'store' | translate}}</label>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'Yes' | translate}}
-                            <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="store">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'No' | translate}}
-                            <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="store">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-            </div>
-            <div class="row mb-3">
-                <label class="form-label">{{'roof' | translate}}</label>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'Yes' | translate}}
-                            <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="roof">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'No' | translate}}
-                            <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="roof">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-            </div>
-            <div class="row mb-3">
-                <label class="form-label">{{'salon' | translate}}</label>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'Yes' | translate}}
-                            <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="salon">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'No' | translate}}
-                            <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="salon">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-            </div>
-            <div class="row mb-3">
-                <label class="form-label">{{'p_Intrance' | translate}}</label>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'Yes' | translate}}
-                            <input type="radio"  [value]="1" (change)=" ApplyFilterProperty()"  formControlName="p_Intrance">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-                <div class="col-lg-6 col-6">
-                    <label class="containerRadio">{{ 'No' | translate}}
-                            <input type="radio"  [value]="0" (change)=" ApplyFilterProperty()"  formControlName="p_Intrance">
-                            <span class="checkmark"></span>
-                        </label>
-                </div>
-
-            </div>
-        <button type="button" (click)="clearFilter()" class="btn btn-small btn-primary w-25 mt-2">Clear</button>
-
-        </form>
-    </div>
-
-
 </div>

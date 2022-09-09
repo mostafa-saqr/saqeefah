@@ -67,8 +67,7 @@
             </div>
         </div>
         <div class="col-md-3">
-
-            <app-search-form [searchAbout]="'property'" (obj)="filter($event)" [allProp]="AllProperties"></app-search-form>
+            <app-search-form  (obj)="filter($event)" [allProp]="AllProperties" [searchInallProjects]="true"></app-search-form>
         </div>
     </div>
 </div>
