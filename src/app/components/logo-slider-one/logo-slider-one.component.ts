@@ -18,7 +18,8 @@ customOptions: OwlOptions = {
   touchDrag: false,
   pullDrag: false,
   dots: false,
-  navSpeed: 700,
+  autoplay:true,
+  navSpeed: 500,
   navText: ['', ''],
   rtl:this.language.checkRtl(),
   responsive: {
