@@ -21,6 +21,7 @@ import { LogoSliderOneComponent } from './logo-slider-one/logo-slider-one.compon
 import { LogoSlidertowComponent } from './logo-slidertow/logo-slidertow.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchProjectFormComponent } from './search-project-form/search-project-form.component';
 
 
 
@@ -31,6 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProjectCardComponent,
     PropertyCardComponent,
     SearchFormComponent,
+    SearchProjectFormComponent,
     ModalComponent,
     GalleryComponent,
     LogoSliderOneComponent,
@@ -56,6 +58,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProjectCardComponent,
     PropertyCardComponent,
     SearchFormComponent,
+    SearchProjectFormComponent,
     ModalComponent,
     GalleryComponent,
     LogoSliderOneComponent,
