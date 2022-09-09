@@ -1,4 +1,4 @@
-export interface siteInfo{58264
+export interface siteInfo{
     whatsAppNumber: string,
     address:string,
     facebookURL: string,
