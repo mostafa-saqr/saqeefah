@@ -8,6 +8,7 @@
 //icons
 @import './assets/fonts/icons/styles.css';
 @import './assets/iconmoonstyle.css';
+@import './assets/svgstyle.css';
 // layout
 @import './assets/scss/layout/top-header';
 @import './assets/scss/layout/header';
@@ -25,8 +26,7 @@
 @import './assets/scss/pages/home';
 //toastr
 @import "../node_modules/ngx-toastr/toastr.css";
-//admin panel
-//  @import './assets/css/Adminpanel';
+
 body {
     background: #F6F6F6;
 }

@@ -16,7 +16,6 @@ import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FooterComponent } from './navigator/footer/footer.component';
 import { HeaderComponent } from './navigator/header/header.component';
 import { SidebarComponent } from './navigator/sidebar/sidebar.component';
-import { SocialmediaComponent } from './setting/pages/socialmedia/socialmedia.component';
 import { TopHeaderComponent } from './navigator/top-header/top-header.component';
 import { SettingFormComponent } from './setting/components/setting-form/setting-form.component';
 import { IconPickerModule } from 'ngx-icon-picker';
@@ -53,7 +52,6 @@ import { GenaricService } from 'src/app/services/Genaric.service';
             SidebarComponent,
             FooterComponent,
             TopHeaderComponent,
-            SocialmediaComponent,
             PartnerComponent,
             WebsiteInfoComponent,
             FeedbackListComponent,
@@ -109,7 +107,7 @@ import { GenaricService } from 'src/app/services/Genaric.service';
     DashboardComponent
   ]
 })
-export class DashboardModule { 
+export class DashboardModule {
   /**
    *
    */
