@@ -119,6 +119,16 @@ a {
     background: #af8f7a;
 }
 
+.form-check-input:checked {
+    background-color: $mainColor;
+    border-color: $mainColor;
+}
+
+.form-check-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 0 rgba(13, 109, 253, 0.048);
+}
+
 // .owl-carousel .owl-item img {
 //     width: auto !important;
 //     max-height: 100px;
