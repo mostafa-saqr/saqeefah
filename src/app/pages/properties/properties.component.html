@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <h3 class="secondary-color mb-0">{{'Appartment'|translate}}</h3>
-            <h6 class="mb-0">{{AllProperties.length}} {{'list founded' | translate}}</h6>
+            <h6 class="mb-0">{{filteredProperties.length}} {{'list founded' | translate}}</h6>
             <div class="row">
                 <div class="col-md-9">
                     <div class="filter-panel mt-3">
@@ -52,13 +52,13 @@
                 <div [ngSwitch]="view">
 
                     <div class="row" *ngSwitchCase="'grid3'">
-                        <app-property-card class=" col-12  col-md-6  mb-3" [property]="item" *ngFor="let item of AllProperties"></app-property-card>
+                        <app-property-card class=" col-12  col-md-6  mb-3" [property]="item" *ngFor="let item of filteredProperties"></app-property-card>
                     </div>
                     <div class="row" *ngSwitchCase="'grid6'">
-                        <app-property-card class="col-12 col-md-4 mb-3" [property]="item" [viewType]="'grid6'" *ngFor="let item of AllProperties"></app-property-card>
+                        <app-property-card class="col-12 col-md-4 mb-3" [property]="item" [viewType]="'grid6'" *ngFor="let item of filteredProperties"></app-property-card>
                     </div>
                     <div class="row" *ngSwitchCase="'list'">
-                        <app-property-card class="col-12 col-md-12 mb-3" [property]="item" [viewType]="'list'" *ngFor="let item of AllProperties"></app-property-card>
+                        <app-property-card class="col-12 col-md-12 mb-3" [property]="item" [viewType]="'list'" *ngFor="let item of filteredProperties"></app-property-card>
                     </div>
                     <!-- <div class="col-md-12 text-center">
                         <button class="btn more-btn">Load more</button>
@@ -67,8 +67,7 @@
             </div>
         </div>
         <div class="col-md-3 order-lg-2 order-1">
-
-            <app-search-form [searchAbout]="'property'" (obj)="filter($event)"></app-search-form>
+            <app-search-form (obj)="filter($event)" [allProp]="AllProperties" [searchInallProjects]="true"></app-search-form>
         </div>
     </div>
 </div>

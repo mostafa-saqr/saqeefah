@@ -22,6 +22,14 @@ export class PlaceOrderService  {
         var result = this.callApi.get(`api/Client/Cities?languageId=${languageId}`,false)
         return result; 
     }
+    getAllApartmentStatus(languageId:string){
+        var result = this.callApi.get(`api/Client/ApartmentStatus?languageId=${languageId}`,false)
+        return result; 
+    }
+    getAllProjectStatus(languageId:string){
+        var result = this.callApi.get(`api/Client/ProjectStatus?languageId=${languageId}`,false)
+        return result; 
+    }
     getAllDistricts(languageId:string,cityId:any){
         var result = this.callApi.get(`api/Client/Districts?languageId=${languageId}&cityId=${cityId}`,false)
         return result; 

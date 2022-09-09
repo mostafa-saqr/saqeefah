@@ -8,6 +8,7 @@ import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 export class BuildingsComponent implements OnInit, AfterViewInit {
   @Input() buildings:any
   @Input() activeBuilding:any
+  filteredProperties:[] = []
   propertIndex:number = 0
   propertyOfSelectedBuilding!:[]
   propertyOfSelectedBuildingForFilter!:[]
@@ -18,10 +19,12 @@ export class BuildingsComponent implements OnInit, AfterViewInit {
         
         this.propertyOfSelectedBuilding = selectedBuild[0].apartments
         this.propertyOfSelectedBuildingForFilter =  this.propertyOfSelectedBuilding;
+        this.filteredProperties=this.propertyOfSelectedBuilding;
         this.activeBuilding = this.buildings[0].build
       } else {
         this.propertyOfSelectedBuilding = this.buildings[0].apartments
         this.propertyOfSelectedBuildingForFilter =  this.propertyOfSelectedBuilding;
+        this.filteredProperties=this.propertyOfSelectedBuilding;
       
       
       }
@@ -29,12 +32,12 @@ export class BuildingsComponent implements OnInit, AfterViewInit {
 
   }
   filter(e){
-this.propertyOfSelectedBuilding = e
+    this.filteredProperties = e;
   }
   constructor() { }
 
   ngOnInit(): void {
-    console.log('buildings', this.buildings)
+    // console.log('buildings', this.buildings)
   this.getBuildingProperty(this.activeBuilding)
   }
 ngAfterViewInit(): void {
