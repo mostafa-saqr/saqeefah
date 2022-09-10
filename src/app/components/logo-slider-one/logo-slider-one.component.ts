@@ -16,11 +16,14 @@ customOptions: OwlOptions = {
   loop: true,
   mouseDrag: true,
   touchDrag: true,
-  autoWidth:false,
+  autoWidth:true,
   pullDrag: false,
   dots: false,
   autoplay:true,
-  navSpeed:200,
+  autoplayTimeout:1000 ,
+  margin:10,
+  center:true,
+
   navText: ['', ''],
   rtl:this.language.checkRtl(),
   responsive: {

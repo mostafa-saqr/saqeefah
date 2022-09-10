@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SearchProjectFormComponent } from './search-project-form/search-project-form.component';
 import { SwipperGalleryComponent } from './swipper-gallery/swipper-gallery.component';
 import { SwiperModule } from 'swiper/angular';
+import { SvgComponent } from './svg/svg.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { SwiperModule } from 'swiper/angular';
     GalleryComponent,
     LogoSliderOneComponent,
     LogoSlidertowComponent,
-    SwipperGalleryComponent
+    SwipperGalleryComponent,
+    SvgComponent
   ],
   imports: [
     CommonModule,
@@ -66,7 +68,8 @@ import { SwiperModule } from 'swiper/angular';
     GalleryComponent,
     LogoSliderOneComponent,
     LogoSlidertowComponent,
-    SwipperGalleryComponent
+    SwipperGalleryComponent,
+    SvgComponent
   ],
   providers: [
     MarkerService,
