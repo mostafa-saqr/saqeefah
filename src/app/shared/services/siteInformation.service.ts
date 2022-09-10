@@ -21,4 +21,9 @@ export class siteInformationService {
   public getInfoByKey(key:any,lang:any){
     return this.caller.get("api/WebsiteInformationSetting/GetWebsiteInformationSettingByKey?key="+key+"&languageId="+lang,false);
   }
+
+  public GetAllWebsiteInformationSettingForAdmin(){
+    return this.caller.get("api/WebsiteInformationSetting/GetAllWebsiteInformationSettingForAdmin");
+  }
+
 }
