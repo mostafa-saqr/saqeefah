@@ -33,6 +33,7 @@
     "jquery": "^3.6.1",
     "leaflet": "^1.7.1",
     "mousetrap": "^1.6.5",
+    "ngx-countup": "^13.1.0",
     "ngx-editor": "^15.0.0",
     "ngx-icon-picker": "^1.9.1",
     "ngx-owl-carousel-o": "^14.0.1",

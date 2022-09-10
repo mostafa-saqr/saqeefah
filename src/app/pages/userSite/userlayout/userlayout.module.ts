@@ -28,6 +28,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpLoaderFactory } from 'src/app/app.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CountUpModule } from 'ngx-countup';
 
 
 
@@ -61,6 +62,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RouterModule,
+    CountUpModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,

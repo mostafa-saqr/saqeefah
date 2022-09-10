@@ -1,5 +1,7 @@
 <owl-carousel-o [options]="customOptions" *ngIf="logos">
     <ng-template carouselSlide *ngFor="let item of logos">
-    <img [src]="appRootUrl+item.path" alt=""  style="height:208.25px"   [id]="item.attachmentId">
+        <div class="img-container">
+            <img [src]="appRootUrl+item.path" alt="" [id]="item.attachmentId">
+        </div>
     </ng-template>
 </owl-carousel-o>
