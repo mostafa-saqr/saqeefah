@@ -38,6 +38,7 @@
                             "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
                             "./node_modules/leaflet/dist/leaflet.css",
                             "node_modules/datatables.net-dt/css/jquery.dataTables.css",
+                            "./node_modules/swiper/swiper-bundle.min.css",
                             {
                                 "input": "src/master-ltr.scss",
                                 "bundleName": "enStyle",

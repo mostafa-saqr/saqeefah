@@ -33,7 +33,6 @@ import { CountUpModule } from 'ngx-countup';
 
 
 
-
 @NgModule({
   declarations: [
     UserlayoutComponent,
@@ -62,6 +61,7 @@ import { CountUpModule } from 'ngx-countup';
   imports: [
     CommonModule,
     RouterModule,
+ 
     CountUpModule,
     HttpClientModule,
     ReactiveFormsModule,

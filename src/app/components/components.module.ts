@@ -22,7 +22,8 @@ import { LogoSlidertowComponent } from './logo-slidertow/logo-slidertow.componen
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchProjectFormComponent } from './search-project-form/search-project-form.component';
-
+import { SwipperGalleryComponent } from './swipper-gallery/swipper-gallery.component';
+import { SwiperModule } from 'swiper/angular';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { SearchProjectFormComponent } from './search-project-form/search-project
     ModalComponent,
     GalleryComponent,
     LogoSliderOneComponent,
-    LogoSlidertowComponent
+    LogoSlidertowComponent,
+    SwipperGalleryComponent
   ],
   imports: [
     CommonModule,
@@ -44,6 +46,7 @@ import { SearchProjectFormComponent } from './search-project-form/search-project
     RouterModule,
     ReactiveFormsModule,
     CarouselModule,
+    SwiperModule,
     GalleryModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
@@ -62,7 +65,8 @@ import { SearchProjectFormComponent } from './search-project-form/search-project
     ModalComponent,
     GalleryComponent,
     LogoSliderOneComponent,
-    LogoSlidertowComponent
+    LogoSlidertowComponent,
+    SwipperGalleryComponent
   ],
   providers: [
     MarkerService,
