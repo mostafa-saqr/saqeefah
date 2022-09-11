@@ -84,16 +84,18 @@ export class EditProjectComponent implements OnInit {
 
     this.uploadWorking = true
     this.masterPlaneFormData.append('Project_Id', this.projectId)
-    this.masterPlaneFormData.append('MasterPlaneImage', this.masterPlaneImage, this.masterPlaneImage.name)
+    if(this.masterPlaneImage)
+    this.masterPlaneFormData.append('MasterPlaneImage', this.masterPlaneImage, this.masterPlaneImage?.name)
     let data=JSON.stringify(this.masterPlanData);
     this.masterPlaneFormData.append('JsonMapCodeString', data)
     this.masterPlaneFormData.append('ProjectOverview', this.projectOverView)
     this.editProject.uploadProjectMasterPlane(this.masterPlaneFormData).subscribe((resp) => {
       if (!resp.isError) {
-        this.toastr.success("Successfully Updated")
         this.uploadWorking = false
         this.masterPlaneUploadMessage = resp.message
         this.masterPlanData=[] as MasterPlan[];
+        this.toastr.success("Successfully Updated")
+      
         this.ngOnInit();
         // this.uploadWorking = false
         // this.masterPlaneUploadMessage = resp.message
@@ -185,13 +187,13 @@ export class EditProjectComponent implements OnInit {
       this.types.push({id:'Circle',value:'Circle'});
     }
 
-if(x.length==0)
-  this.masterPlanData.push({id:'',cords:'',shape:''});
-  else{
-    x.forEach(e=>{
-      this.masterPlanData.push({id:e.id,cords:e.cords,shape:e.shape});
-    });
-  }
+    if(x.length==0)
+      this.masterPlanData.push({id:'',cords:'',shape:''});
+      else{
+        x.forEach(e=>{
+          this.masterPlanData.push({id:e.id,cords:e.cords,shape:e.shape});
+        });
+      }
   }
   delete(id: any) {
     this.attachmentService.deleteAttachment(id, "Project").subscribe(res => {

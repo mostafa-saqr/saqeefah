@@ -13,16 +13,12 @@ export class PropertyComponent implements OnInit {
 
   constructor(private generalService:GenaricService, private properties:ProjectAndListService,private language:changeLanguageService) { }
   Allproperties:[] = []
+  filteredProperties:[] = []
   getAllproperties(){
     this.properties.getAllProperties().subscribe((response:any)=>{
-
-    
-    
-      
-      this.Allproperties = response.result.data
-      console.log('all properties',this.Allproperties)
-     
-  
+      this.Allproperties = response.result.data;
+      this.filteredProperties=response.result.data;
+      // console.log('all properties',this.Allproperties)
     })
   }
   ngOnInit(): void {
@@ -30,6 +26,10 @@ export class PropertyComponent implements OnInit {
     this.language.changeLanguageStatus.subscribe((data)=>{
       this.getAllproperties()
     })
+  }
+
+  filter(e){
+    this.filteredProperties = e;
   }
 
 

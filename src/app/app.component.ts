@@ -5,6 +5,7 @@ import { changeLanguageService } from './services/changeLanguage.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BusyService } from './pages/dashboard/services/busy.service';
 import { SiteInformationSharedService } from './services/site-information-shared.service';
+import { AllSettingSharedService } from './services/all-setting-shared.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { SiteInformationSharedService } from './services/site-information-shared
 export class AppComponent implements OnInit,AfterViewInit {
   title = 'saqeefah';
 constructor(public translate: TranslateService,private lang:changeLanguageService  ,
-   private loader : BusyService,private shared:SiteInformationSharedService){
+   private loader : BusyService,private shared:SiteInformationSharedService,private settingShared:AllSettingSharedService){
 this.loader.busy();
 }
 ngOnInit(): void {
@@ -24,6 +25,8 @@ ngOnInit(): void {
   // this.shared.updateSiteInformation();
   this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
     this.shared.updateSiteInformation();
+    this.settingShared.updateAllSetting();
+
     });
 
   // this.translate.use(environment.lang)

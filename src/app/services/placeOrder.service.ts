@@ -41,8 +41,8 @@ export class PlaceOrderService  {
     Post(Model:any){
 let Mod={
     interest_Date:Model.interest_Date,
-    project_Ref: Model.project_Ref,
-    building_Ref:Model.building_Ref,
+    project_Ref: 0,
+    building_Ref:0,
     apartment_Ref:Model.apartment_Ref,
     client_Name: Model.client_Name,//
     client_Mobile: Model.client_Mobile,//

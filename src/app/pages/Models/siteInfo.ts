@@ -22,3 +22,9 @@ export interface siteInfo{
     CountEmployessSoudiStatistic:string,
     CountProjectsStatistic:string
 }
+export interface adminSiteInfo{
+    id:string,
+    key:string,
+    valueAr:string,
+    valueEn:string,
+}

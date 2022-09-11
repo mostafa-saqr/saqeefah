@@ -110,6 +110,7 @@ export class SearchFormComponent implements OnInit {
             item.value=element.name
             this.apartmentsStatus.push(item);
           });
+          this.form.patchValue({status:1});//متاح
         }
       }
       else{
@@ -141,7 +142,7 @@ export class SearchFormComponent implements OnInit {
   clearFilter(){
       this.form.patchValue({
         projectId:'all',
-        status:'all',
+        status:1,  //متاح
         price: null,
         totalArea:null,
         internalStation:null,
