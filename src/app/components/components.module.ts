@@ -27,6 +27,7 @@ import { SearchClientOrdersComponent } from './search-client-orders/search-clien
 import { SwipperGalleryComponent } from './swipper-gallery/swipper-gallery.component';
 import { SwiperModule } from 'swiper/angular';
 import { SvgComponent } from './svg/svg.component';
+import { AboutSectionFacilityComponent } from './about-section/about-section-facility.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { SvgComponent } from './svg/svg.component';
     SearchProjectFormComponent,
     ModalComponent,
     GalleryComponent,
+    AboutSectionFacilityComponent,
     LogoSliderOneComponent,
     LogoSlidertowComponent,
     SwipperGalleryComponent,
@@ -70,6 +72,7 @@ import { SvgComponent } from './svg/svg.component';
     SearchProjectFormComponent,
     ModalComponent,
     GalleryComponent,
+    AboutSectionFacilityComponent,
     LogoSliderOneComponent,
     LogoSlidertowComponent,
     SwipperGalleryComponent,
