@@ -2,12 +2,12 @@ export const environment = {
   production: true,
   appRoot:"https://api-stage.saqeefah.com",
   lang:"ar",
-  minPrice:20000,
-  maxprice:9000000000,
-  priceStep:200000,
-  minArea:50,
-  maxArea:5000,
-  areaStep:30,
+  minPrice:500000,
+  maxprice:4000000,
+  priceStep:50000,
+  minArea:100,
+  maxArea:1000,
+  areaStep:50,
   priceRange:100000,
   areaRange:30
   // appRoot:"https://localhost:7252"
