@@ -6,7 +6,8 @@
 
         </div>
         <div class="col-md-9 mb-5">
-            <app-gallery [galleryImage]="propertyDetails.images" *ngIf="propertyDetails && propertyDetails.images"></app-gallery>
+            <!-- <app-gallery [galleryImage]="propertyDetails.images" *ngIf="propertyDetails && propertyDetails.images"></app-gallery> -->
+            <app-swipper-gallery [galleryImage]="propertyDetails.images" *ngIf="propertyDetails && propertyDetails.images"></app-swipper-gallery>
             <img src="assets/images/home-placeHolder.webp" class="img-fluid" *ngIf="propertyDetails && propertyDetails.images.length == 0" alt="">
             <hr class="mt-5 mb-5">
             <div class="property-section">
@@ -196,7 +197,7 @@
             <div class="row mb-1" *ngIf="propertyDetails">
                 <div class="col-md-12 text-left">
                     <b class="mainColor" style="font-size: 20px;">
-   {{propertyDetails.apartment_Price}} ر.س
+   {{propertyDetails.apartment_Price | number: '.2'}} ر.س
 
 </b>
                 </div>

@@ -3,7 +3,7 @@
     <div class="indecators-panel">
         <div class="container">
             <div class="row">
-                <div class="col-4 col-md-4 text-center" style="text-shadow: 3px 3px 4px black;">
+                <div class=" col-md-4 text-center" style="text-shadow: 3px 3px 4px black;">
                     <span class="icon-home-icon"></span>
                     <p class="counter secondary-color"> <span [countUp]="1200" [options]="{ enableScrollSpy: true }">0</span> + </p>
 
@@ -12,18 +12,22 @@
                     </p>
 
                 </div>
-                <div class="col-4 col-md-4 text-center" style="text-shadow: 3px 3px 4px black;">
+                <div class=" col-md-4 text-center" style="text-shadow: 3px 3px 4px black;">
                     <span class="icon-download"></span>
-                    <p class="counter secondary-color"> <span [countUp]="50" [options]="{ enableScrollSpy: true }">0</span>   </p>
+                    <!-- <p class="counter secondary-color">{{siteInformation?.CountEmployessSoudiStatistic}}</p> -->
+                    <p class="counter secondary-color" [countUp]="50" [options]="{ enableScrollSpy: true }"><span>+</span>0</p>
+
                     <p class="subject">{{'CountEmployessSoudiStatistic' | translate}}
 
                     </p>
                 </div>
                 <!-- test -->
-                <div class="col-4 col-md-4 text-center" style="text-shadow: 3px 3px 4px black;">
+                <div class=" col-md-4 text-center" style="text-shadow: 3px 3px 4px black;">
 
                     <span class="icon-office-building"></span>
-                    <p class="counter secondary-color"  >  <span [countUp]="55" [options]="{ enableScrollSpy: true }">0</span> + </p>
+                    <p class="counter secondary-color" [countUp]="55" [options]="{ enableScrollSpy: true }"><span>+</span>0</p>
+
+                    <!-- <p class="counter secondary-color"><span>+</span>{{siteInformation?.CountProjectsStatistic}}</p> -->
                     <p class="subject">{{'CountProjectsStatistic' | translate}}
 
 

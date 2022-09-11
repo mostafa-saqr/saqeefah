@@ -24,6 +24,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SearchProjectFormComponent } from './search-project-form/search-project-form.component';
 import { SearchClientOrdersComponent } from './search-client-orders/search-client-orders.component';
 
+import { SwipperGalleryComponent } from './swipper-gallery/swipper-gallery.component';
+import { SwiperModule } from 'swiper/angular';
+import { SvgComponent } from './svg/svg.component';
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import { SearchClientOrdersComponent } from './search-client-orders/search-clien
     ModalComponent,
     GalleryComponent,
     LogoSliderOneComponent,
-    LogoSlidertowComponent
+    LogoSlidertowComponent,
+    SwipperGalleryComponent,
+    SvgComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +51,7 @@ import { SearchClientOrdersComponent } from './search-client-orders/search-clien
     RouterModule,
     ReactiveFormsModule,
     CarouselModule,
+    SwiperModule,
     GalleryModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
@@ -65,7 +71,9 @@ import { SearchClientOrdersComponent } from './search-client-orders/search-clien
     ModalComponent,
     GalleryComponent,
     LogoSliderOneComponent,
-    LogoSlidertowComponent
+    LogoSlidertowComponent,
+    SwipperGalleryComponent,
+    SvgComponent
   ],
   providers: [
     MarkerService,

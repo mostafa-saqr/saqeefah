@@ -1,4 +1,7 @@
 @media only screen and (max-width: 600px) {
+    body {
+        padding-top: 85px;
+    }
     .filter-panel {
         height: 54px;
         padding: 0 7px;
@@ -29,12 +32,12 @@
             font-size: 40px !important;
             width: 100% !important;
             p {
-                width: 100% !important;
+                width: 83% !important;
             }
         }
     }
     .parallax {
-        height: 500px;
+        height: 600px;
     }
     .card .img-panel .moreSpcs {
         bottom: 37%;
