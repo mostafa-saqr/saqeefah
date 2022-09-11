@@ -8,7 +8,7 @@ export const environment = {
   minArea:50,
   maxArea:5000,
   areaStep:30,
-  priceRange:1000000,
+  priceRange:100000,
   areaRange:30
   // appRoot:"https://localhost:7252"
 };
