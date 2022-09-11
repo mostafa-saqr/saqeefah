@@ -20,7 +20,9 @@ export interface siteInfo{
     projectDesc: string,
     CountApartmentsStatistic:string,
     CountEmployessSoudiStatistic:string,
-    CountProjectsStatistic:string
+    CountProjectsStatistic:string,
+    companyLocation:string
+
 }
 export interface adminSiteInfo{
     id:string,

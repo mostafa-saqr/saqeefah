@@ -1,7 +1,10 @@
 <div class="" >
     <div class="box">
+  
         <form (ngSubmit)="ApplyFilterProperty()" [formGroup]="form">
             <div class="serch-form">
+                <a *ngIf="!searchInallProjects" routerLink="/property">{{'searchAllProjects' | translate}}</a>
+                <br/>   <br/>
                 <div class="mb-3" *ngIf="searchInallProjects">
                     <label class="form-label">{{'ProjectId' | translate}}</label>
                     <select class="form-select form-select-lg mb-3" (change)="ApplyFilterProperty()" formControlName="projectId" aria-label=".form-select-lg example">

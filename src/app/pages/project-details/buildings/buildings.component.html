@@ -13,9 +13,6 @@
         </div>
     </div>
     <div class="col-md-3">
-       
-        <a routerLink="/property">Search All Projects</a>
-        <p></p>
         <app-search-form  (obj)="filter($event)" [allProp]="propertyOfSelectedBuildingForFilter" [searchInallProjects]="false"></app-search-form>
     
     </div>

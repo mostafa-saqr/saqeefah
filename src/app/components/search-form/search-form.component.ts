@@ -22,6 +22,7 @@ export class SearchFormComponent implements OnInit {
   @Input() searchInallProjects: boolean=true;
 
 
+
   
   @Output() obj = new EventEmitter<{}>();
   // AllProjects: [] = []

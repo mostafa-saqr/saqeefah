@@ -63,7 +63,6 @@ export class FooterComponent implements OnInit {
 //   })
 // }
   onSubmit(){
-    debugger;
     if (this.form.invalid) {
 
       this.showError=true;
