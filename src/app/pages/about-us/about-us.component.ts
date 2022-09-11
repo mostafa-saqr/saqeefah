@@ -31,30 +31,30 @@ public ourMeetingBg
      private language:changeLanguageService,private sanitizer:DomSanitizer,
     private projects:ProjectAndListService) { }
  getAboutSetting(){
-//  return this.setting.getAllsettings(this.language.getLanguageID()).subscribe((response)=>{
-//     if(!response.isError){
-//       let allSetting = response.result.data
-//       this.AboutUs = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.AboutUs)[0];
-//       this.OurVision = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurVision)[0];
-//       this.OurGoals = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurGoals)[0];
-//       this.OurStory = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurStory)[0];
-//       this.ceoWord = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.ceoWord)[0];
-//       this.ourMeeting = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.ourMeeting)[0];
+ return this.setting.getAllsettings(this.language.getLanguageID()).subscribe((response)=>{
+    if(!response.isError){
+      let allSetting = response.result.data
+      this.AboutUs = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.AboutUs)[0];
+      this.OurVision = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurVision)[0];
+      this.OurGoals = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurGoals)[0];
+      this.OurStory = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurStory)[0];
+      this.ceoWord = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.ceoWord)[0];
+      this.ourMeeting = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.ourMeeting)[0];
      
-//         this.ourMeetingBg = this.setting.appRootUrl+this.ourMeeting.imagePath
-//         console.log('website setting from about us page',allSetting)
+        this.ourMeetingBg = this.setting.appRootUrl+this.ourMeeting.imagePath
+        console.log('website setting from about us page',allSetting)
       
 
-//     }
-//   })
-let allSetting = this.sh.setting;
-this.AboutUs = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.AboutUs)[0];
-this.OurVision = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurVision)[0];
-this.OurGoals = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurGoals)[0];
-this.OurStory = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurStory)[0];
-this.ceoWord = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.ceoWord)[0];
-this.ourMeeting = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.ourMeeting)[0];
-this.ourMeetingBg = this.setting.appRootUrl+this.ourMeeting.imagePath
+    }
+  })
+// let allSetting = this.sh.setting;
+// this.AboutUs = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.AboutUs)[0];
+// this.OurVision = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurVision)[0];
+// this.OurGoals = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurGoals)[0];
+// this.OurStory = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurStory)[0];
+// this.ceoWord = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.ceoWord)[0];
+// this.ourMeeting = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.ourMeeting)[0];
+// this.ourMeetingBg = this.setting.appRootUrl+this.ourMeeting.imagePath
  }
  
 getAllProjects(){

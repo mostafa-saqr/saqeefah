@@ -23,16 +23,16 @@ export class SettingComponent implements OnInit {
   }
 
   public getSettingTypes() {
-    this.stingTypes=this.setting.setting;
-    // this.settingsService.getAllsettingsType().subscribe(r => {
+    // this.stingTypes=this.setting.setting;
+    this.settingsService.getAllsettingsType().subscribe(r => {
       
      
-    //   if(!r.isError){
-    //    this.stingTypes= r.result["data"];
-    //    console.log( this.stingTypes);
-    //   }
+      if(!r.isError){
+       this.stingTypes= r.result["data"];
+       console.log( this.stingTypes);
+      }
 
-    // });
+    });
 
 
   }

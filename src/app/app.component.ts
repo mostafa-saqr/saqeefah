@@ -25,7 +25,7 @@ ngOnInit(): void {
   // this.shared.updateSiteInformation();
   this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
     this.shared.updateSiteInformation();
-    this.settingShared.updateAllSetting();
+    // this.settingShared.updateAllSetting();
 
     });
 

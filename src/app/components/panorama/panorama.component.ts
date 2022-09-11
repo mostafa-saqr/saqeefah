@@ -24,29 +24,9 @@ export class PanoramaComponent implements OnInit, AfterViewInit {
   public setting:SettingsService, private language:changeLanguageService,private sanitizer:DomSanitizer) { }
  getPanoramaSetting(){
   this.sh.settingBS.subscribe
-  // return this.setting.getAllsettings(this.language.getLanguageID()).subscribe((response)=>{
-  //   if(!response.isError){
-  //     let allSetting = response.result.data
-  //     this.Panorama = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.Panorama)[0];
-  //     if(this.Panorama){
-  //       const panorama = new PANOLENS.ImagePanorama(this.setting.appRootUrl+this.Panorama.imagePath);
-  //       const ele = this.document.querySelector('#container')
-  //       const viewer = new PANOLENS.Viewer({
-  //           container: ele,
-  //           autoRotate:true,
-  //           autoRotateSpeed:0.1,
-  //           controlBar:false
-  //       });
-  //       viewer.add(panorama);
-  //       viewer.OrbitControls.noZoom = true;
-  //      }
-
-  //   }
-  // })
-
-  return this.sh.settingBS.subscribe((response)=>{
-    if(true){
-      let allSetting = this.sh.setting;
+  return this.setting.getAllsettings(this.language.getLanguageID()).subscribe((response)=>{
+    if(!response.isError){
+      let allSetting = response.result.data
       this.Panorama = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.Panorama)[0];
       if(this.Panorama){
         const panorama = new PANOLENS.ImagePanorama(this.setting.appRootUrl+this.Panorama.imagePath);
@@ -63,18 +43,38 @@ export class PanoramaComponent implements OnInit, AfterViewInit {
 
     }
   })
- }
- getArDataOnly(){
-  // return this.setting.getAllsettings(this.language.getLanguageID()).subscribe((response)=>{
-  //   if(!response.isError){
-  //     let allSetting = response.result.data
+
+  // return this.sh.settingBS.subscribe((response)=>{
+  //   if(true){
+  //     let allSetting = this.sh.setting;
   //     this.Panorama = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.Panorama)[0];
-      
+  //     if(this.Panorama){
+  //       const panorama = new PANOLENS.ImagePanorama(this.setting.appRootUrl+this.Panorama.imagePath);
+  //       const ele = this.document.querySelector('#container')
+  //       const viewer = new PANOLENS.Viewer({
+  //           container: ele,
+  //           autoRotate:true,
+  //           autoRotateSpeed:0.1,
+  //           controlBar:false
+  //       });
+  //       viewer.add(panorama);
+  //       viewer.OrbitControls.noZoom = true;
+  //      }
 
   //   }
   // })
-  let allSetting = this.sh.setting;
-  return this.Panorama = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.Panorama)[0];
+ }
+ getArDataOnly(){
+  return this.setting.getAllsettings(this.language.getLanguageID()).subscribe((response)=>{
+    if(!response.isError){
+      let allSetting = response.result.data
+      this.Panorama = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.Panorama)[0];
+      
+
+    }
+  })
+  // let allSetting = this.sh.setting;
+  // return this.Panorama = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.Panorama)[0];
   
  }
  ngOnInit(): void {
