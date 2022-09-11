@@ -23,7 +23,9 @@ export enum SettingTypes{
   OurStory = 400,
   Panorama = 500,
   ceoWord = 600,
-  ourMeeting = 700
+  ourMeeting = 700,
+  OurMission=800,
+  OurServices=900
 
 }
 
