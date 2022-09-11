@@ -46,7 +46,6 @@ export class EditProjectComponent implements OnInit {
     }
   }
   uploadImage(e) {
-    debugger;
     this.uploadWorking = true
     e.preventDefault();
     this.formData = new FormData();
@@ -62,9 +61,11 @@ export class EditProjectComponent implements OnInit {
     this.editProject.uploadProjectImage(this.formData).subscribe((resp) => {
       if (!resp.isError) {
         this.toastr.success("Successfully Uploaded")
-        this.ngOnInit();
         this.uploadWorking = false;
         this.projectImageGallery=[];
+        this.masterPlanData=[] as MasterPlan[];
+        this.ngOnInit();
+  
 
       }
       else{
@@ -130,6 +131,7 @@ export class EditProjectComponent implements OnInit {
       if (!resp.isError) {
         this.toastr.success("Successfully Uploaded")
         this.uploadWorking = false
+        this.masterPlanData=[] as MasterPlan[];
         this.ngOnInit();
       }
       else{
@@ -156,7 +158,12 @@ export class EditProjectComponent implements OnInit {
     this.projectId = this.route.snapshot.paramMap.get('id');
     this.editProject.getProjectDetails(this.language.getLanguageID(), this.projectId).subscribe(x => {
       if (x['succeeded']) {
-        if (x['data']['masterPlane'] != null) this.mastePlanImage = x['data']['masterPlane']['masterPlaneImage'];
+        if (x['data']['masterPlane'] != null) {
+          this.projectOverView=x['data'].masterPlane?.projectOverview;
+          this.initData(x['data'].masterPlane?.mapCodeArray);
+          this.mastePlanImage = x['data'].masterPlane?.masterPlaneImage;
+        }
+       
         this.coverImage = x['data']['coverImage'];
         this.gallaryImages = x['data']['images'];
         if (x['data']['specifications'] != null)
@@ -167,10 +174,7 @@ export class EditProjectComponent implements OnInit {
           this.PspecificationsImage = x['data']['specifications']['specificationsImage'];
         else
           this.PspecificationsImage = null;
-          console.log(x['data'])
-          this.projectOverView=x['data'].masterPlane?.projectOverview;
-          this.initData(x['data'].masterPlane?.mapCodeArray);
-
+          // console.log(x['data'])
            this.projectImageThumb= null;
            this.projectImageGallery= [];
 
