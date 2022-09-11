@@ -53,9 +53,17 @@ itemSpecsIcon = [
     count:'6'
   },
 ]
+
    appRootUrl = environment.appRoot+'/';
   constructor(public favorites:FavoritesService, public compare:CompareService) { }
-
+trueFalseIco(result){
+  if(result == 1){
+    
+    return `<svg class="icon icon-checkmark"><use xlink:href="#icon-checkmark"></use></svg>`
+  } else {
+    return `<svg class="icon icon-cross"><use xlink:href="#icon-cross"></use></svg>`
+  }
+}
   ngOnInit(): void {
     this.favorites.checkFavorites(this.property)
      this.compare.checkCompare(this.property)
