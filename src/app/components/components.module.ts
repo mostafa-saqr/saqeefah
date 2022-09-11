@@ -22,6 +22,7 @@ import { LogoSlidertowComponent } from './logo-slidertow/logo-slidertow.componen
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchProjectFormComponent } from './search-project-form/search-project-form.component';
+import { SearchClientOrdersComponent } from './search-client-orders/search-client-orders.component';
 
 
 
@@ -32,6 +33,7 @@ import { SearchProjectFormComponent } from './search-project-form/search-project
     ProjectCardComponent,
     PropertyCardComponent,
     SearchFormComponent,
+    SearchClientOrdersComponent,
     SearchProjectFormComponent,
     ModalComponent,
     GalleryComponent,
@@ -58,6 +60,7 @@ import { SearchProjectFormComponent } from './search-project-form/search-project
     ProjectCardComponent,
     PropertyCardComponent,
     SearchFormComponent,
+    SearchClientOrdersComponent,
     SearchProjectFormComponent,
     ModalComponent,
     GalleryComponent,

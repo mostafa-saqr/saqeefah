@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Editor, Toolbar } from 'ngx-editor';
 import { ToastrService } from 'ngx-toastr';
-import { siteInfo } from 'src/app/pages/Models/siteInfo';
+import { adminSiteInfo, siteInfo } from 'src/app/pages/Models/siteInfo';
 import { changeLanguageService } from 'src/app/services/changeLanguage.service';
 import { SiteInformationSharedService } from 'src/app/services/site-information-shared.service';
 import { siteInformationService } from 'src/app/shared/services/siteInformation.service';
@@ -16,21 +16,8 @@ import jsonDoc from '../../models/doc'
 })
 export class WebsiteInfoComponent implements OnInit,OnDestroy  {
 
-  // editordoc =jsonDoc;
-  // html="";
-  // editor: Editor;
-  siteInformations:siteInfo;
+  siteInformations:adminSiteInfo[]=[] as adminSiteInfo[];
   items:picklist[]=[] as picklist[];
-  // toolbar: Toolbar = [
-  //   ['bold', 'italic'],
-  //   ['underline', 'strike'],
-  //   ['code', 'blockquote'],
-  //   ['ordered_list', 'bullet_list'],
-  //   [{ heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
-  //   ['link', 'image'],
-  //   ['text_color', 'background_color'],
-  //   ['align_left', 'align_center', 'align_right', 'align_justify'],
-  // ];
   public myFormGroup: FormGroup = new FormGroup({
     key: new FormControl('', [Validators.required]),
     valueAr: new FormControl('', [Validators.required]),
@@ -42,40 +29,30 @@ export class WebsiteInfoComponent implements OnInit,OnDestroy  {
     private shared:SiteInformationSharedService) { }
 
   ngOnInit(): void {
-    // this.editor = new Editor();
-    // this.getAllSiteInformation();
-    // this.translate.onLangChange.subscribe((event: LangChangeEvent) => 
-    // {
-    //  this.getAllSiteInformation();
-      
-    // }); 
+    this.getAllSiteInformation();
   }
-  ngAfterContentChecked() {
-    this.siteInformations=this.shared.siteInformation;
-    Object.keys(this.siteInformations).forEach(k=>{
-                this.items.push({id:k,value:k});
-              });
-              this.initializeFormGroup();
-    // console.log("shared data : ",this.shared.siteInformation)
-  }
-  // getAllSiteInformation(){
-  //   this.siteInformation.getAllInformation(this.language.getLanguageID()).subscribe(x=>{
-  //     if(!x.isError)
-  //     {
-  //       if(x.result['succeeded'])
-  //       {
-  //         this.siteInformations=x.result['data'];
-  //         Object.keys(this.siteInformations).forEach(k=>{
-  //           this.items.push({id:k,value:k});
-  //         });
-  //         this.initializeFormGroup();
-  //       }
-  //       else{
-  //       }
-  //     }
+  getAllSiteInformation(){
+    this.siteInformation.getAllInformationforAdmin().subscribe(x=>{
+      if(!x.isError)
+      {
+        if(x.result['succeeded'])
+        {
+          this.siteInformations=x.result['data'];
+          this.siteInformations.forEach(element => {
+            let i={} as picklist;
+            i.id=element.key;
+            i.value=element.key
+            this.items.push(i);
+            // this.language.getCurrentLanguage()=='ar'?i.value=element.valueAr:i.value=element.valueEn;
+          });
+          this.initializeFormGroup();
+        }
+        else{
+        }
+      }
 
-  //   })
-  // }
+    })
+  }
   initializeFormGroup() {
     this.myFormGroup.setValue({
       key: '',
@@ -108,20 +85,18 @@ export class WebsiteInfoComponent implements OnInit,OnDestroy  {
   }
 
   ngOnDestroy(): void {
-    // this.editor.destroy();
 
   }
   onChange(event) {
     if(event.target.value!=""){
-      this.myFormGroup.patchValue({valueAr:this.siteInformations[event.target.value],valueEn:this.siteInformations[event.target.value]})
+      let it=this.siteInformations.find(x=>x.key==event.target.value);
+      this.myFormGroup.patchValue({valueAr:it.valueAr,valueEn:it.valueEn})
     ;
     }
 }
 
 
 }
-
-
 export interface picklist{
   id:string;
   value:string;

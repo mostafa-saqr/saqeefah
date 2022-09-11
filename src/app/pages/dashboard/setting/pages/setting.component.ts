@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AllSettingSharedService } from 'src/app/services/all-setting-shared.service';
 import { ISettingType } from '../models/settingType.interface';
 import { SettingsService } from '../services/settings.service';
 
@@ -14,7 +15,7 @@ export class SettingComponent implements OnInit {
 
   public stingTypes:Array<ISettingType>; 
 
-  constructor(private settingsService: SettingsService) {
+  constructor(private settingsService: SettingsService,private setting:AllSettingSharedService) {
 
   }
   ngOnInit(): void {
@@ -22,16 +23,16 @@ export class SettingComponent implements OnInit {
   }
 
   public getSettingTypes() {
-
-    this.settingsService.getAllsettingsType().subscribe(r => {
+    this.stingTypes=this.setting.setting;
+    // this.settingsService.getAllsettingsType().subscribe(r => {
       
      
-      if(!r.isError){
-       this.stingTypes= r.result["data"];
-       console.log( this.stingTypes);
-      }
+    //   if(!r.isError){
+    //    this.stingTypes= r.result["data"];
+    //    console.log( this.stingTypes);
+    //   }
 
-    });
+    // });
 
 
   }

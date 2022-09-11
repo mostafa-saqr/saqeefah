@@ -53,7 +53,7 @@
       <p>
 
       </p>
-      <button type="submit" class="btn btn-primary" (click)="UploadMasterPlane($event)">{{'Update' | translate}}</button>
+      <button [disabled]="uploadWorking" type="submit" class="btn btn-primary" (click)="UploadMasterPlane($event)">{{'Update' | translate}}</button>
       <!-- <button type="submit" [disabled]="uploadWorking" class="btn btn-primary" (click)="UploadMasterPlane($event)">{{'Update' | translate}}</button> -->
       <!-- <span *ngIf="uploadWorking">Loading ......</span> -->
        <span>{{masterPlaneUploadMessage}}</span>

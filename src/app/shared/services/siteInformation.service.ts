@@ -10,6 +10,9 @@ export class siteInformationService {
   public getAllInformation(lang:any){
     return this.caller.get("api/WebsiteInformationSetting/GetAllWebsiteInformationSetting?languageId="+lang,false);
   }
+  public getAllInformationforAdmin(){
+    return this.caller.get("api/WebsiteInformationSetting/GetAllWebsiteInformationSettingForAdmin",true);
+  }
   public postInformation(model:any){
     // {
     //     "key": "workinfHours",
