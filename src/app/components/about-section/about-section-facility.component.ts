@@ -18,47 +18,37 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./about-section-facility.component.scss']
 })
 export class AboutSectionFacilityComponent implements OnInit {
- 
+
   AboutUs
   OurVision
   OurGoals
   OurStory
   OurServices
-public ourMeetingBg
-  get settingTypes(){
+  public ourMeetingBg
+  get settingTypes() {
     return SettingTypes
   }
-  constructor(public setting:SettingsService, private settingShared:AllSettingSharedService,
-    private language:changeLanguageService,private sanitizer:DomSanitizer) { }
- getAboutSetting(){
- return this.setting.getAllsettings(this.language.getLanguageID()).subscribe((response)=>{
-    if(!response.isError){
-      let allSetting = response.result.data
-      this.AboutUs = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.AboutUs)[0];
-      this.OurVision = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurVision)[0];
-      this.OurGoals = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurGoals)[0];
-      this.OurStory = allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurStory)[0];
-      this.OurServices=allSetting.filter((setting)=> setting.settingTypeId == SettingTypes.OurServices)[0];
-    }
-  })
+  constructor(public setting: SettingsService, private settingShared: AllSettingSharedService,
+    private language: changeLanguageService, private sanitizer: DomSanitizer) { }
+  getAboutSetting() {
+    return this.setting.getAllsettings(this.language.getLanguageID()).subscribe((response) => {
+      if (!response.isError) {
+        let allSetting = response.result.data
+        this.AboutUs = allSetting.filter((setting) => setting.settingTypeId == SettingTypes.AboutUs)[0];
+        this.OurVision = allSetting.filter((setting) => setting.settingTypeId == SettingTypes.OurVision)[0];
+        this.OurGoals = allSetting.filter((setting) => setting.settingTypeId == SettingTypes.OurGoals)[0];
+        this.OurStory = allSetting.filter((setting) => setting.settingTypeId == SettingTypes.OurStory)[0];
+        this.OurServices = allSetting.filter((setting) => setting.settingTypeId == SettingTypes.OurServices)[0];
+      }
+    })
 
-}
-saqeefahBenefits = [
- ' سنوات طويلة من الخبرة. ',
-'	الجودة قيمة عُليا في المشاريع والخدمات.' ,
-'	تقديم خدمات مميزة لما بعد البيع.',
-'	وحدات سكنية عصرية. ',
-'	واجهات تصميمية فارقة. ',
-'	وحدات سكنية بمساحات واسعة. ',
-'	نخبة من الكوادر البشرية. ',
-'	إنجاز سريع للمشاريع.',
-'	شبكة من العلاقات المهنية.',
-]
+  }
+
   ngOnInit(): void {
-    this. getAboutSetting()
-    this.language.changeLanguageStatus.subscribe((data)=>{
-      this. getAboutSetting()
-      
+    this.getAboutSetting()
+  
+    this.language.changeLanguageStatus.subscribe((data) => {
+      this.getAboutSetting()
     })
   }
 
